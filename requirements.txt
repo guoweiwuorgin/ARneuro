@@ -1,0 +1,35 @@
+# ARneuro 依赖包
+
+# 核心依赖
+python>=3.10
+pandas>=2.0.0
+numpy>=1.24.0
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+tqdm>=4.66.0
+openai>=1.0.0
+pyyaml>=6.0
+python-dotenv>=1.0.0
+
+# PDF处理
+pypdf2>=3.0.0
+pdfplumber>=0.10.0
+
+# 数据可视化 (可选)
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.17.0
+
+# PubMed数据获取 (可选)
+metapub>=0.5.0
+
+# 测试和开发
+pytest>=7.4.0
+black>=23.0.0
+mypy>=1.5.0
+pylint>=3.0.0
+
+# 类型提示
+typing-extensions>=4.5.0
+
+# 注意: GLM-OCR需要单独安装，不在Python包管理中
