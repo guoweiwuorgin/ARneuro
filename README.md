@@ -83,12 +83,18 @@ pdf_download:
     - nejm
 
 ocr_processing:
+  backend: "local"   # 可选 local 或 api
   model_path: "/storage/work/wuguowei/Bigmodel/GLM-OCR"
   device: "cuda"
   batch_size: 4
   output_dir: "./data/markdown"
   glmocr_cli_path: "glmocr"
   language: "ch+en"
+  api_key: "${GLM_API_KEY}"
+  api_base_url: "https://open.bigmodel.cn/api/paas/v4/layout_parsing"
+  api_model: "glm-ocr"
+  api_timeout: 300
+  api_use_base64: true
 
 paths:
   data_dir: "./data"
@@ -104,7 +110,7 @@ paths:
 - 进度跟踪和错误记录
 
 ### 2. OCR处理模块 (`GLMOCRProcessor`)
-- 集成GLM-OCR CLI
+- 集成本地GLM-OCR CLI 与智谱AI在线GLM-OCR API
 - 质量评估和自动修复
 - 支持中英文混合识别
 
@@ -147,9 +153,15 @@ print(f"下载完成: {result.succeeded}成功, {result.failed}失败")
 ```python
 from arneuro import GLMOCRProcessor
 
-processor = GLMOCRProcessor()
-result = processor.process_pdf("data/pdfs/12345678.pdf")
-print(f"OCR质量: {result.quality_level.value} ({result.quality_score:.1f}%)")
+# 方式1：本地模型
+local_processor = GLMOCRProcessor()
+local_result = local_processor.process_pdf("data/pdfs/12345678.pdf")
+
+# 方式2：在线API
+api_processor = GLMOCRProcessor(backend="api")
+api_result = api_processor.process_pdf("data/pdfs/12345678.pdf")
+print(f"本地OCR质量: {local_result.quality_level.value} ({local_result.quality_score:.1f}%)")
+print(f"API OCR质量: {api_result.quality_level.value} ({api_result.quality_score:.1f}%)")
 ```
 
 ## 配置说明
@@ -173,12 +185,18 @@ pdf_download:
 #### OCR处理配置
 ```yaml
 ocr_processing:
+  backend: "local"                # local=本地CLI, api=在线调用
   model_path: "/path/to/glm-ocr"  # GLM-OCR模型路径
   device: "cuda"                  # 设备类型 (cuda/cpu)
-  batch_size: 4                   # 批处理大小
+  batch_size: 4                    # 批处理大小
   output_dir: "./data/markdown"   # Markdown输出目录
   glmocr_cli_path: "glmocr"       # GLM-OCR命令行路径
   language: "ch+en"               # 识别语言
+  api_key: "${GLM_API_KEY}"       # 智谱AI API Key
+  api_base_url: "https://open.bigmodel.cn/api/paas/v4/layout_parsing"
+  api_model: "glm-ocr"
+  api_timeout: 300
+  api_use_base64: true             # 将本地PDF转base64后提交给API
 ```
 
 #### 路径配置

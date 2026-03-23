@@ -55,9 +55,10 @@ def run_full_pipeline():
             'default_client': 'deepseek',
             'default_model': 'deepseek-chat'
         },
-        'glm_ocr': {
-            'path': '/storage/work/wuguowei/Bigmodel/GLM-OCR',
-            'quality_threshold': 0.8,
+        'ocr_processing': {
+            'backend': 'local',
+            'model_path': '/storage/work/wuguowei/Bigmodel/GLM-OCR',
+            'api_key': 'your_glm_api_key_here',
             'batch_size': 5
         },
         'validation': {
@@ -108,20 +109,26 @@ def run_full_pipeline():
         from ARneuro.ocr_processing.glm_ocr import GLMOCRProcessor
         
         # Check if GLM-OCR path exists
-        glm_path = config.get('glm_ocr', {}).get('path', '')
-        if os.path.exists(glm_path):
+        ocr_config = config.get('ocr_processing', {})
+        glm_path = ocr_config.get('model_path', '')
+        ocr_backend = ocr_config.get('backend', 'local')
+        if ocr_backend == 'api':
+            print('GLM-OCR API mode enabled.')
+            ocr_processor = GLMOCRProcessor(config, backend='api')
+            print('GLM-OCR API processor initialized successfully.')
+        elif os.path.exists(glm_path):
             print(f"GLM-OCR found at: {glm_path}")
-            ocr_processor = GLMOCRProcessor(config)
-            print("GLM-OCR processor initialized successfully.")
+            ocr_processor = GLMOCRProcessor(config, backend='local')
+            print('GLM-OCR local processor initialized successfully.')
         else:
             print(f"GLM-OCR not found at: {glm_path}")
-            print("Using simulated OCR processing for this example.")
+            print('Using simulated OCR processing for this example.')
         
         # Simulate OCR processing
         print("\nSimulating OCR processing workflow:")
         print("  1. Load PDF files")
         print("  2. Extract images from PDF")
-        print("  3. Run GLM-OCR on images")
+        print("  3. Run GLM-OCR locally or by online API")
         print("  4. Convert OCR results to markdown")
         print("  5. Save processed text")
         
@@ -245,8 +252,10 @@ This study provides further evidence for the neural basis of syntactic processin
             'deepseek_api_key': 'your_actual_key',
             'openai_api_key': 'your_actual_key'
         },
-        'glm_ocr': {
-            'path': '/your/path/to/GLM-OCR'
+        'ocr_processing': {
+            'backend': 'local',
+            'model_path': '/your/path/to/GLM-OCR',
+            'api_key': 'your_glm_api_key_here'
         }
     })
     
@@ -280,7 +289,7 @@ This study provides further evidence for the neural basis of syntactic processin
     print("\nNext steps:")
     print("  1. Install required dependencies: pip install -r requirements.txt")
     print("  2. Configure API keys in config.yaml or environment variables")
-    print("  3. Set up GLM-OCR at the specified path")
+    print("  3. Choose local GLM-OCR or configure the online API key")
     print("  4. Add your PDF files or PubMed IDs")
     print("  5. Run the pipeline with your data")
     
