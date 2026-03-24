@@ -35,7 +35,11 @@ def main():
     config.update({
         'data_dir': './data',
         'output_dir': './output',
-        'glm_ocr_path': '/storage/work/wuguowei/Bigmodel/GLM-OCR',
+        'ocr_processing': {
+            'backend': 'local',
+            'model_path': '/storage/work/wuguowei/Bigmodel/GLM-OCR',
+            'api_key': 'your_glm_api_key_here'
+        },
         'deepseek_api_key': 'your_api_key_here',  # Replace with actual key
         'openai_api_key': 'your_api_key_here',    # Replace with actual key
     })
