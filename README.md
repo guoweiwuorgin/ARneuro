@@ -108,6 +108,8 @@ paths:
 - 支持8种期刊finder
 - 自动重试机制
 - 进度跟踪和错误记录
+- 新增多来源合法公开检索链路（PubMed prlinks、Europe PMC开放链接、PMCID开放PDF）
+- 新增下载系统报告与人工补充下载清单（用于核对“已获取/未获取”）
 
 ### 2. OCR处理模块 (`GLMOCRProcessor`)
 - 集成本地GLM-OCR CLI 与智谱AI在线GLM-OCR API
@@ -147,6 +149,8 @@ from arneuro import PDFDownloader
 downloader = PDFDownloader()
 result = downloader.download_batch(["12345678", "23456789"])
 print(f"下载完成: {result.succeeded}成功, {result.failed}失败")
+print(f"系统报告: {result.report_file}")
+print(f"人工补充清单: {result.manual_checklist_file}")
 ```
 
 ### 示例3: 单独使用OCR处理

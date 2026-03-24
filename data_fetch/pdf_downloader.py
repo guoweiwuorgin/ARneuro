@@ -4,6 +4,7 @@ PDF下载模块
 """
 
 import os
+import json
 import re
 import time
 from dataclasses import dataclass, field
@@ -36,6 +37,10 @@ class DownloadResult:
     file_path: Optional[Path] = None
     file_size: int = 0
     downloader_used: Optional[str] = None
+    source_url: Optional[str] = None
+    source_details: Dict[str, Any] = field(default_factory=dict)
+    attempts: List[Dict[str, Any]] = field(default_factory=list)
+    manual_download_suggestions: List[str] = field(default_factory=list)
     error_message: Optional[str] = None
     retry_count: int = 0
     download_time: float = 0.0
@@ -50,6 +55,8 @@ class BatchResult:
     skipped: int = 0
     results: List[DownloadResult] = field(default_factory=list)
     error_file: Optional[Path] = None
+    report_file: Optional[Path] = None
+    manual_checklist_file: Optional[Path] = None
 
 
 class PDFDownloader:
@@ -264,16 +271,38 @@ class PDFDownloader:
         Returns:
             (PDF URL, 使用的finder名称)
         """
-        uri = f"http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id={pmid}&retmode=ref&cmd=prlinks"
-        
+        result = self._fetch_pdf_url_with_details(pmid)
+        return result[0], result[1]
+
+    def _fetch_pdf_url_with_details(
+        self, pmid: str
+    ) -> Tuple[Optional[str], Optional[str], List[Dict[str, Any]], Dict[str, Any]]:
+        """
+        以多来源方式获取PDF URL，并保留来源记录（用于系统报告）。
+
+        Returns:
+            (pdf_url, source_name, attempts, source_details)
+        """
+        attempts: List[Dict[str, Any]] = []
+        uri = (
+            "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi"
+            f"?dbfrom=pubmed&id={pmid}&retmode=ref&cmd=prlinks"
+        )
+
         try:
             req = self.session.get(uri, timeout=self.timeout)
             
             # 检查是否支持Ovid（不支持）
             if 'ovid' in req.url:
                 self.logger.warning(f"PMID {pmid}: Ovid不支持")
-                return None, None
-            
+                attempts.append({
+                    "source": "pubmed_prlinks",
+                    "url": req.url,
+                    "status": "unsupported",
+                    "message": "Ovid平台不支持自动下载",
+                })
+                return None, None, attempts, {}
+
             soup = BeautifulSoup(req.content, 'html.parser')
             
             # 尝试所有注册的finder
@@ -282,17 +311,125 @@ class PDFDownloader:
                     pdf_url = finder_func(req, soup)
                     if pdf_url:
                         self.logger.info(f"PMID {pmid}: 使用 {finder_name} 找到PDF链接")
-                        return pdf_url, finder_name
+                        source = {
+                            "source": "pubmed_prlinks",
+                            "finder": finder_name,
+                            "landing_url": req.url,
+                            "pdf_url": pdf_url,
+                            "access_type": "publisher_or_open",
+                        }
+                        attempts.append({**source, "status": "found", "message": "找到可下载PDF链接"})
+                        return pdf_url, finder_name, attempts, source
+                    attempts.append({
+                        "source": "pubmed_prlinks",
+                        "finder": finder_name,
+                        "landing_url": req.url,
+                        "status": "not_found",
+                        "message": "未找到PDF链接",
+                    })
                 except Exception as e:
                     self.logger.warning(f"PMID {pmid}: {finder_name} 查找器错误: {e}")
+                    attempts.append({
+                        "source": "pubmed_prlinks",
+                        "finder": finder_name,
+                        "landing_url": req.url,
+                        "status": "error",
+                        "message": str(e),
+                    })
                     continue
-            
+
+            # 备用来源1：Europe PMC开放全文接口（合法公开来源）
+            epmc_url = (
+                "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
+                f"?query=EXT_ID:{pmid}%20AND%20SRC:MED&format=json&resultType=core"
+            )
+            try:
+                epmc_resp = self.session.get(epmc_url, timeout=self.timeout)
+                epmc_resp.raise_for_status()
+                epmc_data = epmc_resp.json()
+                results = epmc_data.get("resultList", {}).get("result", [])
+                for item in results:
+                    for ft in item.get("fullTextUrlList", {}).get("fullTextUrl", []):
+                        if str(ft.get("documentStyle", "")).lower() == "pdf":
+                            pdf_url = ft.get("url")
+                            if pdf_url:
+                                source = {
+                                    "source": "europe_pmc",
+                                    "finder": "europe_pmc_fulltext",
+                                    "landing_url": epmc_url,
+                                    "pdf_url": pdf_url,
+                                    "access_type": "open_access",
+                                }
+                                attempts.append({**source, "status": "found", "message": "Europe PMC开放链接可用"})
+                                self.logger.info(f"PMID {pmid}: 使用Europe PMC找到PDF链接")
+                                return pdf_url, "europe_pmc_fulltext", attempts, source
+                attempts.append({
+                    "source": "europe_pmc",
+                    "finder": "europe_pmc_fulltext",
+                    "landing_url": epmc_url,
+                    "status": "not_found",
+                    "message": "Europe PMC未提供PDF链接",
+                })
+            except Exception as e:
+                attempts.append({
+                    "source": "europe_pmc",
+                    "finder": "europe_pmc_fulltext",
+                    "landing_url": epmc_url,
+                    "status": "error",
+                    "message": str(e),
+                })
+
+            # 备用来源2：PMCID开放访问PDF（合法公开来源）
+            idconv_url = (
+                "https://www.ncbi.nlm.nih.gov/pmc/utils/idconv/v1.0/"
+                f"?ids={pmid}&format=json"
+            )
+            try:
+                idconv_resp = self.session.get(idconv_url, timeout=self.timeout)
+                idconv_resp.raise_for_status()
+                id_data = idconv_resp.json()
+                records = id_data.get("records", [])
+                if records and records[0].get("pmcid"):
+                    pmcid = records[0]["pmcid"]
+                    pmc_pdf_url = f"https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/pdf/"
+                    source = {
+                        "source": "pmc_idconv",
+                        "finder": "pmc_open_pdf",
+                        "landing_url": idconv_url,
+                        "pdf_url": pmc_pdf_url,
+                        "access_type": "open_access",
+                        "pmcid": pmcid,
+                    }
+                    attempts.append({**source, "status": "found", "message": "通过PMCID构造开放PDF链接"})
+                    self.logger.info(f"PMID {pmid}: 使用PMCID开放访问链接")
+                    return pmc_pdf_url, "pmc_open_pdf", attempts, source
+                attempts.append({
+                    "source": "pmc_idconv",
+                    "finder": "pmc_open_pdf",
+                    "landing_url": idconv_url,
+                    "status": "not_found",
+                    "message": "未检索到PMCID或开放PDF",
+                })
+            except Exception as e:
+                attempts.append({
+                    "source": "pmc_idconv",
+                    "finder": "pmc_open_pdf",
+                    "landing_url": idconv_url,
+                    "status": "error",
+                    "message": str(e),
+                })
+
             self.logger.warning(f"PMID {pmid}: 未找到PDF链接")
-            return None, None
-            
+            return None, None, attempts, {}
+
         except Exception as e:
             self.logger.error(f"PMID {pmid}: 获取PDF URL失败: {e}")
-            return None, None
+            attempts.append({
+                "source": "pubmed_prlinks",
+                "status": "error",
+                "message": str(e),
+            })
+            return None, None, attempts, {}
     
     def download(self, pmid: str, filename: Optional[str] = None) -> DownloadResult:
         """
@@ -339,7 +476,7 @@ class PDFDownloader:
         retry_count = 0
         while retry_count <= self.max_retries:
             try:
-                pdf_url, finder_used = self._fetch_pdf_url(pmid)
+                pdf_url, finder_used, attempts, source_details = self._fetch_pdf_url_with_details(pmid)
                 
                 if not pdf_url:
                     error_msg = "未找到PDF链接"
@@ -353,6 +490,9 @@ class PDFDownloader:
                             pmid=pmid,
                             status=DownloadStatus.FAILED,
                             error_message=error_msg,
+                            attempts=attempts,
+                            source_details=source_details,
+                            manual_download_suggestions=self._build_manual_suggestions(pmid, attempts),
                             retry_count=retry_count,
                             download_time=time.time() - start_time
                         )
@@ -368,6 +508,9 @@ class PDFDownloader:
                         file_path=file_path,
                         file_size=file_size,
                         downloader_used=finder_used,
+                        source_url=pdf_url,
+                        source_details=source_details,
+                        attempts=attempts,
                         retry_count=retry_count,
                         download_time=time.time() - start_time
                     )
@@ -383,6 +526,9 @@ class PDFDownloader:
                             pmid=pmid,
                             status=DownloadStatus.FAILED,
                             error_message=error_msg,
+                            attempts=attempts,
+                            source_details=source_details,
+                            manual_download_suggestions=self._build_manual_suggestions(pmid, attempts),
                             retry_count=retry_count,
                             download_time=time.time() - start_time
                         )
@@ -399,6 +545,11 @@ class PDFDownloader:
                         pmid=pmid,
                         status=DownloadStatus.ERROR,
                         error_message=error_msg,
+                        attempts=attempts if 'attempts' in locals() else [],
+                        source_details=source_details if 'source_details' in locals() else {},
+                        manual_download_suggestions=self._build_manual_suggestions(
+                            pmid, attempts if 'attempts' in locals() else []
+                        ),
                         retry_count=retry_count,
                         download_time=time.time() - start_time
                     )
@@ -408,9 +559,25 @@ class PDFDownloader:
             pmid=pmid,
             status=DownloadStatus.ERROR,
             error_message="未知错误",
+            attempts=[],
+            source_details={},
+            manual_download_suggestions=self._build_manual_suggestions(pmid, []),
             retry_count=retry_count,
             download_time=time.time() - start_time
         )
+
+    def _build_manual_suggestions(self, pmid: str, attempts: List[Dict[str, Any]]) -> List[str]:
+        """构建人工下载建议（合法公开来源优先）。"""
+        suggestions = [
+            f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/",
+            f"https://www.ncbi.nlm.nih.gov/pmc/?term={pmid}",
+            f"https://europepmc.org/search?query=EXT_ID:{pmid}%20SRC:MED",
+        ]
+        for attempt in attempts:
+            landing = attempt.get("landing_url")
+            if landing and landing not in suggestions:
+                suggestions.append(landing)
+        return suggestions[:10]
     
     def download_batch(self, pmids: List[str], 
                       error_file: Optional[str] = None) -> BatchResult:
@@ -469,13 +636,17 @@ class PDFDownloader:
             except Exception as e:
                 self.logger.error(f"保存错误记录失败: {e}")
         
+        report_file, manual_checklist_file = self._save_download_system_report(results)
+
         batch_result = BatchResult(
             total=total,
             succeeded=succeeded,
             failed=failed + error,
             skipped=skipped,
             results=results,
-            error_file=error_path if failed_pmids else None
+            error_file=error_path if failed_pmids else None,
+            report_file=report_file,
+            manual_checklist_file=manual_checklist_file
         )
         
         self.logger.info(
@@ -483,6 +654,63 @@ class PDFDownloader:
         )
         
         return batch_result
+
+    def _save_download_system_report(self, results: List[DownloadResult]) -> Tuple[Optional[Path], Optional[Path]]:
+        """保存下载系统报告（JSON）与人工补充清单（CSV）。"""
+        try:
+            timestamp = time.strftime("%Y%m%d_%H%M%S")
+            report_file = self.output_dir / f"download_system_report_{timestamp}.json"
+            manual_file = self.output_dir / f"manual_download_checklist_{timestamp}.csv"
+
+            source_stats: Dict[str, int] = {}
+            rows = []
+            for result in results:
+                source_name = result.downloader_used or result.source_details.get("source") or "unknown"
+                source_stats[source_name] = source_stats.get(source_name, 0) + 1
+                rows.append({
+                    "pmid": result.pmid,
+                    "status": result.status.value if hasattr(result.status, "value") else str(result.status),
+                    "file_path": str(result.file_path) if result.file_path else "",
+                    "source": source_name,
+                    "source_url": result.source_url or "",
+                    "error_message": result.error_message or "",
+                    "manual_suggestions": result.manual_download_suggestions,
+                    "attempts": result.attempts,
+                    "download_time": result.download_time,
+                    "retry_count": result.retry_count,
+                })
+
+            report_data = {
+                "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+                "total": len(results),
+                "succeeded": sum(1 for r in results if r.status == DownloadStatus.SUCCESS),
+                "failed": sum(1 for r in results if r.status in [DownloadStatus.FAILED, DownloadStatus.ERROR]),
+                "skipped": sum(1 for r in results if r.status == DownloadStatus.SKIPPED),
+                "source_distribution": source_stats,
+                "results": rows,
+            }
+
+            with open(report_file, "w", encoding="utf-8") as f:
+                json.dump(report_data, f, ensure_ascii=False, indent=2)
+
+            # 人工下载清单
+            with open(manual_file, "w", encoding="utf-8") as f:
+                f.write("PMID,Status,Error,Manual_URL_1,Manual_URL_2,Manual_URL_3\n")
+                for result in results:
+                    if result.status in [DownloadStatus.SUCCESS, DownloadStatus.SKIPPED]:
+                        continue
+                    urls = (result.manual_download_suggestions or [])[:3]
+                    while len(urls) < 3:
+                        urls.append("")
+                    safe_error = (result.error_message or "").replace(",", "，")
+                    f.write(f"{result.pmid},{result.status.value},{safe_error},{urls[0]},{urls[1]},{urls[2]}\n")
+
+            self.logger.info(f"下载系统报告已生成: {report_file}")
+            self.logger.info(f"人工补充清单已生成: {manual_file}")
+            return report_file, manual_file
+        except Exception as e:
+            self.logger.error(f"生成下载系统报告失败: {e}")
+            return None, None
     
     def resume_failed_downloads(self, error_file: str) -> BatchResult:
         """
