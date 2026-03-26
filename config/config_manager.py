@@ -76,12 +76,23 @@ class ConfigManager:
                 ]
             },
             "ocr_processing": {
+                "backend": "local",  # local 或 api
                 "model_path": "/storage/work/wuguowei/Bigmodel/GLM-OCR",
                 "device": "cuda",  # 或 "cpu"
                 "batch_size": 4,
                 "output_dir": "./data/markdown",
                 "glmocr_cli_path": "glmocr",  # glmocr命令行工具路径
-                "language": "ch+en"  # 支持的语言
+                "language": "ch+en",  # 支持的语言
+                "api_key": "",
+                "api_base_url": "https://open.bigmodel.cn/api/paas/v4/layout_parsing",
+                "api_model": "glm-ocr",
+                "api_timeout": 300,
+                "api_use_base64": True,
+                "api_return_crop_images": False,
+                "api_need_layout_visualization": False,
+                "api_start_page_id": None,
+                "api_end_page_id": None,
+                "api_user_id": ""
             },
             "document_segmentation": {
                 "required_sections": ["methods", "results"],
@@ -118,7 +129,9 @@ class ConfigManager:
     def _apply_env_overrides(self, config: Dict[str, Any]) -> Dict[str, Any]:
         """应用环境变量覆盖"""
         env_mappings = {
+            "ARNEURO_OCR_BACKEND": ["ocr_processing", "backend"],
             "ARNEURO_OCR_MODEL_PATH": ["ocr_processing", "model_path"],
+            "ARNEURO_GLM_API_KEY": ["ocr_processing", "api_key"],
             "ARNEURO_PDF_OUTPUT_DIR": ["pdf_download", "output_dir"],
             "ARNEURO_DATA_DIR": ["paths", "data_dir"],
             "ARNEURO_LOG_LEVEL": ["logging", "level"]
@@ -193,6 +206,16 @@ class ConfigManager:
     def reload(self) -> None:
         """重新加载配置文件"""
         self.config = self._load_config()
+
+    def load_config(self) -> Dict[str, Any]:
+        """
+        向后兼容接口：返回当前配置字典。
+
+        说明：
+        旧示例中通过 `ConfigManager().load_config()` 获取配置，
+        新版本直接读取 `config_manager.config`，此方法保留以避免脚本失效。
+        """
+        return self.config
     
     def __getitem__(self, key: str) -> Any:
         """支持字典式访问"""
@@ -225,5 +248,14 @@ def get_config(config_path: Optional[str] = None) -> ConfigManager:
     
     if _config_instance is None:
         _config_instance = ConfigManager(config_path)
+    elif config_path is not None and str(_config_instance.config_path) != str(config_path):
+        # 显式传入了新配置路径时，刷新全局实例，避免读取旧缓存配置
+        _config_instance = ConfigManager(config_path)
     
     return _config_instance
+
+
+def reset_config() -> None:
+    """重置全局配置实例（测试或多配置切换时使用）。"""
+    global _config_instance
+    _config_instance = None
