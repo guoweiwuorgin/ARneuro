@@ -206,6 +206,16 @@ class ConfigManager:
     def reload(self) -> None:
         """重新加载配置文件"""
         self.config = self._load_config()
+
+    def load_config(self) -> Dict[str, Any]:
+        """
+        向后兼容接口：返回当前配置字典。
+
+        说明：
+        旧示例中通过 `ConfigManager().load_config()` 获取配置，
+        新版本直接读取 `config_manager.config`，此方法保留以避免脚本失效。
+        """
+        return self.config
     
     def __getitem__(self, key: str) -> Any:
         """支持字典式访问"""
@@ -238,5 +248,14 @@ def get_config(config_path: Optional[str] = None) -> ConfigManager:
     
     if _config_instance is None:
         _config_instance = ConfigManager(config_path)
+    elif config_path is not None and str(_config_instance.config_path) != str(config_path):
+        # 显式传入了新配置路径时，刷新全局实例，避免读取旧缓存配置
+        _config_instance = ConfigManager(config_path)
     
     return _config_instance
+
+
+def reset_config() -> None:
+    """重置全局配置实例（测试或多配置切换时使用）。"""
+    global _config_instance
+    _config_instance = None

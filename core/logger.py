@@ -9,12 +9,16 @@ from typing import Optional
 
 from ..config import get_config
 
+_LOGGER_INITIALIZED = False
+
 
 def setup_logger(
     name: str = "ARneuro",
     level: Optional[str] = None,
     log_file: Optional[str] = None,
-    format_str: Optional[str] = None
+    format_str: Optional[str] = None,
+    config_path: Optional[str] = None,
+    force_reconfigure: bool = False,
 ) -> logging.Logger:
     """
     设置日志记录器
@@ -24,16 +28,23 @@ def setup_logger(
         level: 日志级别
         log_file: 日志文件路径
         format_str: 日志格式
+        config_path: 配置文件路径
+        force_reconfigure: 是否强制重建handler
     
     Returns:
         logging.Logger实例
     """
+    global _LOGGER_INITIALIZED
+
     # 获取配置
-    config = get_config()
+    config = get_config(config_path)
     
     # 使用配置或参数
     log_level = level or config.get("logging.level", "INFO")
-    log_file_path = log_file or config.get("logging.file", "./logs/arneuro.log")
+    log_file_path = log_file or config.get("logging.file")
+    if not log_file_path:
+        logs_dir = Path(config.get("paths.logs_dir", "./logs"))
+        log_file_path = str(logs_dir / "arneuro.log")
     log_format = format_str or config.get("logging.format", 
                                          "%(asctime)s - %(name)s - %(levelname)s - %(message)s")
     
@@ -41,8 +52,12 @@ def setup_logger(
     logger = logging.getLogger(name)
     
     # 设置日志级别
-    logger.setLevel(getattr(logging, log_level.upper()))
-    
+    logger.setLevel(getattr(logging, str(log_level).upper(), logging.INFO))
+
+    if logger.handlers and not force_reconfigure:
+        _LOGGER_INITIALIZED = True
+        return logger
+
     # 清除现有的处理器
     logger.handlers.clear()
     
@@ -66,8 +81,18 @@ def setup_logger(
     
     # 避免日志传播到根记录器
     logger.propagate = False
+    _LOGGER_INITIALIZED = True
     
     return logger
+
+
+def get_logger(config_path: Optional[str] = None) -> logging.Logger:
+    """
+    获取根日志记录器；未初始化时会按配置自动初始化。
+    """
+    if not _LOGGER_INITIALIZED:
+        return setup_logger(config_path=config_path)
+    return logging.getLogger("ARneuro")
 
 
 def get_module_logger(module_name: str) -> logging.Logger:
@@ -80,4 +105,5 @@ def get_module_logger(module_name: str) -> logging.Logger:
     Returns:
         logging.Logger实例
     """
-    return logging.getLogger(f"ARneuro.{module_name}")
+    base_logger = get_logger()
+    return base_logger.getChild(module_name)
