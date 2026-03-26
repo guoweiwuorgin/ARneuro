@@ -46,7 +46,7 @@ def demonstrate_real_usage():
     # Update with your settings
     config.update({
         'llm': {'deepseek_api_key': 'your_key'},
-        'glm_ocr': {'path': '/path/to/GLM-OCR'}
+        'ocr_processing': {'backend': 'api', 'api_key': 'your_glm_api_key_here'}
     })
     
     # Create pipeline

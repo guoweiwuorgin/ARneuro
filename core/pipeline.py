@@ -13,9 +13,11 @@ import pandas as pd
 
 from .logger import get_module_logger
 from .exceptions import ARneuroError, PDFDownloadError, OCRProcessingError
-from ..config import get_config
+from ..config.config_manager import get_config
 from ..data_fetch import PDFDownloader, PubMedFetcher, DownloadResult, BatchResult
 from ..ocr_processing import GLMOCRProcessor, OCRResult, BatchOCRResult
+from ..data_fetch.pdf_downloader import DownloadStatus
+from ..ocr_processing.glm_ocr import OCRStatus
 from ..utils.file_utils import ensure_dir
 from ..utils.validation import validate_pmid, validate_csv_file
 
@@ -110,7 +112,19 @@ class PipelineResult:
                     'has_pdf': status.has_pdf,
                     'has_markdown': status.has_markdown,
                     'processing_time': status.processing_time,
-                    'errors': status.errors
+                    'errors': status.errors,
+                    'download_source': (
+                        status.pdf_download_result.downloader_used
+                        if status.pdf_download_result else None
+                    ),
+                    'download_source_url': (
+                        status.pdf_download_result.source_url
+                        if status.pdf_download_result else None
+                    ),
+                    'manual_download_suggestions': (
+                        status.pdf_download_result.manual_download_suggestions
+                        if status.pdf_download_result else []
+                    ),
                 }
             
             report_data['detailed_status'] = detailed_status
@@ -149,6 +163,7 @@ class ARneuroPipeline:
         
         # 状态跟踪
         self.paper_statuses: Dict[str, PaperProcessingStatus] = {}
+        self.csv_management_report: Dict[str, Any] = {}
         
         self.logger.info("ARneuro流水线初始化完成")
     
@@ -172,8 +187,12 @@ class ARneuroPipeline:
             self.logger.error(f"CSV文件验证失败: {error}")
             return []
         
-        # 提取PMID
-        pmids = self.pubmed_fetcher.extract_pmids_from_csv(csv_file)
+        # 提取PMID并生成CSV管理报告
+        records, csv_report = self.pubmed_fetcher.parse_csv_with_management_report(csv_file)
+        self.csv_management_report = csv_report
+        report_path = self.output_dir / "reports" / "csv_document_management_report.json"
+        self.pubmed_fetcher.save_management_report(csv_report, report_path)
+        pmids = [record.pmid for record in records]
         
         if not pmids:
             self.logger.warning("CSV文件中没有有效的PMID")
@@ -222,7 +241,7 @@ class ARneuroPipeline:
                 self.logger.info(f"PMID {pmid}: PDF已存在，跳过下载")
                 download_result = DownloadResult(
                     pmid=pmid,
-                    status="skipped",  # 注意：这里使用了字符串而不是枚举
+                    status=DownloadStatus.SKIPPED,
                     file_path=pdf_path,
                     file_size=pdf_path.stat().st_size
                 )
@@ -232,7 +251,7 @@ class ARneuroPipeline:
             
             status.pdf_download_result = download_result
             
-            if download_result.status != "success" and download_result.status != "skipped":
+            if download_result.status not in [DownloadStatus.SUCCESS, DownloadStatus.SKIPPED]:
                 status.errors.append(f"PDF下载失败: {download_result.error_message}")
                 status.stage = ProcessingStage.FAILED
                 status.end_time = time.time()
@@ -249,7 +268,7 @@ class ARneuroPipeline:
                 ocr_result = self.ocr_processor.process_pdf(status.pdf_path, pmid)
                 status.ocr_result = ocr_result
                 
-                if ocr_result.status == "success":
+                if ocr_result.status == OCRStatus.SUCCESS:
                     status.markdown_path = ocr_result.markdown_path
                     status.stage = ProcessingStage.COMPLETED
                     self.logger.info(f"PMID {pmid}: 处理完成")
@@ -365,10 +384,10 @@ class ARneuroPipeline:
             return {}
         
         total = len(pdf_results)
-        succeeded = sum(1 for r in pdf_results if r.status == "success")
-        failed = sum(1 for r in pdf_results if r.status == "failed")
-        skipped = sum(1 for r in pdf_results if r.status == "skipped")
-        error = sum(1 for r in pdf_results if r.status == "error")
+        succeeded = sum(1 for r in pdf_results if r.status == DownloadStatus.SUCCESS)
+        failed = sum(1 for r in pdf_results if r.status == DownloadStatus.FAILED)
+        skipped = sum(1 for r in pdf_results if r.status == DownloadStatus.SKIPPED)
+        error = sum(1 for r in pdf_results if r.status == DownloadStatus.ERROR)
         
         # 文件大小统计
         file_sizes = [r.file_size for r in pdf_results if r.file_size > 0]
@@ -382,6 +401,11 @@ class ARneuroPipeline:
         retry_counts = [r.retry_count for r in pdf_results]
         avg_retries = sum(retry_counts) / len(retry_counts) if retry_counts else 0
         
+        source_distribution: Dict[str, int] = {}
+        for result in pdf_results:
+            source = result.downloader_used or result.source_details.get("source") or "unknown"
+            source_distribution[source] = source_distribution.get(source, 0) + 1
+
         return {
             'total': total,
             'succeeded': succeeded,
@@ -389,6 +413,7 @@ class ARneuroPipeline:
             'skipped': skipped,
             'error': error,
             'success_rate': f"{(succeeded/total*100):.1f}%" if total > 0 else "0%",
+            'source_distribution': source_distribution,
             'avg_file_size': f"{avg_size/1024/1024:.2f} MB",
             'avg_download_time': f"{avg_time:.2f}秒",
             'avg_retries': f"{avg_retries:.2f}",
@@ -401,10 +426,10 @@ class ARneuroPipeline:
             return {}
         
         total = len(ocr_results)
-        succeeded = sum(1 for r in ocr_results if r.status == "success")
-        failed = sum(1 for r in ocr_results if r.status == "failed")
-        skipped = sum(1 for r in ocr_results if r.status == "skipped")
-        error = sum(1 for r in ocr_results if r.status == "error")
+        succeeded = sum(1 for r in ocr_results if r.status == OCRStatus.SUCCESS)
+        failed = sum(1 for r in ocr_results if r.status == OCRStatus.FAILED)
+        skipped = sum(1 for r in ocr_results if r.status == OCRStatus.SKIPPED)
+        error = sum(1 for r in ocr_results if r.status == OCRStatus.ERROR)
         
         # 质量统计
         quality_counts = {}
@@ -491,6 +516,12 @@ class ARneuroPipeline:
             
             # 保存报告
             result.save_report(report_path)
+
+            # 额外写入CSV解析管理报告
+            if self.csv_management_report:
+                csv_mgmt_report_path = output_dir / "csv_document_management_report.json"
+                with open(csv_mgmt_report_path, 'w', encoding='utf-8') as f:
+                    json.dump(self.csv_management_report, f, ensure_ascii=False, indent=2)
             
             # 导出成功论文列表
             successful_papers = self.get_successful_papers()
@@ -515,11 +546,24 @@ class ARneuroPipeline:
             if failed_papers:
                 fail_list = []
                 for status in failed_papers:
+                    manual_urls = []
+                    download_source = None
+                    attempts = []
+                    if status.pdf_download_result:
+                        manual_urls = status.pdf_download_result.manual_download_suggestions
+                        download_source = (
+                            status.pdf_download_result.downloader_used
+                            or status.pdf_download_result.source_details.get("source")
+                        )
+                        attempts = status.pdf_download_result.attempts
                     fail_list.append({
                         'pmid': status.pmid,
                         'stage': status.stage.value,
                         'errors': '; '.join(status.errors),
-                        'processing_time': status.processing_time
+                        'processing_time': status.processing_time,
+                        'download_source': download_source,
+                        'manual_download_urls': ' | '.join(manual_urls or []),
+                        'download_attempts': json.dumps(attempts, ensure_ascii=False)
                     })
                 
                 fail_df = pd.DataFrame(fail_list)

@@ -3,14 +3,15 @@ PubMed数据获取模块
 """
 
 import csv
+import json
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import List, Dict, Optional, Any
+from typing import List, Dict, Optional, Any, Tuple
 import pandas as pd
 
 from ..core import get_module_logger
-from ..config import get_config
+from ..config.config_manager import get_config
 from ..utils.file_utils import ensure_dir
 from ..utils.validation import validate_pmid, validate_csv_file
 
@@ -123,6 +124,108 @@ class PubMedFetcher:
             self.logger.error(f"读取CSV文件失败: {e}")
         
         return records
+
+    def parse_csv_with_management_report(
+        self,
+        csv_file: Path,
+        pmid_column: str = "PMID",
+    ) -> Tuple[List[PubMedRecord], Dict[str, Any]]:
+        """
+        解析CSV并生成文档管理系统报告（用于下载前检查）。
+
+        Returns:
+            (有效记录列表, 报告字典)
+        """
+        records: List[PubMedRecord] = []
+        invalid_rows: List[Dict[str, Any]] = []
+        duplicate_pmids: List[str] = []
+        seen_pmids = set()
+
+        valid, error = validate_csv_file(csv_file, [pmid_column])
+        if not valid:
+            report = {
+                "source_csv": str(csv_file),
+                "status": "invalid_csv",
+                "error": error,
+                "total_rows": 0,
+                "valid_records": 0,
+                "invalid_rows": [],
+                "duplicate_pmids": [],
+            }
+            return [], report
+
+        try:
+            try:
+                df = pd.read_csv(csv_file)
+            except Exception:
+                df = pd.read_csv(csv_file, sep="\t")
+
+            df.columns = df.columns.str.strip()
+            total_rows = len(df)
+
+            for idx, row in df.iterrows():
+                raw_pmid = str(row.get(pmid_column, "")).strip()
+                row_no = int(idx) + 2  # 加上header行
+
+                valid_pmid, pmid_error = validate_pmid(raw_pmid)
+                if not valid_pmid:
+                    invalid_rows.append({
+                        "row": row_no,
+                        "pmid": raw_pmid,
+                        "reason": pmid_error,
+                    })
+                    continue
+
+                if raw_pmid in seen_pmids:
+                    duplicate_pmids.append(raw_pmid)
+                    continue
+
+                seen_pmids.add(raw_pmid)
+                record = self._create_record_from_row(row)
+                if record:
+                    records.append(record)
+                else:
+                    invalid_rows.append({
+                        "row": row_no,
+                        "pmid": raw_pmid,
+                        "reason": "无法从该行构建PubMedRecord",
+                    })
+
+            report = {
+                "source_csv": str(csv_file),
+                "status": "ok",
+                "total_rows": total_rows,
+                "valid_records": len(records),
+                "invalid_count": len(invalid_rows),
+                "duplicate_count": len(duplicate_pmids),
+                "invalid_rows": invalid_rows,
+                "duplicate_pmids": duplicate_pmids,
+                "valid_pmids": [r.pmid for r in records],
+            }
+            return records, report
+        except Exception as e:
+            report = {
+                "source_csv": str(csv_file),
+                "status": "parse_error",
+                "error": str(e),
+                "total_rows": 0,
+                "valid_records": 0,
+                "invalid_rows": [],
+                "duplicate_pmids": [],
+            }
+            return [], report
+
+    def save_management_report(self, report: Dict[str, Any], output_file: Path) -> bool:
+        """保存CSV解析后的文档管理报告。"""
+        try:
+            ensure_dir(output_file.parent)
+            with open(output_file, "w", encoding="utf-8") as f:
+                json.dump(report, f, ensure_ascii=False, indent=2)
+            self.logger.info(f"文档管理报告已保存: {output_file}")
+            return True
+        except Exception as e:
+            self.logger.error(f"保存文档管理报告失败: {e}")
+            return False
     
     def _create_record_from_row(self, row: pd.Series) -> Optional[PubMedRecord]:
         """从数据行创建PubMed记录"""
