@@ -116,6 +116,18 @@ paths:
 - 质量评估和自动修复
 - 支持中英文混合识别
 
+### 2.1 DeepSeek-OCR 独立脚本
+- 新增独立脚本：`ocr_processing/deepseek_ocr.py`（不依赖 `glm_ocr.py`）
+- 使用本地模型目录：`/storage/work/wuguowei/Bigmodel/deepseek-ocr`
+- 输入PDF，逐页OCR并输出Markdown
+
+运行示例：
+```bash
+python -m ocr_processing.deepseek_ocr /path/to/paper.pdf \
+  --model-path /storage/work/wuguowei/Bigmodel/deepseek-ocr \
+  --output-dir ./data/deepseek_markdown
+```
+
 ### 3. 文档分割模块 (待实现)
 - 必需部分验证（Methods, Results）
 - 灵活的结构识别
