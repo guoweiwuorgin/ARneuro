@@ -17,7 +17,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from ..core import PDFDownloadError, get_module_logger
-from ..config import get_config
+from ..config.config_manager import get_config
 from ..utils.file_utils import ensure_dir, sanitize_filename, is_valid_pdf
 
 

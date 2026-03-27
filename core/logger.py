@@ -7,7 +7,9 @@ import sys
 from pathlib import Path
 from typing import Optional
 
-from ..config import get_config
+from ..config.config_manager import get_config
+
+_LOGGER_INITIALIZED = False
 
 _LOGGER_INITIALIZED = False
 

@@ -10,6 +10,8 @@ tqdm>=4.66.0
 openai>=1.0.0
 pyyaml>=6.0
 python-dotenv>=1.0.0
+zai>=0.2.0
+glmocr>=0.1.0
 
 # PDF处理
 pypdf2>=3.0.0
@@ -32,4 +34,4 @@ pylint>=3.0.0
 # 类型提示
 typing-extensions>=4.5.0
 
-# 注意: GLM-OCR需要单独安装，不在Python包管理中
+# 注意: 若本地环境未提供glmocr/zai，可按项目实际版本调整

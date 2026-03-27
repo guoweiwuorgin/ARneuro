@@ -13,7 +13,7 @@ import pandas as pd
 
 from .logger import get_module_logger
 from .exceptions import ARneuroError, PDFDownloadError, OCRProcessingError
-from ..config import get_config
+from ..config.config_manager import get_config
 from ..data_fetch import PDFDownloader, PubMedFetcher, DownloadResult, BatchResult
 from ..ocr_processing import GLMOCRProcessor, OCRResult, BatchOCRResult
 from ..data_fetch.pdf_downloader import DownloadStatus

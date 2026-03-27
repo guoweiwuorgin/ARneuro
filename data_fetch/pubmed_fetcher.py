@@ -11,7 +11,7 @@ from typing import List, Dict, Optional, Any, Tuple
 import pandas as pd
 
 from ..core import get_module_logger
-from ..config import get_config
+from ..config.config_manager import get_config
 from ..utils.file_utils import ensure_dir
 from ..utils.validation import validate_pmid, validate_csv_file
 
