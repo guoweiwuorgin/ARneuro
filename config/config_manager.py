@@ -81,10 +81,10 @@ class ConfigManager:
                 "device": "cuda",  # 或 "cpu"
                 "batch_size": 4,
                 "output_dir": "./data/markdown",
-                "glmocr_cli_path": "glmocr",  # glmocr命令行工具路径
+                "local_sdk_class": "GLMOCR",  # 本地glmocr SDK类名
+                "local_sdk_method": "predict",  # 本地glmocr SDK调用方法
                 "language": "ch+en",  # 支持的语言
                 "api_key": "",
-                "api_base_url": "https://open.bigmodel.cn/api/paas/v4/layout_parsing",
                 "api_model": "glm-ocr",
                 "api_timeout": 300,
                 "api_use_base64": True,

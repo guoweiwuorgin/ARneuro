@@ -88,10 +88,10 @@ ocr_processing:
   device: "cuda"
   batch_size: 4
   output_dir: "./data/markdown"
-  glmocr_cli_path: "glmocr"
+  local_sdk_class: "GLMOCR"
+  local_sdk_method: "predict"
   language: "ch+en"
   api_key: "${GLM_API_KEY}"
-  api_base_url: "https://open.bigmodel.cn/api/paas/v4/layout_parsing"
   api_model: "glm-ocr"
   api_timeout: 300
   api_use_base64: true
@@ -112,7 +112,7 @@ paths:
 - 新增下载系统报告与人工补充下载清单（用于核对“已获取/未获取”）
 
 ### 2. OCR处理模块 (`GLMOCRProcessor`)
-- 集成本地GLM-OCR CLI 与智谱AI在线GLM-OCR API
+- 集成本地 glmocr SDK 与智谱AI在线 zai SDK（`ZhipuAiClient`）
 - 质量评估和自动修复
 - 支持中英文混合识别
 
@@ -189,18 +189,30 @@ pdf_download:
 #### OCR处理配置
 ```yaml
 ocr_processing:
-  backend: "local"                # local=本地CLI, api=在线调用
-  model_path: "/path/to/glm-ocr"  # GLM-OCR模型路径
+  backend: "local"                # local=本地glmocr SDK, api=在线zai SDK调用
+  model_path: "/path/to/glm-ocr"  # 本地模型路径
   device: "cuda"                  # 设备类型 (cuda/cpu)
-  batch_size: 4                    # 批处理大小
+  batch_size: 4                   # 批处理大小
   output_dir: "./data/markdown"   # Markdown输出目录
-  glmocr_cli_path: "glmocr"       # GLM-OCR命令行路径
+  local_sdk_class: "GLMOCR"       # 本地SDK类名
+  local_sdk_method: "predict"     # 本地SDK方法名
   language: "ch+en"               # 识别语言
   api_key: "${GLM_API_KEY}"       # 智谱AI API Key
-  api_base_url: "https://open.bigmodel.cn/api/paas/v4/layout_parsing"
   api_model: "glm-ocr"
   api_timeout: 300
   api_use_base64: true             # 将本地PDF转base64后提交给API
+```
+
+#### 在线API调用方式（zai SDK）
+```python
+from zai import ZhipuAiClient
+
+client = ZhipuAiClient(api_key="your-api-key")
+response = client.layout_parsing.create(
+    model="glm-ocr",
+    file="https://cdn.bigmodel.cn/static/logo/introduction.png"
+)
+print(response)
 ```
 
 #### 路径配置
