@@ -13,7 +13,7 @@ from enum import Enum
 from pathlib import Path
 from typing import List, Dict, Optional, Tuple, Any
 
-from ..core import get_module_logger
+from ..core.logger import get_module_logger
 from ..config.config_manager import get_config
 from ..utils.file_utils import ensure_dir, is_valid_pdf
 from ..utils.text_utils import clean_text, normalize_text, detect_language
@@ -174,9 +174,28 @@ class GLMOCRProcessor:
         return ok
 
     def _build_api_request_payload(self, pdf_path: Path) -> Dict[str, Any]:
-        file_value = self.api_file_url
-        if self.api_use_base64 or not file_value:
-            file_value = base64.b64encode(pdf_path.read_bytes()).decode("utf-8")
+         # 1. 读取文件并转 Base64
+        file_bytes = pdf_path.read_bytes()
+        base64_str = base64.b64encode(file_bytes).decode("utf-8")
+        
+        # 2. 判断 MIME 类型（关键步骤）
+        # 根据 zai SDK 和智谱 API 的习惯，Base64 字符串通常需要带前缀
+        suffix = pdf_path.suffix.lower()
+        mime_types = {
+            ".pdf": "application/pdf",
+            ".jpg": "image/jpeg",
+            ".jpeg": "image/jpeg",
+            ".png": "image/png",
+        }
+        mime_type = mime_types.get(suffix, "application/octet-stream")
+        
+        # 3. 构造带前缀的 Base64 字符串
+        # 格式为：data:application/pdf;base64,JVBERi0xLjQK...
+        if self.api_use_base64:
+            file_value = f"data:{mime_type};base64,{base64_str}"
+        else:
+            # 如果配置为使用 URL，则保持原逻辑
+            file_value = self.api_file_url
 
         payload: Dict[str, Any] = {
             "model": self.api_model,

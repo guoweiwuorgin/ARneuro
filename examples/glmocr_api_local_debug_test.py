@@ -10,7 +10,8 @@ import json
 import random
 from pathlib import Path
 from typing import Dict, Any, List
-
+import sys
+sys.path.append("D:/app/Tools/")
 from ARneuro.ocr_processing.glm_ocr import GLMOCRProcessor, OCRStatus
 from ARneuro.config.config_manager import ConfigManager
 
