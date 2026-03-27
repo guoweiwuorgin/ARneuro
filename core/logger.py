@@ -11,6 +11,8 @@ from ..config.config_manager import get_config
 
 _LOGGER_INITIALIZED = False
 
+_LOGGER_INITIALIZED = False
+
 
 def setup_logger(
     name: str = "ARneuro",

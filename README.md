@@ -191,8 +191,10 @@ pdf_download:
 ocr_processing:
   backend: "local"                # local=本地glmocr SDK, api=在线zai SDK调用
   model_path: "/path/to/glm-ocr"  # 本地模型路径
+  backend: "local"                # local=本地CLI, api=在线调用
+  model_path: "/path/to/glm-ocr"  # GLM-OCR模型路径
   device: "cuda"                  # 设备类型 (cuda/cpu)
-  batch_size: 4                   # 批处理大小
+  batch_size: 4                    # 批处理大小
   output_dir: "./data/markdown"   # Markdown输出目录
   local_sdk_class: "GLMOCR"       # 本地SDK类名
   local_sdk_method: "predict"     # 本地SDK方法名
