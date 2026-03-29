@@ -12,9 +12,12 @@ from __future__ import annotations
 import argparse
 import inspect
 import importlib
+import os
+import shutil
+import time
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Optional, Tuple
 
 from ..core.logger import get_module_logger
 from ..utils.file_utils import ensure_dir, is_valid_pdf
@@ -30,6 +33,16 @@ class DeepSeekOCRResult:
     pages_processed: int
     processing_time: float
     error_message: Optional[str] = None
+
+
+@dataclass
+class _PageResult:
+    """单页OCR结果（内部结构，不暴露到公共接口）。"""
+
+    page_num: int
+    success: bool
+    markdown: str = ""
+    error: Optional[str] = None
 
 
 class DeepSeekOCRProcessor:
@@ -54,6 +67,7 @@ class DeepSeekOCRProcessor:
 
         self._model = None
         self._processor = None
+        self.max_retry = 2
 
     def _load_model(self) -> None:
         if self._model is not None:
@@ -129,9 +143,58 @@ class DeepSeekOCRProcessor:
             "pypdfium2 或 pymupdf 或 pdf2image(poppler)。"
         ) from last_error
 
-    def _ocr_single_image(self, image) -> str:
+    def _ocr_via_infer(self, image_path: Path, output_dir: Path) -> Optional[str]:
+        """优先复用 DeepSeek 官方常见 infer 接口（若模型提供）。"""
+        if not hasattr(self._model, "infer"):
+            return None
+
+        output_dir.mkdir(parents=True, exist_ok=True)
+        infer_sig = inspect.signature(self._model.infer)
+        kwargs = {}
+
+        candidate_args = {
+            "tokenizer": getattr(self._processor, "tokenizer", None),
+            "prompt": self.prompt,
+            "image_file": str(image_path),
+            "output_path": str(output_dir),
+            "base_size": 1024,
+            "image_size": 640,
+            "crop_mode": True,
+            "save_results": True,
+            "test_compress": True,
+        }
+        for key, value in candidate_args.items():
+            if key in infer_sig.parameters and value is not None:
+                kwargs[key] = value
+
+        old_stdout = os.dup(1)
+        old_stderr = os.dup(2)
+        devnull_fd = os.open(os.devnull, os.O_WRONLY)
+        try:
+            os.dup2(devnull_fd, 1)
+            os.dup2(devnull_fd, 2)
+            self._model.infer(**kwargs)
+        finally:
+            os.close(devnull_fd)
+            os.dup2(old_stdout, 1)
+            os.dup2(old_stderr, 2)
+            os.close(old_stdout)
+            os.close(old_stderr)
+
+        # 优先读取官方产物 result.mmd；若不存在，再读取 infer 返回值
+        result_mmd = output_dir / "result.mmd"
+        if result_mmd.exists():
+            return result_mmd.read_text(encoding="utf-8")
+        return None
+
+    def _ocr_single_image(self, image, image_path: Optional[Path] = None, infer_output_dir: Optional[Path] = None) -> str:
         if self._model is None or self._processor is None:
             self._load_model()
+
+        if image_path is not None and infer_output_dir is not None:
+            infer_markdown = self._ocr_via_infer(image_path=image_path, output_dir=infer_output_dir)
+            if infer_markdown is not None:
+                return infer_markdown
 
         # 兼容不同模型暴露接口：ocr/chat/generate
         if hasattr(self._model, "ocr"):
@@ -171,9 +234,56 @@ class DeepSeekOCRProcessor:
         decoded = self._processor.batch_decode(output_ids, skip_special_tokens=True)
         return decoded[0] if decoded else ""
 
-    def process_pdf(self, pdf_path: str, output_markdown: Optional[str] = None) -> DeepSeekOCRResult:
-        import time
+    def _run_page_ocr_with_retry(self, image, image_path: Path, infer_output_dir: Path) -> Tuple[bool, str, Optional[str]]:
+        """单页OCR，带重试。"""
+        last_error: Optional[str] = None
+        for attempt in range(self.max_retry + 1):
+            try:
+                markdown = self._ocr_single_image(
+                    image=image,
+                    image_path=image_path,
+                    infer_output_dir=infer_output_dir,
+                )
+                if markdown.strip():
+                    return True, markdown, None
+                last_error = "空OCR结果"
+            except Exception as exc:
+                last_error = str(exc)
+                self.logger.warning("第%s次OCR失败（%s）: %s", attempt + 1, image_path.name, exc)
 
+            if attempt < self.max_retry:
+                time.sleep(1)
+
+        return False, "", last_error or "未知错误"
+
+    def _build_markdown_with_page_markers(self, pdf_name: str, page_results: List[_PageResult]) -> str:
+        """生成完整Markdown，包含失败页标记，便于后续人工复核。"""
+        lines: List[str] = []
+        lines.append(f"# {pdf_name}")
+        lines.append(f"\n**Total Pages:** {len(page_results)}")
+        failed_pages = [str(r.page_num) for r in page_results if not r.success]
+        if failed_pages:
+            lines.append(f"**Failed Pages:** {', '.join(failed_pages)}")
+        else:
+            lines.append("**Status:** All pages converted successfully")
+        lines.append("\n" + "=" * 80 + "\n")
+
+        for result in page_results:
+            lines.append(f"\n<!-- Page {result.page_num} -->")
+            if result.success:
+                lines.append(f"\n## Page {result.page_num}\n")
+                lines.append(result.markdown.strip())
+            else:
+                lines.append(f"\n## ⚠️ Page {result.page_num} - OCR FAILED\n")
+                lines.append("```")
+                lines.append(f"ERROR: {result.error or 'Unknown error'}")
+                lines.append("This page could not be converted to markdown.")
+                lines.append(f"Please check the original PDF for page {result.page_num}.")
+                lines.append("```")
+            lines.append("\n" + "-" * 80 + "\n")
+        return "\n".join(lines)
+
+    def process_pdf(self, pdf_path: str, output_markdown: Optional[str] = None) -> DeepSeekOCRResult:
         start = time.time()
         pdf_file = Path(pdf_path)
 
@@ -202,21 +312,42 @@ class DeepSeekOCRProcessor:
 
         try:
             images = self._render_pdf_to_images(pdf_file)
-            page_texts: List[str] = []
-            for idx, image in enumerate(images, start=1):
-                self.logger.info("OCR处理中: %s - 第 %s 页", pdf_file.name, idx)
-                page_md = self._ocr_single_image(image)
-                page_texts.append(f"\n\n## Page {idx}\n\n{page_md}")
+            page_results: List[_PageResult] = []
+            tmp_root = self.output_dir / "tmp" / pdf_file.stem
+            ensure_dir(tmp_root)
+            try:
+                for idx, image in enumerate(images, start=1):
+                    self.logger.info("OCR处理中: %s - 第 %s 页", pdf_file.name, idx)
+                    image_path = tmp_root / f"{pdf_file.stem}_page{idx:04d}.png"
+                    image.save(image_path, "PNG")
+                    infer_output_dir = tmp_root / f"page_{idx:04d}"
 
-            markdown_path.write_text("".join(page_texts), encoding="utf-8")
+                    success, markdown, error = self._run_page_ocr_with_retry(
+                        image=image,
+                        image_path=image_path,
+                        infer_output_dir=infer_output_dir,
+                    )
+                    page_results.append(
+                        _PageResult(page_num=idx, success=success, markdown=markdown, error=error)
+                    )
 
+                complete_markdown = self._build_markdown_with_page_markers(pdf_file.stem, page_results)
+                markdown_path.write_text(complete_markdown, encoding="utf-8")
+            finally:
+                shutil.rmtree(tmp_root, ignore_errors=True)
+
+            failed_pages = [str(p.page_num) for p in page_results if not p.success]
             elapsed = time.time() - start
+            err = None
+            if failed_pages:
+                err = f"部分页面OCR失败: {', '.join(failed_pages)}"
             return DeepSeekOCRResult(
                 pdf_path=pdf_file,
                 markdown_path=markdown_path,
                 status="success",
                 pages_processed=len(images),
                 processing_time=elapsed,
+                error_message=err,
             )
         except Exception as exc:
             elapsed = time.time() - start
