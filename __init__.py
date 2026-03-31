@@ -18,7 +18,7 @@ __email__ = ""
 from .core import setup_logger, ARneuroError
 from .config import ConfigManager, get_config
 from .data_fetch import PDFDownloader, PubMedFetcher
-from .ocr_processing import GLMOCRProcessor
+from .ocr_processing import GLMOCRProcessor, DeepSeekOCRProcessor
 
 # 主工作流程
 from .core.pipeline import ARneuroPipeline
@@ -41,6 +41,7 @@ __all__ = [
     
     # OCR处理
     'GLMOCRProcessor',
+    'DeepSeekOCRProcessor',
     
     # 主工作流程
     'ARneuroPipeline'
