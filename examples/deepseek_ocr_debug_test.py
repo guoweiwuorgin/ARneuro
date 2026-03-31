@@ -10,7 +10,7 @@ DeepSeek-OCR 专用调试测试脚本。
 python examples/deepseek_ocr_debug_test.py \
   --pdf-dir /path/to/pdfs \
   --output-dir ./debug_output \
-  --model-path /storage/work/wuguowei/Bigmodel/deepseek-ocr \
+  --model-path /storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2 \
   --sample-size 5
 """
 
@@ -32,7 +32,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", default="./deepseek_ocr_debug_output", help="调试输出目录")
     parser.add_argument(
         "--model-path",
-        default="/storage/work/wuguowei/Bigmodel/deepseek-ocr",
+        default="/storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2",
         help="DeepSeek-OCR 本地模型路径",
     )
     parser.add_argument("--sample-size", type=int, default=5, help="抽样PDF数量")
@@ -41,7 +41,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dpi", type=int, default=200, help="PDF渲染DPI")
     parser.add_argument(
         "--prompt",
-        default="请对该页做高保真OCR，输出结构化Markdown，保留表格。",
+        default="<image>\n<|grounding|>Convert the document to markdown. ",
         help="DeepSeek OCR提示词",
     )
     return parser.parse_args()

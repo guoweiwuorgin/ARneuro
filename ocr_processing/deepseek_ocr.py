@@ -2,7 +2,7 @@
 DeepSeek-OCR 本地PDF识别脚本（独立于 GLM-OCR）。
 
 说明：
-- 使用本地模型目录（默认 `/storage/work/wuguowei/Bigmodel/deepseek-ocr`）。
+- 使用本地模型目录（默认 `/storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2`）。
 - 输入 PDF，逐页渲染为图片后送入模型识别，输出 Markdown。
 - 不依赖 glm_ocr.py 的任何实现。
 """
@@ -50,10 +50,10 @@ class DeepSeekOCRProcessor:
 
     def __init__(
         self,
-        model_path: str = "/storage/work/wuguowei/Bigmodel/deepseek-ocr",
+        model_path: str = "/storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2",
         output_dir: str = "./data/deepseek_markdown",
         device: str = "cuda",
-        prompt: str = "请对该页做高保真OCR，输出结构化Markdown，保留表格。",
+        prompt: str = "<image>\n<|grounding|>Convert the document to markdown. ",
         dpi: int = 200,
     ):
         self.model_path = Path(model_path)
@@ -67,6 +67,7 @@ class DeepSeekOCRProcessor:
 
         self._model = None
         self._processor = None
+        self._tokenizer = None
         self.max_retry = 2
 
     def _load_model(self) -> None:
@@ -80,9 +81,36 @@ class DeepSeekOCRProcessor:
             )
 
         import torch  # type: ignore
-        from transformers import AutoModelForCausalLM, AutoProcessor  # type: ignore
+        from transformers import AutoModel, AutoModelForCausalLM, AutoProcessor, AutoTokenizer  # type: ignore
 
         self.logger.info("加载 DeepSeek-OCR 模型: %s", self.model_path)
+        # DeepSeek-OCR-2 官方推荐：AutoTokenizer + AutoModel + infer(...)
+        try:
+            self._tokenizer = AutoTokenizer.from_pretrained(
+                str(self.model_path),
+                trust_remote_code=True,
+            )
+            model_kwargs = {
+                "trust_remote_code": True,
+                "use_safetensors": True,
+            }
+            if self.device.startswith("cuda"):
+                model_kwargs["_attn_implementation"] = "flash_attention_2"
+
+            self._model = AutoModel.from_pretrained(
+                str(self.model_path),
+                **model_kwargs,
+            )
+            if self.device.startswith("cuda"):
+                self._model = self._model.eval().cuda().to(torch.bfloat16)
+            else:
+                self._model = self._model.eval().to(self.device)
+            self.logger.info("DeepSeek-OCR模型加载成功（AutoModel + AutoTokenizer）")
+            return
+        except Exception as exc:
+            self.logger.warning("AutoModel加载失败，尝试兼容路径: %s", exc)
+
+        # 兼容旧式多模态模型接口（非DeepSeek-OCR2）
         self._processor = AutoProcessor.from_pretrained(
             str(self.model_path),
             trust_remote_code=True,
@@ -95,6 +123,7 @@ class DeepSeekOCRProcessor:
         )
         if not self.device.startswith("cuda"):
             self._model.to(self.device)
+        self.logger.info("DeepSeek-OCR模型加载成功（AutoProcessor + AutoModelForCausalLM 兼容模式）")
 
     def _render_pdf_to_images(self, pdf_path: Path):
         """将 PDF 转为 PIL 图片，优先使用 pypdfium2。"""
@@ -153,12 +182,12 @@ class DeepSeekOCRProcessor:
         kwargs = {}
 
         candidate_args = {
-            "tokenizer": getattr(self._processor, "tokenizer", None),
+            "tokenizer": self._tokenizer or getattr(self._processor, "tokenizer", None),
             "prompt": self.prompt,
             "image_file": str(image_path),
             "output_path": str(output_dir),
             "base_size": 1024,
-            "image_size": 640,
+            "image_size": 768,
             "crop_mode": True,
             "save_results": True,
             "test_compress": True,
@@ -188,7 +217,7 @@ class DeepSeekOCRProcessor:
         return None
 
     def _ocr_single_image(self, image, image_path: Optional[Path] = None, infer_output_dir: Optional[Path] = None) -> str:
-        if self._model is None or self._processor is None:
+        if self._model is None:
             self._load_model()
 
         if image_path is not None and infer_output_dir is not None:
@@ -214,10 +243,13 @@ class DeepSeekOCRProcessor:
             elif "prompt" in chat_sig.parameters:
                 kwargs["prompt"] = self.prompt
 
-            if "processor" in chat_sig.parameters:
+            if "processor" in chat_sig.parameters and self._processor is not None:
                 kwargs["processor"] = self._processor
-            if "tokenizer" in chat_sig.parameters and hasattr(self._processor, "tokenizer"):
-                kwargs["tokenizer"] = self._processor.tokenizer
+            if "tokenizer" in chat_sig.parameters:
+                if self._tokenizer is not None:
+                    kwargs["tokenizer"] = self._tokenizer
+                elif self._processor is not None and hasattr(self._processor, "tokenizer"):
+                    kwargs["tokenizer"] = self._processor.tokenizer
 
             if kwargs:
                 result = self._model.chat(**kwargs)
@@ -226,6 +258,9 @@ class DeepSeekOCRProcessor:
             return str(result)
 
         # 通用 Transformers 生成路径
+        if self._processor is None:
+            raise RuntimeError("当前模型不支持ocr/chat，且未初始化AutoProcessor，无法执行generate路径。")
+
         model_inputs = self._processor(images=image, text=self.prompt, return_tensors="pt")
         if hasattr(self._model, "device"):
             model_inputs = {k: v.to(self._model.device) for k, v in model_inputs.items()}
@@ -368,7 +403,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--output", help="输出Markdown路径，默认写入 output_dir/<pdf名>.md", default=None)
     parser.add_argument(
         "--model-path",
-        default="/storage/work/wuguowei/Bigmodel/deepseek-ocr",
+        default="/storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2",
         help="DeepSeek-OCR 本地模型目录",
     )
     parser.add_argument("--output-dir", default="./data/deepseek_markdown", help="默认输出目录")
@@ -376,7 +411,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--dpi", type=int, default=200, help="PDF渲染分辨率")
     parser.add_argument(
         "--prompt",
-        default="请对该页做高保真OCR，输出结构化Markdown，保留表格。",
+        default="<image>\n<|grounding|>Convert the document to markdown. ",
         help="发送给模型的提示词",
     )
     return parser
