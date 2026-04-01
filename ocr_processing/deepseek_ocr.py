@@ -10,7 +10,6 @@ DeepSeek-OCR 本地PDF识别脚本（独立于 GLM-OCR）。
 from __future__ import annotations
 
 import argparse
-import inspect
 import importlib
 import os
 import shutil
@@ -18,6 +17,9 @@ import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional, Tuple
+
+import torch
+from transformers import AutoModel, AutoTokenizer
 
 from ..core.logger import get_module_logger
 from ..utils.file_utils import ensure_dir, is_valid_pdf
@@ -53,7 +55,7 @@ class DeepSeekOCRProcessor:
         model_path: str = "/storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2",
         output_dir: str = "./data/deepseek_markdown",
         device: str = "cuda",
-        prompt: str = "<image>\n<|grounding|>Convert the document to markdown. ",
+        prompt: str = "<tr>\n<|grounding|>Convert the document to markdown. ",
         dpi: int = 200,
     ):
         self.model_path = Path(model_path)
@@ -66,11 +68,11 @@ class DeepSeekOCRProcessor:
         ensure_dir(self.output_dir)
 
         self._model = None
-        self._processor = None
         self._tokenizer = None
         self.max_retry = 2
 
     def _load_model(self) -> None:
+        """加载 DeepSeek-OCR-2 模型和分词器（官方推荐方式）。"""
         if self._model is not None:
             return
 
@@ -80,50 +82,36 @@ class DeepSeekOCRProcessor:
                 "请确认本地模型目录是否正确。"
             )
 
-        import torch  # type: ignore
-        from transformers import AutoModel, AutoModelForCausalLM, AutoProcessor, AutoTokenizer  # type: ignore
-
         self.logger.info("加载 DeepSeek-OCR 模型: %s", self.model_path)
-        # DeepSeek-OCR-2 官方推荐：AutoTokenizer + AutoModel + infer(...)
-        try:
-            self._tokenizer = AutoTokenizer.from_pretrained(
-                str(self.model_path),
-                trust_remote_code=True,
-            )
-            model_kwargs = {
-                "trust_remote_code": True,
-                "use_safetensors": True,
-            }
-            if self.device.startswith("cuda"):
-                model_kwargs["_attn_implementation"] = "flash_attention_2"
 
-            self._model = AutoModel.from_pretrained(
-                str(self.model_path),
-                **model_kwargs,
-            )
-            if self.device.startswith("cuda"):
-                self._model = self._model.eval().cuda().to(torch.bfloat16)
-            else:
-                self._model = self._model.eval().to(self.device)
-            self.logger.info("DeepSeek-OCR模型加载成功（AutoModel + AutoTokenizer）")
-            return
-        except Exception as exc:
-            self.logger.warning("AutoModel加载失败，尝试兼容路径: %s", exc)
+        # 加载分词器
+        self._tokenizer = AutoTokenizer.from_pretrained(
+            str(self.model_path), trust_remote_code=True
+        )
 
-        # 兼容旧式多模态模型接口（非DeepSeek-OCR2）
-        self._processor = AutoProcessor.from_pretrained(
-            str(self.model_path),
-            trust_remote_code=True,
+        # 设置模型加载参数
+        model_kwargs = {
+            "trust_remote_code": True,
+            "use_safetensors": True,
+        }
+
+        # 启用 Flash Attention 2 以提升性能
+        if torch.cuda.is_available():
+            model_kwargs["_attn_implementation"] = "flash_attention_2"
+            model_kwargs["torch_dtype"] = torch.bfloat16
+
+        # 使用 AutoModel 加载（官方推荐，兼容性最佳）
+        self._model = AutoModel.from_pretrained(
+            str(self.model_path), **model_kwargs
         )
-        self._model = AutoModelForCausalLM.from_pretrained(
-            str(self.model_path),
-            trust_remote_code=True,
-            torch_dtype=torch.float16 if self.device.startswith("cuda") else torch.float32,
-            device_map="auto" if self.device.startswith("cuda") else None,
-        )
-        if not self.device.startswith("cuda"):
-            self._model.to(self.device)
-        self.logger.info("DeepSeek-OCR模型加载成功（AutoProcessor + AutoModelForCausalLM 兼容模式）")
+
+        # 将模型设置为评估模式并移动到 GPU（如果可用）
+        if torch.cuda.is_available():
+            self._model = self._model.eval().cuda().to(torch.bfloat16)
+        else:
+            self._model = self._model.eval().to(self.device)
+
+        self.logger.info("DeepSeek-OCR 模型加载成功（AutoModel + AutoTokenizer）")
 
     def _render_pdf_to_images(self, pdf_path: Path):
         """将 PDF 转为 PIL 图片，优先使用 pypdfium2。"""
@@ -172,104 +160,61 @@ class DeepSeekOCRProcessor:
             "pypdfium2 或 pymupdf 或 pdf2image(poppler)。"
         ) from last_error
 
-    def _ocr_via_infer(self, image_path: Path, output_dir: Path) -> Optional[str]:
-        """优先复用 DeepSeek 官方常见 infer 接口（若模型提供）。"""
-        if not hasattr(self._model, "infer"):
-            return None
+    def _ocr_single_image(self, image, image_path: Path, output_dir: Path) -> str:
+        """
+        使用官方推荐的方式进行单张图片的 OCR。
 
-        output_dir.mkdir(parents=True, exist_ok=True)
-        infer_sig = inspect.signature(self._model.infer)
-        kwargs = {}
+        model.infer() 不返回文本，而是将识别结果写入
+        output_dir/result.mmd 文件，推理完成后读取该文件获取内容。
 
-        candidate_args = {
-            "tokenizer": self._tokenizer or getattr(self._processor, "tokenizer", None),
-            "prompt": self.prompt,
-            "image_file": str(image_path),
-            "output_path": str(output_dir),
-            "base_size": 1024,
-            "image_size": 768,
-            "crop_mode": True,
-            "save_results": True,
-            "test_compress": True,
-        }
-        for key, value in candidate_args.items():
-            if key in infer_sig.parameters and value is not None:
-                kwargs[key] = value
-
-        old_stdout = os.dup(1)
-        old_stderr = os.dup(2)
-        devnull_fd = os.open(os.devnull, os.O_WRONLY)
-        try:
-            os.dup2(devnull_fd, 1)
-            os.dup2(devnull_fd, 2)
-            self._model.infer(**kwargs)
-        finally:
-            os.close(devnull_fd)
-            os.dup2(old_stdout, 1)
-            os.dup2(old_stderr, 2)
-            os.close(old_stdout)
-            os.close(old_stderr)
-
-        # 优先读取官方产物 result.mmd；若不存在，再读取 infer 返回值
-        result_mmd = output_dir / "result.mmd"
-        if result_mmd.exists():
-            return result_mmd.read_text(encoding="utf-8")
-        return None
-
-    def _ocr_single_image(self, image, image_path: Optional[Path] = None, infer_output_dir: Optional[Path] = None) -> str:
-        if self._model is None:
+        注意：每页必须使用独立的 output_dir（调用方已保证），
+        且推理前会清除旧的 result.mmd，防止读到上次残留结果。
+        """
+        if self._model is None or self._tokenizer is None:
             self._load_model()
 
-        if image_path is not None and infer_output_dir is not None:
-            infer_markdown = self._ocr_via_infer(image_path=image_path, output_dir=infer_output_dir)
-            if infer_markdown is not None:
-                return infer_markdown
+        # 确保当前页面的输出目录存在
+        output_dir.mkdir(parents=True, exist_ok=True)
 
-        # 兼容不同模型暴露接口：ocr/chat/generate
-        if hasattr(self._model, "ocr"):
-            try:
-                result = self._model.ocr(image=image, prompt=self.prompt)
-            except TypeError:
-                result = self._model.ocr(image, self.prompt)
-            return str(result)
+        # 临时保存图像文件，因为模型的 infer 方法需要文件路径
+        temp_img_path = output_dir / f"{image_path.stem}.png"
+        image.save(temp_img_path, "PNG")
 
-        if hasattr(self._model, "chat"):
-            chat_sig = inspect.signature(self._model.chat)
-            kwargs = {}
-            if "image" in chat_sig.parameters:
-                kwargs["image"] = image
-            if "query" in chat_sig.parameters:
-                kwargs["query"] = self.prompt
-            elif "prompt" in chat_sig.parameters:
-                kwargs["prompt"] = self.prompt
+        # 推理前清除可能残留的旧 result.mmd，防止读到脏数据
+        result_mmd_path = output_dir / "result.mmd"
+        if result_mmd_path.exists():
+            result_mmd_path.unlink()
 
-            if "processor" in chat_sig.parameters and self._processor is not None:
-                kwargs["processor"] = self._processor
-            if "tokenizer" in chat_sig.parameters:
-                if self._tokenizer is not None:
-                    kwargs["tokenizer"] = self._tokenizer
-                elif self._processor is not None and hasattr(self._processor, "tokenizer"):
-                    kwargs["tokenizer"] = self._processor.tokenizer
+        # 调用模型推理，结果写入 output_dir/result.mmd
+        res = self._model.infer(
+            self._tokenizer,
+            prompt=self.prompt,
+            image_file=str(temp_img_path),
+            output_path=str(output_dir),
+            base_size=1024,
+            image_size=768,
+            crop_mode=True,
+            save_results=True,
+        )
 
-            if kwargs:
-                result = self._model.chat(**kwargs)
-            else:
-                result = self._model.chat(image, self.prompt)
-            return str(result)
+        # 读取模型写入的 result.mmd 作为本页 OCR 文本
+        if not result_mmd_path.exists():
+            raise FileNotFoundError(
+                f"model.infer() 执行完毕但未生成预期的结果文件: {result_mmd_path}"
+            )
 
-        # 通用 Transformers 生成路径
-        if self._processor is None:
-            raise RuntimeError("当前模型不支持ocr/chat，且未初始化AutoProcessor，无法执行generate路径。")
+        markdown = result_mmd_path.read_text(encoding="utf-8").strip()
 
-        model_inputs = self._processor(images=image, text=self.prompt, return_tensors="pt")
-        if hasattr(self._model, "device"):
-            model_inputs = {k: v.to(self._model.device) for k, v in model_inputs.items()}
+        if not markdown:
+            raise ValueError(
+                f"result.mmd 文件存在但内容为空: {result_mmd_path}"
+            )
 
-        output_ids = self._model.generate(**model_inputs, max_new_tokens=4096)
-        decoded = self._processor.batch_decode(output_ids, skip_special_tokens=True)
-        return decoded[0] if decoded else ""
+        return markdown
 
-    def _run_page_ocr_with_retry(self, image, image_path: Path, infer_output_dir: Path) -> Tuple[bool, str, Optional[str]]:
+    def _run_page_ocr_with_retry(
+        self, image, image_path: Path, infer_output_dir: Path
+    ) -> Tuple[bool, str, Optional[str]]:
         """单页OCR，带重试。"""
         last_error: Optional[str] = None
         for attempt in range(self.max_retry + 1):
@@ -277,14 +222,16 @@ class DeepSeekOCRProcessor:
                 markdown = self._ocr_single_image(
                     image=image,
                     image_path=image_path,
-                    infer_output_dir=infer_output_dir,
+                    output_dir=infer_output_dir,
                 )
                 if markdown.strip():
                     return True, markdown, None
                 last_error = "空OCR结果"
             except Exception as exc:
                 last_error = str(exc)
-                self.logger.warning("第%s次OCR失败（%s）: %s", attempt + 1, image_path.name, exc)
+                self.logger.warning(
+                    "第%s次OCR失败（%s）: %s", attempt + 1, image_path.name, exc
+                )
 
             if attempt < self.max_retry:
                 time.sleep(1)
@@ -304,7 +251,7 @@ class DeepSeekOCRProcessor:
         lines.append("\n" + "=" * 80 + "\n")
 
         for result in page_results:
-            lines.append(f"\n<!-- Page {result.page_num} -->")
+            lines.append(f"\n")
             if result.success:
                 lines.append(f"\n## Page {result.page_num}\n")
                 lines.append(result.markdown.strip())
@@ -355,6 +302,7 @@ class DeepSeekOCRProcessor:
                     self.logger.info("OCR处理中: %s - 第 %s 页", pdf_file.name, idx)
                     image_path = tmp_root / f"{pdf_file.stem}_page{idx:04d}.png"
                     image.save(image_path, "PNG")
+                    # 每页使用独立子目录，确保各页的 result.mmd 不互相覆盖
                     infer_output_dir = tmp_root / f"page_{idx:04d}"
 
                     success, markdown, error = self._run_page_ocr_with_retry(
@@ -365,11 +313,11 @@ class DeepSeekOCRProcessor:
                     page_results.append(
                         _PageResult(page_num=idx, success=success, markdown=markdown, error=error)
                     )
-
-                complete_markdown = self._build_markdown_with_page_markers(pdf_file.stem, page_results)
-                markdown_path.write_text(complete_markdown, encoding="utf-8")
             finally:
                 shutil.rmtree(tmp_root, ignore_errors=True)
+
+            complete_markdown = self._build_markdown_with_page_markers(pdf_file.stem, page_results)
+            markdown_path.write_text(complete_markdown, encoding="utf-8")
 
             failed_pages = [str(p.page_num) for p in page_results if not p.success]
             elapsed = time.time() - start
@@ -411,7 +359,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--dpi", type=int, default=200, help="PDF渲染分辨率")
     parser.add_argument(
         "--prompt",
-        default="<image>\n<|grounding|>Convert the document to markdown. ",
+        default="<tr>\n<|grounding|>Convert the document to markdown. ",
         help="发送给模型的提示词",
     )
     return parser

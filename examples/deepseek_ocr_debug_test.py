@@ -22,26 +22,30 @@ import json
 import random
 from pathlib import Path
 from typing import Any, Dict, List
-
+import sys
+sys.path.append("/storage/work/wuguowei/reviewer/Code_tools/")
+print("Current sys.path:")
+for p in sys.path:
+    print(p)
 from ARneuro.ocr_processing.deepseek_ocr import DeepSeekOCRProcessor
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="DeepSeek-OCR 专用测试脚本")
-    parser.add_argument("--pdf-dir", required=True, help="待测试PDF目录")
-    parser.add_argument("--output-dir", default="./deepseek_ocr_debug_output", help="调试输出目录")
+    parser.add_argument("--pdf-dir", default="/storage/work/wuguowei/reviewer/PDF_testusing/", help="待测试PDF目录")
+    parser.add_argument("--output-dir", default="/storage/work/wuguowei/reviewer/deepseek_ocr_debug_output", help="调试输出目录")
     parser.add_argument(
         "--model-path",
         default="/storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2",
         help="DeepSeek-OCR 本地模型路径",
     )
-    parser.add_argument("--sample-size", type=int, default=5, help="抽样PDF数量")
+    parser.add_argument("--sample-size", type=int, default=10, help="抽样PDF数量")
     parser.add_argument("--seed", type=int, default=42, help="随机种子")
     parser.add_argument("--device", default="cuda", help="推理设备: cuda/cpu")
     parser.add_argument("--dpi", type=int, default=200, help="PDF渲染DPI")
     parser.add_argument(
         "--prompt",
-        default="<image>\n<|grounding|>Convert the document to markdown. ",
+        default="<image>\n<|grounding|>Convert the document to markdown.",
         help="DeepSeek OCR提示词",
     )
     return parser.parse_args()
