@@ -7,9 +7,17 @@ This module handles extraction of linguistic and cognitive features from researc
 from .task_feature_extractor import TaskFeatureExtractor
 from .cognitive_atlas_extractor import CognitiveAtlasExtractor
 from .feature_pipeline import FeatureExtractionPipeline
+from .abstract_screening import (
+    AbstractScreeningHarness,
+    ReviewCriteriaLoader,
+    ScreeningCriteria,
+)
 
 __all__ = [
-    'TaskFeatureExtractor',
-    'CognitiveAtlasExtractor', 
-    'FeatureExtractionPipeline'
+    "TaskFeatureExtractor",
+    "CognitiveAtlasExtractor",
+    "FeatureExtractionPipeline",
+    "AbstractScreeningHarness",
+    "ReviewCriteriaLoader",
+    "ScreeningCriteria",
 ]
