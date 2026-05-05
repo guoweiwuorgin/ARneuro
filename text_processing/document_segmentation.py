@@ -1,298 +1,239 @@
-"""
-Document segmentation module for ARneuro.
+"""Document segmentation module for ARneuro."""
 
-This module handles parsing markdown files and extracting structured content.
-"""
-
-import os
 import json
+import os
 import re
-from typing import Dict, List, Tuple, Optional
+from collections import defaultdict
+from typing import Dict, List, Optional, Tuple
+
 from ..core.logger import get_logger
 
 logger = get_logger(__name__)
 
 
 class DocumentSegmenter:
-    """
-    Segment markdown documents into structured sections, tables, and metadata.
-    """
-    
+    TARGET_CATEGORIES = [
+        "Title",
+        "Author",
+        "Keywords",
+        "Abstract",
+        "Introduction",
+        "Methods",
+        "Results",
+        "Discussion",
+        "References",
+        "Acknowledgements",
+        "Other",
+    ]
+    REQUIRED_CORE = {"Introduction", "Methods", "Results", "Discussion", "References"}
+
     def __init__(self, config: Optional[Dict] = None):
-        """
-        Initialize the document segmenter.
-        
-        Args:
-            config: Configuration dictionary
-        """
         self.config = config or {}
-        
-    def parse_markdown_file(self, file_path: str) -> Tuple[Dict, List, List, List]:
-        """
-        Parse a Markdown file, extract different sections, and store:
-          - All tables (Markdown & HTML)
-          - Table descriptions (preceding each table, up to 4 valid lines)
-          - Table annotations (the 4 valid lines following each table)
-          - Section titles and contents
-          - Page count and metadata
-        
-        Args:
-            file_path (str): Path to the Markdown file.
-            
-        Returns:
-            tuple: 
-                - document_structure (dict): Maps section titles to their content.
-                - tables (list): A list of all extracted tables (as strings).
-                - tables_info (list): The preceding descriptions for each table.
-                - tables_annotation (list): The next 4 lines after each table.
-        """
-        if not os.path.exists(file_path):
-            raise FileNotFoundError(f"Markdown file not found: {file_path}")
-        
-        logger.info(f"Parsing markdown file: {file_path}")
-        
-        with open(file_path, 'r', encoding='utf-8') as file:
-            lines = file.readlines()
-            
-        document_structure = {}
-        current_title = "Document_Root"
-        current_content = []
-        tables = []
-        tables_info = []
-        tables_annotation = []
-        
-        page_count = 0
-        
-        # 预编译正则，适应特定的MD文本特征
-        page_header_re = re.compile(r'^##\s+Page\s+\d+', re.IGNORECASE)
-        total_pages_re = re.compile(r'\*\*Total Pages:\*\*\s*(\d+)', re.IGNORECASE)
-        section_re = re.compile(r'^(#{1,6})\s+(.*)')
-        separator_re = re.compile(r'^={10,}$|^-{10,}$')
-        html_table_start_re = re.compile(r'<table\b[^>]*>', re.IGNORECASE)
-        html_table_end_re = re.compile(r'</table>', re.IGNORECASE)
 
-        def get_table_info(start_idx: int) -> str:
-            """向前追溯最多4行有效文本作为表格的描述（忽略空行和分页符）"""
-            info = []
-            look_back = 4
-            idx = start_idx - 1
-            while look_back > 0 and idx >= 0:
-                l = lines[idx].strip()
-                if not l or separator_re.match(l) or page_header_re.match(l):
-                    idx -= 1
-                    continue
-                if 'table' in l.lower():
-                    info.insert(0, l)
-                    break
-                else:
-                    info.insert(0, l)
-                look_back -= 1
-                idx -= 1
-            return '\n'.join(info)
+    def _is_page_marker(self, text: str) -> bool:
+        return bool(re.match(r"^##\s+Page\s+\d+", text, flags=re.I))
 
-        def get_table_annotation(start_idx: int) -> Tuple[str, int]:
-            """向后获取最多4行有效文本作为表格注释，并返回结束行号"""
-            ann = []
-            count = 0
-            idx = start_idx
-            total = len(lines)
-            while count < 4 and idx < total:
-                l = lines[idx].rstrip('\n')
-                stripped = l.strip()
-                # 过滤掉干扰性的结构符，避免占掉提取的名额
-                if not stripped or separator_re.match(stripped) or page_header_re.match(stripped):
-                    idx += 1
-                    continue
-                # 如果遇到了新的段落标题，立即停止获取注释
-                if section_re.match(stripped):
-                    break
-                ann.append(l)
-                count += 1
-                idx += 1
-            return '\n'.join(ann), idx
+    def _extract_blocks(self, lines: List[str]) -> Tuple[List[Dict], List[Dict], Dict]:
+        section_re = re.compile(r"^(#{1,6})\s+(.*)")
+        total_pages_re = re.compile(r"\*\*Total Pages:\*\*\s*(\d+)", re.I)
+        sep_re = re.compile(r"^={10,}$|^-{10,}$")
+        html_start_re = re.compile(r"<table\b[^>]*>", re.I)
+        html_end_re = re.compile(r"</table>", re.I)
 
+        blocks, tables = [], []
+        meta = {"declared_total_pages": None, "parsed_page_markers": 0}
+        current = None
         i = 0
-        total_lines = len(lines)
-        
-        while i < total_lines:
-            line = lines[i].rstrip('\n')
-            stripped_line = line.strip()
-            
-            # 检测元数据行 "Total Pages: X"
-            tp_match = total_pages_re.search(stripped_line)
-            if tp_match:
-                document_structure['Metadata_Total_Pages'] = int(tp_match.group(1))
+        while i < len(lines):
+            raw = lines[i].rstrip("\n")
+            s = raw.strip()
+            if not s or sep_re.match(s):
                 i += 1
                 continue
-                
-            # 检测并跳过分页标记，从而使得被分页切断的自然段能完美拼接
-            if page_header_re.match(stripped_line):
-                page_count += 1
+            m = total_pages_re.search(s)
+            if m:
+                meta["declared_total_pages"] = int(m.group(1))
                 i += 1
                 continue
-                
-            # 跳过无意义的横杠分割线
-            if separator_re.match(stripped_line):
+            if self._is_page_marker(s):
+                meta["parsed_page_markers"] += 1
                 i += 1
                 continue
-
-            # 检测 HTML 类型的表格
-            if html_table_start_re.match(stripped_line):
-                table_lines = []
-                info_str = get_table_info(i)
-                
-                while i < total_lines:
-                    table_lines.append(lines[i].rstrip('\n'))
-                    if html_table_end_re.search(lines[i]):
+            if html_start_re.match(s):
+                t_lines = []
+                start = i
+                while i < len(lines):
+                    t_lines.append(lines[i].rstrip("\n"))
+                    if html_end_re.search(lines[i]):
                         i += 1
                         break
                     i += 1
-                    
-                tables.append('\n'.join(table_lines))
-                tables_info.append(info_str)
-                
-                ann_str, _ = get_table_annotation(i)
-                tables_annotation.append(ann_str)
-                
-                current_content.append(f'[TABLE: table_{len(tables)}]')
+                tables.append({"id": f"table_{len(tables)+1}", "content": "\n".join(t_lines), "line_start": start + 1})
+                if current:
+                    current["content_lines"].append(f"[TABLE: table_{len(tables)}]")
                 continue
-
-            # 检测传统的 Markdown 格式表格
-            if stripped_line.startswith('|'):
-                table_lines = []
-                info_str = get_table_info(i)
-                
-                while i < total_lines and lines[i].strip().startswith('|'):
-                    table_lines.append(lines[i].strip())
+            if s.startswith("|"):
+                t_lines = []
+                start = i
+                while i < len(lines) and lines[i].strip().startswith("|"):
+                    t_lines.append(lines[i].rstrip("\n"))
                     i += 1
-                    
-                tables.append('\n'.join(table_lines))
-                tables_info.append(info_str)
-                
-                ann_str, _ = get_table_annotation(i)
-                tables_annotation.append(ann_str)
-                
-                current_content.append(f'[TABLE: table_{len(tables)}]')
+                tables.append({"id": f"table_{len(tables)+1}", "content": "\n".join(t_lines), "line_start": start + 1})
+                if current:
+                    current["content_lines"].append(f"[TABLE: table_{len(tables)}]")
                 continue
 
-            # 检测章节标题（由于之前排除了 page_header_re，所以不会混淆 Page X 标题）
-            sec_match = section_re.match(stripped_line)
-            if sec_match:
-                # 存储上一个段落
-                if current_title:
-                    text = '\n'.join(current_content).strip()
-                    if text:
-                        document_structure[current_title] = text
-                
-                current_title = sec_match.group(2).strip()
-                current_content = []
-                i += 1
-                continue
-            
-            # 存储常规正文内容
-            if stripped_line != "":
-                current_content.append(line)
-                
+            head = section_re.match(s)
+            if head:
+                if current:
+                    blocks.append(current)
+                current = {
+                    "heading": head.group(2).strip(),
+                    "heading_level": len(head.group(1)),
+                    "line_start": i + 1,
+                    "content_lines": [],
+                }
+            else:
+                if current is None:
+                    current = {"heading": "Document_Root", "heading_level": 0, "line_start": 1, "content_lines": []}
+                current["content_lines"].append(raw)
             i += 1
-            
-        # 结尾边界处理
-        if current_title:
-            text = '\n'.join(current_content).strip()
-            if text:
-                document_structure[current_title] = text
+        if current:
+            blocks.append(current)
+        for b in blocks:
+            b["content"] = "\n".join([x for x in b["content_lines"] if x.strip()]).strip()
+            b.pop("content_lines", None)
+        return blocks, tables, meta
 
-        # 将独立的 Page 标记数量赋予特殊的 key，用以统计结果验证
-        document_structure['Parsed_Page_Count'] = page_count
-        
-        logger.info(f"Parsed {len(document_structure)} sections and {len(tables)} tables")
-        return document_structure, tables, tables_info, tables_annotation
-    
+    def _normalize(self, text: str) -> str:
+        return re.sub(r"\s+", " ", re.sub(r"^[\d.\-()\s]+", "", text.lower())).strip()
+
+    def _rule_category(self, heading: str) -> str:
+        t = self._normalize(heading)
+        rules = {
+            "Keywords": ["keywords", "key words"],
+            "Abstract": ["abstract", "summary"],
+            "Introduction": ["introduction", "background"],
+            "Methods": ["methods", "materials and methods", "methodology", "experimental", "participants", "subjects", "statistical"],
+            "Results": ["results", "findings"],
+            "Discussion": ["discussion", "conclusion", "limitations", "implications"],
+            "References": ["references", "bibliography"],
+            "Acknowledgements": ["acknowledg", "funding", "conflict of interest"],
+            "Author": ["author", "affiliation"],
+        }
+        for k, vals in rules.items():
+            if any(v in t for v in vals):
+                return k
+        return "Other"
+
+    def _classify_blocks(self, blocks: List[Dict], llm_classifier=None) -> Tuple[List[Dict], str]:
+        categories = [self._rule_category(b["heading"]) for b in blocks]
+        # heuristics for first block/title
+        if blocks and categories[0] == "Other":
+            categories[0] = "Title"
+        for i, b in enumerate(blocks):
+            if b["heading"] == "Document_Root" and categories[i] == "Other":
+                categories[i] = "Title"
+
+        core = {c for c in categories if c in self.REQUIRED_CORE}
+        strategy = "rule_based"
+        if core != self.REQUIRED_CORE and llm_classifier:
+            strategy = "llm_assisted"
+            headings = [b["heading"] for b in blocks]
+            cls = llm_classifier.classify_headings(headings)
+            mapping = llm_classifier.map_sections_to_categories(headings, cls)
+            categories = [mapping.get(h) or categories[i] for i, h in enumerate(headings)]
+            core = {c for c in categories if c in self.REQUIRED_CORE}
+
+        if core != self.REQUIRED_CORE:
+            strategy = "keyword_fallback"
+            for i, b in enumerate(blocks):
+                if categories[i] == "Other":
+                    blob = f"{b['heading']} {b.get('content','')[:400]}"
+                    categories[i] = self._rule_category(blob)
+        for i, b in enumerate(blocks):
+            b["category"] = categories[i]
+        return blocks, strategy
+
+    def _build_section_content(self, blocks: List[Dict]) -> Dict:
+        out = {k: "" for k in self.TARGET_CATEGORIES}
+        by_cat = defaultdict(list)
+        for b in blocks:
+            by_cat[b["category"]].append(b)
+        for cat, arr in by_cat.items():
+            ordered = sorted(arr, key=lambda x: x["line_start"])
+            out[cat] = "\n\n".join([f"### {x['heading']}\n{x['content']}".strip() for x in ordered if x.get("content") or x.get("heading")])
+
+        method_blocks = [b for b in blocks if b["category"] == "Methods"]
+        method_hierarchy = []
+        stack = []
+        for mb in sorted(method_blocks, key=lambda x: x["line_start"]):
+            node = {"heading": mb["heading"], "level": mb["heading_level"], "content": mb["content"], "children": []}
+            while stack and stack[-1]["level"] >= node["level"]:
+                stack.pop()
+            if stack:
+                stack[-1]["children"].append(node)
+            else:
+                method_hierarchy.append(node)
+            stack.append(node)
+        out["Methods_Hierarchy"] = method_hierarchy
+        return out
+
+    def parse_markdown_file(self, file_path: str) -> Tuple[Dict, List, List, List]:
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(file_path)
+        with open(file_path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+        blocks, tables, meta = self._extract_blocks(lines)
+        document_structure = {b["heading"]: b["content"] for b in blocks if b.get("content")}
+        document_structure["Metadata_Total_Pages"] = meta["declared_total_pages"]
+        document_structure["Parsed_Page_Count"] = meta["parsed_page_markers"]
+        return document_structure, [t["content"] for t in tables], [""] * len(tables), [""] * len(tables)
+
+    def segment_document(self, file_path: str, llm_classifier=None) -> Tuple[Dict, Dict]:
+        with open(file_path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+        blocks, tables, meta = self._extract_blocks(lines)
+        blocks, strategy = self._classify_blocks(blocks, llm_classifier=llm_classifier)
+        structured = self._build_section_content(blocks)
+        structured["Tables"] = tables
+        metadata = {
+            "source_file": file_path,
+            "strategy": strategy,
+            "sections_detected": sorted({b["category"] for b in blocks}),
+            "required_sections_found": sorted(self.REQUIRED_CORE.intersection({b["category"] for b in blocks})),
+            "required_sections_complete": self.REQUIRED_CORE.issubset({b["category"] for b in blocks}),
+            "page_info": meta,
+            "block_count": len(blocks),
+            "table_count": len(tables),
+            "blocks": [{k: v for k, v in b.items() if k != "content"} for b in blocks],
+        }
+        return structured, metadata
+
     def validate_sections(self, document_structure: Dict) -> Dict:
-        """
-        Validate that required sections (Methods and Results) are present.
-        
-        Args:
-            document_structure: Dictionary of section titles to content
-            
-        Returns:
-            dict: Validation results with missing sections and warnings
-        """
-        required_sections = ['Methods', 'Results']
-        section_titles = [title.lower() for title in document_structure.keys()]
-        
-        validation_result = {
-            'has_methods': False,
-            'has_results': False,
-            'missing_sections': [],
-            'warnings': []
+        text = " ".join(document_structure.keys()).lower()
+        has_m = "method" in text
+        has_r = "result" in text
+        return {
+            "has_methods": has_m,
+            "has_results": has_r,
+            "missing_sections": [x for x, ok in [("Methods", has_m), ("Results", has_r)] if not ok],
+            "warnings": [] if has_m and has_r else ["Missing required sections"],
         }
-        
-        # Check for Methods section
-        methods_keywords = ['methods', 'materials and methods', 'experimental methods', 'methodology']
-        for keyword in methods_keywords:
-            if any(keyword in title.lower() for title in document_structure.keys()):
-                validation_result['has_methods'] = True
-                break
-        
-        # Check for Results section
-        results_keywords = ['results', 'findings']
-        for keyword in results_keywords:
-            if any(keyword in title.lower() for title in document_structure.keys()):
-                validation_result['has_results'] = True
-                break
-        
-        # Record missing sections
-        if not validation_result['has_methods']:
-            validation_result['missing_sections'].append('Methods')
-        if not validation_result['has_results']:
-            validation_result['missing_sections'].append('Results')
-        
-        # Add warnings if sections are missing
-        if validation_result['missing_sections']:
-            validation_result['warnings'].append(
-                f"Missing required sections: {', '.join(validation_result['missing_sections'])}"
-            )
-        
-        return validation_result
-    
-    def save_segmentation_results(self, 
-                                 document_structure: Dict, 
-                                 tables: List, 
-                                 tables_info: List, 
-                                 tables_annotation: List,
-                                 output_dir: str,
-                                 filename: str = "segmentation_results.json") -> str:
-        """
-        Save segmentation results to JSON file.
-        
-        Args:
-            document_structure: Dictionary of section titles to content
-            tables: List of extracted tables
-            tables_info: List of table descriptions
-            tables_annotation: List of table annotations
-            output_dir: Directory to save results
-            filename: Output filename
-            
-        Returns:
-            str: Path to saved file
-        """
+
+    def save_segmentation_results(self, document_structure: Dict, tables: List, tables_info: List, tables_annotation: List, output_dir: str, filename: str = "segmentation_results.json") -> str:
         os.makedirs(output_dir, exist_ok=True)
-        
-        results = {
-            'document_structure': document_structure,
-            'tables': tables,
-            'tables_info': tables_info,
-            'tables_annotation': tables_annotation,
-            'metadata': {
-                'num_sections': len(document_structure),
-                'num_tables': len(tables),
-                'validation': self.validate_sections(document_structure)
-            }
-        }
-        
-        output_path = os.path.join(output_dir, filename)
-        with open(output_path, 'w', encoding='utf-8') as f:
-            json.dump(results, f, indent=2, ensure_ascii=False)
-        
-        logger.info(f"Segmentation results saved to: {output_path}")
-        return output_path
+        p = os.path.join(output_dir, filename)
+        with open(p, "w", encoding="utf-8") as f:
+            json.dump({"document_structure": document_structure, "tables": tables, "tables_info": tables_info, "tables_annotation": tables_annotation}, f, ensure_ascii=False, indent=2)
+        return p
+
+    def save_structured_outputs(self, structured: Dict, metadata: Dict, output_dir: str, base_name: str) -> Tuple[str, str]:
+        os.makedirs(output_dir, exist_ok=True)
+        content_path = os.path.join(output_dir, f"{base_name}_structured_content.json")
+        meta_path = os.path.join(output_dir, f"{base_name}_structured_meta.json")
+        with open(content_path, "w", encoding="utf-8") as f:
+            json.dump(structured, f, ensure_ascii=False, indent=2)
+        with open(meta_path, "w", encoding="utf-8") as f:
+            json.dump(metadata, f, ensure_ascii=False, indent=2)
+        return content_path, meta_path
