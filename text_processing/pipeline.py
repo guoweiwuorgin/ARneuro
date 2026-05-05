@@ -7,8 +7,8 @@ This module provides a complete pipeline for document segmentation and reorganiz
 import os
 import json
 from typing import Dict, List, Optional, Tuple
-from ..core.logger import get_logger
-from ..core.llm_client import LLMClientManager
+from core.logger import get_logger
+from core.llm_client import LLMClientManager
 from .document_segmentation import DocumentSegmenter
 from .heading_classifier import HeadingClassifier
 from .text_reorganizer import TextReorganizer

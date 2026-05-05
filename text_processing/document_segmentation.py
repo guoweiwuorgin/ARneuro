@@ -6,7 +6,7 @@ import re
 from collections import defaultdict
 from typing import Dict, List, Optional, Tuple
 
-from ..core.logger import get_logger
+from core.logger import get_logger
 
 logger = get_logger(__name__)
 
