@@ -98,7 +98,22 @@ class TableProcessingPipeline:
         results["tables_info"] = tables_info
 
         try:
-            categorized_tables = self.table_extractor.categorize_tables(tables_info)
+            llm_client = None
+            effective_model_name = model_name
+            if self.llm_manager:
+                try:
+                    llm_client, effective_model_name = self.llm_manager.get_client(
+                        client_type=llm_client_type,
+                        model_name=model_name
+                    )
+                except Exception as e:
+                    logger.warning(f"Failed to initialize LLM client for table categorization: {e}")
+            categorized_tables = self.table_extractor.categorize_tables(
+                tables_info,
+                llm_client=llm_client,
+                model_name=effective_model_name,
+                llm_client_type=llm_client_type
+            )
             results["categorized_tables"] = {
                 category: len(tables)
                 for category, tables in categorized_tables.items()

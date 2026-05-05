@@ -63,8 +63,6 @@ class TableExtractor:
         Returns:
             List[Dict]: List of table information dictionaries
         """
-        import re
-        
         lines = md_text.split('\n')
         tables_info = []
         
@@ -270,16 +268,12 @@ class TableExtractor:
         logger.info(f"Filtered {len(filtered_tables)} tables matching keywords: {keywords}")
         return filtered_tables
     
-    def categorize_tables(self, tables_info: List[Dict]) -> Dict[str, List[Dict]]:
-        """
-        Categorize tables by content type.
-        
-        Args:
-            tables_info: List of table information dictionaries
-            
-        Returns:
-            Dict: Tables categorized by type
-        """
+    def categorize_tables(self,
+                        tables_info: List[Dict],
+                        llm_client=None,
+                        model_name: str = 'deepseek-chat',
+                        llm_client_type: str = 'deepseek') -> Dict[str, List[Dict]]:
+        """Categorize tables by content type, with LLM-first classification for brain-activation detection."""
         categories = {
             'brain_activation': [],
             'demographic': [],
@@ -287,58 +281,125 @@ class TableExtractor:
             'methodological': [],
             'other': []
         }
-        
-        brain_keywords = ['brain', 'activation', 'coordinate', 'mni', 'talairach', 'x', 'y', 'z', 'voxel', 'cluster']
+
         demo_keywords = ['age', 'gender', 'sex', 'participant', 'subject', 'demographic']
         stat_keywords = ['p-value', 'p value', 't-value', 't value', 'f-value', 'f value', 'statistic', 'correlation', 'regression']
         method_keywords = ['method', 'procedure', 'protocol', 'parameter', 'setting', 'equipment']
-        
+
         for table_info in tables_info:
-            table_text = table_info['table_text'].lower()
-            context_text = table_info['full_context'].lower()
-            all_text = f"{table_text} {context_text}"
-            
-            categorized = False
-            
-            # Check for brain activation tables
-            for keyword in brain_keywords:
-                if keyword in all_text:
-                    categories['brain_activation'].append(table_info)
-                    categorized = True
-                    break
-            
-            if not categorized:
-                # Check for demographic tables
-                for keyword in demo_keywords:
-                    if keyword in all_text:
-                        categories['demographic'].append(table_info)
-                        categorized = True
-                        break
-            
-            if not categorized:
-                # Check for statistical tables
-                for keyword in stat_keywords:
-                    if keyword in all_text:
-                        categories['statistical'].append(table_info)
-                        categorized = True
-                        break
-            
-            if not categorized:
-                # Check for methodological tables
-                for keyword in method_keywords:
-                    if keyword in all_text:
-                        categories['methodological'].append(table_info)
-                        categorized = True
-                        break
-            
-            if not categorized:
+            table_text = table_info.get('table_text', '')
+            context_text = table_info.get('full_context', '')
+            all_text = f"{table_text} {context_text}".lower()
+
+            is_brain = False
+            if llm_client is not None:
+                try:
+                    is_brain = self._is_brain_activation_table_llm(
+                        table_text=table_text,
+                        context_text=context_text,
+                        llm_client=llm_client,
+                        model_name=model_name
+                    )
+                except Exception as e:
+                    logger.warning(f"LLM table categorization failed for table {table_info.get('table_index')}: {e}")
+
+            if is_brain:
+                categories['brain_activation'].append(table_info)
+                continue
+
+            if any(k in all_text for k in demo_keywords):
+                categories['demographic'].append(table_info)
+            elif any(k in all_text for k in stat_keywords):
+                categories['statistical'].append(table_info)
+            elif any(k in all_text for k in method_keywords):
+                categories['methodological'].append(table_info)
+            else:
                 categories['other'].append(table_info)
-        
-        # Log categorization results
+
         for category, tables in categories.items():
             logger.info(f"Category '{category}': {len(tables)} tables")
-        
         return categories
+
+    def _is_brain_activation_table_llm(self,
+                                       table_text: str,
+                                       context_text: str,
+                                       llm_client,
+                                       model_name: str = 'deepseek-chat') -> bool:
+        """Use staged LLM checks to detect whether a table reports brain activation coordinates."""
+        lines = [ln for ln in table_text.split('\n') if ln.strip()]
+        if not lines:
+            return False
+
+        stage1_lines = lines
+        if len(lines) > 10:
+            stage1_lines = lines[:5] + ['...'] + lines[-5:]
+
+        stage1_prompt = "\n".join(stage1_lines)
+        stage1_result = self._llm_brain_table_decision(
+            llm_client=llm_client,
+            model_name=model_name,
+            table_snippet=stage1_prompt,
+            context_text=context_text,
+            require_need_full=(len(lines) > 10)
+        )
+
+        if stage1_result.get('is_brain_activation', False):
+            return True
+
+        if len(lines) <= 10:
+            return False
+
+        if not stage1_result.get('need_full_scan', False):
+            return False
+
+        chunk_size = 10
+        for i in range(0, len(lines), chunk_size):
+            chunk = "\n".join(lines[i:i+chunk_size])
+            chunk_result = self._llm_brain_table_decision(
+                llm_client=llm_client,
+                model_name=model_name,
+                table_snippet=chunk,
+                context_text=context_text if i == 0 else '',
+                require_need_full=False
+            )
+            if chunk_result.get('is_brain_activation', False):
+                return True
+        return False
+
+    def _llm_brain_table_decision(self,
+                                  llm_client,
+                                  model_name: str,
+                                  table_snippet: str,
+                                  context_text: str,
+                                  require_need_full: bool) -> Dict[str, Any]:
+        """Single LLM decision call for brain-activation table classification."""
+        prompt_suffix = 'Include need_full_scan in JSON.' if require_need_full else 'Set need_full_scan to false.'
+        system_prompt = f"""You are a strict neuroscience table classifier.
+Determine ONLY whether the table reports brain activation coordinates.
+Positive only if coordinates are explicitly present (x/y/z columns, MNI/Talairach xyz triplets, or peak coordinate triplets).
+If the table is about behavior/demographic/statistics without explicit coordinates, return false.
+Return JSON only: {{\"is_brain_activation\": true|false, \"need_full_scan\": true|false}}. {prompt_suffix}"""
+
+        user_prompt = f"""Table snippet:
+{table_snippet}
+
+Context (if any):
+{context_text}"""
+        response = llm_client.chat.completions.create(
+            model=model_name,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            temperature=0,
+            response_format={"type": "json_object"},
+            max_tokens=300
+        )
+        result = json.loads(response.choices[0].message.content)
+        return {
+            'is_brain_activation': bool(result.get('is_brain_activation', False)),
+            'need_full_scan': bool(result.get('need_full_scan', False))
+        }
     
     def save_table_extraction_results(self, 
                                      tables_info: List[Dict],
