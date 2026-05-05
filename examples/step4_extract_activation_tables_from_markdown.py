@@ -33,8 +33,8 @@ def parse_args() -> argparse.Namespace:
         default=f"{PROJECT_ROOT}/examples/data/workflow/step4_activation_tables",
         help="输出目录",
     )
-    parser.add_argument("--model-name", default="kimi-for-coding")
-    parser.add_argument("--llm-client-type", default="kimichat", choices=["deepseek", "gpt4", "glm", "kimichat"])
+    parser.add_argument("--model-name", default="deepseek-chat")
+    parser.add_argument("--llm-client-type", default="deepseek", choices=["deepseek", "gpt4", "glm", "kimichat"])
     parser.add_argument("--no-llm", action="store_true", help="保留参数：当前版本分类阶段强制使用LLM，不建议开启")
     return parser.parse_args()
 
@@ -58,7 +58,7 @@ def main() -> None:
     base_config = config_manager.load_config()
     llm_cfg = base_config.get("llm", {}) if isinstance(base_config, dict) else {}
     runtime_config = dict(base_config) if isinstance(base_config, dict) else {}
-    runtime_config['kimichat_api_key'] = 'sk-kimi-6ZW5MkBQNg1KTCu4l1a5DFauQj3ReJys6enHmT5RfUNx05HFh0x68yYJlEEURZE'
+    runtime_config['deepseek_api_key'] = 'sk-e97ed8cba5234d64b19b51d3696a10d0'
     runtime_config.update({
         "model_name": args.model_name,
         "deepseek_api_key": llm_cfg.get("deepseek_api_key", runtime_config.get("deepseek_api_key")),

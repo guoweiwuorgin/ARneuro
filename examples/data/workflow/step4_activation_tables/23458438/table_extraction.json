@@ -1,0 +1,59 @@
+{
+  "total_tables": 3,
+  "tables": [
+    {
+      "table_index": 0,
+      "table_text": "<table><tr><td></td><td colspan=\"2\">Young (N = 14)</td><td colspan=\"2\">Active Old (N = 15)</td><td colspan=\"2\">Sedentary Old (N = 12)</td></tr><tr><td></td><td>M</td><td>SD</td><td>M</td><td>SD</td><td>M</td><td>SD</td></tr><tr><td>Age</td><td>24.21* \\( ^{^} \\)  \\( ^{^} \\)</td><td>4.81</td><td>68.6 \\( ^{^} \\)</td><td>6.77</td><td>69*</td><td>5.27</td></tr><tr><td>Education</td><td>16.86</td><td>2.41</td><td>16.53</td><td>2.23</td><td>15.83</td><td>2.79</td></tr><tr><td>Gender</td><td>5 female</td><td></td><td>8 female</td><td></td><td>9 female</td><td></td></tr><tr><td>Fitness</td><td>1.53* \\( ^{^} \\)  \\( ^{^} \\)</td><td>.25</td><td>.63+ \\( ^{^} \\)  \\( ^{^} \\)</td><td>.21</td><td>.42*+</td><td>.16</td></tr><tr><td>PA</td><td>147.14 \\( ^{^} \\)  \\( ^{^} \\)</td><td>79.07</td><td>312+ \\( ^{^} \\)  \\( ^{^} \\)</td><td>239.14</td><td>128.19+</td><td>128.91</td></tr><tr><td>BMI</td><td>22.84</td><td>5.24</td><td>23.45</td><td>3.21</td><td>27.05</td><td>4.75</td></tr><tr><td>MMSE</td><td>28.93</td><td>.62</td><td>29.27</td><td>.59</td><td>28.67</td><td>1.15</td></tr><tr><td>Fluency</td><td>8.86* \\( ^{^} \\)  \\( ^{^} \\)</td><td>1.14</td><td>7.67 \\( ^{^} \\)  \\( ^{^} \\)</td><td>1.05</td><td>7.52*</td><td>1.10</td></tr></table>",
+      "table_structure": {
+        "num_rows": 0,
+        "num_columns": 1,
+        "has_header": false,
+        "header_row": [
+          "<table><tr><td></td><td colspan=\"2\">Young (N = 14)</td><td colspan=\"2\">Active Old (N = 15)</td><td colspan=\"2\">Sedentary Old (N = 12)</td></tr><tr><td></td><td>M</td><td>SD</td><td>M</td><td>SD</td><td>M</td><td>SD</td></tr><tr><td>Age</td><td>24.21* \\( ^{^} \\)  \\( ^{^} \\)</td><td>4.81</td><td>68.6 \\( ^{^} \\)</td><td>6.77</td><td>69*</td><td>5.27</td></tr><tr><td>Education</td><td>16.86</td><td>2.41</td><td>16.53</td><td>2.23</td><td>15.83</td><td>2.79</td></tr><tr><td>Gender</td><td>5 female</td><td></td><td>8 female</td><td></td><td>9 female</td><td></td></tr><tr><td>Fitness</td><td>1.53* \\( ^{^} \\)  \\( ^{^} \\)</td><td>.25</td><td>.63+ \\( ^{^} \\)  \\( ^{^} \\)</td><td>.21</td><td>.42*+</td><td>.16</td></tr><tr><td>PA</td><td>147.14 \\( ^{^} \\)  \\( ^{^} \\)</td><td>79.07</td><td>312+ \\( ^{^} \\)  \\( ^{^} \\)</td><td>239.14</td><td>128.19+</td><td>128.91</td></tr><tr><td>BMI</td><td>22.84</td><td>5.24</td><td>23.45</td><td>3.21</td><td>27.05</td><td>4.75</td></tr><tr><td>MMSE</td><td>28.93</td><td>.62</td><td>29.27</td><td>.59</td><td>28.67</td><td>1.15</td></tr><tr><td>Fluency</td><td>8.86* \\( ^{^} \\)  \\( ^{^} \\)</td><td>1.14</td><td>7.67 \\( ^{^} \\)  \\( ^{^} \\)</td><td>1.05</td><td>7.52*</td><td>1.10</td></tr></table>"
+        ],
+        "data_rows": []
+      },
+      "before_context": "## Page 5\n\nTable 1. Participant demographics and behavioral characteristics\n\n",
+      "after_context": "\n\nNote. +SO ≠PAO; *YA ≠SO; ^YA ≠PAO, Bonferroni corrected, p < .05. No significant gender difference between the groups was found  \\( \\chi^{2}(2) = 4.01 \\) , p = .14. M = mean; SD = standard deviation; PA = physical activity level (LTEQ no. of minutes of strenuous and moderate physical activity per week); Fitness = distance traveled on treadmill in 12 minutes (miles); BMI = body mass index; MMSE = Mini-Mental State Examination score; Fluency = semantic fluency performance.\n\n",
+      "num_rows": 0,
+      "num_columns": 1,
+      "has_header": false
+    },
+    {
+      "table_index": 1,
+      "table_text": "<table><tr><td rowspan=\"2\"></td><td rowspan=\"2\">Cluster</td><td colspan=\"3\">Left hemisphere</td><td colspan=\"3\">Right hemisphere</td></tr><tr><td>\\( \\mu \\) L</td><td>t</td><td>X, Y, Z</td><td>\\( \\mu \\) L</td><td>t</td><td>X, Y, Z</td></tr><tr><td rowspan=\"2\">SO-PAO</td><td>SMG</td><td>918</td><td>4.63</td><td>143,81,109</td><td>0</td><td>—</td><td>—</td></tr><tr><td>LOC, AG</td><td>0</td><td>—</td><td>—</td><td>799</td><td>3.89</td><td>39,65,85</td></tr><tr><td rowspan=\"7\">YA-PAO</td><td>Left PCC, precuneus, PCG, Right PCG, posterior MTG, LOC, AG, SMG</td><td>733</td><td>-4</td><td>101,87,109</td><td>61797</td><td>-5.07</td><td>37,75,77</td></tr><tr><td>Postcentral gyrus, insula, SMG, PCG, SPL</td><td>13253</td><td>-4.82</td><td>131,99,69</td><td>0</td><td>—</td><td>—</td></tr><tr><td>Precuneus, LOC</td><td>4738</td><td>-4.24</td><td>135,55,71</td><td>0</td><td>—</td><td>—</td></tr><tr><td>Frontal pole, IFG</td><td>0</td><td>—</td><td>—</td><td>2007</td><td>-4.45</td><td>51,162,81</td></tr><tr><td>Amygdala, basal ganglia</td><td>0</td><td>—</td><td>—</td><td>2986</td><td>-4.53</td><td>67,125,59</td></tr><tr><td>Frontal pole, paracingulate gyrus</td><td>0</td><td>—</td><td>—</td><td>1693</td><td>-4.39</td><td>67,185,73</td></tr><tr><td>Postcentral gyrus, LOC, precuneus, SPL, SMG</td><td>116358</td><td>-5.87</td><td>153,111,97</td><td>167983</td><td>-5.73</td><td>71,186,81</td></tr><tr><td rowspan=\"7\">YA-SO</td><td>Frontal pole, MFG, SFG</td><td>1319</td><td>-3.93</td><td>119,151,109</td><td>0</td><td>—</td><td>—</td></tr><tr><td>Insula, putamen</td><td>1869</td><td>-4.18</td><td>117,139,71</td><td>0</td><td>—</td><td>—</td></tr><tr><td>Occipital pole</td><td>192</td><td>-3.5</td><td>91,23,79</td><td>194</td><td>-3.54</td><td>89,24,79</td></tr><tr><td>Frontal pole</td><td>765</td><td>-4.12</td><td>135,173,67</td><td>0</td><td>—</td><td>—</td></tr><tr><td>PCG &amp; SFG</td><td>0</td><td>—</td><td>—</td><td>653</td><td>-3.77</td><td>63,115,135</td></tr><tr><td>Caudate</td><td>354</td><td>2.95</td><td>100,131,89</td><td>0</td><td>—</td><td>—</td></tr></table>",
+      "table_structure": {
+        "num_rows": 0,
+        "num_columns": 1,
+        "has_header": false,
+        "header_row": [
+          "<table><tr><td rowspan=\"2\"></td><td rowspan=\"2\">Cluster</td><td colspan=\"3\">Left hemisphere</td><td colspan=\"3\">Right hemisphere</td></tr><tr><td>\\( \\mu \\) L</td><td>t</td><td>X, Y, Z</td><td>\\( \\mu \\) L</td><td>t</td><td>X, Y, Z</td></tr><tr><td rowspan=\"2\">SO-PAO</td><td>SMG</td><td>918</td><td>4.63</td><td>143,81,109</td><td>0</td><td>—</td><td>—</td></tr><tr><td>LOC, AG</td><td>0</td><td>—</td><td>—</td><td>799</td><td>3.89</td><td>39,65,85</td></tr><tr><td rowspan=\"7\">YA-PAO</td><td>Left PCC, precuneus, PCG, Right PCG, posterior MTG, LOC, AG, SMG</td><td>733</td><td>-4</td><td>101,87,109</td><td>61797</td><td>-5.07</td><td>37,75,77</td></tr><tr><td>Postcentral gyrus, insula, SMG, PCG, SPL</td><td>13253</td><td>-4.82</td><td>131,99,69</td><td>0</td><td>—</td><td>—</td></tr><tr><td>Precuneus, LOC</td><td>4738</td><td>-4.24</td><td>135,55,71</td><td>0</td><td>—</td><td>—</td></tr><tr><td>Frontal pole, IFG</td><td>0</td><td>—</td><td>—</td><td>2007</td><td>-4.45</td><td>51,162,81</td></tr><tr><td>Amygdala, basal ganglia</td><td>0</td><td>—</td><td>—</td><td>2986</td><td>-4.53</td><td>67,125,59</td></tr><tr><td>Frontal pole, paracingulate gyrus</td><td>0</td><td>—</td><td>—</td><td>1693</td><td>-4.39</td><td>67,185,73</td></tr><tr><td>Postcentral gyrus, LOC, precuneus, SPL, SMG</td><td>116358</td><td>-5.87</td><td>153,111,97</td><td>167983</td><td>-5.73</td><td>71,186,81</td></tr><tr><td rowspan=\"7\">YA-SO</td><td>Frontal pole, MFG, SFG</td><td>1319</td><td>-3.93</td><td>119,151,109</td><td>0</td><td>—</td><td>—</td></tr><tr><td>Insula, putamen</td><td>1869</td><td>-4.18</td><td>117,139,71</td><td>0</td><td>—</td><td>—</td></tr><tr><td>Occipital pole</td><td>192</td><td>-3.5</td><td>91,23,79</td><td>194</td><td>-3.54</td><td>89,24,79</td></tr><tr><td>Frontal pole</td><td>765</td><td>-4.12</td><td>135,173,67</td><td>0</td><td>—</td><td>—</td></tr><tr><td>PCG &amp; SFG</td><td>0</td><td>—</td><td>—</td><td>653</td><td>-3.77</td><td>63,115,135</td></tr><tr><td>Caudate</td><td>354</td><td>2.95</td><td>100,131,89</td><td>0</td><td>—</td><td>—</td></tr></table>"
+        ],
+        "data_rows": []
+      },
+      "before_context": "## Page 6\n\nTable 2. Between-group comparisons\n\n",
+      "after_context": "\n\nNote. Location, volume, and coordinates of peak activity, family-wise error corrected threshold of p < .05, 624 mm³ clusters, voxel-wise p < .01.\n\n",
+      "num_rows": 0,
+      "num_columns": 1,
+      "has_header": false
+    },
+    {
+      "table_index": 2,
+      "table_text": "<table><tr><td></td><td>Active old</td><td>Sedentary old</td><td>Young</td></tr><tr><td>iSP Duration (ms)</td><td>43.25 (10.79)</td><td>36 (4.7) \\( ^{*} \\)</td><td>50.9 (9.88) \\( ^{*} \\)</td></tr></table>",
+      "table_structure": {
+        "num_rows": 0,
+        "num_columns": 1,
+        "has_header": false,
+        "header_row": [
+          "<table><tr><td></td><td>Active old</td><td>Sedentary old</td><td>Young</td></tr><tr><td>iSP Duration (ms)</td><td>43.25 (10.79)</td><td>36 (4.7) \\( ^{*} \\)</td><td>50.9 (9.88) \\( ^{*} \\)</td></tr></table>"
+        ],
+        "data_rows": []
+      },
+      "before_context": "\n\nTable 3. Means and group comparisons for iSP measures\n\n",
+      "after_context": "\n\nNote. Cell values denote group means in milliseconds. Parentheses indicate standard deviation within cell. Analysis of variance contrast significance at p < .05 denoted by:  \\( ^{*} \\)  = Young vs. Sedentary.\niSP = ipsilateral silent period.\n",
+      "num_rows": 0,
+      "num_columns": 1,
+      "has_header": false
+    }
+  ]
+}

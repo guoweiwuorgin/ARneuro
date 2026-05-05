@@ -70,7 +70,7 @@ class LLMClientManager:
             
         elif client_type == 'kimichat':
             model_name = model_name or "kimi-for-coding"
-            api_key = api_key or self.config.get('kimi_api_key')
+            api_key = api_key or self.config.get('kimichat_api_key')
             
             client = OpenAI(
                 api_key=api_key,
