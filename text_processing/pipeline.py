@@ -7,8 +7,8 @@ This module provides a complete pipeline for document segmentation and reorganiz
 import os
 import json
 from typing import Dict, List, Optional, Tuple
-from ..core.logger import get_logger
-from ..core.llm_client import LLMClientManager
+from core.logger import get_logger
+from core.llm_client import LLMClientManager
 from .document_segmentation import DocumentSegmenter
 from .heading_classifier import HeadingClassifier
 from .text_reorganizer import TextReorganizer
@@ -65,44 +65,29 @@ class TextProcessingPipeline:
         if output_dir is None:
             output_dir = os.path.dirname(markdown_file)
         
-        # Step 1: Segment the document
-        document_structure, tables, tables_info, tables_annotation = self.segmenter.parse_markdown_file(markdown_file)
-        
-        # Step 2: Validate required sections
-        validation = self.segmenter.validate_sections(document_structure)
-        
-        # Step 3: Classify headings
-        section_titles = list(document_structure.keys())
-        
-        if use_llm and self.llm_manager:
-            try:
-                # Use LLM for classification
-                headings_str = ','.join(section_titles)
-                classification = self.llm_manager.classify_headings_with_llm(
-                    headings_str, 
-                    client_type=llm_client_type
-                )
-            except Exception as e:
-                logger.warning(f"LLM classification failed: {e}, using rule-based classification")
-                classification = self.classifier.classify_headings(section_titles)
-        else:
-            # Use rule-based classification
-            classification = self.classifier.classify_headings(section_titles)
-        
-        # Step 4: Map sections to categories
-        section_mapping = self.classifier.map_sections_to_categories(section_titles, classification)
-        
-        # Step 5: Reorganize document
-        reorganized_structure, metadata = self.reorganizer.reorganize_document(
-            document_structure, 
-            section_mapping
+        llm_classifier = self.classifier if (use_llm and self.llm_manager) else None
+
+        # Step 1: New layered segmentation result
+        structured_content, structured_meta = self.segmenter.segment_document(
+            markdown_file,
+            llm_classifier=llm_classifier
         )
-        
-        # Step 6: Validate reorganization
-        reorg_validation = self.reorganizer.validate_reorganization(reorganized_structure, metadata)
-        
-        # Step 7: Extract tables with context
-        table_data = self.reorganizer.extract_tables_with_context(tables, tables_info, tables_annotation)
+
+        # Backward-compatible artifacts for existing callers
+        document_structure, tables, tables_info, tables_annotation = self.segmenter.parse_markdown_file(markdown_file)
+        validation = self.segmenter.validate_sections(document_structure)
+        classification = {"strategy": structured_meta.get("strategy", "rule_based")}
+        section_mapping = {b["heading"]: b.get("category") for b in structured_meta.get("blocks", []) if b.get("heading")}
+        reorganized_structure = {
+            key: structured_content.get(key, "")
+            for key in ["Introduction", "Methods", "Results", "Discussion", "References"]
+        }
+        metadata = {"structured_meta": structured_meta}
+        reorg_validation = {
+            "required_sections_complete": structured_meta.get("required_sections_complete", False),
+            "required_sections_found": structured_meta.get("required_sections_found", []),
+        }
+        table_data = structured_content.get("Tables", [])
         
         # Step 8: Save results
         results = self._save_results(
@@ -118,7 +103,9 @@ class TextProcessingPipeline:
             metadata,
             validation,
             reorg_validation,
-            table_data
+            table_data,
+            structured_content,
+            structured_meta
         )
         
         logger.info(f"Document processing completed: {markdown_file}")
@@ -137,7 +124,9 @@ class TextProcessingPipeline:
                      metadata: Dict,
                      validation: Dict,
                      reorg_validation: Dict,
-                     table_data: List) -> Dict:
+                     table_data: List,
+                     structured_content: Dict,
+                     structured_meta: Dict) -> Dict:
         """
         Save all processing results to files.
         
@@ -183,6 +172,13 @@ class TextProcessingPipeline:
         table_file = os.path.join(output_dir, f"{base_name}_tables.json")
         with open(table_file, 'w', encoding='utf-8') as f:
             json.dump(table_data, f, indent=2, ensure_ascii=False)
+
+        structured_content_file, structured_meta_file = self.segmenter.save_structured_outputs(
+            structured=structured_content,
+            metadata=structured_meta,
+            output_dir=output_dir,
+            base_name=base_name
+        )
         
         # Create summary
         summary = {
@@ -191,7 +187,9 @@ class TextProcessingPipeline:
                 'segmentation': segmentation_file,
                 'classification': classification_file,
                 'reorganization': reorganization_file,
-                'tables': table_file
+                'tables': table_file,
+                'structured_content': structured_content_file,
+                'structured_meta': structured_meta_file,
             },
             'statistics': {
                 'num_sections': len(document_structure),

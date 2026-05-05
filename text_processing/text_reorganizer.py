@@ -6,7 +6,7 @@ This module handles reorganizing document content into predefined categories.
 
 import json
 from typing import Dict, List, Tuple, Optional
-from ..core.logger import get_logger
+from core.logger import get_logger
 
 logger = get_logger(__name__)
 

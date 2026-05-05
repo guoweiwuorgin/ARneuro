@@ -6,7 +6,7 @@ This module handles classification of document headings into predefined categori
 
 import json
 from typing import Dict, List, Optional, Tuple
-from ..core.logger import get_logger
+from core.logger import get_logger
 
 logger = get_logger(__name__)
 
