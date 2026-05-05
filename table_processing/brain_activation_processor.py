@@ -163,9 +163,7 @@ class BrainActivationProcessor:
         Returns:
             Dict: Assessment results
         """
-        if not self.llm_client:
-            logger.warning("No LLM client provided, using rule-based assessment")
-            return self._assess_brain_coordinates_rule_based(table_text, table_description)
+        client, model_name = self._require_llm_client()
         
         system_prompt = """
         You are an expert in neuroimaging data analysis. Your task is to analyze a table from a neuroscience paper and determine:
@@ -208,8 +206,8 @@ class BrainActivationProcessor:
         """
         
         try:
-            response = self.llm_client.chat.completions.create(
-                model=self.config.get('model_name', 'deepseek-chat'),
+            response = client.chat.completions.create(
+                model=model_name,
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt}
@@ -230,58 +228,12 @@ class BrainActivationProcessor:
             
         except Exception as e:
             logger.error(f"LLM assessment failed: {e}")
-            logger.warning("Falling back to rule-based assessment")
-            return self._assess_brain_coordinates_rule_based(table_text, table_description)
+            raise
     
-    def _assess_brain_coordinates_rule_based(self, 
-                                            table_text: str, 
-                                            table_description: str) -> Dict[str, Any]:
-        """
-        Rule-based assessment of brain coordinates.
-        """
-        # Check for coordinate patterns
-        coordinate_patterns = [
-            r'x\s*[=:]\s*[-+]?\d+',  # x = 12
-            r'y\s*[=:]\s*[-+]?\d+',  # y = -34
-            r'z\s*[=:]\s*[-+]?\d+',  # z = 56
-            r'MNI\s*\([-+]?\d+,\s*[-+]?\d+,\s*[-+]?\d+\)',  # MNI(12, -34, 56)
-            r'Peak\s*\([-+]?\d+,\s*[-+]?\d+,\s*[-+]?\d+\)',  # Peak(12, -34, 56)
-            r'X\s*[-+]?\d+',  # X 12
-            r'Y\s*[-+]?\d+',  # Y -34
-            r'Z\s*[-+]?\d+',  # Z 56
-        ]
-        
-        contains_coordinates = False
-        for pattern in coordinate_patterns:
-            if re.search(pattern, table_text, re.IGNORECASE) or re.search(pattern, table_description, re.IGNORECASE):
-                contains_coordinates = True
-                break
-        
-        # Extract task name from context
-        task_name = None
-        task_keywords = ['task', 'n-back', 'stroop', 'go/no-go', 'motor', 'language', 'resting-state', 'fmri', 'pet']
-        text_to_search = f"{table_description} {table_text}".lower()
-        
-        for keyword in task_keywords:
-            if keyword in text_to_search:
-                task_name = keyword
-                break
-        
-        # Extract table header (first non-empty line)
-        lines = table_text.strip().split('\n')
-        table_header = None
-        for line in lines:
-            if line.strip() and '|' in line:
-                table_header = line.strip()
-                break
-        
-        return {
-            'contains_coordinates': contains_coordinates,
-            'Task_name': task_name,
-            'reason': 'Rule-based assessment',
-            'Table_header': table_header or 'None'
-        }
-    
+    def _assess_brain_coordinates_rule_based(self, table_text: str, table_description: str) -> Dict[str, Any]:
+        """Deprecated: rule-based assessment is intentionally disabled."""
+        raise NotImplementedError("Rule-based brain coordinate assessment is disabled; use LLM-based assessment only")
+
     def fix_and_parse_table(self, 
                            table_text: str, 
                            table_description: str, 
@@ -297,9 +249,7 @@ class BrainActivationProcessor:
         Returns:
             pd.DataFrame: Parsed table data
         """
-        if not self.llm_client:
-            logger.warning("No LLM client provided, using basic parsing")
-            return self._parse_table_basic(table_text)
+        client, model_name = self._require_llm_client()
         
         system_prompt = """
         You are a professional brain imaging table data processing expert. Parse the table and return a CSV format with proper column names.
@@ -337,8 +287,8 @@ class BrainActivationProcessor:
         """
         
         try:
-            response = self.llm_client.chat.completions.create(
-                model=self.config.get('model_name', 'deepseek-chat'),
+            response = client.chat.completions.create(
+                model=model_name,
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt}
@@ -364,8 +314,28 @@ class BrainActivationProcessor:
                 
         except Exception as e:
             logger.error(f"LLM table parsing failed: {e}")
-            return self._parse_table_basic(table_text)
+            raise
     
+
+    def _require_llm_client(self):
+        """Resolve and validate an OpenAI-compatible chat client and model name."""
+        if self.llm_client is None:
+            raise ValueError("LLM client is required for table processing")
+
+        model_name = self.config.get('model_name', 'deepseek-chat')
+        client = self.llm_client
+
+        # Support passing LLMClientManager directly.
+        if hasattr(client, 'get_client') and not hasattr(client, 'chat'):
+            client_type = self.config.get('llm_client_type', 'deepseek')
+            client, resolved_model = client.get_client(client_type=client_type, model_name=model_name)
+            model_name = resolved_model or model_name
+
+        if not hasattr(client, 'chat'):
+            raise TypeError(f"Invalid LLM client object: {type(client)}; expected OpenAI-compatible client with .chat")
+
+        return client, model_name
+
     def _clean_csv_text(self, csv_text: str) -> str:
         """
         Clean CSV text from LLM response.
