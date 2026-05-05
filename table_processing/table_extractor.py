@@ -208,7 +208,7 @@ class TableExtractor:
         for i, line in enumerate(lines):
             # Remove pipes and check if only dashes, colons, and spaces remain
             clean_line = line.replace('|', '').strip()
-            if re.match(r'^[:-\s]+$', clean_line):
+            if re.match(r'^[:\-\s]+$', clean_line):
                 separator_idx = i
                 break
         
