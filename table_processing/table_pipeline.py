@@ -39,8 +39,6 @@ class TableProcessingPipeline:
         self.llm_manager = None
         if any(key in config for key in ['deepseek_api_key', 'openai_api_key', 'glm_api_key', 'kimichat_api_key']):
             self.llm_manager = LLMClientManager(config)
-            if self.llm_manager:
-                self.brain_processor.set_llm_client(self.llm_manager)
     
     def process_structured_content_file(self,
                                       structured_content_file: str,
@@ -122,6 +120,11 @@ class TableProcessingPipeline:
 
         if process_brain_tables and tables_info and self.llm_manager:
             try:
+                self.brain_processor.set_llm_client(llm_client)
+                self.brain_processor.config.update({
+                    'model_name': effective_model_name,
+                    'llm_client_type': llm_client_type
+                })
                 brain_tables_results = self._process_brain_activation_tables(
                     categorized_tables=categorized_tables if "categorized_tables" in locals() else None,
                     tables_info=tables_info,
