@@ -6,14 +6,17 @@ import argparse
 import json
 from pathlib import Path
 from typing import Dict, List
-
-from ARneuro.table_processing.table_extractor import TableExtractor
+import sys
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+from table_processing.table_extractor import TableExtractor
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="步骤4：提取激活表格")
-    parser.add_argument("--markdown-dir", default="./data/workflow/step2_markdown", help="markdown目录")
-    parser.add_argument("--output-dir", default="./data/workflow/step4_activation_tables", help="输出目录")
+    parser.add_argument("--markdown-dir", default=f"{PROJECT_ROOT}/examples/data/workflow/step2_markdown", help="markdown目录")
+    parser.add_argument("--output-dir", default=f"{PROJECT_ROOT}/examples/data/workflow/step4_activation_tables", help="输出目录")
     parser.add_argument("--context-lines", type=int, default=5)
     return parser.parse_args()
 

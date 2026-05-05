@@ -1,0 +1,151 @@
+{
+  "source_file": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\26834609.md",
+  "strategy": "rule_based",
+  "sections_detected": [
+    "Acknowledgements",
+    "Author",
+    "Discussion",
+    "Introduction",
+    "Methods",
+    "Other",
+    "References",
+    "Results",
+    "Title"
+  ],
+  "required_sections_found": [
+    "Discussion",
+    "Introduction",
+    "Methods",
+    "References",
+    "Results"
+  ],
+  "required_sections_complete": true,
+  "page_info": {
+    "declared_total_pages": 12,
+    "parsed_page_markers": 12
+  },
+  "block_count": 20,
+  "table_count": 3,
+  "blocks": [
+    {
+      "heading": "26834609",
+      "heading_level": 1,
+      "line_start": 1,
+      "category": "Title"
+    },
+    {
+      "heading": "Neural Correlates of Morphological Processing: Evidence from Chinese",
+      "heading_level": 1,
+      "line_start": 13,
+      "category": "Other"
+    },
+    {
+      "heading": "INTRODUCTION",
+      "heading_level": 2,
+      "line_start": 28,
+      "category": "Introduction"
+    },
+    {
+      "heading": "METHODS",
+      "heading_level": 2,
+      "line_start": 70,
+      "category": "Methods"
+    },
+    {
+      "heading": "Participants",
+      "heading_level": 2,
+      "line_start": 73,
+      "category": "Methods"
+    },
+    {
+      "heading": "Stimuli",
+      "heading_level": 2,
+      "line_start": 79,
+      "category": "Other"
+    },
+    {
+      "heading": "Procedure",
+      "heading_level": 2,
+      "line_start": 97,
+      "category": "Other"
+    },
+    {
+      "heading": "Imaging Parameters",
+      "heading_level": 2,
+      "line_start": 109,
+      "category": "Other"
+    },
+    {
+      "heading": "Data Analysis",
+      "heading_level": 2,
+      "line_start": 115,
+      "category": "Other"
+    },
+    {
+      "heading": "RESULTS",
+      "heading_level": 2,
+      "line_start": 136,
+      "category": "Results"
+    },
+    {
+      "heading": "Behavioral Results",
+      "heading_level": 2,
+      "line_start": 139,
+      "category": "Results"
+    },
+    {
+      "heading": "Imaging Results",
+      "heading_level": 2,
+      "line_start": 145,
+      "category": "Results"
+    },
+    {
+      "heading": "Overall Brain Activation",
+      "heading_level": 2,
+      "line_start": 148,
+      "category": "Other"
+    },
+    {
+      "heading": "Neural Correlates of Morphological Processing",
+      "heading_level": 2,
+      "line_start": 154,
+      "category": "Other"
+    },
+    {
+      "heading": "DISCUSSION",
+      "heading_level": 2,
+      "line_start": 292,
+      "category": "Discussion"
+    },
+    {
+      "heading": "CONCLUSION",
+      "heading_level": 2,
+      "line_start": 322,
+      "category": "Discussion"
+    },
+    {
+      "heading": "AUTHOR CONTRIBUTIONS",
+      "heading_level": 2,
+      "line_start": 337,
+      "category": "Author"
+    },
+    {
+      "heading": "ACKNOWLEDGMENTS",
+      "heading_level": 2,
+      "line_start": 343,
+      "category": "Acknowledgements"
+    },
+    {
+      "heading": "REFERENCES",
+      "heading_level": 2,
+      "line_start": 349,
+      "category": "References"
+    },
+    {
+      "heading": "SUPPLEMENTARY MATERIAL",
+      "heading_level": 2,
+      "line_start": 397,
+      "category": "Other"
+    }
+  ]
+}

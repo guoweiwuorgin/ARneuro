@@ -1,0 +1,16 @@
+{
+  "documents": 6,
+  "global_part_counter": {
+    "Title": 6,
+    "Author": 5,
+    "Keywords": 0,
+    "Abstract": 4,
+    "Introduction": 6,
+    "Methods": 6,
+    "Results": 6,
+    "Discussion": 6,
+    "References": 6,
+    "Acknowledgements": 5,
+    "Other": 6
+  }
+}

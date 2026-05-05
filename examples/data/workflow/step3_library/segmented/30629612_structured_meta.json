@@ -1,0 +1,176 @@
+{
+  "source_file": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\30629612.md",
+  "strategy": "rule_based",
+  "sections_detected": [
+    "Abstract",
+    "Acknowledgements",
+    "Author",
+    "Discussion",
+    "Introduction",
+    "Methods",
+    "Other",
+    "References",
+    "Results",
+    "Title"
+  ],
+  "required_sections_found": [
+    "Discussion",
+    "Introduction",
+    "Methods",
+    "References",
+    "Results"
+  ],
+  "required_sections_complete": true,
+  "page_info": {
+    "declared_total_pages": 18,
+    "parsed_page_markers": 18
+  },
+  "block_count": 24,
+  "table_count": 2,
+  "blocks": [
+    {
+      "heading": "30629612",
+      "heading_level": 1,
+      "line_start": 1,
+      "category": "Title"
+    },
+    {
+      "heading": "Embedded word priming elicits enhanced fMRI responses in the visual word form area",
+      "heading_level": 1,
+      "line_start": 16,
+      "category": "Other"
+    },
+    {
+      "heading": "OPEN ACCESS",
+      "heading_level": 2,
+      "line_start": 32,
+      "category": "Other"
+    },
+    {
+      "heading": "Abstract",
+      "heading_level": 2,
+      "line_start": 62,
+      "category": "Abstract"
+    },
+    {
+      "heading": "Introduction",
+      "heading_level": 2,
+      "line_start": 68,
+      "category": "Introduction"
+    },
+    {
+      "heading": "Methods",
+      "heading_level": 2,
+      "line_start": 107,
+      "category": "Methods"
+    },
+    {
+      "heading": "Participants",
+      "heading_level": 2,
+      "line_start": 110,
+      "category": "Methods"
+    },
+    {
+      "heading": "Stimulus apparatus",
+      "heading_level": 2,
+      "line_start": 116,
+      "category": "Other"
+    },
+    {
+      "heading": "Main experiments",
+      "heading_level": 2,
+      "line_start": 122,
+      "category": "Other"
+    },
+    {
+      "heading": "Localizer scans",
+      "heading_level": 2,
+      "line_start": 168,
+      "category": "Other"
+    },
+    {
+      "heading": "fMRI data acquisition",
+      "heading_level": 2,
+      "line_start": 174,
+      "category": "Other"
+    },
+    {
+      "heading": "fMRI data preprocessing",
+      "heading_level": 2,
+      "line_start": 180,
+      "category": "Other"
+    },
+    {
+      "heading": "fMRI data analysis",
+      "heading_level": 2,
+      "line_start": 195,
+      "category": "Other"
+    },
+    {
+      "heading": "Results",
+      "heading_level": 2,
+      "line_start": 207,
+      "category": "Results"
+    },
+    {
+      "heading": "Whole-brain analyses",
+      "heading_level": 2,
+      "line_start": 210,
+      "category": "Other"
+    },
+    {
+      "heading": "ROI analyses",
+      "heading_level": 2,
+      "line_start": 268,
+      "category": "Other"
+    },
+    {
+      "heading": "Discussion",
+      "heading_level": 2,
+      "line_start": 323,
+      "category": "Discussion"
+    },
+    {
+      "heading": "fMRI repetition enhancement and lexical competition",
+      "heading_level": 2,
+      "line_start": 338,
+      "category": "Other"
+    },
+    {
+      "heading": "Hemifield-dependent enhancement in the VWFA",
+      "heading_level": 2,
+      "line_start": 368,
+      "category": "Other"
+    },
+    {
+      "heading": "Beyond the VWFA",
+      "heading_level": 2,
+      "line_start": 389,
+      "category": "Other"
+    },
+    {
+      "heading": "Supporting information",
+      "heading_level": 2,
+      "line_start": 410,
+      "category": "Other"
+    },
+    {
+      "heading": "Acknowledgments",
+      "heading_level": 2,
+      "line_start": 420,
+      "category": "Acknowledgements"
+    },
+    {
+      "heading": "Author Contributions",
+      "heading_level": 2,
+      "line_start": 432,
+      "category": "Author"
+    },
+    {
+      "heading": "References",
+      "heading_level": 2,
+      "line_start": 468,
+      "category": "References"
+    }
+  ]
+}

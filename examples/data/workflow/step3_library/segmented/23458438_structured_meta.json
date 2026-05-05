@@ -1,0 +1,199 @@
+{
+  "source_file": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\23458438.md",
+  "strategy": "rule_based",
+  "sections_detected": [
+    "Abstract",
+    "Acknowledgements",
+    "Discussion",
+    "Introduction",
+    "Methods",
+    "Other",
+    "References",
+    "Results",
+    "Title"
+  ],
+  "required_sections_found": [
+    "Discussion",
+    "Introduction",
+    "Methods",
+    "References",
+    "Results"
+  ],
+  "required_sections_complete": true,
+  "page_info": {
+    "declared_total_pages": 10,
+    "parsed_page_markers": 10
+  },
+  "block_count": 28,
+  "table_count": 3,
+  "blocks": [
+    {
+      "heading": "23458438",
+      "heading_level": 1,
+      "line_start": 1,
+      "category": "Title"
+    },
+    {
+      "heading": "Functional Language Networks in Sedentary and Physically Active Older Adults",
+      "heading_level": 1,
+      "line_start": 13,
+      "category": "Other"
+    },
+    {
+      "heading": "Abstract",
+      "heading_level": 2,
+      "line_start": 40,
+      "category": "Abstract"
+    },
+    {
+      "heading": "INTRODUCTION",
+      "heading_level": 2,
+      "line_start": 49,
+      "category": "Introduction"
+    },
+    {
+      "heading": "METHODS",
+      "heading_level": 2,
+      "line_start": 76,
+      "category": "Methods"
+    },
+    {
+      "heading": "Participants",
+      "heading_level": 2,
+      "line_start": 79,
+      "category": "Methods"
+    },
+    {
+      "heading": "Inclusion Criteria",
+      "heading_level": 2,
+      "line_start": 85,
+      "category": "Other"
+    },
+    {
+      "heading": "Physical Activity Assessment and Group Assignment",
+      "heading_level": 2,
+      "line_start": 100,
+      "category": "Other"
+    },
+    {
+      "heading": "Magnetic Resonance Image Acquisition",
+      "heading_level": 2,
+      "line_start": 109,
+      "category": "Other"
+    },
+    {
+      "heading": "fMRI task: Semantic Fluency",
+      "heading_level": 2,
+      "line_start": 115,
+      "category": "Other"
+    },
+    {
+      "heading": "Single-Pulse Transcranial Magnetic Stimulation",
+      "heading_level": 2,
+      "line_start": 124,
+      "category": "Other"
+    },
+    {
+      "heading": "PROCEDURE",
+      "heading_level": 2,
+      "line_start": 139,
+      "category": "Other"
+    },
+    {
+      "heading": "ANALYSES",
+      "heading_level": 2,
+      "line_start": 148,
+      "category": "Other"
+    },
+    {
+      "heading": "Semantic Fluency Outside the Scanner",
+      "heading_level": 2,
+      "line_start": 151,
+      "category": "Other"
+    },
+    {
+      "heading": "FMRI Image Processing",
+      "heading_level": 2,
+      "line_start": 157,
+      "category": "Other"
+    },
+    {
+      "heading": "Within-group comparisons against baseline",
+      "heading_level": 2,
+      "line_start": 163,
+      "category": "Other"
+    },
+    {
+      "heading": "Between-group comparisons",
+      "heading_level": 2,
+      "line_start": 169,
+      "category": "Other"
+    },
+    {
+      "heading": "ROI Analyses",
+      "heading_level": 2,
+      "line_start": 175,
+      "category": "Other"
+    },
+    {
+      "heading": "RESULTS",
+      "heading_level": 2,
+      "line_start": 208,
+      "category": "Results"
+    },
+    {
+      "heading": "Confirmation of Self-Reported Physical Activity Levels",
+      "heading_level": 2,
+      "line_start": 211,
+      "category": "Other"
+    },
+    {
+      "heading": "Semantic Fluency Outside the Scanner",
+      "heading_level": 2,
+      "line_start": 217,
+      "category": "Other"
+    },
+    {
+      "heading": "FMRI Task: Semantic Fluency",
+      "heading_level": 2,
+      "line_start": 223,
+      "category": "Other"
+    },
+    {
+      "heading": "Group comparisons",
+      "heading_level": 2,
+      "line_start": 226,
+      "category": "Other"
+    },
+    {
+      "heading": "ROI analyses",
+      "heading_level": 2,
+      "line_start": 260,
+      "category": "Other"
+    },
+    {
+      "heading": "TMS results",
+      "heading_level": 2,
+      "line_start": 269,
+      "category": "Results"
+    },
+    {
+      "heading": "DISCUSSION",
+      "heading_level": 2,
+      "line_start": 275,
+      "category": "Discussion"
+    },
+    {
+      "heading": "ACKNOWLEDGMENTS",
+      "heading_level": 2,
+      "line_start": 376,
+      "category": "Acknowledgements"
+    },
+    {
+      "heading": "REFERENCES",
+      "heading_level": 2,
+      "line_start": 388,
+      "category": "References"
+    }
+  ]
+}

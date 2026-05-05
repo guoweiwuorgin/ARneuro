@@ -1,0 +1,9 @@
+2026-05-05 13:27:20,407 - ARneuro - INFO - Extracting tables from: D:\app\Tools\ARneuro\examples\data\workflow\step2_markdown\23458438.md
+2026-05-05 13:27:20,408 - ARneuro - INFO - Extracted 0 tables from text
+2026-05-05 13:27:21,383 - ARneuro - INFO - Category 'brain_activation': 0 tables
+2026-05-05 13:27:21,383 - ARneuro - INFO - Category 'demographic': 0 tables
+2026-05-05 13:27:21,384 - ARneuro - INFO - Category 'statistical': 0 tables
+2026-05-05 13:27:21,384 - ARneuro - INFO - Category 'methodological': 0 tables
+2026-05-05 13:27:21,384 - ARneuro - INFO - Category 'other': 0 tables
+2026-05-05 13:32:10,529 - ARneuro - INFO - Extracting tables from: D:\app\Tools\ARneuro\examples\data\workflow\step2_markdown\23458438.md
+2026-05-05 13:32:10,542 - ARneuro - INFO - Extracted 0 tables from text

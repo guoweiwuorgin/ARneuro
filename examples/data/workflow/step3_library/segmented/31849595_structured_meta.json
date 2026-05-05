@@ -1,0 +1,199 @@
+{
+  "source_file": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\31849595.md",
+  "strategy": "rule_based",
+  "sections_detected": [
+    "Acknowledgements",
+    "Author",
+    "Discussion",
+    "Introduction",
+    "Methods",
+    "Other",
+    "References",
+    "Results",
+    "Title"
+  ],
+  "required_sections_found": [
+    "Discussion",
+    "Introduction",
+    "Methods",
+    "References",
+    "Results"
+  ],
+  "required_sections_complete": true,
+  "page_info": {
+    "declared_total_pages": 19,
+    "parsed_page_markers": 19
+  },
+  "block_count": 28,
+  "table_count": 5,
+  "blocks": [
+    {
+      "heading": "31849595",
+      "heading_level": 1,
+      "line_start": 1,
+      "category": "Title"
+    },
+    {
+      "heading": "Children With Dyslexia and Familial Risk for Dyslexia Present Atypical Development of the Neuronal Phonological Network",
+      "heading_level": 1,
+      "line_start": 13,
+      "category": "Other"
+    },
+    {
+      "heading": "OPEN ACCESS",
+      "heading_level": 2,
+      "line_start": 22,
+      "category": "Other"
+    },
+    {
+      "heading": "INTRODUCTION",
+      "heading_level": 2,
+      "line_start": 65,
+      "category": "Introduction"
+    },
+    {
+      "heading": "MATERIALS AND METHODS",
+      "heading_level": 2,
+      "line_start": 89,
+      "category": "Methods"
+    },
+    {
+      "heading": "Participants",
+      "heading_level": 2,
+      "line_start": 92,
+      "category": "Methods"
+    },
+    {
+      "heading": "Experimental Design: Behavioral Measures",
+      "heading_level": 2,
+      "line_start": 250,
+      "category": "Methods"
+    },
+    {
+      "heading": "Statistical Analyses",
+      "heading_level": 2,
+      "line_start": 289,
+      "category": "Methods"
+    },
+    {
+      "heading": "Experimental Design: fMRI Tasks",
+      "heading_level": 2,
+      "line_start": 365,
+      "category": "Methods"
+    },
+    {
+      "heading": "RESULTS",
+      "heading_level": 2,
+      "line_start": 391,
+      "category": "Results"
+    },
+    {
+      "heading": "Effects of Dyslexia",
+      "heading_level": 2,
+      "line_start": 394,
+      "category": "Other"
+    },
+    {
+      "heading": "Behavioral Results",
+      "heading_level": 2,
+      "line_start": 397,
+      "category": "Results"
+    },
+    {
+      "heading": "In-Scanner Performance",
+      "heading_level": 2,
+      "line_start": 403,
+      "category": "Other"
+    },
+    {
+      "heading": "fMRI Results",
+      "heading_level": 2,
+      "line_start": 409,
+      "category": "Results"
+    },
+    {
+      "heading": "Effects of Familial History of Dyslexia Behavioral Results",
+      "heading_level": 2,
+      "line_start": 462,
+      "category": "Results"
+    },
+    {
+      "heading": "In-Scanner Performance",
+      "heading_level": 2,
+      "line_start": 485,
+      "category": "Other"
+    },
+    {
+      "heading": "fMRI Results",
+      "heading_level": 2,
+      "line_start": 491,
+      "category": "Results"
+    },
+    {
+      "heading": "DISCUSSION",
+      "heading_level": 2,
+      "line_start": 526,
+      "category": "Discussion"
+    },
+    {
+      "heading": "Effects of Dyslexia",
+      "heading_level": 2,
+      "line_start": 529,
+      "category": "Other"
+    },
+    {
+      "heading": "Effects of Familial History of Dyslexia",
+      "heading_level": 2,
+      "line_start": 611,
+      "category": "Other"
+    },
+    {
+      "heading": "Limitations",
+      "heading_level": 2,
+      "line_start": 638,
+      "category": "Discussion"
+    },
+    {
+      "heading": "CONCLUSION",
+      "heading_level": 2,
+      "line_start": 656,
+      "category": "Discussion"
+    },
+    {
+      "heading": "DATA AVAILABILITY STATEMENT",
+      "heading_level": 2,
+      "line_start": 662,
+      "category": "Other"
+    },
+    {
+      "heading": "ETHICS STATEMENT",
+      "heading_level": 2,
+      "line_start": 668,
+      "category": "Other"
+    },
+    {
+      "heading": "AUTHOR CONTRIBUTIONS",
+      "heading_level": 2,
+      "line_start": 674,
+      "category": "Author"
+    },
+    {
+      "heading": "FUNDING",
+      "heading_level": 2,
+      "line_start": 689,
+      "category": "Acknowledgements"
+    },
+    {
+      "heading": "REFERENCES",
+      "heading_level": 2,
+      "line_start": 695,
+      "category": "References"
+    },
+    {
+      "heading": "SUPPLEMENTARY MATERIAL",
+      "heading_level": 2,
+      "line_start": 743,
+      "category": "Other"
+    }
+  ]
+}

@@ -10,7 +10,7 @@ import re
 import json
 import pandas as pd
 from typing import List, Dict, Tuple, Optional, Any
-from ..core.logger import get_logger
+from core.logger import get_logger
 
 logger = get_logger(__name__)
 

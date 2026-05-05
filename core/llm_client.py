@@ -7,7 +7,7 @@ This module provides LLM client management for various providers.
 import os
 from typing import Optional, Tuple
 from openai import OpenAI
-from ..core.logger import get_logger
+from .logger import get_logger
 
 logger = get_logger(__name__)
 

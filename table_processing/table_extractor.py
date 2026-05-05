@@ -7,7 +7,7 @@ This module extracts tables from markdown documents.
 import os
 import json
 from typing import List, Dict, Optional, Tuple
-from ..core.logger import get_logger
+from core.logger import get_logger
 
 logger = get_logger(__name__)
 

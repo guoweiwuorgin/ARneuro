@@ -1,0 +1,124 @@
+[
+  {
+    "markdown": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\23458438.md",
+    "structured_content_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\23458438_structured_content.json",
+    "structured_meta_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\23458438_structured_meta.json",
+    "required_sections_complete": true,
+    "strategy": "rule_based",
+    "num_blocks": 28,
+    "num_tables": 3,
+    "part_counter": {
+      "Abstract": 1,
+      "Acknowledgements": 1,
+      "Discussion": 1,
+      "Introduction": 1,
+      "Methods": 1,
+      "Other": 1,
+      "References": 1,
+      "Results": 1,
+      "Title": 1
+    }
+  },
+  {
+    "markdown": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\24244653.md",
+    "structured_content_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\24244653_structured_content.json",
+    "structured_meta_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\24244653_structured_meta.json",
+    "required_sections_complete": true,
+    "strategy": "rule_based",
+    "num_blocks": 21,
+    "num_tables": 6,
+    "part_counter": {
+      "Abstract": 1,
+      "Author": 1,
+      "Discussion": 1,
+      "Introduction": 1,
+      "Methods": 1,
+      "Other": 1,
+      "References": 1,
+      "Results": 1,
+      "Title": 1
+    }
+  },
+  {
+    "markdown": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\26834609.md",
+    "structured_content_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\26834609_structured_content.json",
+    "structured_meta_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\26834609_structured_meta.json",
+    "required_sections_complete": true,
+    "strategy": "rule_based",
+    "num_blocks": 20,
+    "num_tables": 3,
+    "part_counter": {
+      "Acknowledgements": 1,
+      "Author": 1,
+      "Discussion": 1,
+      "Introduction": 1,
+      "Methods": 1,
+      "Other": 1,
+      "References": 1,
+      "Results": 1,
+      "Title": 1
+    }
+  },
+  {
+    "markdown": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\27583349.md",
+    "structured_content_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\27583349_structured_content.json",
+    "structured_meta_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\27583349_structured_meta.json",
+    "required_sections_complete": true,
+    "strategy": "rule_based",
+    "num_blocks": 22,
+    "num_tables": 2,
+    "part_counter": {
+      "Abstract": 1,
+      "Acknowledgements": 1,
+      "Author": 1,
+      "Discussion": 1,
+      "Introduction": 1,
+      "Methods": 1,
+      "Other": 1,
+      "References": 1,
+      "Results": 1,
+      "Title": 1
+    }
+  },
+  {
+    "markdown": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\30629612.md",
+    "structured_content_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\30629612_structured_content.json",
+    "structured_meta_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\30629612_structured_meta.json",
+    "required_sections_complete": true,
+    "strategy": "rule_based",
+    "num_blocks": 24,
+    "num_tables": 2,
+    "part_counter": {
+      "Abstract": 1,
+      "Acknowledgements": 1,
+      "Author": 1,
+      "Discussion": 1,
+      "Introduction": 1,
+      "Methods": 1,
+      "Other": 1,
+      "References": 1,
+      "Results": 1,
+      "Title": 1
+    }
+  },
+  {
+    "markdown": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\31849595.md",
+    "structured_content_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\31849595_structured_content.json",
+    "structured_meta_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\31849595_structured_meta.json",
+    "required_sections_complete": true,
+    "strategy": "rule_based",
+    "num_blocks": 28,
+    "num_tables": 5,
+    "part_counter": {
+      "Acknowledgements": 1,
+      "Author": 1,
+      "Discussion": 1,
+      "Introduction": 1,
+      "Methods": 1,
+      "Other": 1,
+      "References": 1,
+      "Results": 1,
+      "Title": 1
+    }
+  }
+]

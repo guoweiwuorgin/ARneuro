@@ -7,8 +7,7 @@ import json
 from collections import Counter
 from pathlib import Path
 from typing import Dict, List
-from text_processing.document_segmentation import DocumentSegmenter
-
+import sys
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
@@ -33,8 +32,8 @@ CANONICAL_PARTS = [
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="步骤3：文档分割与文档库构建")
-    parser.add_argument("--markdown-dir", default="./data/workflow/step2_markdown", help="步骤2产出的markdown目录")
-    parser.add_argument("--output-dir", default="./data/workflow/step3_library", help="文档库输出目录")
+    parser.add_argument("--markdown-dir", default=f"{PROJECT_ROOT}/examples/data/workflow/step2_markdown", help="步骤2产出的markdown目录")
+    parser.add_argument("--output-dir", default=f"{PROJECT_ROOT}/examples/data/workflow/step3_library", help="文档库输出目录")
     return parser.parse_args()
 
 

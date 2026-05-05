@@ -1,0 +1,157 @@
+{
+  "source_file": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\24244653.md",
+  "strategy": "rule_based",
+  "sections_detected": [
+    "Abstract",
+    "Author",
+    "Discussion",
+    "Introduction",
+    "Methods",
+    "Other",
+    "References",
+    "Results",
+    "Title"
+  ],
+  "required_sections_found": [
+    "Discussion",
+    "Introduction",
+    "Methods",
+    "References",
+    "Results"
+  ],
+  "required_sections_complete": true,
+  "page_info": {
+    "declared_total_pages": 11,
+    "parsed_page_markers": 11
+  },
+  "block_count": 21,
+  "table_count": 6,
+  "blocks": [
+    {
+      "heading": "24244653",
+      "heading_level": 1,
+      "line_start": 1,
+      "category": "Title"
+    },
+    {
+      "heading": "Large Scale Brain Functional Networks Support Sentence Comprehension: Evidence from Both Explicit and Implicit Language Tasks",
+      "heading_level": 1,
+      "line_start": 13,
+      "category": "Other"
+    },
+    {
+      "heading": "Abstract",
+      "heading_level": 2,
+      "line_start": 22,
+      "category": "Abstract"
+    },
+    {
+      "heading": "Introduction",
+      "heading_level": 2,
+      "line_start": 52,
+      "category": "Introduction"
+    },
+    {
+      "heading": "Methods",
+      "heading_level": 2,
+      "line_start": 79,
+      "category": "Methods"
+    },
+    {
+      "heading": "Subjects",
+      "heading_level": 2,
+      "line_start": 82,
+      "category": "Methods"
+    },
+    {
+      "heading": "Stimuli",
+      "heading_level": 2,
+      "line_start": 88,
+      "category": "Other"
+    },
+    {
+      "heading": "Procedure",
+      "heading_level": 2,
+      "line_start": 119,
+      "category": "Other"
+    },
+    {
+      "heading": "BOLD-fMRI data acquisition",
+      "heading_level": 2,
+      "line_start": 131,
+      "category": "Other"
+    },
+    {
+      "heading": "Data preprocessing",
+      "heading_level": 2,
+      "line_start": 149,
+      "category": "Other"
+    },
+    {
+      "heading": "Network analyses",
+      "heading_level": 2,
+      "line_start": 158,
+      "category": "Other"
+    },
+    {
+      "heading": "Statistical analyses",
+      "heading_level": 2,
+      "line_start": 220,
+      "category": "Methods"
+    },
+    {
+      "heading": "Results",
+      "heading_level": 2,
+      "line_start": 226,
+      "category": "Results"
+    },
+    {
+      "heading": "Behavioral performance",
+      "heading_level": 2,
+      "line_start": 229,
+      "category": "Other"
+    },
+    {
+      "heading": "Small-world properties",
+      "heading_level": 2,
+      "line_start": 274,
+      "category": "Other"
+    },
+    {
+      "heading": "Network hubs",
+      "heading_level": 2,
+      "line_start": 283,
+      "category": "Other"
+    },
+    {
+      "heading": "Task related changes in betweenness",
+      "heading_level": 2,
+      "line_start": 313,
+      "category": "Other"
+    },
+    {
+      "heading": "Discussion",
+      "heading_level": 2,
+      "line_start": 319,
+      "category": "Discussion"
+    },
+    {
+      "heading": "Supporting Information",
+      "heading_level": 2,
+      "line_start": 404,
+      "category": "Other"
+    },
+    {
+      "heading": "References",
+      "heading_level": 2,
+      "line_start": 420,
+      "category": "References"
+    },
+    {
+      "heading": "Author Contributions",
+      "heading_level": 2,
+      "line_start": 510,
+      "category": "Author"
+    }
+  ]
+}

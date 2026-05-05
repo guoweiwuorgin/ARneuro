@@ -8,8 +8,8 @@ import os
 import json
 import pandas as pd
 from typing import List, Dict, Optional, Any
-from ..core.logger import get_logger
-from ..core.llm_client import LLMClientManager
+from core.logger import get_logger
+from core.llm_client import LLMClientManager
 from .table_extractor import TableExtractor
 from .brain_activation_processor import BrainActivationProcessor
 

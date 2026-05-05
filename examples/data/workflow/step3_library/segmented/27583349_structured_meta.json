@@ -1,0 +1,164 @@
+{
+  "source_file": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\27583349.md",
+  "strategy": "rule_based",
+  "sections_detected": [
+    "Abstract",
+    "Acknowledgements",
+    "Author",
+    "Discussion",
+    "Introduction",
+    "Methods",
+    "Other",
+    "References",
+    "Results",
+    "Title"
+  ],
+  "required_sections_found": [
+    "Discussion",
+    "Introduction",
+    "Methods",
+    "References",
+    "Results"
+  ],
+  "required_sections_complete": true,
+  "page_info": {
+    "declared_total_pages": 13,
+    "parsed_page_markers": 13
+  },
+  "block_count": 22,
+  "table_count": 2,
+  "blocks": [
+    {
+      "heading": "27583349",
+      "heading_level": 1,
+      "line_start": 1,
+      "category": "Title"
+    },
+    {
+      "heading": "The Brain Effective Connectivity of Chinese during Rhyming Task",
+      "heading_level": 1,
+      "line_start": 16,
+      "category": "Other"
+    },
+    {
+      "heading": "OPEN ACCESS",
+      "heading_level": 2,
+      "line_start": 37,
+      "category": "Other"
+    },
+    {
+      "heading": "Abstract",
+      "heading_level": 2,
+      "line_start": 64,
+      "category": "Abstract"
+    },
+    {
+      "heading": "Introduction",
+      "heading_level": 2,
+      "line_start": 70,
+      "category": "Introduction"
+    },
+    {
+      "heading": "Materials and Method",
+      "heading_level": 2,
+      "line_start": 118,
+      "category": "Other"
+    },
+    {
+      "heading": "Participants",
+      "heading_level": 2,
+      "line_start": 121,
+      "category": "Methods"
+    },
+    {
+      "heading": "Stimuli and tasks",
+      "heading_level": 2,
+      "line_start": 127,
+      "category": "Other"
+    },
+    {
+      "heading": "Experimental procedure",
+      "heading_level": 2,
+      "line_start": 156,
+      "category": "Methods"
+    },
+    {
+      "heading": "Image acquisition",
+      "heading_level": 2,
+      "line_start": 165,
+      "category": "Other"
+    },
+    {
+      "heading": "fMRI Data Analysis",
+      "heading_level": 2,
+      "line_start": 180,
+      "category": "Other"
+    },
+    {
+      "heading": "Effective connectivity analysis",
+      "heading_level": 2,
+      "line_start": 189,
+      "category": "Other"
+    },
+    {
+      "heading": "Results",
+      "heading_level": 2,
+      "line_start": 213,
+      "category": "Results"
+    },
+    {
+      "heading": "Behavioral result",
+      "heading_level": 2,
+      "line_start": 216,
+      "category": "Other"
+    },
+    {
+      "heading": "Imaging result",
+      "heading_level": 2,
+      "line_start": 222,
+      "category": "Other"
+    },
+    {
+      "heading": "Effective connectivity analysis results",
+      "heading_level": 2,
+      "line_start": 231,
+      "category": "Results"
+    },
+    {
+      "heading": "Discussion",
+      "heading_level": 2,
+      "line_start": 254,
+      "category": "Discussion"
+    },
+    {
+      "heading": "Limitation and Future Work",
+      "heading_level": 2,
+      "line_start": 324,
+      "category": "Other"
+    },
+    {
+      "heading": "Supporting Information",
+      "heading_level": 2,
+      "line_start": 339,
+      "category": "Other"
+    },
+    {
+      "heading": "Acknowledgments",
+      "heading_level": 2,
+      "line_start": 349,
+      "category": "Acknowledgements"
+    },
+    {
+      "heading": "Author Contributions",
+      "heading_level": 2,
+      "line_start": 355,
+      "category": "Author"
+    },
+    {
+      "heading": "References",
+      "heading_level": 2,
+      "line_start": 373,
+      "category": "References"
+    }
+  ]
+}
