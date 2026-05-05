@@ -1,0 +1,7 @@
+pdf,status,markdown,pages_processed,processing_time,error
+data/pdfs/23458438.pdf,success,data/workflow/step2_markdown/23458438.md,10,458.04,
+data/pdfs/24244653.pdf,success,data/workflow/step2_markdown/24244653.md,11,569.73,
+data/pdfs/26834609.pdf,success,data/workflow/step2_markdown/26834609.md,12,636.82,
+data/pdfs/27583349.pdf,success,data/workflow/step2_markdown/27583349.md,13,455.02,
+data/pdfs/30629612.pdf,success,data/workflow/step2_markdown/30629612.md,18,661.32,
+data/pdfs/31849595.pdf,success,data/workflow/step2_markdown/31849595.md,19,852.69,

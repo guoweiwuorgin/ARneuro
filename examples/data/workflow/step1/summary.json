@@ -1,0 +1,11 @@
+{
+  "total": 40,
+  "included": 27,
+  "excluded": 13,
+  "downloaded": 5,
+  "output": {
+    "csv": "data/workflow/step1/screening_results.csv",
+    "json": "data/workflow/step1/screening_results.json",
+    "included_pmids": "data/workflow/step1/included_pmids.txt"
+  }
+}

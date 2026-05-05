@@ -6,6 +6,7 @@ This module handles parsing markdown files and extracting structured content.
 
 import os
 import json
+import re
 from typing import Dict, List, Tuple, Optional
 from ..core.logger import get_logger
 
@@ -29,10 +30,11 @@ class DocumentSegmenter:
     def parse_markdown_file(self, file_path: str) -> Tuple[Dict, List, List, List]:
         """
         Parse a Markdown file, extract different sections, and store:
-          - All tables
-          - Table descriptions (preceding each table, up to 4 lines)
-          - Table annotations (the 4 lines following each table)
+          - All tables (Markdown & HTML)
+          - Table descriptions (preceding each table, up to 4 valid lines)
+          - Table annotations (the 4 valid lines following each table)
           - Section titles and contents
+          - Page count and metadata
         
         Args:
             file_path (str): Path to the Markdown file.
@@ -53,98 +55,155 @@ class DocumentSegmenter:
             lines = file.readlines()
             
         document_structure = {}
-        current_title = None
+        current_title = "Document_Root"
         current_content = []
-        tables = []              # Store all tables
-        tables_info = []         # Store preceding descriptions for each table
-        tables_annotation = []   # Store the 4 lines following each table
+        tables = []
+        tables_info = []
+        tables_annotation = []
         
+        page_count = 0
+        
+        # 预编译正则，适应特定的MD文本特征
+        page_header_re = re.compile(r'^##\s+Page\s+\d+', re.IGNORECASE)
+        total_pages_re = re.compile(r'\*\*Total Pages:\*\*\s*(\d+)', re.IGNORECASE)
+        section_re = re.compile(r'^(#{1,6})\s+(.*)')
+        separator_re = re.compile(r'^={10,}$|^-{10,}$')
+        html_table_start_re = re.compile(r'<table\b[^>]*>', re.IGNORECASE)
+        html_table_end_re = re.compile(r'</table>', re.IGNORECASE)
+
+        def get_table_info(start_idx: int) -> str:
+            """向前追溯最多4行有效文本作为表格的描述（忽略空行和分页符）"""
+            info = []
+            look_back = 4
+            idx = start_idx - 1
+            while look_back > 0 and idx >= 0:
+                l = lines[idx].strip()
+                if not l or separator_re.match(l) or page_header_re.match(l):
+                    idx -= 1
+                    continue
+                if 'table' in l.lower():
+                    info.insert(0, l)
+                    break
+                else:
+                    info.insert(0, l)
+                look_back -= 1
+                idx -= 1
+            return '\n'.join(info)
+
+        def get_table_annotation(start_idx: int) -> Tuple[str, int]:
+            """向后获取最多4行有效文本作为表格注释，并返回结束行号"""
+            ann = []
+            count = 0
+            idx = start_idx
+            total = len(lines)
+            while count < 4 and idx < total:
+                l = lines[idx].rstrip('\n')
+                stripped = l.strip()
+                # 过滤掉干扰性的结构符，避免占掉提取的名额
+                if not stripped or separator_re.match(stripped) or page_header_re.match(stripped):
+                    idx += 1
+                    continue
+                # 如果遇到了新的段落标题，立即停止获取注释
+                if section_re.match(stripped):
+                    break
+                ann.append(l)
+                count += 1
+                idx += 1
+            return '\n'.join(ann), idx
+
         i = 0
         total_lines = len(lines)
         
-        # Maintain a sliding window of up to 4 previous lines
-        previous_lines = []
-        
         while i < total_lines:
             line = lines[i].rstrip('\n')
+            stripped_line = line.strip()
             
-            # Update sliding window
-            if len(previous_lines) < 4:
-                previous_lines.append(line)
-            else:
-                previous_lines.pop(0)
-                previous_lines.append(line)
-            
-            # Detect section headers (starting with ## )
-            if line.startswith('## '):
+            # 检测元数据行 "Total Pages: X"
+            tp_match = total_pages_re.search(stripped_line)
+            if tp_match:
+                document_structure['Metadata_Total_Pages'] = int(tp_match.group(1))
+                i += 1
+                continue
+                
+            # 检测并跳过分页标记，从而使得被分页切断的自然段能完美拼接
+            if page_header_re.match(stripped_line):
+                page_count += 1
+                i += 1
+                continue
+                
+            # 跳过无意义的横杠分割线
+            if separator_re.match(stripped_line):
+                i += 1
+                continue
+
+            # 检测 HTML 类型的表格
+            if html_table_start_re.match(stripped_line):
+                table_lines = []
+                info_str = get_table_info(i)
+                
+                while i < total_lines:
+                    table_lines.append(lines[i].rstrip('\n'))
+                    if html_table_end_re.search(lines[i]):
+                        i += 1
+                        break
+                    i += 1
+                    
+                tables.append('\n'.join(table_lines))
+                tables_info.append(info_str)
+                
+                ann_str, _ = get_table_annotation(i)
+                tables_annotation.append(ann_str)
+                
+                current_content.append(f'[TABLE: table_{len(tables)}]')
+                continue
+
+            # 检测传统的 Markdown 格式表格
+            if stripped_line.startswith('|'):
+                table_lines = []
+                info_str = get_table_info(i)
+                
+                while i < total_lines and lines[i].strip().startswith('|'):
+                    table_lines.append(lines[i].strip())
+                    i += 1
+                    
+                tables.append('\n'.join(table_lines))
+                tables_info.append(info_str)
+                
+                ann_str, _ = get_table_annotation(i)
+                tables_annotation.append(ann_str)
+                
+                current_content.append(f'[TABLE: table_{len(tables)}]')
+                continue
+
+            # 检测章节标题（由于之前排除了 page_header_re，所以不会混淆 Page X 标题）
+            sec_match = section_re.match(stripped_line)
+            if sec_match:
+                # 存储上一个段落
                 if current_title:
-                    # Store content of the previous section
-                    document_structure[current_title] = '\n'.join(current_content).strip()
-                current_title = line[3:].strip()  # new section title
+                    text = '\n'.join(current_content).strip()
+                    if text:
+                        document_structure[current_title] = text
+                
+                current_title = sec_match.group(2).strip()
                 current_content = []
                 i += 1
                 continue
             
-            # Detect table start
-            if line.strip().startswith('|'):
-                table_lines = []
-                table_start_index = i
+            # 存储常规正文内容
+            if stripped_line != "":
+                current_content.append(line)
                 
-                # Collect all consecutive table rows
-                while i < total_lines and (lines[i].strip().startswith('|') or lines[i].strip() == ''):
-                    table_lines.append(lines[i].strip())
-                    i += 1
-                
-                # Store complete table as one string
-                table_str = '\n'.join(table_lines)
-                tables.append(table_str)
-                
-                # Extract preceding description (up to 4 lines)
-                info_lines = []
-                look_back = 4
-                current_index = table_start_index - 1
-                
-                while look_back > 0 and current_index >= 0:
-                    current_line = lines[current_index].strip()
-                    if current_line and ('table' in current_line.lower()):
-                        # Found a relevant description line containing 'table'
-                        info_lines.insert(0, current_line)
-                        break
-                    elif current_line:
-                        # Found a non-empty line
-                        info_lines.insert(0, current_line)
-                    current_index -= 1
-                    look_back -= 1
-                
-                if info_lines:
-                    tables_info.append('\n'.join(info_lines))
-                else:
-                    tables_info.append('')
-                
-                # Extract the next 4 lines following the table
-                annotation_lines = []
-                annotation_count = 0
-                
-                while annotation_count < 3 and i < total_lines:
-                    next_line = lines[i].rstrip('\n')
-                    annotation_lines.append(next_line)
-                    i += 1
-                    annotation_count += 1
-                
-                tables_annotation.append('\n'.join(annotation_lines))
-                
-                # Place a placeholder in the content to indicate where the table was
-                current_content.append(f'[TABLE: table_{len(tables)}]')
-                continue
-            
-            # If not a header or table, treat it as regular content
-            current_content.append(line)
             i += 1
             
-        # After the loop, store content of the final section
+        # 结尾边界处理
         if current_title:
-            document_structure[current_title] = '\n'.join(current_content).strip()
-            
+            text = '\n'.join(current_content).strip()
+            if text:
+                document_structure[current_title] = text
+
+        # 将独立的 Page 标记数量赋予特殊的 key，用以统计结果验证
+        document_structure['Parsed_Page_Count'] = page_count
+        
         logger.info(f"Parsed {len(document_structure)} sections and {len(tables)} tables")
         return document_structure, tables, tables_info, tables_annotation
     

@@ -106,3 +106,522 @@
 2026-03-31 17:33:18,619 - ARneuro.deepseek_ocr - INFO - OCR处理中: paper_12499412.pdf - 第 10 页
 2026-03-31 17:33:55,426 - ARneuro.deepseek_ocr - INFO - OCR处理中: paper_12499412.pdf - 第 11 页
 2026-03-31 17:35:15,109 - ARneuro.deepseek_ocr - INFO - OCR处理中: paper_12499412.pdf - 第 12 页
+2026-04-03 16:17:07,481 - ARneuro.pubmed_fetcher - INFO - PubMed获取器初始化完成
+2026-04-03 16:17:08,218 - ARneuro.pdf_downloader - INFO - PDF下载器初始化完成，输出目录: data/pdfs
+2026-04-03 16:20:58,656 - ARneuro.pubmed_fetcher - INFO - PubMed获取器初始化完成
+2026-04-03 16:20:59,642 - ARneuro.pdf_downloader - INFO - PDF下载器初始化完成，输出目录: data/pdfs
+2026-04-03 16:21:14,598 - ARneuro.pubmed_fetcher - ERROR - 需要安装metapub库: pip install metapub
+2026-04-03 16:22:31,781 - ARneuro.pubmed_fetcher - INFO - PubMed获取器初始化完成
+2026-04-03 16:22:31,782 - ARneuro.pdf_downloader - INFO - PDF下载器初始化完成，输出目录: data/pdfs
+2026-04-03 16:22:37,343 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 31849595)
+2026-04-03 16:23:08,391 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 16:24:44,153 - ARneuro - INFO - Created LLM client for deepseek with model deepseek-chat
+2026-04-03 16:27:32,448 - ARneuro.pdf_downloader - INFO - PMID 31849595: 使用 generic_citation 找到PDF链接
+2026-04-03 16:27:54,275 - ARneuro.pdf_downloader - INFO - PMID 31849595: 下载成功，大小: 4623343字节
+2026-04-03 16:28:48,358 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 27890810)
+2026-04-03 16:29:19,521 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 16:31:37,923 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 32057935)
+2026-04-03 16:32:08,898 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 16:33:47,454 - ARneuro.pdf_downloader - WARNING - PMID 32057935: 未找到PDF链接
+2026-04-03 16:33:47,454 - ARneuro.pdf_downloader - WARNING - PMID 32057935: 未找到PDF链接, 重试 1/3
+2026-04-03 16:35:22,246 - ARneuro.pdf_downloader - WARNING - PMID 32057935: 未找到PDF链接
+2026-04-03 16:35:22,246 - ARneuro.pdf_downloader - WARNING - PMID 32057935: 未找到PDF链接, 重试 2/3
+2026-04-03 16:36:57,000 - ARneuro.pdf_downloader - WARNING - PMID 32057935: 未找到PDF链接
+2026-04-03 16:36:57,001 - ARneuro.pdf_downloader - WARNING - PMID 32057935: 未找到PDF链接, 重试 3/3
+2026-04-03 16:38:31,751 - ARneuro.pdf_downloader - WARNING - PMID 32057935: 未找到PDF链接
+2026-04-03 21:14:12,828 - ARneuro.pubmed_fetcher - INFO - PubMed获取器初始化完成
+2026-04-03 21:14:12,839 - ARneuro.pdf_downloader - INFO - PDF下载器初始化完成，输出目录: data/pdfs
+2026-04-03 21:14:13,661 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 31849595)
+2026-04-03 21:14:44,766 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:14:44,941 - ARneuro - INFO - Created LLM client for deepseek with model deepseek-chat
+2026-04-03 21:14:48,790 - ARneuro.pdf_downloader - INFO - PMID 31849595: PDF已存在，跳过下载
+2026-04-03 21:14:48,791 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 27890810)
+2026-04-03 21:15:19,804 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:15:23,415 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 32057935)
+2026-04-03 21:15:23,603 - ARneuro.pubmed_fetcher - WARNING - 获取PMID 32057935摘要失败: 
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                            NCBI SERVICE ISSUE                                ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║  Unable to connect to NCBI services.                                         ║
+║                                                                              ║
+║  Suggested actions:                                                          ║
+║ • Check your internet connection                                             ║
+║ • Verify NCBI service status: https://www.ncbi.nlm.nih.gov/                  ║
+║ • Try again in a few minutes                                                 ║
+║ • Use ncbi_health_check --quick to diagnose service issues                   ║
+║                                                                              ║
+║  This is likely a temporary issue with NCBI's servers, not your code.        ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+2026-04-03 21:15:23,603 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:15:23,603 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 23001620)
+2026-04-03 21:15:54,709 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:15:57,773 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 34910843)
+2026-04-03 21:15:58,278 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:17:35,240 - ARneuro.pdf_downloader - WARNING - PMID 34910843: 未找到PDF链接
+2026-04-03 21:17:35,242 - ARneuro.pdf_downloader - WARNING - PMID 34910843: 未找到PDF链接, 重试 1/3
+2026-04-03 21:19:09,724 - ARneuro.pdf_downloader - WARNING - PMID 34910843: 未找到PDF链接
+2026-04-03 21:19:09,726 - ARneuro.pdf_downloader - WARNING - PMID 34910843: 未找到PDF链接, 重试 2/3
+2026-04-03 21:20:44,240 - ARneuro.pdf_downloader - WARNING - PMID 34910843: 未找到PDF链接
+2026-04-03 21:20:44,242 - ARneuro.pdf_downloader - WARNING - PMID 34910843: 未找到PDF链接, 重试 3/3
+2026-04-03 21:22:18,734 - ARneuro.pdf_downloader - WARNING - PMID 34910843: 未找到PDF链接
+2026-04-03 21:22:18,737 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 26834609)
+2026-04-03 21:22:49,748 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:23:58,587 - ARneuro.pdf_downloader - INFO - PMID 26834609: 使用 generic_citation 找到PDF链接
+2026-04-03 21:24:01,465 - ARneuro.pdf_downloader - INFO - PMID 26834609: 下载成功，大小: 2848641字节
+2026-04-03 21:24:01,466 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 22658973)
+2026-04-03 21:24:32,260 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:26:10,150 - ARneuro.pdf_downloader - WARNING - PMID 22658973: 未找到PDF链接
+2026-04-03 21:26:10,151 - ARneuro.pdf_downloader - WARNING - PMID 22658973: 未找到PDF链接, 重试 1/3
+2026-04-03 21:27:44,977 - ARneuro.pdf_downloader - WARNING - PMID 22658973: 未找到PDF链接
+2026-04-03 21:27:44,978 - ARneuro.pdf_downloader - WARNING - PMID 22658973: 未找到PDF链接, 重试 2/3
+2026-04-03 21:29:19,806 - ARneuro.pdf_downloader - WARNING - PMID 22658973: 未找到PDF链接
+2026-04-03 21:29:19,807 - ARneuro.pdf_downloader - WARNING - PMID 22658973: 未找到PDF链接, 重试 3/3
+2026-04-03 21:30:54,623 - ARneuro.pdf_downloader - WARNING - PMID 22658973: 未找到PDF链接
+2026-04-03 21:30:54,625 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 33716935)
+2026-04-03 21:31:25,648 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:31:29,136 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 23458438)
+2026-04-03 21:31:29,674 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:32:38,083 - ARneuro.pdf_downloader - INFO - PMID 23458438: 使用 generic_citation 找到PDF链接
+2026-04-03 21:32:39,661 - ARneuro.pdf_downloader - INFO - PMID 23458438: 下载成功，大小: 243560字节
+2026-04-03 21:32:39,662 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 20420924)
+2026-04-03 21:33:10,626 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:33:14,423 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 26859775)
+2026-04-03 21:33:14,444 - ARneuro.pubmed_fetcher - WARNING - 获取PMID 26859775摘要失败: 
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                            NCBI SERVICE ISSUE                                ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║  Unable to connect to NCBI services.                                         ║
+║                                                                              ║
+║  Suggested actions:                                                          ║
+║ • Check your internet connection                                             ║
+║ • Verify NCBI service status: https://www.ncbi.nlm.nih.gov/                  ║
+║ • Try again in a few minutes                                                 ║
+║ • Use ncbi_health_check --quick to diagnose service issues                   ║
+║                                                                              ║
+║  This is likely a temporary issue with NCBI's servers, not your code.        ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+2026-04-03 21:33:14,445 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:33:14,446 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 23250955)
+2026-04-03 21:33:45,719 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:34:51,061 - ARneuro.pdf_downloader - INFO - PMID 23250955: 使用Europe PMC找到PDF链接
+2026-04-03 21:34:51,199 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://academic.oup.com/cercor/article-pdf/24/4/908/915422/bhs366.pdf: 403 Client Error: Forbidden for url: https://academic.oup.com/cercor/article-pdf/24/4/908/915422/bhs366.pdf
+2026-04-03 21:34:51,201 - ARneuro.pdf_downloader - WARNING - PMID 23250955: PDF保存失败, 重试 1/3
+2026-04-03 21:35:54,619 - ARneuro.pdf_downloader - INFO - PMID 23250955: 使用Europe PMC找到PDF链接
+2026-04-03 21:35:54,756 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://academic.oup.com/cercor/article-pdf/24/4/908/915422/bhs366.pdf: 403 Client Error: Forbidden for url: https://academic.oup.com/cercor/article-pdf/24/4/908/915422/bhs366.pdf
+2026-04-03 21:35:54,758 - ARneuro.pdf_downloader - WARNING - PMID 23250955: PDF保存失败, 重试 2/3
+2026-04-03 21:36:58,168 - ARneuro.pdf_downloader - INFO - PMID 23250955: 使用Europe PMC找到PDF链接
+2026-04-03 21:36:58,308 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://academic.oup.com/cercor/article-pdf/24/4/908/915422/bhs366.pdf: 403 Client Error: Forbidden for url: https://academic.oup.com/cercor/article-pdf/24/4/908/915422/bhs366.pdf
+2026-04-03 21:36:58,309 - ARneuro.pdf_downloader - WARNING - PMID 23250955: PDF保存失败, 重试 3/3
+2026-04-03 21:38:01,737 - ARneuro.pdf_downloader - INFO - PMID 23250955: 使用Europe PMC找到PDF链接
+2026-04-03 21:38:01,878 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://academic.oup.com/cercor/article-pdf/24/4/908/915422/bhs366.pdf: 403 Client Error: Forbidden for url: https://academic.oup.com/cercor/article-pdf/24/4/908/915422/bhs366.pdf
+2026-04-03 21:38:01,882 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 28164141)
+2026-04-03 21:38:32,896 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:40:07,168 - ARneuro.pdf_downloader - ERROR - PMID 28164141: 获取PDF URL失败: HTTPSConnectionPool(host='pmc.ncbi.nlm.nih.gov', port=443): Read timed out. (read timeout=30)
+2026-04-03 21:40:07,168 - ARneuro.pdf_downloader - WARNING - PMID 28164141: 未找到PDF链接, 重试 1/3
+2026-04-03 21:41:10,771 - ARneuro.pdf_downloader - INFO - PMID 28164141: 使用Europe PMC找到PDF链接
+2026-04-03 21:41:11,970 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC5214227?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC5214227
+2026-04-03 21:41:11,971 - ARneuro.pdf_downloader - WARNING - PMID 28164141: PDF保存失败, 重试 2/3
+2026-04-03 21:42:15,517 - ARneuro.pdf_downloader - INFO - PMID 28164141: 使用Europe PMC找到PDF链接
+2026-04-03 21:42:16,733 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC5214227?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC5214227
+2026-04-03 21:42:16,735 - ARneuro.pdf_downloader - WARNING - PMID 28164141: PDF保存失败, 重试 3/3
+2026-04-03 21:43:20,274 - ARneuro.pdf_downloader - INFO - PMID 28164141: 使用Europe PMC找到PDF链接
+2026-04-03 21:43:21,487 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC5214227?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC5214227
+2026-04-03 21:43:21,489 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 27984068)
+2026-04-03 21:43:52,499 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:44:58,698 - ARneuro.pdf_downloader - INFO - PMID 27984068: 使用Europe PMC找到PDF链接
+2026-04-03 21:44:59,902 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/pmc5362309?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC5362309
+2026-04-03 21:44:59,904 - ARneuro.pdf_downloader - WARNING - PMID 27984068: PDF保存失败, 重试 1/3
+2026-04-03 21:46:03,557 - ARneuro.pdf_downloader - INFO - PMID 27984068: 使用Europe PMC找到PDF链接
+2026-04-03 21:46:04,765 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/pmc5362309?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC5362309
+2026-04-03 21:46:04,766 - ARneuro.pdf_downloader - WARNING - PMID 27984068: PDF保存失败, 重试 2/3
+2026-04-03 21:47:13,638 - ARneuro.pdf_downloader - INFO - PMID 27984068: 使用Europe PMC找到PDF链接
+2026-04-03 21:47:19,853 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/pmc5362309?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC5362309
+2026-04-03 21:47:19,854 - ARneuro.pdf_downloader - WARNING - PMID 27984068: PDF保存失败, 重试 3/3
+2026-04-03 21:48:23,656 - ARneuro.pdf_downloader - INFO - PMID 27984068: 使用Europe PMC找到PDF链接
+2026-04-03 21:48:24,883 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/pmc5362309?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC5362309
+2026-04-03 21:48:24,886 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 22387168)
+2026-04-03 21:48:56,152 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:50:33,828 - ARneuro.pdf_downloader - WARNING - PMID 22387168: 未找到PDF链接
+2026-04-03 21:50:33,828 - ARneuro.pdf_downloader - WARNING - PMID 22387168: 未找到PDF链接, 重试 1/3
+2026-04-03 21:52:08,549 - ARneuro.pdf_downloader - WARNING - PMID 22387168: 未找到PDF链接
+2026-04-03 21:52:08,550 - ARneuro.pdf_downloader - WARNING - PMID 22387168: 未找到PDF链接, 重试 2/3
+2026-04-03 21:53:43,343 - ARneuro.pdf_downloader - WARNING - PMID 22387168: 未找到PDF链接
+2026-04-03 21:53:43,344 - ARneuro.pdf_downloader - WARNING - PMID 22387168: 未找到PDF链接, 重试 3/3
+2026-04-03 21:55:18,165 - ARneuro.pdf_downloader - WARNING - PMID 22387168: 未找到PDF链接
+2026-04-03 21:55:18,167 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 23507386)
+2026-04-03 21:55:48,964 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 21:57:25,615 - ARneuro.pdf_downloader - WARNING - PMID 23507386: 未找到PDF链接
+2026-04-03 21:57:25,615 - ARneuro.pdf_downloader - WARNING - PMID 23507386: 未找到PDF链接, 重试 1/3
+2026-04-03 21:59:00,458 - ARneuro.pdf_downloader - WARNING - PMID 23507386: 未找到PDF链接
+2026-04-03 21:59:00,459 - ARneuro.pdf_downloader - WARNING - PMID 23507386: 未找到PDF链接, 重试 2/3
+2026-04-03 22:00:35,312 - ARneuro.pdf_downloader - WARNING - PMID 23507386: 未找到PDF链接
+2026-04-03 22:00:35,313 - ARneuro.pdf_downloader - WARNING - PMID 23507386: 未找到PDF链接, 重试 3/3
+2026-04-03 22:02:10,109 - ARneuro.pdf_downloader - WARNING - PMID 23507386: 未找到PDF链接
+2026-04-03 22:02:10,111 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 24244653)
+2026-04-03 22:02:41,142 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:03:47,629 - ARneuro.pdf_downloader - INFO - PMID 24244653: 使用 generic_citation 找到PDF链接
+2026-04-03 22:03:49,209 - ARneuro.pdf_downloader - INFO - PMID 24244653: 下载成功，大小: 958716字节
+2026-04-03 22:03:49,210 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 27583349)
+2026-04-03 22:04:20,179 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:05:25,962 - ARneuro.pdf_downloader - INFO - PMID 27583349: 使用 generic_citation 找到PDF链接
+2026-04-03 22:05:27,124 - ARneuro.pdf_downloader - INFO - PMID 27583349: 下载成功，大小: 3273904字节
+2026-04-03 22:05:27,125 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 27916731)
+2026-04-03 22:05:58,100 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:06:01,599 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 30765524)
+2026-04-03 22:06:02,110 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:06:05,415 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 30629612)
+2026-04-03 22:06:05,927 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:07:12,513 - ARneuro.pdf_downloader - INFO - PMID 30629612: 使用 generic_citation 找到PDF链接
+2026-04-03 22:07:13,932 - ARneuro.pdf_downloader - INFO - PMID 30629612: 下载成功，大小: 903023字节
+2026-04-03 22:07:13,934 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 33582498)
+2026-04-03 22:07:44,730 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:07:48,190 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 30176323)
+2026-04-03 22:07:48,467 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:09:25,613 - ARneuro.pdf_downloader - WARNING - PMID 30176323: 未找到PDF链接
+2026-04-03 22:09:25,613 - ARneuro.pdf_downloader - WARNING - PMID 30176323: 未找到PDF链接, 重试 1/3
+2026-04-03 22:11:00,379 - ARneuro.pdf_downloader - WARNING - PMID 30176323: 未找到PDF链接
+2026-04-03 22:11:00,380 - ARneuro.pdf_downloader - WARNING - PMID 30176323: 未找到PDF链接, 重试 2/3
+2026-04-03 22:12:35,145 - ARneuro.pdf_downloader - WARNING - PMID 30176323: 未找到PDF链接
+2026-04-03 22:12:35,145 - ARneuro.pdf_downloader - WARNING - PMID 30176323: 未找到PDF链接, 重试 3/3
+2026-04-03 22:14:09,959 - ARneuro.pdf_downloader - WARNING - PMID 30176323: 未找到PDF链接
+2026-04-03 22:14:09,961 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 33556881)
+2026-04-03 22:14:40,940 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:15:47,219 - ARneuro.pdf_downloader - INFO - PMID 33556881: 使用Europe PMC找到PDF链接
+2026-04-03 22:15:48,435 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC7868633?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC7868633
+2026-04-03 22:15:48,437 - ARneuro.pdf_downloader - WARNING - PMID 33556881: PDF保存失败, 重试 1/3
+2026-04-03 22:16:52,099 - ARneuro.pdf_downloader - INFO - PMID 33556881: 使用Europe PMC找到PDF链接
+2026-04-03 22:16:53,323 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC7868633?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC7868633
+2026-04-03 22:16:53,325 - ARneuro.pdf_downloader - WARNING - PMID 33556881: PDF保存失败, 重试 2/3
+2026-04-03 22:17:57,023 - ARneuro.pdf_downloader - INFO - PMID 33556881: 使用Europe PMC找到PDF链接
+2026-04-03 22:17:58,235 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC7868633?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC7868633
+2026-04-03 22:17:58,237 - ARneuro.pdf_downloader - WARNING - PMID 33556881: PDF保存失败, 重试 3/3
+2026-04-03 22:19:01,942 - ARneuro.pdf_downloader - INFO - PMID 33556881: 使用Europe PMC找到PDF链接
+2026-04-03 22:19:03,194 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC7868633?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC7868633
+2026-04-03 22:19:03,198 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 36075539)
+2026-04-03 22:19:34,184 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:21:10,802 - ARneuro.pdf_downloader - WARNING - PMID 36075539: 未找到PDF链接
+2026-04-03 22:21:10,803 - ARneuro.pdf_downloader - WARNING - PMID 36075539: 未找到PDF链接, 重试 1/3
+2026-04-03 22:22:45,562 - ARneuro.pdf_downloader - WARNING - PMID 36075539: 未找到PDF链接
+2026-04-03 22:22:45,563 - ARneuro.pdf_downloader - WARNING - PMID 36075539: 未找到PDF链接, 重试 2/3
+2026-04-03 22:24:20,687 - ARneuro.pdf_downloader - WARNING - PMID 36075539: 未找到PDF链接
+2026-04-03 22:24:20,687 - ARneuro.pdf_downloader - WARNING - PMID 36075539: 未找到PDF链接, 重试 3/3
+2026-04-03 22:25:55,531 - ARneuro.pdf_downloader - WARNING - PMID 36075539: 未找到PDF链接
+2026-04-03 22:25:55,587 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 36517928)
+2026-04-03 22:26:26,566 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:26:30,271 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 33360179)
+2026-04-03 22:26:30,444 - ARneuro.pubmed_fetcher - WARNING - 获取PMID 33360179摘要失败: 
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                            NCBI SERVICE ISSUE                                ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║  Unable to connect to NCBI services.                                         ║
+║                                                                              ║
+║  Suggested actions:                                                          ║
+║ • Check your internet connection                                             ║
+║ • Verify NCBI service status: https://www.ncbi.nlm.nih.gov/                  ║
+║ • Try again in a few minutes                                                 ║
+║ • Use ncbi_health_check --quick to diagnose service issues                   ║
+║                                                                              ║
+║  This is likely a temporary issue with NCBI's servers, not your code.        ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+2026-04-03 22:26:30,445 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:26:30,447 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 31794712)
+2026-04-03 22:27:01,572 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:28:07,433 - ARneuro.pdf_downloader - INFO - PMID 31794712: 使用Europe PMC找到PDF链接
+2026-04-03 22:28:10,024 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://authors.library.caltech.edu/100137/1/1-s2.0-S0028393219303318-main.pdf: 404 Client Error: Not Found for url: https://authors.library.caltech.edu/records/64ajn-p3g71/files/1-s2.0-S0028393219303318-main.pdf
+2026-04-03 22:28:10,029 - ARneuro.pdf_downloader - WARNING - PMID 31794712: PDF保存失败, 重试 1/3
+2026-04-03 22:29:14,462 - ARneuro.pdf_downloader - INFO - PMID 31794712: 使用Europe PMC找到PDF链接
+2026-04-03 22:29:14,713 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://authors.library.caltech.edu/100137/1/1-s2.0-S0028393219303318-main.pdf: 404 Client Error: Not Found for url: https://authors.library.caltech.edu/records/64ajn-p3g71/files/1-s2.0-S0028393219303318-main.pdf
+2026-04-03 22:29:14,714 - ARneuro.pdf_downloader - WARNING - PMID 31794712: PDF保存失败, 重试 2/3
+2026-04-03 22:30:18,458 - ARneuro.pdf_downloader - INFO - PMID 31794712: 使用Europe PMC找到PDF链接
+2026-04-03 22:30:18,758 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://authors.library.caltech.edu/100137/1/1-s2.0-S0028393219303318-main.pdf: 404 Client Error: Not Found for url: https://authors.library.caltech.edu/records/64ajn-p3g71/files/1-s2.0-S0028393219303318-main.pdf
+2026-04-03 22:30:18,759 - ARneuro.pdf_downloader - WARNING - PMID 31794712: PDF保存失败, 重试 3/3
+2026-04-03 22:31:22,429 - ARneuro.pdf_downloader - INFO - PMID 31794712: 使用Europe PMC找到PDF链接
+2026-04-03 22:31:23,278 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://authors.library.caltech.edu/100137/1/1-s2.0-S0028393219303318-main.pdf: 404 Client Error: Not Found for url: https://authors.library.caltech.edu/records/64ajn-p3g71/files/1-s2.0-S0028393219303318-main.pdf
+2026-04-03 22:31:23,282 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 33865849)
+2026-04-03 22:31:54,090 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:34:00,652 - ARneuro.pdf_downloader - WARNING - PMID 33865849: 未找到PDF链接
+2026-04-03 22:34:00,653 - ARneuro.pdf_downloader - WARNING - PMID 33865849: 未找到PDF链接, 重试 1/3
+2026-04-03 22:35:35,481 - ARneuro.pdf_downloader - WARNING - PMID 33865849: 未找到PDF链接
+2026-04-03 22:35:35,482 - ARneuro.pdf_downloader - WARNING - PMID 33865849: 未找到PDF链接, 重试 2/3
+2026-04-03 22:37:10,163 - ARneuro.pdf_downloader - WARNING - PMID 33865849: 未找到PDF链接
+2026-04-03 22:37:10,163 - ARneuro.pdf_downloader - WARNING - PMID 33865849: 未找到PDF链接, 重试 3/3
+2026-04-03 22:38:44,890 - ARneuro.pdf_downloader - WARNING - PMID 33865849: 未找到PDF链接
+2026-04-03 22:38:44,893 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 24161281)
+2026-04-03 22:39:15,842 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:40:52,716 - ARneuro.pdf_downloader - WARNING - PMID 24161281: 未找到PDF链接
+2026-04-03 22:40:52,717 - ARneuro.pdf_downloader - WARNING - PMID 24161281: 未找到PDF链接, 重试 1/3
+2026-04-03 22:42:27,487 - ARneuro.pdf_downloader - WARNING - PMID 24161281: 未找到PDF链接
+2026-04-03 22:42:27,488 - ARneuro.pdf_downloader - WARNING - PMID 24161281: 未找到PDF链接, 重试 2/3
+2026-04-03 22:44:02,242 - ARneuro.pdf_downloader - WARNING - PMID 24161281: 未找到PDF链接
+2026-04-03 22:44:02,242 - ARneuro.pdf_downloader - WARNING - PMID 24161281: 未找到PDF链接, 重试 3/3
+2026-04-03 22:45:37,021 - ARneuro.pdf_downloader - WARNING - PMID 24161281: 未找到PDF链接
+2026-04-03 22:45:37,023 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 24607883)
+2026-04-03 22:46:08,041 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:47:13,702 - ARneuro.pdf_downloader - INFO - PMID 24607883: 使用Europe PMC找到PDF链接
+2026-04-03 22:47:15,035 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC4013681?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC4013681
+2026-04-03 22:47:15,037 - ARneuro.pdf_downloader - WARNING - PMID 24607883: PDF保存失败, 重试 1/3
+2026-04-03 22:48:18,713 - ARneuro.pdf_downloader - INFO - PMID 24607883: 使用Europe PMC找到PDF链接
+2026-04-03 22:48:19,942 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC4013681?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC4013681
+2026-04-03 22:48:19,944 - ARneuro.pdf_downloader - WARNING - PMID 24607883: PDF保存失败, 重试 2/3
+2026-04-03 22:49:23,602 - ARneuro.pdf_downloader - INFO - PMID 24607883: 使用Europe PMC找到PDF链接
+2026-04-03 22:49:24,817 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC4013681?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC4013681
+2026-04-03 22:49:24,819 - ARneuro.pdf_downloader - WARNING - PMID 24607883: PDF保存失败, 重试 3/3
+2026-04-03 22:50:28,515 - ARneuro.pdf_downloader - INFO - PMID 24607883: 使用Europe PMC找到PDF链接
+2026-04-03 22:50:29,734 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC4013681?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC4013681
+2026-04-03 22:50:29,739 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 26777875)
+2026-04-03 22:51:00,778 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:52:07,097 - ARneuro.pdf_downloader - INFO - PMID 26777875: 使用Europe PMC找到PDF链接
+2026-04-03 22:52:08,319 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/pmc6867302?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC6867302
+2026-04-03 22:52:08,321 - ARneuro.pdf_downloader - WARNING - PMID 26777875: PDF保存失败, 重试 1/3
+2026-04-03 22:53:11,953 - ARneuro.pdf_downloader - INFO - PMID 26777875: 使用Europe PMC找到PDF链接
+2026-04-03 22:53:13,203 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/pmc6867302?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC6867302
+2026-04-03 22:53:13,206 - ARneuro.pdf_downloader - WARNING - PMID 26777875: PDF保存失败, 重试 2/3
+2026-04-03 22:54:16,786 - ARneuro.pdf_downloader - INFO - PMID 26777875: 使用Europe PMC找到PDF链接
+2026-04-03 22:54:18,026 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/pmc6867302?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC6867302
+2026-04-03 22:54:18,028 - ARneuro.pdf_downloader - WARNING - PMID 26777875: PDF保存失败, 重试 3/3
+2026-04-03 22:55:21,646 - ARneuro.pdf_downloader - INFO - PMID 26777875: 使用Europe PMC找到PDF链接
+2026-04-03 22:55:22,868 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/pmc6867302?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC6867302
+2026-04-03 22:55:22,874 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 28259773)
+2026-04-03 22:55:53,663 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 22:58:00,880 - ARneuro.pdf_downloader - WARNING - PMID 28259773: 未找到PDF链接
+2026-04-03 22:58:00,880 - ARneuro.pdf_downloader - WARNING - PMID 28259773: 未找到PDF链接, 重试 1/3
+2026-04-03 22:59:35,670 - ARneuro.pdf_downloader - WARNING - PMID 28259773: 未找到PDF链接
+2026-04-03 22:59:35,671 - ARneuro.pdf_downloader - WARNING - PMID 28259773: 未找到PDF链接, 重试 2/3
+2026-04-03 23:01:10,397 - ARneuro.pdf_downloader - WARNING - PMID 28259773: 未找到PDF链接
+2026-04-03 23:01:10,398 - ARneuro.pdf_downloader - WARNING - PMID 28259773: 未找到PDF链接, 重试 3/3
+2026-04-03 23:02:45,135 - ARneuro.pdf_downloader - WARNING - PMID 28259773: 未找到PDF链接
+2026-04-03 23:02:45,139 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 33817920)
+2026-04-03 23:03:16,156 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 23:03:19,619 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 37263104)
+2026-04-03 23:03:19,897 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 23:04:56,902 - ARneuro.pdf_downloader - WARNING - PMID 37263104: 未找到PDF链接
+2026-04-03 23:04:56,903 - ARneuro.pdf_downloader - WARNING - PMID 37263104: 未找到PDF链接, 重试 1/3
+2026-04-03 23:06:31,647 - ARneuro.pdf_downloader - WARNING - PMID 37263104: 未找到PDF链接
+2026-04-03 23:06:31,647 - ARneuro.pdf_downloader - WARNING - PMID 37263104: 未找到PDF链接, 重试 2/3
+2026-04-03 23:08:06,353 - ARneuro.pdf_downloader - WARNING - PMID 37263104: 未找到PDF链接
+2026-04-03 23:08:06,353 - ARneuro.pdf_downloader - WARNING - PMID 37263104: 未找到PDF链接, 重试 3/3
+2026-04-03 23:09:41,083 - ARneuro.pdf_downloader - WARNING - PMID 37263104: 未找到PDF链接
+2026-04-03 23:09:41,085 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 28924564)
+2026-04-03 23:10:12,061 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 23:11:18,398 - ARneuro.pdf_downloader - INFO - PMID 28924564: 使用Europe PMC找到PDF链接
+2026-04-03 23:11:19,623 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC5592780?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC5592780
+2026-04-03 23:11:19,625 - ARneuro.pdf_downloader - WARNING - PMID 28924564: PDF保存失败, 重试 1/3
+2026-04-03 23:12:23,160 - ARneuro.pdf_downloader - INFO - PMID 28924564: 使用Europe PMC找到PDF链接
+2026-04-03 23:12:24,367 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC5592780?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC5592780
+2026-04-03 23:12:24,368 - ARneuro.pdf_downloader - WARNING - PMID 28924564: PDF保存失败, 重试 2/3
+2026-04-03 23:13:27,898 - ARneuro.pdf_downloader - INFO - PMID 28924564: 使用Europe PMC找到PDF链接
+2026-04-03 23:13:29,130 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC5592780?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC5592780
+2026-04-03 23:13:29,132 - ARneuro.pdf_downloader - WARNING - PMID 28924564: PDF保存失败, 重试 3/3
+2026-04-03 23:14:32,716 - ARneuro.pdf_downloader - INFO - PMID 28924564: 使用Europe PMC找到PDF链接
+2026-04-03 23:14:33,937 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC5592780?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC5592780
+2026-04-03 23:14:33,943 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 32056450)
+2026-04-03 23:15:04,921 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 23:17:10,056 - ARneuro.pdf_downloader - ERROR - PMID 32056450: 获取PDF URL失败: HTTPSConnectionPool(host='journals.sagepub.com', port=443): Max retries exceeded with url: /doi/10.1089/brain.2019.0701?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed (Caused by ConnectTimeoutError(<HTTPSConnection(host='journals.sagepub.com', port=443) at 0x7f60ee1874d0>, 'Connection to journals.sagepub.com timed out. (connect timeout=30)'))
+2026-04-03 23:17:10,056 - ARneuro.pdf_downloader - WARNING - PMID 32056450: 未找到PDF链接, 重试 1/3
+2026-04-03 23:19:12,400 - ARneuro.pdf_downloader - ERROR - PMID 32056450: 获取PDF URL失败: HTTPSConnectionPool(host='journals.sagepub.com', port=443): Max retries exceeded with url: /doi/10.1089/brain.2019.0701?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed (Caused by ConnectTimeoutError(<HTTPSConnection(host='journals.sagepub.com', port=443) at 0x7f60edf79450>, 'Connection to journals.sagepub.com timed out. (connect timeout=30)'))
+2026-04-03 23:19:12,400 - ARneuro.pdf_downloader - WARNING - PMID 32056450: 未找到PDF链接, 重试 2/3
+2026-04-03 23:21:14,764 - ARneuro.pdf_downloader - ERROR - PMID 32056450: 获取PDF URL失败: HTTPSConnectionPool(host='journals.sagepub.com', port=443): Max retries exceeded with url: /doi/10.1089/brain.2019.0701?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed (Caused by ConnectTimeoutError(<HTTPSConnection(host='journals.sagepub.com', port=443) at 0x7f60edfa8190>, 'Connection to journals.sagepub.com timed out. (connect timeout=30)'))
+2026-04-03 23:21:14,764 - ARneuro.pdf_downloader - WARNING - PMID 32056450: 未找到PDF链接, 重试 3/3
+2026-04-03 23:23:17,148 - ARneuro.pdf_downloader - ERROR - PMID 32056450: 获取PDF URL失败: HTTPSConnectionPool(host='journals.sagepub.com', port=443): Max retries exceeded with url: /doi/10.1089/brain.2019.0701?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed (Caused by ConnectTimeoutError(<HTTPSConnection(host='journals.sagepub.com', port=443) at 0x7f60ee1874d0>, 'Connection to journals.sagepub.com timed out. (connect timeout=30)'))
+2026-04-03 23:23:17,151 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 35064707)
+2026-04-03 23:23:48,237 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 23:24:54,300 - ARneuro.pdf_downloader - INFO - PMID 35064707: 使用Europe PMC找到PDF链接
+2026-04-03 23:24:55,528 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC8996362?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC8996362
+2026-04-03 23:24:55,531 - ARneuro.pdf_downloader - WARNING - PMID 35064707: PDF保存失败, 重试 1/3
+2026-04-03 23:25:59,132 - ARneuro.pdf_downloader - INFO - PMID 35064707: 使用Europe PMC找到PDF链接
+2026-04-03 23:26:00,388 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC8996362?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC8996362
+2026-04-03 23:26:00,391 - ARneuro.pdf_downloader - WARNING - PMID 35064707: PDF保存失败, 重试 2/3
+2026-04-03 23:27:04,004 - ARneuro.pdf_downloader - INFO - PMID 35064707: 使用Europe PMC找到PDF链接
+2026-04-03 23:27:05,224 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC8996362?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC8996362
+2026-04-03 23:27:05,225 - ARneuro.pdf_downloader - WARNING - PMID 35064707: PDF保存失败, 重试 3/3
+2026-04-03 23:28:08,828 - ARneuro.pdf_downloader - INFO - PMID 35064707: 使用Europe PMC找到PDF链接
+2026-04-03 23:28:10,066 - ARneuro.pdf_downloader - ERROR - 保存PDF失败 https://europepmc.org/articles/PMC8996362?pdf=render: 404 Client Error:  for url: https://europepmc.org/api/getPdf?pmcid=PMC8996362
+2026-04-03 23:28:10,072 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 32720845)
+2026-04-03 23:28:41,044 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-03 23:30:48,244 - ARneuro.pdf_downloader - WARNING - PMID 32720845: 未找到PDF链接
+2026-04-03 23:30:48,246 - ARneuro.pdf_downloader - WARNING - PMID 32720845: 未找到PDF链接, 重试 1/3
+2026-04-03 23:32:22,807 - ARneuro.pdf_downloader - WARNING - PMID 32720845: 未找到PDF链接
+2026-04-03 23:32:22,811 - ARneuro.pdf_downloader - WARNING - PMID 32720845: 未找到PDF链接, 重试 2/3
+2026-04-03 23:33:57,375 - ARneuro.pdf_downloader - WARNING - PMID 32720845: 未找到PDF链接
+2026-04-03 23:33:57,376 - ARneuro.pdf_downloader - WARNING - PMID 32720845: 未找到PDF链接, 重试 3/3
+2026-04-03 23:35:31,843 - ARneuro.pdf_downloader - WARNING - PMID 32720845: 未找到PDF链接
+2026-04-03 23:35:31,849 - ARneuro.pubmed_fetcher - INFO - 获取摘要进度: 1/1 (PMID: 25732072)
+2026-04-03 23:36:02,873 - ARneuro.pubmed_fetcher - INFO - 获取 1 条记录的摘要
+2026-04-04 20:37:17,104 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 1 页
+2026-04-04 20:37:17,427 - ARneuro.deepseek_ocr - INFO - 加载 DeepSeek-OCR 模型: /storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2
+2026-04-04 20:37:47,759 - ARneuro.deepseek_ocr - INFO - DeepSeek-OCR 模型加载成功（AutoModel + AutoTokenizer）
+2026-04-04 20:40:11,196 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（23458438_page0001.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0001/result.mmd
+2026-04-04 20:40:51,766 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（23458438_page0001.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0001/result.mmd
+2026-04-04 20:41:35,798 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（23458438_page0001.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0001/result.mmd
+2026-04-04 20:41:35,798 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 2 页
+2026-04-04 20:42:20,940 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（23458438_page0002.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0002/result.mmd
+2026-04-04 20:43:06,530 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（23458438_page0002.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0002/result.mmd
+2026-04-04 20:43:51,291 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（23458438_page0002.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0002/result.mmd
+2026-04-04 20:43:51,292 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 3 页
+2026-04-04 20:44:35,775 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（23458438_page0003.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0003/result.mmd
+2026-04-04 20:45:23,949 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（23458438_page0003.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0003/result.mmd
+2026-04-04 20:46:10,411 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（23458438_page0003.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0003/result.mmd
+2026-04-04 20:46:10,412 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 4 页
+2026-04-04 20:46:53,635 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（23458438_page0004.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0004/result.mmd
+2026-04-04 20:47:37,819 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（23458438_page0004.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0004/result.mmd
+2026-04-04 20:48:21,234 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（23458438_page0004.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0004/result.mmd
+2026-04-04 20:48:21,234 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 5 页
+2026-04-04 20:49:05,482 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（23458438_page0005.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0005/result.mmd
+2026-04-04 20:49:50,339 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（23458438_page0005.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0005/result.mmd
+2026-04-04 20:50:35,962 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（23458438_page0005.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0005/result.mmd
+2026-04-04 20:50:35,962 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 6 页
+2026-04-04 20:51:32,153 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（23458438_page0006.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0006/result.mmd
+2026-04-04 20:52:30,645 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（23458438_page0006.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0006/result.mmd
+2026-04-04 20:53:29,768 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（23458438_page0006.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0006/result.mmd
+2026-04-04 20:53:29,768 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 7 页
+2026-04-04 20:54:14,638 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（23458438_page0007.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0007/result.mmd
+2026-04-04 20:54:58,473 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（23458438_page0007.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0007/result.mmd
+2026-04-04 20:55:46,033 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（23458438_page0007.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0007/result.mmd
+2026-04-04 20:55:46,033 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 8 页
+2026-04-04 20:56:26,349 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（23458438_page0008.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0008/result.mmd
+2026-04-04 20:57:08,487 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（23458438_page0008.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0008/result.mmd
+2026-04-04 20:57:51,491 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（23458438_page0008.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0008/result.mmd
+2026-04-04 20:57:51,491 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 9 页
+2026-04-04 20:59:12,978 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（23458438_page0009.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0009/result.mmd
+2026-04-04 21:00:37,244 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（23458438_page0009.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0009/result.mmd
+2026-04-04 21:02:00,401 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（23458438_page0009.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0009/result.mmd
+2026-04-04 21:02:00,401 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 10 页
+2026-04-04 21:02:15,819 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（23458438_page0010.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0010/result.mmd
+2026-04-04 21:02:31,861 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（23458438_page0010.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0010/result.mmd
+2026-04-04 21:02:47,114 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（23458438_page0010.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/23458438/page_0010/result.mmd
+2026-04-04 21:02:47,419 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 1 页
+2026-04-04 21:03:30,855 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（24244653_page0001.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0001/result.mmd
+2026-04-04 21:04:14,628 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（24244653_page0001.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0001/result.mmd
+2026-04-04 21:04:56,845 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（24244653_page0001.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0001/result.mmd
+2026-04-04 21:04:56,845 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 2 页
+2026-04-04 21:05:48,184 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（24244653_page0002.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0002/result.mmd
+2026-04-04 21:06:39,775 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（24244653_page0002.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0002/result.mmd
+2026-04-04 21:07:31,518 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（24244653_page0002.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0002/result.mmd
+2026-04-04 21:07:31,518 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 3 页
+2026-04-04 21:08:14,623 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（24244653_page0003.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0003/result.mmd
+2026-04-04 21:08:59,215 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（24244653_page0003.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0003/result.mmd
+2026-04-04 21:09:43,769 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（24244653_page0003.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0003/result.mmd
+2026-04-04 21:09:43,770 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 4 页
+2026-04-04 21:10:37,817 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（24244653_page0004.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0004/result.mmd
+2026-04-04 21:11:35,629 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（24244653_page0004.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0004/result.mmd
+2026-04-04 21:12:32,209 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（24244653_page0004.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0004/result.mmd
+2026-04-04 21:12:32,209 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 5 页
+2026-04-04 21:12:59,640 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（24244653_page0005.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0005/result.mmd
+2026-04-04 21:13:31,098 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（24244653_page0005.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0005/result.mmd
+2026-04-04 21:14:01,075 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（24244653_page0005.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0005/result.mmd
+2026-04-04 21:14:01,075 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 6 页
+2026-04-04 21:14:57,065 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（24244653_page0006.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0006/result.mmd
+2026-04-04 21:15:54,642 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（24244653_page0006.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0006/result.mmd
+2026-04-04 21:16:52,400 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（24244653_page0006.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0006/result.mmd
+2026-04-04 21:16:52,400 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 7 页
+2026-04-04 21:17:39,854 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（24244653_page0007.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0007/result.mmd
+2026-04-04 21:18:29,356 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（24244653_page0007.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0007/result.mmd
+2026-04-04 21:19:16,939 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（24244653_page0007.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0007/result.mmd
+2026-04-04 21:19:16,939 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 8 页
+2026-04-04 21:20:05,643 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（24244653_page0008.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0008/result.mmd
+2026-04-04 21:20:56,266 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（24244653_page0008.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0008/result.mmd
+2026-04-04 21:21:46,969 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（24244653_page0008.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0008/result.mmd
+2026-04-04 21:21:46,969 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 9 页
+2026-04-04 21:22:26,796 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（24244653_page0009.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0009/result.mmd
+2026-04-04 21:23:11,188 - ARneuro.deepseek_ocr - WARNING - 第2次OCR失败（24244653_page0009.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0009/result.mmd
+2026-04-04 21:23:51,562 - ARneuro.deepseek_ocr - WARNING - 第3次OCR失败（24244653_page0009.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0009/result.mmd
+2026-04-04 21:23:51,563 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 10 页
+2026-04-04 21:25:46,517 - ARneuro.deepseek_ocr - WARNING - 第1次OCR失败（24244653_page0010.png）: model.infer() 执行完毕但未生成预期的结果文件: data/workflow/step2_markdown/tmp/24244653/page_0010/result.mmd
+2026-04-04 21:28:11,816 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 1 页
+2026-04-04 21:28:12,023 - ARneuro.deepseek_ocr - INFO - 加载 DeepSeek-OCR 模型: /storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2
+2026-04-04 21:28:22,310 - ARneuro.deepseek_ocr - INFO - DeepSeek-OCR 模型加载成功（AutoModel + AutoTokenizer）
+2026-04-04 21:47:40,779 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 1 页
+2026-04-04 21:47:40,936 - ARneuro.deepseek_ocr - INFO - 加载 DeepSeek-OCR 模型: /storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2
+2026-04-04 21:47:48,585 - ARneuro.deepseek_ocr - INFO - DeepSeek-OCR 模型加载成功（AutoModel + AutoTokenizer）
+2026-04-04 21:48:26,704 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 2 页
+2026-04-04 21:49:08,840 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 3 页
+2026-04-04 21:49:54,902 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 4 页
+2026-04-04 21:50:40,784 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 5 页
+2026-04-04 21:51:26,695 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 6 页
+2026-04-04 21:52:26,383 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 7 页
+2026-04-04 21:52:58,426 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 8 页
+2026-04-04 21:53:40,804 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 9 页
+2026-04-04 21:55:01,290 - ARneuro.deepseek_ocr - INFO - OCR处理中: 23458438.pdf - 第 10 页
+2026-04-04 21:55:18,836 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 1 页
+2026-04-04 21:56:02,125 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 2 页
+2026-04-04 21:56:53,534 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 3 页
+2026-04-04 21:57:38,517 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 4 页
+2026-04-04 21:58:36,855 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 5 页
+2026-04-04 21:59:04,396 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 6 页
+2026-04-04 21:59:58,464 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 7 页
+2026-04-04 22:00:44,948 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 8 页
+2026-04-04 22:01:35,999 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 9 页
+2026-04-04 22:02:19,563 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 10 页
+2026-04-04 22:04:11,105 - ARneuro.deepseek_ocr - INFO - OCR处理中: 24244653.pdf - 第 11 页
+2026-04-04 22:04:48,746 - ARneuro.deepseek_ocr - INFO - OCR处理中: 26834609.pdf - 第 1 页
+2026-04-04 22:05:13,516 - ARneuro.deepseek_ocr - INFO - OCR处理中: 26834609.pdf - 第 2 页
+2026-04-04 22:05:56,151 - ARneuro.deepseek_ocr - INFO - OCR处理中: 26834609.pdf - 第 3 页
+2026-04-04 22:06:50,891 - ARneuro.deepseek_ocr - INFO - OCR处理中: 26834609.pdf - 第 4 页
+2026-04-04 22:07:43,722 - ARneuro.deepseek_ocr - INFO - OCR处理中: 26834609.pdf - 第 5 页
+2026-04-04 22:08:27,103 - ARneuro.deepseek_ocr - INFO - OCR处理中: 26834609.pdf - 第 6 页
+2026-04-04 22:09:45,015 - ARneuro.deepseek_ocr - INFO - OCR处理中: 26834609.pdf - 第 7 页
+2026-04-04 22:10:34,548 - ARneuro.deepseek_ocr - INFO - OCR处理中: 26834609.pdf - 第 8 页
+2026-04-04 22:10:54,517 - ARneuro.deepseek_ocr - INFO - OCR处理中: 26834609.pdf - 第 9 页
+2026-04-04 22:11:39,588 - ARneuro.deepseek_ocr - INFO - OCR处理中: 26834609.pdf - 第 10 页
+2026-04-04 22:12:22,138 - ARneuro.deepseek_ocr - INFO - OCR处理中: 26834609.pdf - 第 11 页
+2026-04-04 22:13:52,014 - ARneuro.deepseek_ocr - INFO - OCR处理中: 26834609.pdf - 第 12 页
+2026-04-04 22:15:25,545 - ARneuro.deepseek_ocr - INFO - OCR处理中: 27583349.pdf - 第 1 页
+2026-04-04 22:16:02,140 - ARneuro.deepseek_ocr - INFO - OCR处理中: 27583349.pdf - 第 2 页
+2026-04-04 22:16:36,279 - ARneuro.deepseek_ocr - INFO - OCR处理中: 27583349.pdf - 第 3 页
+2026-04-04 22:17:05,008 - ARneuro.deepseek_ocr - INFO - OCR处理中: 27583349.pdf - 第 4 页
+2026-04-04 22:17:29,771 - ARneuro.deepseek_ocr - INFO - OCR处理中: 27583349.pdf - 第 5 页
+2026-04-04 22:17:58,242 - ARneuro.deepseek_ocr - INFO - OCR处理中: 27583349.pdf - 第 6 页
+2026-04-04 22:18:28,905 - ARneuro.deepseek_ocr - INFO - OCR处理中: 27583349.pdf - 第 7 页
+2026-04-04 22:18:46,535 - ARneuro.deepseek_ocr - INFO - OCR处理中: 27583349.pdf - 第 8 页
+2026-04-04 22:19:12,636 - ARneuro.deepseek_ocr - INFO - OCR处理中: 27583349.pdf - 第 9 页
+2026-04-04 22:19:45,185 - ARneuro.deepseek_ocr - INFO - OCR处理中: 27583349.pdf - 第 10 页
+2026-04-04 22:20:22,312 - ARneuro.deepseek_ocr - INFO - OCR处理中: 27583349.pdf - 第 11 页
+2026-04-04 22:21:17,248 - ARneuro.deepseek_ocr - INFO - OCR处理中: 27583349.pdf - 第 12 页
+2026-04-04 22:22:15,595 - ARneuro.deepseek_ocr - INFO - OCR处理中: 27583349.pdf - 第 13 页
+2026-04-04 22:23:00,562 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 1 页
+2026-04-04 22:23:34,886 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 2 页
+2026-04-04 22:24:03,723 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 3 页
+2026-04-04 22:24:32,494 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 4 页
+2026-04-04 22:25:01,463 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 5 页
+2026-04-04 22:25:31,286 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 6 页
+2026-04-04 22:25:55,941 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 7 页
+2026-04-04 22:26:35,069 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 8 页
+2026-04-04 22:27:24,741 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 9 页
+2026-04-04 22:27:46,460 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 10 页
+2026-04-04 22:28:14,922 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 11 页
+2026-04-04 22:28:44,249 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 12 页
+2026-04-04 22:29:13,663 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 13 页
+2026-04-04 22:29:39,875 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 14 页
+2026-04-04 22:30:25,966 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 15 页
+2026-04-04 22:31:22,212 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 16 页
+2026-04-04 22:32:20,924 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 17 页
+2026-04-04 22:33:16,229 - ARneuro.deepseek_ocr - INFO - OCR处理中: 30629612.pdf - 第 18 页
+2026-04-04 22:34:02,539 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 1 页
+2026-04-04 22:34:35,104 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 2 页
+2026-04-04 22:35:18,072 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 3 页
+2026-04-04 22:36:07,793 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 4 页
+2026-04-04 22:37:23,476 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 5 页
+2026-04-04 22:37:35,058 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 6 页
+2026-04-04 22:38:47,945 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 7 页
+2026-04-04 22:39:40,926 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 8 页
+2026-04-04 22:40:00,892 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 9 页
+2026-04-04 22:40:26,500 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 10 页
+2026-04-04 22:41:27,086 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 11 页
+2026-04-04 22:41:48,913 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 12 页
+2026-04-04 22:42:09,906 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 13 页
+2026-04-04 22:42:22,581 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 14 页
+2026-04-04 22:42:42,233 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 15 页
+2026-04-04 22:43:39,577 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 16 页
+2026-04-04 22:44:25,613 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 17 页
+2026-04-04 22:45:06,275 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 18 页
+2026-04-04 22:46:46,870 - ARneuro.deepseek_ocr - INFO - OCR处理中: 31849595.pdf - 第 19 页
+2026-04-05 09:54:29,232 - ARneuro - INFO - Parsing markdown file: data/workflow/step2_markdown/23458438.md
+2026-04-05 09:54:29,233 - ARneuro - INFO - Parsed 35 sections and 0 tables
+2026-04-05 10:25:34,571 - ARneuro - INFO - Parsing markdown file: data/workflow/step2_markdown/23458438.md
+2026-04-05 10:25:34,592 - ARneuro - INFO - Parsed 25 sections and 3 tables

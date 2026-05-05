@@ -1,0 +1,683 @@
+[
+  {
+    "pmid": "31849595",
+    "title": "Children With Dyslexia and Familial Risk for Dyslexia Present Atypical Development of the Neuronal Phonological Network",
+    "abstract": "Learning to read changes the brain language system. Phonological processing is the language domain most crucial for reading, but it is still unknown how reading acquisition modifies the neural phonological network in children who either develop dyslexia or are at risk of dyslexia. For the two first years of formal education, we followed 90 beginning readers with (n = 55) and without (n = 35) familial risk of dyslexia who became typical readers (n = 70) or developed dyslexia (n = 20). We used functional magnetic resonance imaging to identify the neural correlates of phonological awareness using an auditory rhyme judgment task. This task was applied when participants were starting formal education, and repeated 2 years later. By applying two alternative group splits, we analyzed the effects of dyslexia and the effects of familial risk of dyslexia separately. We found that the phonological brain network undergoes reorganization during the first 2 years of formal education. This process proceeds differently depending on the presence of a familial history of dyslexia and reading impairment. Typical readers without risk for dyslexia activate structures responsible for phonological processing already at the beginning of literacy. This group shows reduced brain activation over time during phonological processing, perhaps due to automatization of phonological skills. Children who develop reading impairment present a delay in the development of phonological structures such as the bilateral superior temporal gyri, left middle temporal gyrus, right insula and right frontal cortex, where we observed time and group interaction. Finally, typical readers with familial risk of dyslexia also present an atypical development of the neural phonological structures, visible both at the beginning of reading instruction and 2 years later. These children used a presumably efficient neural mechanism of phonological processing, based on the activation of the precentral and postcentral gyri, and achieved a typical level of phonological awareness.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Meets all core criteria for inclusion in language-network neuroimaging review",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": [
+        "dyslexia"
+      ]
+    },
+    "pdf_path": "data/pdfs/31849595.pdf",
+    "download_status": "skipped"
+  },
+  {
+    "pmid": "27890810",
+    "title": "Interaction of language, auditory and memory brain networks in auditory verbal hallucinations",
+    "abstract": "Auditory verbal hallucinations (AVH) occur in psychotic disorders, but also as a symptom of other conditions and even in healthy people. Several current theories on the origin of AVH converge, with neuroimaging studies suggesting that the language, auditory and memory/limbic networks are of particular relevance. However, reconciliation of these theories with experimental evidence is missing. We review 50 studies investigating functional (EEG and fMRI) and anatomic (diffusion tensor imaging) connectivity in these networks, and explore the evidence supporting abnormal connectivity in these networks associated with AVH. We distinguish between functional connectivity during an actual hallucination experience (symptom capture) and functional connectivity during either the resting state or a task comparing individuals who hallucinate with those who do not (symptom association studies). Symptom capture studies clearly reveal a pattern of increased coupling among the auditory, language and striatal regions. Anatomical and symptom association functional studies suggest that the interhemispheric connectivity between posterior auditory regions may depend on the phase of illness, with increases in non-psychotic individuals and first episode patients and decreases in chronic patients. Leading hypotheses involving concepts as unstable memories, source monitoring, top-down attention, and hybrid models of hallucinations are supported in part by the published connectivity data, although several caveats and inconsistencies remain. Specifically, possible changes in fronto-temporal connectivity are still under debate. Precise hypotheses concerning the directionality of connections deduced from current theoretical approaches should be tested using experimental approaches that allow for discrimination of competing hypotheses.",
+    "include": false,
+    "confidence": 0.85,
+    "reason": "This is a review article focusing on connectivity studies of auditory verbal hallucinations, not original research on language network organization",
+    "labels": {
+      "topic_fit": "no",
+      "method_fit": "uncertain",
+      "participant_fit": "uncertain",
+      "risk_flags": [
+        "review article",
+        "hallucinations",
+        "psychotic disorders"
+      ]
+    },
+    "pdf_path": "",
+    "download_status": "skipped"
+  },
+  {
+    "pmid": "32057935",
+    "title": "Left frontal aslant tract and lexical selection: Evidence from frontal lobe lesions",
+    "abstract": "",
+    "include": false,
+    "confidence": 0.0,
+    "reason": "abstract_unavailable",
+    "labels": {
+      "risk_flags": [
+        "no_abstract"
+      ]
+    },
+    "pdf_path": "",
+    "download_status": "skipped"
+  },
+  {
+    "pmid": "23001620",
+    "title": "Identification of successful clinical fMRI sessions in children: an objective approach",
+    "abstract": "PURPOSE: The term clinical functional magnetic resonance imaging (fMRI) describes an examination with direct clinical impact on the patient. Interpretation of clinical fMRI especially in children, however, is often difficult due to suboptimal data quality. The current gold standard is standardized visual evaluation. To evaluate such data in an automated and objective way, we developed an approach to identify successful sessions.\nMETHODS: Average activation inside a predefined, task-specific region of interest (ROI) is compared with average activation in the rest of the brain, and their ratio (classification factor [Fc]) is determined for different statistical thresholds (T). The approach was tested and validated using 239 clinical pediatric fMRI sessions (sensorimotor, perceptive /productive language). Performance was assessed in terms of sensitivity, specificity, and positive likelihood ratio.\nRESULTS: Best performance was found for Fc ≥ 2 and T ≥ 2.5, achieving a sensitivity of 0.87 and specificity of 0.94. Comparing the different domains, sensitivity was lowest for language production tasks, mainly due to atypical activation foci.\nCONCLUSION: We demonstrate that an objective, automated framework for the classification of clinical pediatric fMRI sessions may provide important additional information, supporting visual evaluation, especially from sensorimotor and language perception domains. In the current form, atypical or strong network activation is not easily captured.",
+    "include": false,
+    "confidence": 0.85,
+    "reason": "Study focuses on fMRI quality assessment methodology rather than investigating language processing mechanisms",
+    "labels": {
+      "topic_fit": "no",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": [
+        "methodology_focus",
+        "quality_assessment"
+      ]
+    },
+    "pdf_path": "",
+    "download_status": "skipped"
+  },
+  {
+    "pmid": "34910843",
+    "title": "Brain responses during auditory word recognition vary with reading ability in Chinese school-age children",
+    "abstract": "While the close relationship between the brain system for speech processing and reading development is well-documented in alphabetic languages, whether and how such a link exists in children in a language without systematic grapheme-phoneme correspondence has not been directly investigated. In the present study, we measured Chinese children's brain activation during an auditory lexical decision task with functional magnetic resonance imaging. The results showed that brain areas distributed across the temporal and frontal lobes activated during spoken word recognition. In addition, the left occipitotemporal cortex (OTC) was recruited, especially under the real word condition, thus confirming the involvement of this orthographic-related area in spoken language processing in Chinese children. Importantly, activation of the left temporoparietal cortex (TPC) in response to words and pseudowords was positively correlated with children's reading ability, thus supporting the salient role phonological processing plays in Chinese reading in the developing brain. Furthermore, children with higher reading scores also increasingly recruited the left anterior OTC to make decisions on the lexical status of pseudowords, indicating that higher-skill children tend to search abstract lexical representations more deeply than lower-skill children in deciding whether spoken syllables are real. In contrast, the precuneus was more related to trial-by-trial reaction time in lower-skill children, suggesting that effort-related neural systems differ among pupils with varying reading abilities. Taken together, these findings suggest a strong link between the neural correlates of speech processing and reading ability in Chinese children, thus supporting a universal basis underlying reading development across languages.",
+    "include": true,
+    "confidence": 0.95,
+    "reason": "Meets all key criteria for inclusion in language-network neuroimaging review",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "26834609",
+    "title": "Neural Correlates of Morphological Processing: Evidence from Chinese",
+    "abstract": "Morphological decomposition is an important part of complex word processing. In Chinese, this requires a comprehensive consideration of phonological, orthographic and morphemic information. The left inferior frontal gyrus (L-IFG) has been implicated in this process in alphabetic languages. However, it is unclear whether the neural mechanisms underlying morphological processing in alphabetic languages would be the same in Chinese, a logographic language. To investigate the neural basis of morphological processing in Chinese compound words, an fMRI experiment was conducted using an explicit auditory morphological judgment task. Results showed the L-IFG to be a core area in Chinese morphological processing, consistent with research in alphabetic languages. Additionally, a broad network consisting of the L-MTG, the bilateral STG and the L-FG that taps phonological, orthographic, and semantic information was found to be involved. These results provide evidence that the L-IFG plays an important role in morphological processing even in languages that are typologically different.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Meets all core criteria for inclusion in language-network neuroimaging review",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "data/pdfs/26834609.pdf",
+    "download_status": "success"
+  },
+  {
+    "pmid": "22658973",
+    "title": "Second language experience modulates functional brain network for the native language production in bimodal bilinguals",
+    "abstract": "The functional brain network of a bilingual's first language (L1) plays a crucial role in shaping that of his or her second language (L2). However, it is less clear how L2 acquisition changes the functional network of L1 processing in bilinguals. In this study, we demonstrate that in bimodal (Chinese spoken-sign) bilinguals, the functional network supporting L1 production (spoken language) has been reorganized to accommodate the network underlying L2 production (sign language). Using functional magnetic resonance imaging (fMRI) and a picture naming task, we find greater recruitment of the right supramarginal gyrus (RSMG), the right temporal gyrus (RSTG), and the right superior occipital gyrus (RSOG) for bilingual speakers versus monolingual speakers during L1 production. In addition, our second experiment reveals that these regions reflect either automatic activation of L2 (RSOG) or extra cognitive coordination (RSMG and RSTG) between both languages during L1 production. The functional connectivity between these regions, as well as between other regions that are L1- or L2-specific, is enhanced during L1 production in bimodal bilinguals as compared to their monolingual peers. These findings suggest that L1 production in bimodal bilinguals involves an interaction between L1 and L2, supporting the claim that learning a second language does, in fact, change the functional brain network of the first language.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Study investigates neural mechanisms of language processing in bilinguals using fMRI, aligns with review criteria",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "33716935",
+    "title": "From Neurosurgical Planning to Histopathological Brain Tumor Characterization: Potentialities of Arcuate Fasciculus Along-Tract Diffusion Tensor Imaging Tractography Measures",
+    "abstract": "Background: Tractography has been widely adopted to improve brain gliomas' surgical planning and guide their resection. This study aimed to evaluate state-of-the-art of arcuate fasciculus (AF) tractography for surgical planning and explore the role of along-tract analyses in vivo for characterizing tumor histopathology. Methods: High angular resolution diffusion imaging (HARDI) images were acquired for nine patients with tumors located in or near language areas (age: 41 ± 14 years, mean ± standard deviation; five males) and 32 healthy volunteers (age: 39 ± 16 years; 16 males). Phonemic fluency task fMRI was acquired preoperatively for patients. AF tractography was performed using constrained spherical deconvolution diffusivity modeling and probabilistic fiber tracking. Along-tract analyses were performed, dividing the AF into 15 segments along the length of the tract defined using the Laplacian operator. For each AF segment, diffusion tensor imaging (DTI) measures were compared with those obtained in healthy controls (HCs). The hemispheric laterality index (LI) was calculated from language task fMRI activations in the frontal, parietal, and temporal lobe parcellations. Tumors were grouped into low/high grade (LG/HG). Results: Four tumors were LG gliomas (one dysembryoplastic neuroepithelial tumor and three glioma grade II) and five HG gliomas (two grade III and three grade IV). For LG tumors, gross total removal was achieved in all but one case, for HG in two patients. Tractography identified the AF trajectory in all cases. Four along-tract DTI measures potentially discriminated LG and HG tumor patients (false discovery rate &lt; 0.1): the number of abnormal MD and RD segments, median AD, and MD measures. Both a higher number of abnormal AF segments and a higher AD and MD measures were associated with HG tumor patients. Moreover, correlations (unadjusted p &lt; 0.05) were found between the parietal lobe LI and the DTI measures, which discriminated between LG and HG tumor patients. In particular, a more rightward parietal lobe activation (LI &lt; 0) correlated with a higher number of abnormal MD segments (R = -0.732) and RD segments (R = -0.724). Conclusions: AF tractography allows to detect the course of the tract, favoring the safer-as-possible tumor resection. Our preliminary study shows that along-tract DTI metrics can provide useful information for differentiating LG and HG tumors during pre-surgical tumor characterization.",
+    "include": false,
+    "confidence": 0.85,
+    "reason": "Study focuses on surgical planning for brain tumors rather than investigating neural mechanisms of language processing",
+    "labels": {
+      "topic_fit": "no",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": [
+        "surgical planning",
+        "tumor resection",
+        "gliomas",
+        "pre-surgical tumor characterization"
+      ]
+    },
+    "pdf_path": "",
+    "download_status": "skipped"
+  },
+  {
+    "pmid": "23458438",
+    "title": "Functional language networks in sedentary and physically active older adults",
+    "abstract": "Functional magnetic resonance imaging (fMRI) studies have identified consistent age-related changes during various cognitive tasks, such that older individuals display more positive and less negative task-related activity than young adults. Recently, evidence shows that chronic physical exercise may alter aging-related changes in brain activity; however, the effect of exercise has not been studied for the neural substrates of language function. Additionally, the potential mechanisms by which aging alters neural recruitment remain understudied. To address these points, the present study enrolled elderly adults who were either sedentary or physically active to characterize the neural correlates of language function during semantic fluency between these groups in comparison to a young adult sample. Participants underwent fMRI during semantic fluency and transcranial magnetic stimulation to collect the ipsilateral silent period, a measure of interhemispheric inhibition. Results indicated that sedentary older adults displayed reductions in negative task-related activity compared to the active old group in areas of the attention network. Longer interhemispheric inhibition was associated with more negative task-related activity in the right and left posterior perisylvian cortex, suggesting that sedentary aging may result in losses in task facilitatory cortical inhibition. However, these losses may be mitigated by regular engagement in physical exercise.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Study investigates neural mechanisms of language processing using fMRI with human participants, fits methodology and participant criteria, and provides explicit brain region interpretation.",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "data/pdfs/23458438.pdf",
+    "download_status": "success"
+  },
+  {
+    "pmid": "20420924",
+    "title": "Multisensory conflict modulates the spread of visual attention across a multisensory object",
+    "abstract": "Spatial attention to a visual stimulus that occurs synchronously with a task-irrelevant sound from a different location can lead to increased activity not only in the visual cortex, but also the auditory cortex, apparently reflecting the object-related spreading of attention across both space and modality (Busse et al., 2005). The processing of stimulus conflict, including multisensory stimulus conflict, is known to activate the anterior cingulate cortex (ACC), but the interactive influence on the sensory cortices remains relatively unexamined. Here we used fMRI to examine whether the multisensory spread of visual attention across the sensory cortices previously observed will be modulated by whether there is conceptual or object-related conflict between the relevant visual and irrelevant auditory inputs. Subjects visually attended to one of two lateralized visual letter-streams while synchronously occurring, task-irrelevant, letter sounds were presented centrally, which could be either congruent or incongruent with the visual letters. We observed significant enhancements for incongruent versus congruent letter-sound combinations in the ACC and in the contralateral visual cortex when the visual component was attended, presumably reflecting the conflict detection and the need for boosted attention to the visual stimulus during incongruent trials. In the auditory cortices, activity increased bilaterally if the spatially discordant auditory stimulation was incongruent, but only in the left, language-dominant side when congruent. We conclude that a conflicting incongruent sound, even when task-irrelevant, distracts more strongly than a congruent one, leading to greater capture of attention. This greater capture of attention in turn results in increased activity in the auditory cortex.",
+    "include": false,
+    "confidence": 0.85,
+    "reason": "Study focuses on multisensory attention and conflict processing rather than language-network mechanisms",
+    "labels": {
+      "topic_fit": "no",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": [
+        "multisensory attention",
+        "visual-auditory conflict",
+        "letter stimuli used for attention/conflict paradigm rather than language processing"
+      ]
+    },
+    "pdf_path": "",
+    "download_status": "skipped"
+  },
+  {
+    "pmid": "26859775",
+    "title": "Gender Differences in Verbal and Visuospatial Working Memory Performance and Networks",
+    "abstract": "",
+    "include": false,
+    "confidence": 0.0,
+    "reason": "abstract_unavailable",
+    "labels": {
+      "risk_flags": [
+        "no_abstract"
+      ]
+    },
+    "pdf_path": "",
+    "download_status": "skipped"
+  },
+  {
+    "pmid": "23250955",
+    "title": "Optimally efficient neural systems for processing spoken language.",
+    "abstract": "Cognitive models claim that spoken words are recognized by an optimally efficient sequential analysis process. Evidence for this is the finding that nonwords are recognized as soon as they deviate from all real words (Marslen-Wilson 1984), reflecting continuous evaluation of speech inputs against lexical representations. Here, we investigate the brain mechanisms supporting this core aspect of word recognition and examine the processes of competition and selection among multiple word candidates. Based on new behavioral support for optimal efficiency in lexical access from speech, a functional magnetic resonance imaging study showed that words with later nonword points generated increased activation in the left superior and middle temporal gyrus (Brodmann area [BA] 21/22), implicating these regions in dynamic sound-meaning mapping. We investigated competition and selection by manipulating the number of initially activated word candidates (competition) and their later drop-out rate (selection). Increased lexical competition enhanced activity in bilateral ventral inferior frontal gyrus (BA 47/45), while increased lexical selection demands activated bilateral dorsal inferior frontal gyrus (BA 44/45). These findings indicate functional differentiation of the fronto-temporal systems for processing spoken language, with left middle temporal gyrus (MTG) and superior temporal gyrus (STG) involved in mapping sounds to meaning, bilateral ventral inferior frontal gyrus (IFG) engaged in less constrained early competition processing, and bilateral dorsal IFG engaged in later, more fine-grained selection processes.",
+    "include": true,
+    "confidence": 0.95,
+    "reason": "Strong fit with language-network neuroimaging review criteria across all domains",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "28164141",
+    "title": "Phonological and syntactic competition effects in spoken word recognition: evidence from corpus-based statistics.",
+    "abstract": "As spoken language unfolds over time the speech input transiently activates multiple candidates at different levels of the system - phonological, lexical, and syntactic - which in turn leads to short-lived between-candidate competition. In an fMRI study, we investigated how different kinds of linguistic competition may be modulated by the presence or absence of a prior context (Tyler 1984; Tyler et al. 2008). We found significant effects of lexico-phonological competition for isolated words, but not for words in short phrases, with high competition yielding greater activation in left inferior frontal gyrus (LIFG) and posterior temporal regions. This suggests that phrasal contexts reduce lexico-phonological competition by eliminating form-class inconsistent cohort candidates. A corpus-derived measure of lexico-syntactic competition was associated with greater activation in LIFG for verbs in phrases, but not for isolated verbs, indicating that lexico-syntactic information is boosted by the phrasal context. Together, these findings indicate that LIFG plays a general role in resolving different kinds of linguistic competition.",
+    "include": true,
+    "confidence": 0.9,
+    "reason": "Meets all key criteria for inclusion in language-network neuroimaging review",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "27984068",
+    "title": "Age-related differences in resolving semantic and phonological competition during receptive language tasks",
+    "abstract": "Receptive language (e.g., reading) is largely preserved in the aging brain, and semantic processes in particular may continue to develop throughout the lifespan. We investigated the neural underpinnings of phonological and semantic retrieval in older and younger adults during receptive language tasks (rhyme and semantic similarity judgments). In particular, we were interested in the role of competition on language retrieval and varied the similarities between a cue, target, and distractor that were hypothesized to affect the mental process of competition. Behaviorally, all participants responded faster and more accurately during the rhyme task compared to the semantic task. Moreover, older adults demonstrated higher response accuracy than younger adults during the semantic task. Although there were no overall age-related differences in the neuroimaging results, an Age×Task interaction was found in left inferior frontal gyrus (IFG), with older adults producing greater activation than younger adults during the semantic condition. These results suggest that at lower levels of task difficulty, older and younger adults engaged similar neural networks that benefited behavioral performance. As task difficulty increased during the semantic task, older adults relied more heavily on largely left hemisphere language regions, as well as regions involved in perception and internal monitoring. Our results are consistent with the stability of language comprehension across the adult lifespan and illustrate how the preservation of semantic representations with aging may influence performance under conditions of increased task difficulty.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Meets all core criteria for language network neuroimaging review",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "22387168",
+    "title": "The anterior left inferior frontal gyrus contributes to semantic unification",
+    "abstract": "Semantic unification, the process by which small blocks of semantic information are combined into a coherent utterance, has been studied with various types of tasks. However, whether the brain activations reported in these studies are attributed to semantic unification per se or to other task-induced concomitant processes still remains unclear. The neural basis for semantic unification in sentence comprehension was examined using event-related potentials (ERP) and functional Magnetic Resonance Imaging (fMRI). The semantic unification load was manipulated by varying the goodness of fit between a critical word and its preceding context (in high cloze, low cloze and violation sentences). The sentences were presented in a serial visual presentation mode. The participants were asked to perform one of three tasks: semantic congruency judgment (SEM), silent reading for comprehension (READ), or font size judgment (FONT), in separate sessions. The ERP results showed a similar N400 amplitude modulation by the semantic unification load across all of the three tasks. The brain activations associated with the semantic unification load were found in the anterior left inferior frontal gyrus (aLIFG) in the FONT task and in a widespread set of regions in the other two tasks. These results suggest that the aLIFG activation reflects a semantic unification, which is different from other brain activations that may reflect task-specific strategic processing.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Study examines neural mechanisms of semantic unification using fMRI and ERP with human participants, fitting review criteria",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "23507386",
+    "title": "The role of the left prefrontal cortex in sentence-level semantic integration",
+    "abstract": "Whether left inferior frontal gyrus (LIFG) activation during sentence comprehension reflects semantic integration or domain-general cognitive control remains unclear. To address this issue, 26 participants were presented with sentences word by word during fMRI scanning and were asked to perform two semantic tasks, one explicit (semantic congruency judgment) and one implicit (font size judgment). In the two language tasks, semantic integration load was parametrically manipulated with high cloze, low cloze and semantically violated sentences. Participants also performed a classical Stroop task during scanning. Conjunction analysis of the explicit and implicit tasks revealed two regions in left inferior frontal gyrus associated with semantic integration load: one anterior region (aIFG) and one posterior region (pIFG). However, only the pIFG region was also activated during the Stroop task. These results indicate that different regions in the LIFG play different roles in semantic integration, with aIFG more important for domain-specific processing and pIFG more important for domain-general cognitive control.",
+    "include": true,
+    "confidence": 0.95,
+    "reason": "Strong fit across all criteria with clear language-network neuroimaging focus",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "24244653",
+    "title": "Large scale brain functional networks support sentence comprehension: evidence from both explicit and implicit language tasks",
+    "abstract": "Previous studies have indicated that sentences are comprehended via widespread brain regions in the fronto-temporo-parietal network in explicit language tasks (e.g., semantic congruency judgment tasks), and through restricted temporal or frontal regions in implicit language tasks (e.g., font size judgment tasks). This discrepancy has raised questions regarding a common network for sentence comprehension that acts regardless of task effect and whether different tasks modulate network properties. To this end, we constructed brain functional networks based on 27 subjects' fMRI data that was collected while performing explicit and implicit language tasks. We found that network properties and network hubs corresponding to the implicit language task were similar to those associated with the explicit language task. We also found common hubs in occipital, temporal and frontal regions in both tasks. Compared with the implicit language task, the explicit language task resulted in greater global efficiency and increased integrated betweenness centrality of the left inferior frontal gyrus, which is a key region related to sentence comprehension. These results suggest that brain functional networks support both explicit and implicit sentence comprehension; in addition, these two types of language tasks may modulate the properties of brain functional networks.",
+    "include": true,
+    "confidence": 0.95,
+    "reason": "Meets all key criteria for language network neuroimaging study",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "data/pdfs/24244653.pdf",
+    "download_status": "success"
+  },
+  {
+    "pmid": "27583349",
+    "title": "The Brain Effective Connectivity of Chinese during Rhyming Task",
+    "abstract": "With regard to brain language processing, the activation patterns have been well studied, and recently there are great interest in the connectivity models. The crucial brain areas for phonological processing involves left inferior frontal gyrus (LIFG), left inferior parietal lobule (LIPL) and left posterior middle temporal gyrus (LpMTG). Specially in Chinese processing, the left middle frontal gyrus (LMFG) is considered as an essential region. However, the connectivity pattern among these brain areas is not well understood. In this study, a rhyming experiment of Chinese was conducted, and the Dynamic causal modeling (DCM) and the Bayesian model selection (BMS) were used to examine the interaction between brain regions and choose the best model for rhyming task of Chinese. By examining the interactions, it was found that LMFG exerted inhibitory modulation on LIPL and LIFG; the phonological processing enhanced the connection from LIPL to LIFG and LMFG, which suggested the important roles of these connections for the increased phonological load; And LpMTG modulated LIFG and LMFG negatively, and LIPL positively under rhyming judgment task.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Study investigates neural mechanisms of Chinese language processing using fMRI connectivity analysis with human participants",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "data/pdfs/27583349.pdf",
+    "download_status": "success"
+  },
+  {
+    "pmid": "27916731",
+    "title": "Associations between the CNTNAP2 gene, dorsolateral prefrontal cortex, and cognitive performance on the Stroop task",
+    "abstract": "The CNTNAP2 (contactin-associated protein-like 2) gene, highly expressed in the human prefrontal cortex, has been linked with autism and language impairment. Potential relationships between CNTNAP2, dorsolateral prefrontal cortex (DLPFC), and cognition have been suggested by previous clinical studies, but have not been directly examined in the same study. The current study collected structural MRI, genetic, and behavioral data in 317 healthy Chinese adults, and examined associations between CNTNAP2 variants, DLPFC, and cognitive performance (measured by the Stroop task). After controlling for intracranial volume, sex, and age, the CNTNAP2 genetic polymorphism at SNP rs7809486 had the strongest association with bilateral DLPFC volume (p=0.00015 and 0.00014 for left and right DLPFC volumes, respectively), with GG homozygotes having greater bilateral DLPFC volumes and surface areas than the other genotypes. Furthermore, TT homozygotes of CNTNAP2 rs4726946 (a nearby SNP that had moderate linkage disequilibrium with rs7809486) had greater left DLPFC volume and surface area, and better cognitive performance than the other genotypes. Subjects with greater left DLPFC surface area had better cognitive performance. Importantly, the left DLPFC surface area mediated the association between the CNTNAP2 rs4726946 genotype and cognitive performance. This study provides the first evidence for associations among the CNTNAP2 gene, left DLPFC structure, and cognitive control.",
+    "include": false,
+    "confidence": 0.85,
+    "reason": "Study focuses on genetic associations with brain structure and cognition rather than language processing networks",
+    "labels": {
+      "topic_fit": "no",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": [
+        "genetic study",
+        "structural MRI only",
+        "cognitive control task (Stroop)"
+      ]
+    },
+    "pdf_path": "",
+    "download_status": "skipped"
+  },
+  {
+    "pmid": "30765524",
+    "title": "Multiple interactive memory representations underlie the induction of false memory",
+    "abstract": "Theoretical and computational models such as transfer-appropriate processing (TAP) and global matching models have emphasized the encoding-retrieval interaction of memory representations in generating false memories, but relevant neural mechanisms are still poorly understood. By manipulating the sensory modalities (visual and auditory) at different processing stages (learning and test) in the Deese-Roediger-McDermott task, we found that the auditory-learning visual-test (AV) group produced more false memories (59%) than the other three groups (42∼44%) [i.e., visual learning visual test (VV), auditory learning auditory test (AA), and visual learning auditory test (VA)]. Functional imaging results showed that the AV group's proneness to false memories was associated with (i) reduced representational match between the tested item and all studied items in the visual cortex, (ii) weakened prefrontal monitoring process due to the reliance on frontal memory signal for both targets and lures, and (iii) enhanced neural similarity for semantically related words in the temporal pole as a result of auditory learning. These results are consistent with the predictions based on the TAP and global matching models and highlight the complex interactions of representations during encoding and retrieval in distributed brain regions that contribute to false memories.",
+    "include": false,
+    "confidence": 0.85,
+    "reason": "Abstract focuses on memory mechanisms rather than language processing networks",
+    "labels": {
+      "topic_fit": "no",
+      "method_fit": "yes",
+      "participant_fit": "uncertain",
+      "risk_flags": [
+        "false memories",
+        "memory representations",
+        "Deese-Roediger-McDermott task"
+      ]
+    },
+    "pdf_path": "",
+    "download_status": "skipped"
+  },
+  {
+    "pmid": "30629612",
+    "title": "Embedded word priming elicits enhanced fMRI responses in the visual word form area.",
+    "abstract": "Lexical embedding is common in all languages and elicits mutual orthographic interference between an embedded word and its carrier. The neural basis of such interference remains unknown. We employed a novel fMRI prime-target embedded word paradigm to test for involvement of a visual word form area (VWFA) in left ventral occipitotemporal cortex in co-activation of embedded words and their carriers. Based on the results of related fMRI studies we predicted either enhancement or suppression of fMRI responses to embedded words initially viewed as primes, and repeated in the context of target carrier words. Our results clearly showed enhancement of fMRI responses in the VWFA to embedded-carrier word pairs as compared to unrelated prime-target pairs. In contrast to non-visual language-related areas (e.g., left inferior frontal gyrus), enhanced fMRI responses did not occur in the VWFA when embedded-carrier word pairs were restricted to the left visual hemifield. Our finding of fMRI enhancement in the VWFA is novel evidence of its involvement in representational rivalry between orthographically similar words, and the co-activation of embedded words and their carriers.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Meets all core criteria for neural mechanisms of language processing using fMRI methodology with human participants",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "data/pdfs/30629612.pdf",
+    "download_status": "success"
+  },
+  {
+    "pmid": "33582498",
+    "title": "Clinical application of intraoperative trial-free online-based language mapping for patients with refractory epilepsy",
+    "abstract": "OBJECTIVE: The objective of the study was to develop and clinically test a trial-free online-based language mapping method for localizing the eloquent cortex easily in epilepsy operation.\nMETHODS: Nine patients with refractory epilepsy were included in this study according to the results of preoperative evaluation for their epileptogenic zones (EZs) located adjacent to the eloquent cortex. When patients were awakened up from general anesthesia during operation, the trial-free online-based language-mapping paradigm was performed. All positive points marked on the cortex in each test were labeled and superimposed together as the result of functional mapping for each patient. The eloquent cortex was mapped according to the results obtained both from the intraoperative trial-free task localization method and the traditional electrical cortical stimulation (ECS).\nRESULTS: All patients completed this paradigms twice within 10 min. Based on the results of mapping, the EZs were tried to fully resected on the premise of preserving the mapped eloquent cortex as much as possible. The postoperative follow-up showed the outcome of Engel I in six patients and Engel II in three patients, whereas only two patients had aphemia after surgery and recovered within one week and three months, respectively.\nSIGNIFICANCE: The intraoperative trial-free online-based language mapping method was primarily identified to be safe and effective. This novel method seems to be promising and worthy of improvement.",
+    "include": false,
+    "confidence": 0.85,
+    "reason": "Study focuses on surgical epilepsy mapping rather than general language network mechanisms",
+    "labels": {
+      "topic_fit": "no",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": [
+        "epilepsy",
+        "surgical",
+        "intraoperative",
+        "clinical_test"
+      ]
+    },
+    "pdf_path": "",
+    "download_status": "skipped"
+  },
+  {
+    "pmid": "30176323",
+    "title": "The Distinct Roles of Dorsal and Ventral Visual Systems in Naming of Chinese Characters",
+    "abstract": "We aimed to investigate the role of dorsal and ventral visual systems in rapid naming of simple Chinese characters. Twenty college students (10 female; M<sub>age</sub> = 22.5 years) were required to covertly read a character- and a cross-matrix during an fMRI experiment. A basic prosaccade and a prosaccade-naming task were also performed to confirm the functional significance of the findings. The results of whole brain analysis showed that both dorsal and ventral visual systems were activated in the character-matrix reading. The cross-matrix scanning elicited weaker activation in the left middle frontal gyrus, superior temporal gyrus, and ventral occipitotemporal cortex. Next, whereas both top-down and bottom-up effective connectivities (ECs) were found between these two systems in the character-matrix reading, only top-down ECs were observed in the cross-matrix scanning. Moreover, in the character-matrix reading, we found a negative correlation between the reaction time of naming in the prosaccade-naming task and the EC strength from visual word form area to superior temporal gyrus and a positive correlation between the reaction time in the basic prosaccade task and the EC strength from middle frontal gyrus to intraparietal sulcus. The cross-matrix scanning did not show any brain-behavior relationship. These results suggest that while the dorsal visual system is mainly engaged in eye-movement control, the ventral system is associated more with orthographic processing and orthography-phonology mapping.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Meets all core criteria for inclusion in language-network neuroimaging review",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "33556881",
+    "title": "The development of brain functional connectome during text reading",
+    "abstract": "Reading is an important skill for human beings to obtain information, whose acquisition is a major learning task for children. Especially, compared with single word reading, text reading requires an integration of multiple cognitive processes, which makes its underlying neural developmental mechanism not only extremely complicated but also remained poorly understood. Employing the graph theory analysis method, the present study explored the development of brain in the context of story reading from the perspective of connectomics. Forty-two primary school students and thirty-two adults read the stories in the functional magnetic resonance imaging (fMRI) experiment. We found that compared with children, adults had increased connectivity strength, nodal degree, and modular interactions for vision-related and semantics-related brain regions while decreased connectivity strength, nodal degree, and modular interactions for phonology-related brain regions. Brain-behavior association analysis suggested that the transmission to vision-related brain circuits would enhance the reading performance in adults, whereas phonology-related brain circuits played important roles in children's reading before they develop into fluent readers. Collectivity, we highlight a shift from reliance on phonology-related networks to semantics-related and vision-related networks with age for text reading, which provides insights into the underlying neural signature of developmental cognitive mechanisms.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Study investigates neural mechanisms of language processing using fMRI with human participants, aligns with review criteria",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "36075539",
+    "title": "Separate neural subsystems support goal-directed speech listening",
+    "abstract": "How do humans excel at tracking the narrative of a particular speaker with a distracting noisy background? This feat places great demands on the collaboration between speech processing and goal-related regulatory functions. Here, we propose that separate subsystems with different cross-task dynamic activity properties and distinct functional purposes support goal-directed speech listening. We adopted a naturalistic dichotic speech listening paradigm in which listeners were instructed to attend to only one narrative from two competing inputs. Using functional magnetic resonance imaging with inter- and intra-subject correlation techniques, we discovered a dissociation in response consistency in temporal, parietal and frontal brain areas as the task demand varied. Specifically, some areas in the bilateral temporal cortex (SomMotB_Aud and TempPar) and lateral prefrontal cortex (DefaultB_PFCl and ContA_PFCl) always showed consistent activation across subjects and across scan runs, regardless of the task demand. In contrast, some areas in the parietal cortex (DefaultA_pCunPCC and ContC_pCun) responded reliably only when the task goal remained the same. These results suggested two dissociated functional neural networks that were independently validated by performing a data-driven clustering analysis of voxelwise functional connectivity patterns. A subsequent meta-analysis revealed distinct functional profiles for these two brain correlation maps. The different-task correlation map was strongly associated with language-related processes (e.g., listening, speech and sentences), whereas the same-task versus different-task correlation map was linked to self-referencing functions (e.g., default mode, theory of mind and autobiographical topics). Altogether, the three-pronged findings revealed two anatomically and functionally dissociated subsystems supporting goal-directed speech listening.",
+    "include": true,
+    "confidence": 0.95,
+    "reason": "Abstract meets all key criteria for inclusion in language-network neuroimaging review",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "36517928",
+    "title": "Neural correlates of audiovisual speech synchrony perception and its relationship with autistic traits",
+    "abstract": "The anterior insula (AI) has the central role in coordinating attention and integrating information from multiple sensory modalities. AI dysfunction may contribute to both sensory and social impairments in autism spectrum disorder (ASD). Little is known regarding the brain mechanisms that guide multisensory integration, and how such neural activity might be affected by autistic-like symptoms in the general population. In this study, 72 healthy young adults performed an audiovisual speech synchrony judgment (SJ) task during fMRI scanning. We aimed to investigate the SJ-related brain activations and connectivity, with a focus on the AI. Compared with synchronous speech, asynchrony perception triggered stronger activations in the bilateral AI, and other frontal-cingulate-parietal regions. In contrast, synchronous perception resulted in greater involvement of the primary auditory and visual areas, indicating multisensory validation and fusion. Moreover, the AI demonstrated a stronger connection with the anterior cingulate gyrus (ACC) in the audiovisual asynchronous (vs. synchronous) condition. To facilitate asynchrony detection, the AI may integrate auditory and visual speech stimuli, and generate a control signal to the ACC that further supports conflict-resolving and response selection. Correlation analysis, however, suggested that audiovisual synchrony perception and its related AI activation and connectivity did not significantly vary with different levels of autistic traits. These findings provide novel evidence for the neural mechanisms underlying multisensory temporal processing in healthy people. Future research should examine whether such findings would be extended to ASD patients.",
+    "include": false,
+    "confidence": 0.85,
+    "reason": "Study focuses on multisensory integration in healthy adults, not specifically on language processing networks",
+    "labels": {
+      "topic_fit": "no",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": [
+        "autism spectrum disorder",
+        "autistic traits",
+        "ASD patients"
+      ]
+    },
+    "pdf_path": "",
+    "download_status": "skipped"
+  },
+  {
+    "pmid": "33360179",
+    "title": "Chasing language through the brain: Successive parallel networks",
+    "abstract": "",
+    "include": false,
+    "confidence": 0.0,
+    "reason": "abstract_unavailable",
+    "labels": {
+      "risk_flags": [
+        "no_abstract"
+      ]
+    },
+    "pdf_path": "",
+    "download_status": "skipped"
+  },
+  {
+    "pmid": "31794712",
+    "title": "The behavioral and neural basis of foreign language effect on risk-taking",
+    "abstract": "Recent studies show that people exhibit a reduced decision bias in a foreign language relative to their native language. However, the underlying mechanism remains unknown. Using functional magnetic resonance imaging (fMRI) combined with an even-probability gambling task in which gambling feedback was presented in either a native language or a foreign language after each decision, we assessed the neural correlates of language modulated behavioral changes in decision making. In both foreign and native language contexts, participants showed a behavioral pattern resembles the Gambler's fallacy that losing a gamble leads to more betting than winning a gamble. While there was no language difference in gambling, bilateral caudate and amygdala gain signals were exaggerated by foreign language in relative to native language, suggesting that foreign language enhanced neural responses to rewards. Moreover, the individual difference in foreign language-induced Gambler's fallacy-like decision bias was associated with activation in the right amygdala and ventromedial prefrontal cortex, as well as functional connectivity between right amygdala and right putamen/right posterior insula. Our results confirm that outcome processing in emotion-related regions may underlie individual differences in foreign language effects in judgment and decision making.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Study investigates neural mechanisms of language processing using fMRI with human participants, reporting specific brain regions and statistical tests",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "33865849",
+    "title": "Morpho-semantic analysis of ambiguous morphemes in Chinese compound word recognition: An fMRI study",
+    "abstract": "The present fMRI study examined the neural basis of processing context-supported or -unsupported interpretations of ambiguous morphemes during Chinese compound word reading in a masked priming lexical decision task. Targets were Chinese bimorphemic words that contained ambiguous morphemes. Prime words contained the same ambiguous morphemes with either the same meanings (context-supported interpretation) or different ones (context-unsupported interpretation). Lexical-level semantic sharing and unrelated control conditions were also included. Compared to the unrelated control condition, the context-supported morphemic meaning was associated with increased activity in the left SFG and bilateral MTG, and this priming effect could be dissociated from that of the lexical-level semantic-related condition. In broader brain regions, including the left SFG, bilateral MTG, left STG, right IOG, and left precuneus, the context-unsupported meaning condition showed decreased activity compared with the unrelated control condition. These findings indicate that both the context-supported and -unsupported meanings evoke significant priming effects, however, they differ from each other with different brain basis, providing new insight into the neural substrates of ambiguous morpheme processing.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Meets all key criteria for language network neuroimaging study",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "24161281",
+    "title": "Neural pathway in the right hemisphere underlies verbal insight problem solving",
+    "abstract": "Verbal insight problem solving means to break mental sets, to select the novel semantic information and to form novel, task-related associations. Although previous studies have identified the brain regions associated with these key processes, the interaction among these regions during insight is still unclear. In the present study, we explored the functional connectivity between the key regions during solving Chinese 'chengyu' riddles by using event-related functional magnetic resonance imaging. Results showed that both insight and noninsight solutions activated the bilateral inferior frontal gyri, middle temporal gyri and hippocampi, and these regions constituted a frontal to temporal to hippocampal neural pathway. Compared with noninsight solution, insight solution had a stronger functional connectivity between the inferior frontal gyrus and middle temporal gyrus in the right hemisphere. Our study reveals the neural pathway of information processing during verbal insight problem solving, and supports the right-hemisphere advantage theory of insight.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Meets all core criteria for language-network neuroimaging review with fMRI methodology and human participants",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "24607883",
+    "title": "Neural division of labor in reading is constrained by culture: a training study of reading Chinese characters",
+    "abstract": "Word reading in alphabetic language involves a cortical system with multiple components whose division of labor depends on the transparency of the writing system. To gain insight about the neural division of labor between phonology and semantics subserving word reading in Chinese, a deep non-alphabetic writing system, functional magnetic resonance imaging (fMRI) was used to investigate the effects of phonological and semantic training on the cortical circuitry for oral naming of Chinese characters. In a training study, we examined whether a training task that differentially focused readers' attention on the phonological or semantic properties of a Chinese character changes the patterns of cortical activation that was evoked by that character in a subsequent naming task. Our imaging results corroborate that the cortical regions underlying reading in Chinese largely overlap the left-hemisphere reading system responsible for reading in alphabetic languages, with some cortical regions in the left-hemisphere uniquely recruited for reading in Chinese. However, in contrast to findings from studies of English word naming, we observed considerable overlap in the neural activation patterns associated with phonological and semantic training on naming Chinese characters, which we suggest may reflect a balanced neural division of labor between phonology and semantics in Chinese character reading. The equitable division of labor for Chinese reading might be driven by the special statistical structure of the writing system, which includes equally systematic mappings in the correspondences between written forms and their pronunciations and meanings.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Meets all core criteria for inclusion in language-network neuroimaging review",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "26777875",
+    "title": "Development of neural basis for chinese orthographic neighborhood size effect",
+    "abstract": "The brain activity of orthographic neighborhood size (N size) effect in Chinese character naming has been studied in adults, meanwhile behavioral studies have revealed a developmental trend of Chinese N-size effect in developing readers. However, it is unclear whether and how the neural mechanism of N-size effect changes in Chinese children along with development. Here we address this issue using functional magnetic resonance imaging. Forty-four students from the 3(rd) , 5(th) , and 7(th) grades were scanned during silent naming of Chinese characters. After scanning, all participants took part in an overt naming test outside the scanner, and results of the naming task showed that the 3(rd) graders named characters from large neighborhoods faster than those from small neighborhoods, revealing a facilitatory N-size effect; the 5(th) graders showed null N-size effect while the 7(th) graders showed an inhibitory N-size effect. Neuroimaging results revealed that only the 3(rd) graders exhibited a significant N-size effect in the left middle occipital activity, with greater activation for large N-size characters. Results of 5(th) and 7(th) graders showed significant N-size effects in the left middle frontal gyrus, in which 5(th) graders induced greater activation in large N-size condition than in small N-size condition, while 7(th) graders exhibited an opposite effect which was similar to the adult pattern reported in a previous study. The current findings suggested the transition from broadly tuned to finely tuned orthographic representation with reading development, and the inhibition from neighbors' phonology for higher graders. Hum Brain Mapp 37:632-647, 2016. © 2015 Wiley Periodicals, Inc.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Study investigates neural mechanisms of language processing using fMRI with human participants across developmental stages, reporting brain regions and statistical tests",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "28259773",
+    "title": "Different activity patterns for action and language within their shared neural areas: An fMRI study on action observation and language phonology",
+    "abstract": "The neural processes for action and language activate shared brain regions including the left inferior frontal, parietal and temporal-occipital cortices. However, it still remains unclear how action and language are related and what neural activity patterns are elicited within these shared cortical regions. In this study we examined the neural activation for action observation and language phonology in their shared cortical regions by conducting three experiments in a single fMRI session: a mixed-task experiment involving both action and language phonological processing, and two independent experiments involving language phonology and action observation respectively. To control for differences in the visual processing and to enable a direct comparison between the tasks, the same visual stimuli were used for the mixed-tasks. Common neural areas for action observation and language phonology were located in the junction of the left inferior frontal/precentral gyrus, the left intraparietal sulcus and the left temporal-occipital cortex. Nevertheless, multi-voxel pattern analysis on the shared neural areas revealed that different patterns of neural activity were elicited for the action and language phonological tasks. Our results provide the first neuroimaging evidence that the common neural structures are engaged differently by action and language phonological processing.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Meets all key criteria: fMRI study of language processing neural mechanisms with human participants, reports statistical tests and brain regions.",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "33817920",
+    "title": "Neural substrates of the executive function construct, age-related changes, and task materials in adolescents and adults: ALE meta-analyses of 408 fMRI studies",
+    "abstract": "To explore the neural substrates of executive function (EF), we conducted an activation likelihood estimation meta-analysis of 408 functional magnetic resonance imaging studies (9639 participants, 7587 activation foci, 518 experimental contrasts) covering three fundamental EF subcomponents: inhibition, switching, and working memory. Our results found that activation common to all three EF subcomponents converged in the multiple-demand network across adolescence and adulthood. The function of EF with the multiple-demand network involved, especially for the prefrontal cortex and the parietal regions, could not be mature until adulthood. In adolescents, only working memory could be separable from common EF, whereas in adults, the three EF subcomponents could be separable from common EF. However, findings of switching in adolescents should be treated with substantial caution and may be exploratory due to limited data available on switching tasks. For task materials, inhibition and working memory showed both domain generality and domain specificity, undergirded by the multiple-demand network, as well as different brain regions in response to verbal and nonverbal task materials, respectively. In contrast, switching showed only domain generality with no activation specialized for either verbal or nonverbal task materials. These findings, taken together, support and contribute to the unitary-diverse nature of EF such that EF should be interpreted in an integrative model that relies on the integration of the EF construct, development, and task materials.",
+    "include": false,
+    "confidence": 0.85,
+    "reason": "Abstract focuses on executive function rather than language processing",
+    "labels": {
+      "topic_fit": "no",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": [
+        "executive function",
+        "multiple-demand network",
+        "inhibition",
+        "switching",
+        "working memory"
+      ]
+    },
+    "pdf_path": "",
+    "download_status": "skipped"
+  },
+  {
+    "pmid": "37263104",
+    "title": "Taxonomic and thematic relations rely on different types of semantic features: Evidence from an fMRI meta-analysis and a semantic priming study",
+    "abstract": "Taxonomic and thematic relations are major components of semantic representation but their neurocognitive underpinnings are still debated. We hypothesised that taxonomic relations preferentially activate parts of anterior temporal lobe (ATL) because they rely more on colour and shape features, while thematic relations preferentially activate temporoparietal cortex (TPC) because they rely more on action and location knowledge. We first conducted activation likelihood estimation (ALE) meta-analysis to assess evidence for neural specialisation in the existing fMRI literature (Study 1), then used a primed semantic judgement task to examine if the two relations are primed by different feature types (Study 2). We find that taxonomic relations show minimal feature-based specialisation but preferentially activate the lingual gyrus. Thematic relations are more dependent on action and location features and preferentially engage TPC. The meta-analysis also showed that lateral ATL is preferentially engaged by Thematic relations, which may reflect their greater reliance on verbal associations.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Abstract fits review criteria with fMRI meta-analysis and semantic task, human participants implied, relevant to language network mechanisms.",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "28924564",
+    "title": "Signal processing of functional NIRS data acquired during overt speaking",
+    "abstract": "Functional near-infrared spectroscopy (fNIRS) offers an advantage over traditional functional imaging methods [such as functional magnetic resonance imaging (fMRI)] by allowing participants to move and speak relatively freely. However, neuroimaging while actively speaking has proven to be particularly challenging due to the systemic artifacts that tend to be located in the critical brain areas. To overcome these limitations and enhance the utility of fNIRS, we describe methods for investigating cortical activity during spoken language tasks through refinement of deoxyhemoglobin (deoxyHb) signals with principal component analysis (PCA) spatial filtering to remove global components. We studied overt picture naming and compared oxyhemoglobin (oxyHb) and deoxyHb signals with and without global component removal using general linear model approaches. Activity in Broca's region and supplementary motor cortex was observed only when the filter was applied to the deoxyHb signal and was shown to be spatially comparable to fMRI data acquired using a similar task and to meta-analysis data. oxyHb signals did not yield expected activity in Broca's region with or without global component removal. This study demonstrates the utility of a PCA spatial filter on the deoxyHb signal in revealing neural activity related to a spoken language task and extends applications of fNIRS to natural and ecologically valid conditions.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Study uses fNIRS methodology on human participants during spoken language tasks, reports neural activity in language-relevant brain regions with statistical analysis",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "32056450",
+    "title": "Hierarchical Organization of Functional Brain Networks Revealed by Hybrid Spatiotemporal Deep Learning",
+    "abstract": "Hierarchical organization of brain function has been an established concept in the neuroscience field for a long time, however, it has been rarely demonstrated how such hierarchical macroscale functional networks are actually organized in the human brain. In this study, to answer this question, we propose a novel methodology to provide an evidence of hierarchical organization of functional brain networks. This article introduces the hybrid spatiotemporal deep learning (HSDL), by jointly using deep belief networks (DBNs) and deep least absolute shrinkage and selection operator (LASSO) to reveal the temporal hierarchical features and spatial hierarchical maps of brain networks based on the Human Connectome Project 900 functional magnetic resonance imaging (fMRI) data sets. Briefly, the key idea of HSDL is to extract the weights between two adjacent layers of DBNs, which are then treated as the hierarchical dictionaries for deep LASSO to identify the corresponding hierarchical spatial maps. Our results demonstrate that both spatial and temporal aspects of dozens of functional networks exhibit multiscale properties that can be well characterized and interpreted based on existing computational tools and neuroscience knowledge. Our proposed novel hybrid deep model is used to provide the first insightful opportunity to reveal the potential hierarchical organization of time series and functional brain networks, using task-based fMRI signals of human brain.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Study uses fMRI on human participants to investigate hierarchical organization of functional brain networks, aligning with review focus on neural mechanisms of language processing at network level",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "35064707",
+    "title": "The role of left angular gyrus in the representation of linguistic composition relations",
+    "abstract": "Language comprehension is compositional: individual words are combined structurally to form larger meaning representations. The neural basis for compositionality is at the center of a growing body of recent research. Previous work has largely used univariate analysis to investigate the question, a technique that could potentially lead to the loss of fined-grained information due to the procedure of averaging over neural responses. In a functional magnetic resonance imaging experiment, the present study examined different types of composition relations in Chinese phrases, using a 1-back composition relation probe (CRP) task and a 1-back word probe (WP) task. We first analyzed the data using the multivariate representation similarity analysis, which better captures the fine-grained representational differences in the stimuli. The results showed that the left angular gyrus (AG) represents different types of composition relations in the CRP task, but no brain areas were identified in the WP task. We also conducted a traditional univariate analysis and found greater activations in the bilateral inferior frontal gyrus in the CRP task relative to the WP task. We discuss the methodological and theoretical implications of our findings in the context of the larger language neural network identified in previous studies. Our findings highlight the role of left AG in representing and distinguishing fine-grained linguistic composition relations.",
+    "include": true,
+    "confidence": 0.95,
+    "reason": "Meets all inclusion criteria with strong methodology and topic alignment",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "32720845",
+    "title": "The dynamic and task-dependent representational transformation between the motor and sensory systems during speech production",
+    "abstract": "The motor and sensory systems work collaboratively to fulfill cognitive tasks, such as speech. For example, it has been hypothesized that neural signals generated in the motor system can transfer directly to the sensory system along a neural pathway (termed as motor-to-sensory transformation). Previous studies have demonstrated that the motor-to-sensory transformation is crucial for speech production. However, it is still unclear how neural representation dynamically evolves among distinct neural systems and how such representational transformation depends on task demand and the degrees of motor involvement. Using three speech tasks - overt articulation, silent articulation, and imagined articulation, the present fMRI study systematically investigated the representational formats and their dynamics in the motor-to-sensory transformation. Frontal-parietal-temporal neural pathways were observed in all three speech tasks in univariate analyses. The extent of the motor-to-sensory transformation network differed when the degrees of motor engagement varied among tasks. The representational similarity analysis (RSA) revealed that articulatory and acoustic information was represented in motor and auditory regions, respectively, in all three tasks. Moreover, articulatory information was cross-represented in the somatosensory and auditory regions in overt and silent articulation tasks. These results provided evidence for the dynamics and task-dependent transformation between representational formats in the motor-to-sensory transformation.",
+    "include": true,
+    "confidence": 0.85,
+    "reason": "Abstract fits language-network neuroimaging criteria with fMRI methodology, human participants, and explicit neural pathway analysis",
+    "labels": {
+      "topic_fit": "yes",
+      "method_fit": "yes",
+      "participant_fit": "yes",
+      "risk_flags": []
+    },
+    "pdf_path": "",
+    "download_status": "failed"
+  },
+  {
+    "pmid": "25732072",
+    "title": "Characterizing and differentiating task-based and resting state fMRI signals via two-stage sparse representations",
+    "abstract": "A relatively underexplored question in fMRI is whether there are intrinsic differences in terms of signal composition patterns that can effectively characterize and differentiate task-based or resting state fMRI (tfMRI or rsfMRI) signals. In this paper, we propose a novel two-stage sparse representation framework to examine the fundamental difference between tfMRI and rsfMRI signals. Specifically, in the first stage, the whole-brain tfMRI or rsfMRI signals of each subject were composed into a big data matrix, which was then factorized into a subject-specific dictionary matrix and a weight coefficient matrix for sparse representation. In the second stage, all of the dictionary matrices from both tfMRI/rsfMRI data across multiple subjects were composed into another big data-matrix, which was further sparsely represented by a cross-subjects common dictionary and a weight matrix. This framework has been applied on the recently publicly released Human Connectome Project (HCP) fMRI data and experimental results revealed that there are distinctive and descriptive atoms in the cross-subjects common dictionary that can effectively characterize and differentiate tfMRI and rsfMRI signals, achieving 100% classification accuracy. Moreover, our methods and results can be meaningfully interpreted, e.g., the well-known default mode network (DMN) activities can be recovered from the very noisy and heterogeneous aggregated big-data of tfMRI and rsfMRI signals across all subjects in HCP Q1 release.",
+    "include": false,
+    "confidence": 0.85,
+    "reason": "Methodology mismatch - focuses on fMRI signal analysis rather than language processing",
+    "labels": {
+      "topic_fit": "no",
+      "method_fit": "no",
+      "participant_fit": "yes",
+      "risk_flags": [
+        "no language task mentioned",
+        "methodological focus on signal analysis rather than language processing"
+      ]
+    },
+    "pdf_path": "",
+    "download_status": "skipped"
+  }
+]

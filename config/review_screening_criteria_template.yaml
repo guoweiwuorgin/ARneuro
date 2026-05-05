@@ -20,15 +20,16 @@ methodology:
   exclude:
     - purely_theoretical
     - animal_only
+    - purely_review
 
 # 被试范围限定
 participant_scope:
   species: ["human"]
   age_range:
-    min: 18
-    max: 65
+    min: 0
+    max: 100
   language_background: ["monolingual", "bilingual"]
-  minimum_sample_size: 12
+  minimum_sample_size: 1
 
 # 疾病研究与 case report 策略
 # allow_case_report: 是否纳入 case report
@@ -36,13 +37,13 @@ participant_scope:
 # disease_whitelist / disease_blacklist 用于更精细控制
 disease_and_case_report_policy:
   include_disease_studies: true
-  allow_case_report: false
+  allow_case_report: true
   disease_whitelist: ["aphasia", "stroke"]
   disease_blacklist: ["severe dementia"]
 
 # 发表与可获取性限制
 publication_filters:
-  year_from: 2010
+  year_from: 1998
   languages: ["English"]
   publication_types_include: ["journal_article"]
   require_abstract: true

@@ -7,7 +7,13 @@ import json
 from collections import Counter
 from pathlib import Path
 from typing import Dict, List
+import sys
 
+# 保持依赖路径的添加
+sys.path.append("/storage/work/wuguowei/reviewer/Code_tools/")
+import os
+BASE_DIR = Path(__file__).resolve().parent
+os.chdir(BASE_DIR)
 from ARneuro.text_processing.document_segmentation import DocumentSegmenter
 
 

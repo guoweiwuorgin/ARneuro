@@ -104,7 +104,7 @@ class HeadingClassifier:
         
         user_prompt = f"""Classify the following heading:\n\n{headings_str} . Do not respond as 'Here is the classification of the given headings' or give other explaination, just give JSON response 
                         Do not provide your reasoning for each piece of information extracted or inferred.
-                        Respond with the JSON structure specified in the system prompt. If some string would affect the JSON structral, delete them,for example **\escape** """
+                        Respond with the JSON structure specified in the system prompt. If some string would affect the JSON structral, delete them """
         
         # Check if we have an LLM client
         if not self.llm_client:

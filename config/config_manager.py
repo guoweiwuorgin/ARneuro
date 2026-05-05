@@ -77,11 +77,11 @@ class ConfigManager:
             },
             "ocr_processing": {
                 "backend": "local",  # local 或 api
-                "model_path": "/storage/work/wuguowei/Bigmodel/GLM-OCR",
+                "model_path": "/storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2",
                 "device": "cuda",  # 或 "cpu"
                 "batch_size": 4,
                 "output_dir": "./data/markdown",
-                "local_sdk_class": "GLMOCR",  # 本地glmocr SDK类名
+                "local_sdk_class": "DeepSeek-OCR-2",  # 本地glmocr SDK类名
                 "local_sdk_method": "predict",  # 本地glmocr SDK调用方法
                 "language": "ch+en",  # 支持的语言
                 "api_key": "",

@@ -1,0 +1,50 @@
+[
+  {
+    "pdf": "data/pdfs/23458438.pdf",
+    "status": "success",
+    "markdown": "data/workflow/step2_markdown/23458438.md",
+    "pages_processed": 10,
+    "processing_time": 458.04,
+    "error": ""
+  },
+  {
+    "pdf": "data/pdfs/24244653.pdf",
+    "status": "success",
+    "markdown": "data/workflow/step2_markdown/24244653.md",
+    "pages_processed": 11,
+    "processing_time": 569.73,
+    "error": ""
+  },
+  {
+    "pdf": "data/pdfs/26834609.pdf",
+    "status": "success",
+    "markdown": "data/workflow/step2_markdown/26834609.md",
+    "pages_processed": 12,
+    "processing_time": 636.82,
+    "error": ""
+  },
+  {
+    "pdf": "data/pdfs/27583349.pdf",
+    "status": "success",
+    "markdown": "data/workflow/step2_markdown/27583349.md",
+    "pages_processed": 13,
+    "processing_time": 455.02,
+    "error": ""
+  },
+  {
+    "pdf": "data/pdfs/30629612.pdf",
+    "status": "success",
+    "markdown": "data/workflow/step2_markdown/30629612.md",
+    "pages_processed": 18,
+    "processing_time": 661.32,
+    "error": ""
+  },
+  {
+    "pdf": "data/pdfs/31849595.pdf",
+    "status": "success",
+    "markdown": "data/workflow/step2_markdown/31849595.md",
+    "pages_processed": 19,
+    "processing_time": 852.69,
+    "error": ""
+  }
+]
