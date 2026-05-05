@@ -7,7 +7,7 @@ import json
 from collections import Counter
 from pathlib import Path
 from typing import Dict, List
-import sys
+from text_processing.document_segmentation import DocumentSegmenter
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
