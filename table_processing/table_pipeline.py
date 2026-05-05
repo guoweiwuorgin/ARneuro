@@ -7,6 +7,7 @@ This module provides a complete pipeline for processing tables from research pap
 import os
 import json
 import pandas as pd
+from pathlib import Path
 from typing import List, Dict, Optional, Any
 from core.logger import get_logger
 from core.llm_client import LLMClientManager
@@ -41,64 +42,71 @@ class TableProcessingPipeline:
             if self.llm_manager:
                 self.brain_processor.set_llm_client(self.llm_manager)
     
-    def process_markdown_file(self, 
-                             markdown_file: str,
-                             output_dir: Optional[str] = None,
-                             process_brain_tables: bool = True,
-                             llm_client_type: str = 'deepseek',
-                             model_name: str = 'deepseek-chat') -> Dict[str, Any]:
-        """
-        Process tables from a markdown file.
-        
-        Args:
-            markdown_file: Path to markdown file
-            output_dir: Directory to save results
-            process_brain_tables: Whether to process brain activation tables
-            llm_client_type: Type of LLM client to use
-            model_name: Model name to use
-            
-        Returns:
-            dict: Complete table processing results
-        """
-        logger.info(f"Processing tables from: {markdown_file}")
-        
-        # Set output directory
+    def process_structured_content_file(self,
+                                      structured_content_file: str,
+                                      output_dir: Optional[str] = None,
+                                      source_markdown: Optional[str] = None,
+                                      process_brain_tables: bool = True,
+                                      llm_client_type: str = 'deepseek',
+                                      model_name: str = 'deepseek-chat') -> Dict[str, Any]:
+        """Process tables from `*_structured_content.json` produced by text_processing."""
+        if not os.path.exists(structured_content_file):
+            raise FileNotFoundError(f"Structured content file not found: {structured_content_file}")
+
+        with open(structured_content_file, 'r', encoding='utf-8') as f:
+            structured_content = json.load(f)
+
         if output_dir is None:
-            output_dir = os.path.join(os.path.dirname(markdown_file), "table_processing")
-        
+            output_dir = os.path.join(os.path.dirname(structured_content_file), "table_processing")
+
+        if source_markdown is None:
+            stem = Path(structured_content_file).name.replace('_structured_content.json', '')
+            candidate = os.path.join(os.path.dirname(structured_content_file), f"{stem}.md")
+            source_markdown = candidate if os.path.exists(candidate) else None
+
+        logger.info(f"Processing tables from structured content: {structured_content_file}")
+        tables_info = self.table_extractor.extract_tables_from_structured_content(
+            structured_content=structured_content,
+            source_markdown=source_markdown
+        )
+        return self._process_tables_payload(
+            input_file=structured_content_file,
+            output_dir=output_dir,
+            tables_info=tables_info,
+            process_brain_tables=process_brain_tables,
+            llm_client_type=llm_client_type,
+            model_name=model_name,
+            source_markdown=source_markdown
+        )
+
+    def _process_tables_payload(self,
+                               input_file: str,
+                               output_dir: str,
+                               tables_info: List[Dict],
+                               process_brain_tables: bool,
+                               llm_client_type: str,
+                               model_name: str,
+                               source_markdown: Optional[str] = None) -> Dict[str, Any]:
+        """Shared table post-processing for both markdown and structured inputs."""
         results = {
-            "input_file": markdown_file,
+            "input_file": input_file,
+            "source_markdown": source_markdown,
             "output_directory": output_dir,
             "metadata": {}
         }
-        
-        # Step 1: Extract tables from markdown
-        try:
-            tables_info = self.table_extractor.extract_tables_from_markdown(
-                markdown_file,
-                context_lines=5
-            )
-            results["tables_extracted"] = len(tables_info)
-            results["tables_info"] = tables_info
-        except Exception as e:
-            logger.error(f"Table extraction failed: {e}")
-            results["tables_extracted"] = 0
-            results["tables_info"] = []
-            results["error"] = str(e)
-            return results
-        
-        # Step 2: Categorize tables
+        results["tables_extracted"] = len(tables_info)
+        results["tables_info"] = tables_info
+
         try:
             categorized_tables = self.table_extractor.categorize_tables(tables_info)
             results["categorized_tables"] = {
-                category: len(tables) 
+                category: len(tables)
                 for category, tables in categorized_tables.items()
             }
         except Exception as e:
             logger.error(f"Table categorization failed: {e}")
             results["categorized_tables"] = {}
-        
-        # Step 3: Process brain activation tables if requested
+
         if process_brain_tables and tables_info and self.llm_manager:
             try:
                 brain_tables_results = self._process_brain_activation_tables(
@@ -110,18 +118,43 @@ class TableProcessingPipeline:
             except Exception as e:
                 logger.error(f"Brain table processing failed: {e}")
                 results["brain_activation_tables"] = {"error": str(e)}
-        
-        # Step 4: Save results
+
         try:
             saved_files = self._save_results(results, output_dir)
             results["output_files"] = saved_files
         except Exception as e:
             logger.error(f"Failed to save results: {e}")
             results["output_files"] = {"error": str(e)}
-        
-        logger.info(f"Table processing completed for: {markdown_file}")
+
+        logger.info(f"Table processing completed for: {input_file}")
         return results
-    
+
+    def process_markdown_file(self, 
+                             markdown_file: str,
+                             output_dir: Optional[str] = None,
+                             process_brain_tables: bool = True,
+                             llm_client_type: str = 'deepseek',
+                             model_name: str = 'deepseek-chat') -> Dict[str, Any]:
+        """Process tables from a markdown file."""
+        logger.info(f"Processing tables from: {markdown_file}")
+
+        if output_dir is None:
+            output_dir = os.path.join(os.path.dirname(markdown_file), "table_processing")
+
+        tables_info = self.table_extractor.extract_tables_from_markdown(
+            markdown_file,
+            context_lines=5
+        )
+        return self._process_tables_payload(
+            input_file=markdown_file,
+            output_dir=output_dir,
+            tables_info=tables_info,
+            process_brain_tables=process_brain_tables,
+            llm_client_type=llm_client_type,
+            model_name=model_name,
+            source_markdown=markdown_file
+        )
+
     def _process_brain_activation_tables(self,
                                         tables_info: List[Dict],
                                         llm_client_type: str,
