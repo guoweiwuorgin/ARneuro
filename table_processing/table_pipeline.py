@@ -37,7 +37,7 @@ class TableProcessingPipeline:
         
         # Initialize LLM client manager if API keys are provided
         self.llm_manager = None
-        if any(key in config for key in ['deepseek_api_key', 'openai_api_key', 'glm_api_key', 'huoshan_api_key']):
+        if any(key in config for key in ['deepseek_api_key', 'openai_api_key', 'glm_api_key', 'kimichat_api_key']):
             self.llm_manager = LLMClientManager(config)
             if self.llm_manager:
                 self.brain_processor.set_llm_client(self.llm_manager)

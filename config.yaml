@@ -1,0 +1,51 @@
+document_segmentation:
+  optional_sections:
+  - title
+  - abstract
+  - introduction
+  - discussion
+  - conclusion
+  - references
+  - acknowledgements
+  required_sections:
+  - methods
+  - results
+  validation_strict: false
+logging:
+  file: ./logs/arneuro.log
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  level: INFO
+ocr_processing:
+  api_end_page_id: null
+  api_key: ''
+  api_model: glm-ocr
+  api_need_layout_visualization: false
+  api_return_crop_images: false
+  api_start_page_id: null
+  api_timeout: 300
+  api_use_base64: true
+  api_user_id: ''
+  backend: local
+  batch_size: 4
+  device: cuda
+  language: ch+en
+  local_sdk_class: DeepSeek-OCR-2
+  local_sdk_method: predict
+  model_path: /storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2
+  output_dir: ./data/markdown
+paths:
+  cache_dir: ./cache
+  data_dir: ./data
+  logs_dir: ./logs
+  temp_dir: ./temp
+pdf_download:
+  finders:
+  - generic_citation
+  - pubmed_central
+  - acs
+  - nejm
+  - science_direct
+  max_retries: 3
+  output_dir: ./data/pdfs
+  timeout: 30
+  user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36

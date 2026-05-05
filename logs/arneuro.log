@@ -7,3 +7,12 @@
 2026-05-05 13:27:21,384 - ARneuro - INFO - Category 'other': 0 tables
 2026-05-05 13:32:10,529 - ARneuro - INFO - Extracting tables from: D:\app\Tools\ARneuro\examples\data\workflow\step2_markdown\23458438.md
 2026-05-05 13:32:10,542 - ARneuro - INFO - Extracted 0 tables from text
+2026-05-05 14:45:19,943 - ARneuro - INFO - Processing tables from structured content: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\23458438_structured_content.json
+2026-05-05 14:45:23,559 - ARneuro - INFO - Extracted 3 tables from structured content
+2026-05-05 14:45:56,593 - ARneuro - INFO - Created LLM client for kimichat with model kimi-for-coding
+2026-05-05 14:47:24,681 - ARneuro - INFO - Processing tables from structured content: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\23458438_structured_content.json
+2026-05-05 14:47:24,683 - ARneuro - INFO - Extracted 3 tables from structured content
+2026-05-05 14:47:37,094 - ARneuro - ERROR - Table categorization failed: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+2026-05-05 14:48:58,112 - ARneuro - INFO - Processing tables from structured content: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\23458438_structured_content.json
+2026-05-05 14:48:58,113 - ARneuro - INFO - Extracted 3 tables from structured content
+2026-05-05 14:49:07,829 - ARneuro - ERROR - Table categorization failed: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable

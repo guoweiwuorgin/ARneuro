@@ -36,7 +36,7 @@ class LLMClientManager:
         Get the appropriate API client based on the client type.
         
         Args:
-            client_type: Type of client to use ('deepseek', 'gpt4', 'glm', or 'huoshan')
+            client_type: Type of client to use ('deepseek', 'gpt4', 'glm', or 'kimichat')
             model_name: The model name to use
             api_key: The API key for authentication
             base_url: The base URL for API requests
@@ -68,13 +68,13 @@ class LLMClientManager:
             
             client = OpenAI(api_key=api_key)
             
-        elif client_type == 'huoshan':
-            model_name = model_name or "ep-20250317092828-slpl8"
-            api_key = api_key or self.config.get('huoshan_api_key', "3570455e-b4ed-4d70-8c38-a6ebcff5dfad")
+        elif client_type == 'kimichat':
+            model_name = model_name or "kimi-for-coding"
+            api_key = api_key or self.config.get('kimi_api_key')
             
             client = OpenAI(
                 api_key=api_key,
-                base_url="https://ark.cn-beijing.volces.com/api/v3"
+                base_url="https://api.kimi.com/coding/v1"
             )
             
         elif client_type == 'glm':
