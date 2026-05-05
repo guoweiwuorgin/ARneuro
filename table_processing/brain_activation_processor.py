@@ -152,7 +152,8 @@ class BrainActivationProcessor:
     
     def assess_brain_coordinates(self, 
                                 table_text: str, 
-                                table_description: str) -> Dict[str, Any]:
+                                table_description: str,
+                                llm_client) -> Dict[str, Any]:
         """
         Assess if a table contains brain coordinates and extract task name.
         
@@ -163,9 +164,10 @@ class BrainActivationProcessor:
         Returns:
             Dict: Assessment results
         """
+        self.llm_client = llm_client
         if not self.llm_client:
-            logger.warning("No LLM client provided, using rule-based assessment")
-            return self._assess_brain_coordinates_rule_based(table_text, table_description)
+            logger.error("No LLM client provided")
+            return None
         
         system_prompt = """
         You are an expert in neuroimaging data analysis. Your task is to analyze a table from a neuroscience paper and determine:

@@ -65,3 +65,32 @@
 2026-05-05 15:13:01,494 - ARneuro - INFO - Category 'statistical': 0 tables
 2026-05-05 15:13:01,495 - ARneuro - INFO - Category 'methodological': 0 tables
 2026-05-05 15:13:01,495 - ARneuro - INFO - Category 'other': 1 tables
+2026-05-05 15:23:54,406 - ARneuro - INFO - Processing tables from structured content: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\23458438_structured_content.json
+2026-05-05 15:23:54,408 - ARneuro - INFO - Extracted 3 tables from structured content
+2026-05-05 15:23:55,287 - ARneuro - INFO - Created LLM client for deepseek with model deepseek-chat
+2026-05-05 15:23:57,890 - ARneuro - INFO - Category 'brain_activation': 1 tables
+2026-05-05 15:23:57,891 - ARneuro - INFO - Category 'demographic': 1 tables
+2026-05-05 15:23:57,891 - ARneuro - INFO - Category 'statistical': 0 tables
+2026-05-05 15:23:57,891 - ARneuro - INFO - Category 'methodological': 0 tables
+2026-05-05 15:23:57,892 - ARneuro - INFO - Category 'other': 1 tables
+2026-05-05 15:25:43,709 - ARneuro - ERROR - LLM table parsing failed: 'LLMClientManager' object has no attribute 'chat'
+2026-05-05 15:25:43,923 - ARneuro - INFO - Basic parsing: 0 rows, 1 columns
+2026-05-05 15:25:43,950 - ARneuro - INFO - Saved table extraction results to: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\23458438\table_extraction.json
+2026-05-05 15:25:43,951 - ARneuro - INFO - Exported 0 tables to CSV files in: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\23458438\tables_csv
+2026-05-05 15:28:45,863 - ARneuro - INFO - Processing tables from structured content: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\23458438_structured_content.json
+2026-05-05 15:28:45,865 - ARneuro - INFO - Extracted 3 tables from structured content
+2026-05-05 15:28:46,747 - ARneuro - INFO - Created LLM client for deepseek with model deepseek-chat
+2026-05-05 15:28:49,155 - ARneuro - INFO - Category 'brain_activation': 1 tables
+2026-05-05 15:28:49,155 - ARneuro - INFO - Category 'demographic': 1 tables
+2026-05-05 15:28:49,156 - ARneuro - INFO - Category 'statistical': 0 tables
+2026-05-05 15:28:49,156 - ARneuro - INFO - Category 'methodological': 0 tables
+2026-05-05 15:28:49,156 - ARneuro - INFO - Category 'other': 1 tables
+2026-05-05 16:01:51,413 - ARneuro - INFO - Processing tables from structured content: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\23458438_structured_content.json
+2026-05-05 16:01:58,902 - ARneuro - INFO - Extracted 3 tables from structured content
+2026-05-05 16:01:59,795 - ARneuro - INFO - Created LLM client for deepseek with model deepseek-chat
+2026-05-05 16:02:02,388 - ARneuro - INFO - Category 'brain_activation': 1 tables
+2026-05-05 16:02:02,388 - ARneuro - INFO - Category 'demographic': 1 tables
+2026-05-05 16:02:02,389 - ARneuro - INFO - Category 'statistical': 0 tables
+2026-05-05 16:02:02,389 - ARneuro - INFO - Category 'methodological': 0 tables
+2026-05-05 16:02:02,389 - ARneuro - INFO - Category 'other': 1 tables
+2026-05-05 16:02:16,741 - ARneuro - ERROR - Brain table processing failed: TableProcessingPipeline._process_brain_activation_tables() got an unexpected keyword argument 'llm_client'

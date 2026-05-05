@@ -124,7 +124,8 @@ class TableProcessingPipeline:
             try:
                 brain_tables_results = self._process_brain_activation_tables(
                     categorized_tables=categorized_tables if "categorized_tables" in locals() else None,
-                    tables_info=tables_info
+                    tables_info=tables_info,
+                    llm_client=llm_client
                 )
                 results["brain_activation_tables"] = brain_tables_results
             except Exception as e:
