@@ -7,32 +7,22 @@ import json
 from collections import Counter
 from pathlib import Path
 from typing import Dict, List
-import sys
-
-# 保持依赖路径的添加
-sys.path.append("/storage/work/wuguowei/reviewer/Code_tools/")
-import os
-BASE_DIR = Path(__file__).resolve().parent
-os.chdir(BASE_DIR)
-from ARneuro.text_processing.document_segmentation import DocumentSegmenter
+from text_processing.document_segmentation import DocumentSegmenter
 
 
-CANONICAL_PARTS = {
-    "abstract": ["abstract", "summary"],
-    "introduction": ["introduction", "background"],
-    "methods": ["methods", "materials and methods", "methodology"],
-    "results": ["results", "findings"],
-    "discussion": ["discussion", "conclusion"],
-    "references": ["references", "bibliography"],
-}
-
-
-def map_to_part(section_title: str) -> str:
-    lower = section_title.lower()
-    for part, keys in CANONICAL_PARTS.items():
-        if any(k in lower for k in keys):
-            return part
-    return "other"
+CANONICAL_PARTS = [
+    "Title",
+    "Author",
+    "Keywords",
+    "Abstract",
+    "Introduction",
+    "Methods",
+    "Results",
+    "Discussion",
+    "References",
+    "Acknowledgements",
+    "Other",
+]
 
 
 def parse_args() -> argparse.Namespace:
@@ -56,40 +46,27 @@ def main() -> None:
     document_index: List[Dict] = []
 
     for md_file in md_files:
-        doc_structure, tables, tables_info, tables_annotation = segmenter.parse_markdown_file(str(md_file))
-        validation = segmenter.validate_sections(doc_structure)
-
-        part_counter: Counter = Counter()
-        for title in doc_structure.keys():
-            part_counter[map_to_part(title)] += 1
+        structured, meta = segmenter.segment_document(str(md_file))
+        part_counter: Counter = Counter(meta.get("sections_detected", []))
         global_part_counter.update(part_counter)
 
-        output_json = segmented_dir / f"{md_file.stem}_segmentation.json"
-        output_json.write_text(
-            json.dumps(
-                {
-                    "source_markdown": str(md_file),
-                    "document_structure": doc_structure,
-                    "validation": validation,
-                    "tables": tables,
-                    "tables_info": tables_info,
-                    "tables_annotation": tables_annotation,
-                    "part_counter": dict(part_counter),
-                },
-                ensure_ascii=False,
-                indent=2,
-            ),
-            encoding="utf-8",
+        content_json, meta_json = segmenter.save_structured_outputs(
+            structured=structured,
+            metadata=meta,
+            output_dir=str(segmented_dir),
+            base_name=md_file.stem,
         )
 
         document_index.append(
             {
                 "markdown": str(md_file),
-                "segmentation_json": str(output_json),
-                "num_sections": len(doc_structure),
-                "num_tables": len(tables),
+                "structured_content_json": str(content_json),
+                "structured_meta_json": str(meta_json),
+                "required_sections_complete": meta.get("required_sections_complete", False),
+                "strategy": meta.get("strategy", "rule_based"),
+                "num_blocks": meta.get("block_count", 0),
+                "num_tables": meta.get("table_count", 0),
                 "part_counter": dict(part_counter),
-                "validation": validation,
             }
         )
 
@@ -100,7 +77,7 @@ def main() -> None:
         json.dumps(
             {
                 "documents": len(document_index),
-                "global_part_counter": dict(global_part_counter),
+                "global_part_counter": {part: global_part_counter.get(part, 0) for part in CANONICAL_PARTS},
             },
             ensure_ascii=False,
             indent=2,
