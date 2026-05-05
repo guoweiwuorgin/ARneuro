@@ -100,14 +100,12 @@ class TableProcessingPipeline:
         try:
             llm_client = None
             effective_model_name = model_name
-            if self.llm_manager:
-                try:
-                    llm_client, effective_model_name = self.llm_manager.get_client(
-                        client_type=llm_client_type,
-                        model_name=model_name
-                    )
-                except Exception as e:
-                    logger.warning(f"Failed to initialize LLM client for table categorization: {e}")
+            if not self.llm_manager:
+                raise ValueError("LLM client manager is not initialized. Please provide API key config.")
+            llm_client, effective_model_name = self.llm_manager.get_client(
+                client_type=llm_client_type,
+                model_name=model_name
+            )
             categorized_tables = self.table_extractor.categorize_tables(
                 tables_info,
                 llm_client=llm_client,

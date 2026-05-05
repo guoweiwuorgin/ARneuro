@@ -13,6 +13,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from table_processing.table_pipeline import TableProcessingPipeline
+from config.config_manager import ConfigManager
 
 
 def parse_args() -> argparse.Namespace:
@@ -33,7 +34,8 @@ def parse_args() -> argparse.Namespace:
         help="输出目录",
     )
     parser.add_argument("--model-name", default="deepseek-chat")
-    parser.add_argument("--no-llm", action="store_true", help="不启用LLM，仅做规则分类")
+    parser.add_argument("--llm-client-type", default="deepseek", choices=["deepseek", "gpt4", "glm", "huoshan"])
+    parser.add_argument("--no-llm", action="store_true", help="保留参数：当前版本分类阶段强制使用LLM，不建议开启")
     return parser.parse_args()
 
 
@@ -49,8 +51,22 @@ def main() -> None:
     markdown_dir = Path(args.markdown_dir)
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    if args.no_llm:
+        raise ValueError("当前版本已强制使用LLM进行表格分类，不能使用 --no-llm")
 
-    pipeline = TableProcessingPipeline(config={"model_name": args.model_name})
+    config_manager = ConfigManager()
+    base_config = config_manager.load_config()
+    llm_cfg = base_config.get("llm", {}) if isinstance(base_config, dict) else {}
+    runtime_config = dict(base_config) if isinstance(base_config, dict) else {}
+    runtime_config.update({
+        "model_name": args.model_name,
+        "deepseek_api_key": llm_cfg.get("deepseek_api_key", runtime_config.get("deepseek_api_key")),
+        "openai_api_key": llm_cfg.get("openai_api_key", runtime_config.get("openai_api_key")),
+        "glm_api_key": llm_cfg.get("glm_api_key", runtime_config.get("glm_api_key")),
+        "huoshan_api_key": llm_cfg.get("huoshan_api_key", runtime_config.get("huoshan_api_key")),
+    })
+
+    pipeline = TableProcessingPipeline(config=runtime_config)
 
     structured_files = sorted(structured_dir.glob("*_structured_content.json"))
     all_results: List[Dict] = []
@@ -64,7 +80,8 @@ def main() -> None:
             structured_content_file=str(sf),
             source_markdown=str(source_md) if source_md else None,
             output_dir=str(doc_out),
-            process_brain_tables=not args.no_llm,
+            process_brain_tables=True,
+            llm_client_type=args.llm_client_type,
             model_name=args.model_name,
         )
 
