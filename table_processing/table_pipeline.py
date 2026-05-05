@@ -123,9 +123,8 @@ class TableProcessingPipeline:
         if process_brain_tables and tables_info and self.llm_manager:
             try:
                 brain_tables_results = self._process_brain_activation_tables(
-                    tables_info,
-                    llm_client_type,
-                    model_name
+                    categorized_tables=categorized_tables if "categorized_tables" in locals() else None,
+                    tables_info=tables_info
                 )
                 results["brain_activation_tables"] = brain_tables_results
             except Exception as e:
@@ -169,55 +168,60 @@ class TableProcessingPipeline:
         )
 
     def _process_brain_activation_tables(self,
-                                        tables_info: List[Dict],
-                                        llm_client_type: str,
-                                        model_name: str) -> Dict[str, Any]:
+                                        categorized_tables: Optional[Dict[str, List[Dict]]],
+                                        tables_info: Optional[List[Dict]] = None) -> Dict[str, Any]:
         """
         Process brain activation tables.
         """
         brain_tables = []
-        
-        for table_info in tables_info:
+
+        candidate_tables = []
+        if categorized_tables and isinstance(categorized_tables, dict):
+            candidate_tables = categorized_tables.get('brain_activation', [])
+
+        # Backward-compatible fallback when categorization is unavailable
+        if not candidate_tables and tables_info:
+            logger.warning("No categorized brain activation tables found; fallback to all extracted tables")
+            candidate_tables = tables_info
+
+        for table_info in candidate_tables:
             table_text = table_info['table_text']
             table_context = table_info['full_context']
-            
-            # Assess if table contains brain coordinates
-            assessment = self.brain_processor.assess_brain_coordinates(
-                table_text=table_text,
-                table_description=table_context
-            )
-            
-            if assessment['contains_coordinates']:
-                brain_table_info = {
-                    'table_index': table_info['table_index'],
-                    'assessment': assessment,
-                    'table_text': table_text,
-                    'table_context': table_context
+
+            brain_table_info = {
+                'table_index': table_info['table_index'],
+                'table_text': table_text,
+                'table_context': table_context,
+                'assessment': {
+                    'contains_coordinates': True,
+                    'Task_name': 'Unknown',
+                    'reason': 'Selected from categorized_tables.brain_activation',
+                    'Table_header': ''
                 }
-                
-                # Parse table if it contains coordinates
-                try:
-                    parsed_df = self.brain_processor.fix_and_parse_table(
-                        table_text=table_text,
-                        table_description=table_context,
-                        task_name=assessment['Task_name'] or 'Unknown'
-                    )
-                    
-                    if not parsed_df.empty:
-                        brain_table_info['parsed_data'] = {
-                            'num_rows': len(parsed_df),
-                            'num_columns': len(parsed_df.columns),
-                            'columns': list(parsed_df.columns),
-                            'sample_data': parsed_df.head().to_dict(orient='records')
-                        }
-                    else:
-                        brain_table_info['parsed_data'] = {'error': 'Failed to parse table'}
-                        
-                except Exception as e:
-                    logger.error(f"Failed to parse brain table {table_info['table_index']}: {e}")
-                    brain_table_info['parsed_data'] = {'error': str(e)}
-                
-                brain_tables.append(brain_table_info)
+            }
+
+            try:
+                parsed_df = self.brain_processor.fix_and_parse_table(
+                    table_text=table_text,
+                    table_description=table_context,
+                    task_name='Unknown'
+                )
+
+                if not parsed_df.empty:
+                    brain_table_info['parsed_data'] = {
+                        'num_rows': len(parsed_df),
+                        'num_columns': len(parsed_df.columns),
+                        'columns': list(parsed_df.columns),
+                        'all_rows': parsed_df.to_dict(orient='records')
+                    }
+                else:
+                    brain_table_info['parsed_data'] = {'error': 'Failed to parse table'}
+
+            except Exception as e:
+                logger.error(f"Failed to parse brain table {table_info['table_index']}: {e}")
+                brain_table_info['parsed_data'] = {'error': str(e)}
+
+            brain_tables.append(brain_table_info)
         
         return {
             'total_brain_tables': len(brain_tables),
@@ -274,9 +278,9 @@ class TableProcessingPipeline:
                 os.makedirs(brain_csv_dir, exist_ok=True)
                 
                 for brain_table in brain_tables:
-                    if 'parsed_data' in brain_table and 'sample_data' in brain_table['parsed_data']:
+                    if 'parsed_data' in brain_table and 'all_rows' in brain_table['parsed_data']:
                         table_idx = brain_table['table_index']
-                        df = pd.DataFrame(brain_table['parsed_data']['sample_data'])
+                        df = pd.DataFrame(brain_table['parsed_data']['all_rows'])
                         csv_path = os.path.join(brain_csv_dir, f"brain_table_{table_idx + 1}.csv")
                         df.to_csv(csv_path, index=False)
         
