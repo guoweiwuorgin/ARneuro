@@ -39,8 +39,6 @@ class TableProcessingPipeline:
         self.llm_manager = None
         if any(key in config for key in ['deepseek_api_key', 'openai_api_key', 'glm_api_key', 'kimichat_api_key']):
             self.llm_manager = LLMClientManager(config)
-            if self.llm_manager:
-                self.brain_processor.set_llm_client(self.llm_manager)
     
     def process_structured_content_file(self,
                                       structured_content_file: str,
@@ -122,6 +120,11 @@ class TableProcessingPipeline:
 
         if process_brain_tables and tables_info and self.llm_manager:
             try:
+                self.brain_processor.set_llm_client(llm_client)
+                self.brain_processor.config.update({
+                    'model_name': effective_model_name,
+                    'llm_client_type': llm_client_type
+                })
                 brain_tables_results = self._process_brain_activation_tables(
                     categorized_tables=categorized_tables if "categorized_tables" in locals() else None,
                     tables_info=tables_info
@@ -169,42 +172,62 @@ class TableProcessingPipeline:
 
     def _process_brain_activation_tables(self,
                                         categorized_tables: Optional[Dict[str, List[Dict]]],
-                                        tables_info: Optional[List[Dict]] = None) -> Dict[str, Any]:
+                                        tables_info: Optional[List[Dict]] = None,
+                                        llm_client: Optional[Any] = None,
+                                        model_name: Optional[str] = None,
+                                        llm_client_type: Optional[str] = None,
+                                        **_: Any) -> Dict[str, Any]:
         """
         Process brain activation tables.
+
+        Accept optional LLM arguments for backward compatibility with older callers.
         """
+        if llm_client is not None:
+            self.brain_processor.set_llm_client(llm_client)
+        if model_name or llm_client_type:
+            updates = {}
+            if model_name:
+                updates["model_name"] = model_name
+            if llm_client_type:
+                updates["llm_client_type"] = llm_client_type
+            self.brain_processor.config.update(updates)
+        # Enforce LLM participation for all brain-table operations.
+        self.brain_processor._require_llm_client()
         brain_tables = []
 
         candidate_tables = []
         if categorized_tables and isinstance(categorized_tables, dict):
             candidate_tables = categorized_tables.get('brain_activation', [])
 
-        # Backward-compatible fallback when categorization is unavailable
+        # If categorized candidates are unavailable, run LLM-based assessment on all extracted tables.
         if not candidate_tables and tables_info:
-            logger.warning("No categorized brain activation tables found; fallback to all extracted tables")
+            logger.warning("No categorized brain activation tables found; using LLM assessment over all extracted tables")
             candidate_tables = tables_info
 
         for table_info in candidate_tables:
             table_text = table_info['table_text']
             table_context = table_info['full_context']
 
-            brain_table_info = {
-                'table_index': table_info['table_index'],
-                'table_text': table_text,
-                'table_context': table_context,
-                'assessment': {
-                    'contains_coordinates': True,
-                    'Task_name': 'Unknown',
-                    'reason': 'Selected from categorized_tables.brain_activation',
-                    'Table_header': ''
-                }
-            }
-
             try:
+                assessment = self.brain_processor.assess_brain_coordinates(
+                    table_text=table_text,
+                    table_description=table_context
+                )
+                if not assessment.get('contains_coordinates', False):
+                    continue
+
+                task_name = assessment.get('Task_name') or 'Unknown'
+                brain_table_info = {
+                    'table_index': table_info['table_index'],
+                    'table_text': table_text,
+                    'table_context': table_context,
+                    'assessment': assessment
+                }
+
                 parsed_df = self.brain_processor.fix_and_parse_table(
                     table_text=table_text,
                     table_description=table_context,
-                    task_name='Unknown'
+                    task_name=task_name
                 )
 
                 if not parsed_df.empty:
@@ -217,11 +240,10 @@ class TableProcessingPipeline:
                 else:
                     brain_table_info['parsed_data'] = {'error': 'Failed to parse table'}
 
+                brain_tables.append(brain_table_info)
             except Exception as e:
-                logger.error(f"Failed to parse brain table {table_info['table_index']}: {e}")
-                brain_table_info['parsed_data'] = {'error': str(e)}
-
-            brain_tables.append(brain_table_info)
+                logger.error(f"Failed to process brain table {table_info['table_index']} with LLM: {e}")
+                raise
         
         return {
             'total_brain_tables': len(brain_tables),
