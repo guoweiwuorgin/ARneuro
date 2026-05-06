@@ -1,0 +1,229 @@
+{
+  "input_file": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\27583349_structured_content.json",
+  "source_markdown": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\27583349.md",
+  "output_directory": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step4_activation_tables\\27583349",
+  "metadata": {},
+  "tables_extracted": 2,
+  "tables_info": [
+    {
+      "table_index": 0,
+      "table_id": "table_1",
+      "line_start": 272,
+      "table_text": "<table><tr><td>Anatomical region</td><td>Hemisphere</td><td>Cluster peak (x, y, z)* (mm)</td><td>T score</td><td>Cluster size</td></tr><tr><td>Contrast R-O:</td><td></td><td></td><td></td><td></td></tr><tr><td>Inferior frontal gyrus &amp; middle frontal gyrus &amp; insula</td><td>L/R</td><td>-33 21 -3</td><td>11.08</td><td>4869</td></tr><tr><td>Inferior occipital gyrus &amp; inferior temporal gyrus &amp; fusiform</td><td>L</td><td>-27 -93 -6</td><td>10.90</td><td>759</td></tr><tr><td>Cerebellum</td><td>R</td><td>27 -66 -30</td><td>7.75</td><td>422</td></tr><tr><td>Middle occipital gyrus</td><td>R</td><td>30 -96 -6</td><td>7.21</td><td>191</td></tr><tr><td>Cerebellum</td><td>L</td><td>-33 -63 -45</td><td>7.21</td><td>22</td></tr><tr><td>Inferior/Superior Parietal Lobule</td><td>L</td><td>-33 -51 39</td><td>7.20</td><td>349</td></tr><tr><td>Middle Temporal Gyrus</td><td>L</td><td>-51 -48 3</td><td>6.08</td><td>90</td></tr><tr><td>Hippocampus</td><td>L</td><td>-30 -15 -12</td><td>5.35</td><td>20</td></tr><tr><td>Middle/Superior Temporal Gyrus</td><td>L</td><td>-51 -30 0</td><td>4.92</td><td>30</td></tr><tr><td>Contrast R-F:</td><td></td><td></td><td></td><td></td></tr><tr><td>Inferior/Middle/Superior Frontal Gyrus &amp; Cerebellum&amp;Inferior Parietal Lobule&amp;Lingual Gyrus&amp; Insula &amp; Precentral/Postcentral Gyrus&amp;Fusiform &amp; Middle Occipital Gyrus&amp; Inferior/Middle/Superior Temporal Gyrus</td><td>L/R</td><td>-30 18 3</td><td>14.34</td><td>10925</td></tr><tr><td>Inferior Parietal Lobule</td><td>R</td><td>33 -60 42</td><td>7.13</td><td>262</td></tr><tr><td>Inferior/Middle Frontal Gyrus</td><td>R</td><td>51 9 30</td><td>6.16</td><td>75</td></tr></table>",
+      "table_structure": {
+        "num_rows": 0,
+        "num_columns": 1,
+        "has_header": false,
+        "header_row": [
+          "<table><tr><td>Anatomical region</td><td>Hemisphere</td><td>Cluster peak (x, y, z)* (mm)</td><td>T score</td><td>Cluster size</td></tr><tr><td>Contrast R-O:</td><td></td><td></td><td></td><td></td></tr><tr><td>Inferior frontal gyrus &amp; middle frontal gyrus &amp; insula</td><td>L/R</td><td>-33 21 -3</td><td>11.08</td><td>4869</td></tr><tr><td>Inferior occipital gyrus &amp; inferior temporal gyrus &amp; fusiform</td><td>L</td><td>-27 -93 -6</td><td>10.90</td><td>759</td></tr><tr><td>Cerebellum</td><td>R</td><td>27 -66 -30</td><td>7.75</td><td>422</td></tr><tr><td>Middle occipital gyrus</td><td>R</td><td>30 -96 -6</td><td>7.21</td><td>191</td></tr><tr><td>Cerebellum</td><td>L</td><td>-33 -63 -45</td><td>7.21</td><td>22</td></tr><tr><td>Inferior/Superior Parietal Lobule</td><td>L</td><td>-33 -51 39</td><td>7.20</td><td>349</td></tr><tr><td>Middle Temporal Gyrus</td><td>L</td><td>-51 -48 3</td><td>6.08</td><td>90</td></tr><tr><td>Hippocampus</td><td>L</td><td>-30 -15 -12</td><td>5.35</td><td>20</td></tr><tr><td>Middle/Superior Temporal Gyrus</td><td>L</td><td>-51 -30 0</td><td>4.92</td><td>30</td></tr><tr><td>Contrast R-F:</td><td></td><td></td><td></td><td></td></tr><tr><td>Inferior/Middle/Superior Frontal Gyrus &amp; Cerebellum&amp;Inferior Parietal Lobule&amp;Lingual Gyrus&amp; Insula &amp; Precentral/Postcentral Gyrus&amp;Fusiform &amp; Middle Occipital Gyrus&amp; Inferior/Middle/Superior Temporal Gyrus</td><td>L/R</td><td>-30 18 3</td><td>14.34</td><td>10925</td></tr><tr><td>Inferior Parietal Lobule</td><td>R</td><td>33 -60 42</td><td>7.13</td><td>262</td></tr><tr><td>Inferior/Middle Frontal Gyrus</td><td>R</td><td>51 9 30</td><td>6.16</td><td>75</td></tr></table>"
+        ],
+        "data_rows": []
+      },
+      "before_context": "## Page 8\n\nTable 1. The activation of contrast R-O and R-F.\n\n",
+      "after_context": "\n\n \\( ^{*} \\) The coordinates (x, y, z) correspond to MNI coordinates.\n\n",
+      "full_context": "## Page 8\n\nTable 1. The activation of contrast R-O and R-F.\n\n\n[TABLE 1]\n\n\n \\( ^{*} \\) The coordinates (x, y, z) correspond to MNI coordinates.\n\n",
+      "num_rows": 0,
+      "num_columns": 1,
+      "has_header": false,
+      "header_row": [
+        "<table><tr><td>Anatomical region</td><td>Hemisphere</td><td>Cluster peak (x, y, z)* (mm)</td><td>T score</td><td>Cluster size</td></tr><tr><td>Contrast R-O:</td><td></td><td></td><td></td><td></td></tr><tr><td>Inferior frontal gyrus &amp; middle frontal gyrus &amp; insula</td><td>L/R</td><td>-33 21 -3</td><td>11.08</td><td>4869</td></tr><tr><td>Inferior occipital gyrus &amp; inferior temporal gyrus &amp; fusiform</td><td>L</td><td>-27 -93 -6</td><td>10.90</td><td>759</td></tr><tr><td>Cerebellum</td><td>R</td><td>27 -66 -30</td><td>7.75</td><td>422</td></tr><tr><td>Middle occipital gyrus</td><td>R</td><td>30 -96 -6</td><td>7.21</td><td>191</td></tr><tr><td>Cerebellum</td><td>L</td><td>-33 -63 -45</td><td>7.21</td><td>22</td></tr><tr><td>Inferior/Superior Parietal Lobule</td><td>L</td><td>-33 -51 39</td><td>7.20</td><td>349</td></tr><tr><td>Middle Temporal Gyrus</td><td>L</td><td>-51 -48 3</td><td>6.08</td><td>90</td></tr><tr><td>Hippocampus</td><td>L</td><td>-30 -15 -12</td><td>5.35</td><td>20</td></tr><tr><td>Middle/Superior Temporal Gyrus</td><td>L</td><td>-51 -30 0</td><td>4.92</td><td>30</td></tr><tr><td>Contrast R-F:</td><td></td><td></td><td></td><td></td></tr><tr><td>Inferior/Middle/Superior Frontal Gyrus &amp; Cerebellum&amp;Inferior Parietal Lobule&amp;Lingual Gyrus&amp; Insula &amp; Precentral/Postcentral Gyrus&amp;Fusiform &amp; Middle Occipital Gyrus&amp; Inferior/Middle/Superior Temporal Gyrus</td><td>L/R</td><td>-30 18 3</td><td>14.34</td><td>10925</td></tr><tr><td>Inferior Parietal Lobule</td><td>R</td><td>33 -60 42</td><td>7.13</td><td>262</td></tr><tr><td>Inferior/Middle Frontal Gyrus</td><td>R</td><td>51 9 30</td><td>6.16</td><td>75</td></tr></table>"
+      ]
+    },
+    {
+      "table_index": 1,
+      "table_id": "table_2",
+      "line_start": 303,
+      "table_text": "<table><tr><td rowspan=\"2\">To</td><td colspan=\"5\">From</td></tr><tr><td>LIFG</td><td>LIPL</td><td>LMFG</td><td>LpMTG</td><td></td></tr><tr><td>LIFG</td><td>0.0822</td><td>0.1345</td><td>0.0225</td><td>0.0888</td><td></td></tr><tr><td>LIPL</td><td>0.1413</td><td>0.0840</td><td>0.0121</td><td>0.0981</td><td></td></tr><tr><td>LMFG</td><td>0.0799</td><td>0.0954</td><td>0.0481</td><td>0.0704</td><td></td></tr><tr><td>LpMTG</td><td>0.1145</td><td>0.1059</td><td>0.0096</td><td>0.0871</td><td></td></tr></table>",
+      "table_structure": {
+        "num_rows": 0,
+        "num_columns": 1,
+        "has_header": false,
+        "header_row": [
+          "<table><tr><td rowspan=\"2\">To</td><td colspan=\"5\">From</td></tr><tr><td>LIFG</td><td>LIPL</td><td>LMFG</td><td>LpMTG</td><td></td></tr><tr><td>LIFG</td><td>0.0822</td><td>0.1345</td><td>0.0225</td><td>0.0888</td><td></td></tr><tr><td>LIPL</td><td>0.1413</td><td>0.0840</td><td>0.0121</td><td>0.0981</td><td></td></tr><tr><td>LMFG</td><td>0.0799</td><td>0.0954</td><td>0.0481</td><td>0.0704</td><td></td></tr><tr><td>LpMTG</td><td>0.1145</td><td>0.1059</td><td>0.0096</td><td>0.0871</td><td></td></tr></table>"
+        ],
+        "data_rows": []
+      },
+      "before_context": "## Page 9\n\nTable 2. Mean intrinsic connection between the four ROIs.\n\n",
+      "after_context": "\n\nMean connections in bold are significant (p<0.05).\n\n",
+      "full_context": "## Page 9\n\nTable 2. Mean intrinsic connection between the four ROIs.\n\n\n[TABLE 2]\n\n\nMean connections in bold are significant (p<0.05).\n\n",
+      "num_rows": 0,
+      "num_columns": 1,
+      "has_header": false,
+      "header_row": [
+        "<table><tr><td rowspan=\"2\">To</td><td colspan=\"5\">From</td></tr><tr><td>LIFG</td><td>LIPL</td><td>LMFG</td><td>LpMTG</td><td></td></tr><tr><td>LIFG</td><td>0.0822</td><td>0.1345</td><td>0.0225</td><td>0.0888</td><td></td></tr><tr><td>LIPL</td><td>0.1413</td><td>0.0840</td><td>0.0121</td><td>0.0981</td><td></td></tr><tr><td>LMFG</td><td>0.0799</td><td>0.0954</td><td>0.0481</td><td>0.0704</td><td></td></tr><tr><td>LpMTG</td><td>0.1145</td><td>0.1059</td><td>0.0096</td><td>0.0871</td><td></td></tr></table>"
+      ]
+    }
+  ],
+  "categorized_tables": {
+    "brain_activation": 1,
+    "demographic": 0,
+    "statistical": 0,
+    "methodological": 0,
+    "other": 1
+  },
+  "brain_activation_tables": {
+    "total_brain_tables": 1,
+    "brain_tables": [
+      {
+        "table_index": 0,
+        "table_text": "<table><tr><td>Anatomical region</td><td>Hemisphere</td><td>Cluster peak (x, y, z)* (mm)</td><td>T score</td><td>Cluster size</td></tr><tr><td>Contrast R-O:</td><td></td><td></td><td></td><td></td></tr><tr><td>Inferior frontal gyrus &amp; middle frontal gyrus &amp; insula</td><td>L/R</td><td>-33 21 -3</td><td>11.08</td><td>4869</td></tr><tr><td>Inferior occipital gyrus &amp; inferior temporal gyrus &amp; fusiform</td><td>L</td><td>-27 -93 -6</td><td>10.90</td><td>759</td></tr><tr><td>Cerebellum</td><td>R</td><td>27 -66 -30</td><td>7.75</td><td>422</td></tr><tr><td>Middle occipital gyrus</td><td>R</td><td>30 -96 -6</td><td>7.21</td><td>191</td></tr><tr><td>Cerebellum</td><td>L</td><td>-33 -63 -45</td><td>7.21</td><td>22</td></tr><tr><td>Inferior/Superior Parietal Lobule</td><td>L</td><td>-33 -51 39</td><td>7.20</td><td>349</td></tr><tr><td>Middle Temporal Gyrus</td><td>L</td><td>-51 -48 3</td><td>6.08</td><td>90</td></tr><tr><td>Hippocampus</td><td>L</td><td>-30 -15 -12</td><td>5.35</td><td>20</td></tr><tr><td>Middle/Superior Temporal Gyrus</td><td>L</td><td>-51 -30 0</td><td>4.92</td><td>30</td></tr><tr><td>Contrast R-F:</td><td></td><td></td><td></td><td></td></tr><tr><td>Inferior/Middle/Superior Frontal Gyrus &amp; Cerebellum&amp;Inferior Parietal Lobule&amp;Lingual Gyrus&amp; Insula &amp; Precentral/Postcentral Gyrus&amp;Fusiform &amp; Middle Occipital Gyrus&amp; Inferior/Middle/Superior Temporal Gyrus</td><td>L/R</td><td>-30 18 3</td><td>14.34</td><td>10925</td></tr><tr><td>Inferior Parietal Lobule</td><td>R</td><td>33 -60 42</td><td>7.13</td><td>262</td></tr><tr><td>Inferior/Middle Frontal Gyrus</td><td>R</td><td>51 9 30</td><td>6.16</td><td>75</td></tr></table>",
+        "table_context": "## Page 8\n\nTable 1. The activation of contrast R-O and R-F.\n\n\n[TABLE 1]\n\n\n \\( ^{*} \\) The coordinates (x, y, z) correspond to MNI coordinates.\n\n",
+        "assessment": {
+          "contains_coordinates": true,
+          "Task_name": "None",
+          "reason": "The table has a header row with 'Cluster peak (x, y, z)* (mm)' and the description states coordinates are MNI. The table lists contrasts R-O and R-F, but no explicit task name is provided in the table or description.",
+          "Table_header": "Anatomical region, Hemisphere, Cluster peak (x, y, z)* (mm), T score, Cluster size"
+        },
+        "parsed_data": {
+          "num_rows": 12,
+          "num_columns": 9,
+          "columns": [
+            "Brain_Region",
+            "Hemisphere",
+            "X",
+            "Y",
+            "Z",
+            "Cluster_Size",
+            "T_Score",
+            "Brain_Space",
+            "Task_Name"
+          ],
+          "all_rows": [
+            {
+              "Brain_Region": "Inferior frontal gyrus & middle frontal gyrus & insula",
+              "Hemisphere": "L/R",
+              "X": -33,
+              "Y": 21,
+              "Z": -3,
+              "Cluster_Size": 4869,
+              "T_Score": 11.08,
+              "Brain_Space": "MNI",
+              "Task_Name": NaN
+            },
+            {
+              "Brain_Region": "Inferior occipital gyrus & inferior temporal gyrus & fusiform",
+              "Hemisphere": "L",
+              "X": -27,
+              "Y": -93,
+              "Z": -6,
+              "Cluster_Size": 759,
+              "T_Score": 10.9,
+              "Brain_Space": "MNI",
+              "Task_Name": NaN
+            },
+            {
+              "Brain_Region": "Cerebellum",
+              "Hemisphere": "R",
+              "X": 27,
+              "Y": -66,
+              "Z": -30,
+              "Cluster_Size": 422,
+              "T_Score": 7.75,
+              "Brain_Space": "MNI",
+              "Task_Name": NaN
+            },
+            {
+              "Brain_Region": "Middle occipital gyrus",
+              "Hemisphere": "R",
+              "X": 30,
+              "Y": -96,
+              "Z": -6,
+              "Cluster_Size": 191,
+              "T_Score": 7.21,
+              "Brain_Space": "MNI",
+              "Task_Name": NaN
+            },
+            {
+              "Brain_Region": "Cerebellum",
+              "Hemisphere": "L",
+              "X": -33,
+              "Y": -63,
+              "Z": -45,
+              "Cluster_Size": 22,
+              "T_Score": 7.21,
+              "Brain_Space": "MNI",
+              "Task_Name": NaN
+            },
+            {
+              "Brain_Region": "Inferior/Superior Parietal Lobule",
+              "Hemisphere": "L",
+              "X": -33,
+              "Y": -51,
+              "Z": 39,
+              "Cluster_Size": 349,
+              "T_Score": 7.2,
+              "Brain_Space": "MNI",
+              "Task_Name": NaN
+            },
+            {
+              "Brain_Region": "Middle Temporal Gyrus",
+              "Hemisphere": "L",
+              "X": -51,
+              "Y": -48,
+              "Z": 3,
+              "Cluster_Size": 90,
+              "T_Score": 6.08,
+              "Brain_Space": "MNI",
+              "Task_Name": NaN
+            },
+            {
+              "Brain_Region": "Hippocampus",
+              "Hemisphere": "L",
+              "X": -30,
+              "Y": -15,
+              "Z": -12,
+              "Cluster_Size": 20,
+              "T_Score": 5.35,
+              "Brain_Space": "MNI",
+              "Task_Name": NaN
+            },
+            {
+              "Brain_Region": "Middle/Superior Temporal Gyrus",
+              "Hemisphere": "L",
+              "X": -51,
+              "Y": -30,
+              "Z": 0,
+              "Cluster_Size": 30,
+              "T_Score": 4.92,
+              "Brain_Space": "MNI",
+              "Task_Name": NaN
+            },
+            {
+              "Brain_Region": "Inferior/Middle/Superior Frontal Gyrus & Cerebellum&Inferior Parietal Lobule&Lingual Gyrus& Insula & Precentral/Postcentral Gyrus&Fusiform & Middle Occipital Gyrus& Inferior/Middle/Superior Temporal Gyrus",
+              "Hemisphere": "L/R",
+              "X": -30,
+              "Y": 18,
+              "Z": 3,
+              "Cluster_Size": 10925,
+              "T_Score": 14.34,
+              "Brain_Space": "MNI",
+              "Task_Name": NaN
+            },
+            {
+              "Brain_Region": "Inferior Parietal Lobule",
+              "Hemisphere": "R",
+              "X": 33,
+              "Y": -60,
+              "Z": 42,
+              "Cluster_Size": 262,
+              "T_Score": 7.13,
+              "Brain_Space": "MNI",
+              "Task_Name": NaN
+            },
+            {
+              "Brain_Region": "Inferior/Middle Frontal Gyrus",
+              "Hemisphere": "R",
+              "X": 51,
+              "Y": 9,
+              "Z": 30,
+              "Cluster_Size": 75,
+              "T_Score": 6.16,
+              "Brain_Space": "MNI",
+              "Task_Name": NaN
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

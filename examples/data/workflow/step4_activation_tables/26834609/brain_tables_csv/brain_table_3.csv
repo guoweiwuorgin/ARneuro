@@ -1,0 +1,6 @@
+Brain_Region,BA,Cluster_Size,X,Y,Z,Statistic_Value,Brain_Space,Task_Name
+R_Temporal_Sup,48,275,60,-3,-3,8.22,MNI,
+L_Temporal_Sup,48,1462,-60,-9,3,8.03,MNI,
+L_Frontal-Inf_Tri,45,1462,-45,36,3,7.16,MNI,
+L_Temporal_Mid,21,1462,-66,-30,3,4.44,MNI,
+L_Fusiform,37,164,-36,-32,-19,5.72,MNI,

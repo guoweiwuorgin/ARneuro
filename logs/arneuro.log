@@ -94,3 +94,89 @@
 2026-05-05 16:02:02,389 - ARneuro - INFO - Category 'methodological': 0 tables
 2026-05-05 16:02:02,389 - ARneuro - INFO - Category 'other': 1 tables
 2026-05-05 16:02:16,741 - ARneuro - ERROR - Brain table processing failed: TableProcessingPipeline._process_brain_activation_tables() got an unexpected keyword argument 'llm_client'
+2026-05-06 11:13:48,185 - ARneuro - INFO - Processing tables from structured content: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\23458438_structured_content.json
+2026-05-06 11:13:48,186 - ARneuro - INFO - Extracted 3 tables from structured content
+2026-05-06 11:13:49,082 - ARneuro - INFO - Created LLM client for deepseek with model deepseek-chat
+2026-05-06 11:13:51,596 - ARneuro - INFO - Category 'brain_activation': 1 tables
+2026-05-06 11:13:51,596 - ARneuro - INFO - Category 'demographic': 1 tables
+2026-05-06 11:13:51,596 - ARneuro - INFO - Category 'statistical': 0 tables
+2026-05-06 11:13:51,597 - ARneuro - INFO - Category 'methodological': 0 tables
+2026-05-06 11:13:51,597 - ARneuro - INFO - Category 'other': 1 tables
+2026-05-06 11:14:41,855 - ARneuro - ERROR - Failed to process brain table 1 with LLM: BrainActivationProcessor.assess_brain_coordinates() missing 1 required positional argument: 'llm_client'
+2026-05-06 11:18:03,657 - ARneuro - INFO - Processing tables from structured content: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\23458438_structured_content.json
+2026-05-06 11:18:03,660 - ARneuro - INFO - Extracted 3 tables from structured content
+2026-05-06 11:18:04,559 - ARneuro - INFO - Created LLM client for deepseek with model deepseek-chat
+2026-05-06 11:18:06,994 - ARneuro - INFO - Category 'brain_activation': 1 tables
+2026-05-06 11:18:06,995 - ARneuro - INFO - Category 'demographic': 1 tables
+2026-05-06 11:18:06,996 - ARneuro - INFO - Category 'statistical': 0 tables
+2026-05-06 11:18:06,997 - ARneuro - INFO - Category 'methodological': 0 tables
+2026-05-06 11:18:06,998 - ARneuro - INFO - Category 'other': 1 tables
+2026-05-06 11:19:42,620 - ARneuro - INFO - Parsed table with 18 rows and 9 columns
+2026-05-06 11:19:42,667 - ARneuro - INFO - Saved table extraction results to: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\23458438\table_extraction.json
+2026-05-06 11:19:42,668 - ARneuro - INFO - Exported 0 tables to CSV files in: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\23458438\tables_csv
+2026-05-06 11:19:47,304 - ARneuro - INFO - Saved results to: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\23458438
+2026-05-06 11:19:47,304 - ARneuro - INFO - Table processing completed for: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\23458438_structured_content.json
+2026-05-06 11:20:14,421 - ARneuro - INFO - Processing tables from structured content: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\24244653_structured_content.json
+2026-05-06 11:20:14,422 - ARneuro - INFO - Extracted 6 tables from structured content
+2026-05-06 11:20:19,022 - ARneuro - INFO - Category 'brain_activation': 2 tables
+2026-05-06 11:20:19,023 - ARneuro - INFO - Category 'demographic': 0 tables
+2026-05-06 11:20:19,023 - ARneuro - INFO - Category 'statistical': 1 tables
+2026-05-06 11:20:19,023 - ARneuro - INFO - Category 'methodological': 0 tables
+2026-05-06 11:20:19,023 - ARneuro - INFO - Category 'other': 3 tables
+2026-05-06 11:20:32,667 - ARneuro - INFO - Saved table extraction results to: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\24244653\table_extraction.json
+2026-05-06 11:20:32,669 - ARneuro - INFO - Exported 0 tables to CSV files in: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\24244653\tables_csv
+2026-05-06 11:20:32,670 - ARneuro - INFO - Saved results to: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\24244653
+2026-05-06 11:20:32,671 - ARneuro - INFO - Table processing completed for: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\24244653_structured_content.json
+2026-05-06 11:20:32,672 - ARneuro - INFO - Processing tables from structured content: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\26834609_structured_content.json
+2026-05-06 11:20:32,673 - ARneuro - INFO - Extracted 3 tables from structured content
+2026-05-06 11:20:35,003 - ARneuro - INFO - Category 'brain_activation': 3 tables
+2026-05-06 11:20:35,004 - ARneuro - INFO - Category 'demographic': 0 tables
+2026-05-06 11:20:35,005 - ARneuro - INFO - Category 'statistical': 0 tables
+2026-05-06 11:20:35,005 - ARneuro - INFO - Category 'methodological': 0 tables
+2026-05-06 11:20:35,007 - ARneuro - INFO - Category 'other': 0 tables
+2026-05-06 11:20:49,289 - ARneuro - INFO - Parsed table with 47 rows and 8 columns
+2026-05-06 11:20:57,533 - ARneuro - INFO - Parsed table with 19 rows and 8 columns
+2026-05-06 11:21:02,354 - ARneuro - INFO - Parsed table with 5 rows and 9 columns
+2026-05-06 11:21:02,421 - ARneuro - INFO - Saved table extraction results to: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\26834609\table_extraction.json
+2026-05-06 11:21:02,422 - ARneuro - INFO - Exported 0 tables to CSV files in: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\26834609\tables_csv
+2026-05-06 11:21:02,509 - ARneuro - INFO - Saved results to: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\26834609
+2026-05-06 11:21:02,510 - ARneuro - INFO - Table processing completed for: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\26834609_structured_content.json
+2026-05-06 11:21:02,512 - ARneuro - INFO - Processing tables from structured content: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\27583349_structured_content.json
+2026-05-06 11:21:02,548 - ARneuro - INFO - Extracted 2 tables from structured content
+2026-05-06 11:21:04,821 - ARneuro - INFO - Category 'brain_activation': 1 tables
+2026-05-06 11:21:04,821 - ARneuro - INFO - Category 'demographic': 0 tables
+2026-05-06 11:21:04,821 - ARneuro - INFO - Category 'statistical': 0 tables
+2026-05-06 11:21:04,821 - ARneuro - INFO - Category 'methodological': 0 tables
+2026-05-06 11:21:04,821 - ARneuro - INFO - Category 'other': 1 tables
+2026-05-06 11:21:12,453 - ARneuro - INFO - Parsed table with 12 rows and 9 columns
+2026-05-06 11:21:12,482 - ARneuro - INFO - Saved table extraction results to: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\27583349\table_extraction.json
+2026-05-06 11:21:12,483 - ARneuro - INFO - Exported 0 tables to CSV files in: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\27583349\tables_csv
+2026-05-06 11:21:12,510 - ARneuro - INFO - Saved results to: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\27583349
+2026-05-06 11:21:12,510 - ARneuro - INFO - Table processing completed for: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\27583349_structured_content.json
+2026-05-06 11:21:12,511 - ARneuro - INFO - Processing tables from structured content: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\30629612_structured_content.json
+2026-05-06 11:21:12,512 - ARneuro - INFO - Extracted 2 tables from structured content
+2026-05-06 11:21:14,916 - ARneuro - INFO - Category 'brain_activation': 2 tables
+2026-05-06 11:21:14,916 - ARneuro - INFO - Category 'demographic': 0 tables
+2026-05-06 11:21:14,916 - ARneuro - INFO - Category 'statistical': 0 tables
+2026-05-06 11:21:14,917 - ARneuro - INFO - Category 'methodological': 0 tables
+2026-05-06 11:21:14,917 - ARneuro - INFO - Category 'other': 0 tables
+2026-05-06 11:21:22,746 - ARneuro - INFO - Parsed table with 13 rows and 9 columns
+2026-05-06 11:21:35,003 - ARneuro - INFO - Parsed table with 22 rows and 9 columns
+2026-05-06 11:21:35,057 - ARneuro - INFO - Saved table extraction results to: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\30629612\table_extraction.json
+2026-05-06 11:21:35,070 - ARneuro - INFO - Exported 0 tables to CSV files in: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\30629612\tables_csv
+2026-05-06 11:21:35,131 - ARneuro - INFO - Saved results to: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\30629612
+2026-05-06 11:21:35,131 - ARneuro - INFO - Table processing completed for: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\30629612_structured_content.json
+2026-05-06 11:21:35,132 - ARneuro - INFO - Processing tables from structured content: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\31849595_structured_content.json
+2026-05-06 11:21:35,133 - ARneuro - INFO - Extracted 5 tables from structured content
+2026-05-06 11:21:40,021 - ARneuro - INFO - Category 'brain_activation': 2 tables
+2026-05-06 11:21:40,022 - ARneuro - INFO - Category 'demographic': 2 tables
+2026-05-06 11:21:40,022 - ARneuro - INFO - Category 'statistical': 0 tables
+2026-05-06 11:21:40,022 - ARneuro - INFO - Category 'methodological': 0 tables
+2026-05-06 11:21:40,022 - ARneuro - INFO - Category 'other': 1 tables
+2026-05-06 11:21:55,783 - ARneuro - INFO - Parsed table with 27 rows and 10 columns
+2026-05-06 11:22:16,975 - ARneuro - ERROR - Failed to parse CSV: Error tokenizing data. C error: Expected 11 fields in line 14, saw 12
+
+2026-05-06 11:22:17,052 - ARneuro - INFO - Saved table extraction results to: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\31849595\table_extraction.json
+2026-05-06 11:22:17,054 - ARneuro - INFO - Exported 0 tables to CSV files in: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\31849595\tables_csv
+2026-05-06 11:22:17,087 - ARneuro - INFO - Saved results to: D:\app\Tools\ARneuro\examples\data\workflow\step4_activation_tables\31849595
+2026-05-06 11:22:17,087 - ARneuro - INFO - Table processing completed for: D:\app\Tools\ARneuro\examples\data\workflow\step3_library\segmented\31849595_structured_content.json

@@ -1,0 +1,48 @@
+{
+  "documents": 6,
+  "total_activation_tables": 9,
+  "results": [
+    {
+      "structured_content": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\23458438_structured_content.json",
+      "source_markdown": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\23458438.md",
+      "total_tables": 3,
+      "activation_table_count": 1,
+      "results_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step4_activation_tables\\23458438\\table_processing_results.json"
+    },
+    {
+      "structured_content": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\24244653_structured_content.json",
+      "source_markdown": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\24244653.md",
+      "total_tables": 6,
+      "activation_table_count": 0,
+      "results_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step4_activation_tables\\24244653\\table_processing_results.json"
+    },
+    {
+      "structured_content": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\26834609_structured_content.json",
+      "source_markdown": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\26834609.md",
+      "total_tables": 3,
+      "activation_table_count": 3,
+      "results_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step4_activation_tables\\26834609\\table_processing_results.json"
+    },
+    {
+      "structured_content": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\27583349_structured_content.json",
+      "source_markdown": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\27583349.md",
+      "total_tables": 2,
+      "activation_table_count": 1,
+      "results_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step4_activation_tables\\27583349\\table_processing_results.json"
+    },
+    {
+      "structured_content": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\30629612_structured_content.json",
+      "source_markdown": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\30629612.md",
+      "total_tables": 2,
+      "activation_table_count": 2,
+      "results_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step4_activation_tables\\30629612\\table_processing_results.json"
+    },
+    {
+      "structured_content": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step3_library\\segmented\\31849595_structured_content.json",
+      "source_markdown": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step2_markdown\\31849595.md",
+      "total_tables": 5,
+      "activation_table_count": 2,
+      "results_json": "D:\\app\\Tools\\ARneuro\\examples\\data\\workflow\\step4_activation_tables\\31849595\\table_processing_results.json"
+    }
+  ]
+}

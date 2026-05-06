@@ -1,0 +1,13 @@
+Brain_Region,Hemisphere,X,Y,Z,Cluster_Size,T_Score,Brain_Space,Task_Name
+Inferior frontal gyrus & middle frontal gyrus & insula,L/R,-33,21,-3,4869,11.08,MNI,
+Inferior occipital gyrus & inferior temporal gyrus & fusiform,L,-27,-93,-6,759,10.9,MNI,
+Cerebellum,R,27,-66,-30,422,7.75,MNI,
+Middle occipital gyrus,R,30,-96,-6,191,7.21,MNI,
+Cerebellum,L,-33,-63,-45,22,7.21,MNI,
+Inferior/Superior Parietal Lobule,L,-33,-51,39,349,7.2,MNI,
+Middle Temporal Gyrus,L,-51,-48,3,90,6.08,MNI,
+Hippocampus,L,-30,-15,-12,20,5.35,MNI,
+Middle/Superior Temporal Gyrus,L,-51,-30,0,30,4.92,MNI,
+Inferior/Middle/Superior Frontal Gyrus & Cerebellum&Inferior Parietal Lobule&Lingual Gyrus& Insula & Precentral/Postcentral Gyrus&Fusiform & Middle Occipital Gyrus& Inferior/Middle/Superior Temporal Gyrus,L/R,-30,18,3,10925,14.34,MNI,
+Inferior Parietal Lobule,R,33,-60,42,262,7.13,MNI,
+Inferior/Middle Frontal Gyrus,R,51,9,30,75,6.16,MNI,

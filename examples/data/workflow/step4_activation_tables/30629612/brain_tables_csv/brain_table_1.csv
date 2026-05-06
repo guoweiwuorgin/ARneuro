@@ -1,0 +1,14 @@
+Brain_Region,Hemisphere,X,Y,Z,Cluster_Size,Threshold,Brain_Space,Task_Name
+Fusiform gyrus,Left,-47,-49,-11,76,p < 0.005,MNI,Embedded > Unrelated
+Precuneus,Left,-24,-69,34,57,p < 0.005,MNI,Embedded > Unrelated
+Inferior frontal gyrus,Left,-46,4,21,52,p < 0.005,MNI,Embedded > Unrelated
+Middle frontal gyrus,Left,-42,30,23,27,p < 0.005,MNI,Embedded > Unrelated
+Middle frontal gyrus,Left,-41,30,23,42,p < 0.01,MNI,Embedded > Unrelated
+Precuneus,Left,-24,-69,33,37,p < 0.01,MNI,Embedded > Unrelated
+Cerebellum,Left,-14,-42,-16,32,p < 0.01,MNI,Embedded > Unrelated
+Fusiform gyrus,Left,-47,-47,-16,30,p < 0.01,MNI,Embedded > Unrelated
+Inferior frontal gyrus,Left,-43,4,20,21*,p < 0.01,MNI,Embedded > Unrelated
+Thalamus,Right,11,-13,0,37,p < 0.01,MNI,Embedded > Unrelated
+Fusiform gyrus,Left,-47,-49,-11,92,p < 0.01,MNI,Embedded > Unrelated
+Inferior frontal gyrus,Left,-47,-49,-11,92,p < 0.01,MNI,Embedded > Unrelated
+Precuneus,Left,-27,-67,26,15*,p < 0.01,MNI,Embedded > Unrelated

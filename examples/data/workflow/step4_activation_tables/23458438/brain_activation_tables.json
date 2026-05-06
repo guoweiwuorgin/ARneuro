@@ -1,0 +1,231 @@
+{
+  "total_brain_tables": 1,
+  "brain_tables": [
+    {
+      "table_index": 1,
+      "table_text": "<table><tr><td rowspan=\"2\"></td><td rowspan=\"2\">Cluster</td><td colspan=\"3\">Left hemisphere</td><td colspan=\"3\">Right hemisphere</td></tr><tr><td>\\( \\mu \\) L</td><td>t</td><td>X, Y, Z</td><td>\\( \\mu \\) L</td><td>t</td><td>X, Y, Z</td></tr><tr><td rowspan=\"2\">SO-PAO</td><td>SMG</td><td>918</td><td>4.63</td><td>143,81,109</td><td>0</td><td>—</td><td>—</td></tr><tr><td>LOC, AG</td><td>0</td><td>—</td><td>—</td><td>799</td><td>3.89</td><td>39,65,85</td></tr><tr><td rowspan=\"7\">YA-PAO</td><td>Left PCC, precuneus, PCG, Right PCG, posterior MTG, LOC, AG, SMG</td><td>733</td><td>-4</td><td>101,87,109</td><td>61797</td><td>-5.07</td><td>37,75,77</td></tr><tr><td>Postcentral gyrus, insula, SMG, PCG, SPL</td><td>13253</td><td>-4.82</td><td>131,99,69</td><td>0</td><td>—</td><td>—</td></tr><tr><td>Precuneus, LOC</td><td>4738</td><td>-4.24</td><td>135,55,71</td><td>0</td><td>—</td><td>—</td></tr><tr><td>Frontal pole, IFG</td><td>0</td><td>—</td><td>—</td><td>2007</td><td>-4.45</td><td>51,162,81</td></tr><tr><td>Amygdala, basal ganglia</td><td>0</td><td>—</td><td>—</td><td>2986</td><td>-4.53</td><td>67,125,59</td></tr><tr><td>Frontal pole, paracingulate gyrus</td><td>0</td><td>—</td><td>—</td><td>1693</td><td>-4.39</td><td>67,185,73</td></tr><tr><td>Postcentral gyrus, LOC, precuneus, SPL, SMG</td><td>116358</td><td>-5.87</td><td>153,111,97</td><td>167983</td><td>-5.73</td><td>71,186,81</td></tr><tr><td rowspan=\"7\">YA-SO</td><td>Frontal pole, MFG, SFG</td><td>1319</td><td>-3.93</td><td>119,151,109</td><td>0</td><td>—</td><td>—</td></tr><tr><td>Insula, putamen</td><td>1869</td><td>-4.18</td><td>117,139,71</td><td>0</td><td>—</td><td>—</td></tr><tr><td>Occipital pole</td><td>192</td><td>-3.5</td><td>91,23,79</td><td>194</td><td>-3.54</td><td>89,24,79</td></tr><tr><td>Frontal pole</td><td>765</td><td>-4.12</td><td>135,173,67</td><td>0</td><td>—</td><td>—</td></tr><tr><td>PCG &amp; SFG</td><td>0</td><td>—</td><td>—</td><td>653</td><td>-3.77</td><td>63,115,135</td></tr><tr><td>Caudate</td><td>354</td><td>2.95</td><td>100,131,89</td><td>0</td><td>—</td><td>—</td></tr></table>",
+      "table_context": "## Page 6\n\nTable 2. Between-group comparisons\n\n\n[TABLE 2]\n\n\nNote. Location, volume, and coordinates of peak activity, family-wise error corrected threshold of p < .05, 624 mm³ clusters, voxel-wise p < .01.\n\n",
+      "assessment": {
+        "contains_coordinates": true,
+        "Task_name": "None",
+        "reason": "The table contains columns labeled 'X, Y, Z' under both left and right hemispheres, with numeric values in rows (e.g., 143,81,109). These are brain coordinates. The table description mentions 'between-group comparisons' but no explicit task name is provided in the table or note.",
+        "Table_header": "Cluster, Left hemisphere, Right hemisphere, μ L, t, X, Y, Z, μ L, t, X, Y, Z"
+      },
+      "parsed_data": {
+        "num_rows": 18,
+        "num_columns": 9,
+        "columns": [
+          "Brain_Region",
+          "Cluster_Size",
+          "Statistic_Value",
+          "X",
+          "Y",
+          "Z",
+          "Hemisphere",
+          "Brain_Space",
+          "Task_Name"
+        ],
+        "all_rows": [
+          {
+            "Brain_Region": "SMG",
+            "Cluster_Size": 918,
+            "Statistic_Value": 4.63,
+            "X": 143,
+            "Y": 81,
+            "Z": 109,
+            "Hemisphere": "Left",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "LOC_AG",
+            "Cluster_Size": 799,
+            "Statistic_Value": 3.89,
+            "X": 39,
+            "Y": 65,
+            "Z": 85,
+            "Hemisphere": "Right",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Left_PCC_precuneus_PCG_Right_PCG_posterior_MTG_LOC_AG_SMG",
+            "Cluster_Size": 733,
+            "Statistic_Value": -4.0,
+            "X": 101,
+            "Y": 87,
+            "Z": 109,
+            "Hemisphere": "Left",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Left_PCC_precuneus_PCG_Right_PCG_posterior_MTG_LOC_AG_SMG",
+            "Cluster_Size": 61797,
+            "Statistic_Value": -5.07,
+            "X": 37,
+            "Y": 75,
+            "Z": 77,
+            "Hemisphere": "Right",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Postcentral_gyrus_insula_SMG_PCG_SPL",
+            "Cluster_Size": 13253,
+            "Statistic_Value": -4.82,
+            "X": 131,
+            "Y": 99,
+            "Z": 69,
+            "Hemisphere": "Left",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Precuneus_LOC",
+            "Cluster_Size": 4738,
+            "Statistic_Value": -4.24,
+            "X": 135,
+            "Y": 55,
+            "Z": 71,
+            "Hemisphere": "Left",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Frontal_pole_IFG",
+            "Cluster_Size": 2007,
+            "Statistic_Value": -4.45,
+            "X": 51,
+            "Y": 162,
+            "Z": 81,
+            "Hemisphere": "Right",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Amygdala_basal_ganglia",
+            "Cluster_Size": 2986,
+            "Statistic_Value": -4.53,
+            "X": 67,
+            "Y": 125,
+            "Z": 59,
+            "Hemisphere": "Right",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Frontal_pole_paracingulate_gyrus",
+            "Cluster_Size": 1693,
+            "Statistic_Value": -4.39,
+            "X": 67,
+            "Y": 185,
+            "Z": 73,
+            "Hemisphere": "Right",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Postcentral_gyrus_LOC_precuneus_SPL_SMG",
+            "Cluster_Size": 116358,
+            "Statistic_Value": -5.87,
+            "X": 153,
+            "Y": 111,
+            "Z": 97,
+            "Hemisphere": "Left",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Postcentral_gyrus_LOC_precuneus_SPL_SMG",
+            "Cluster_Size": 167983,
+            "Statistic_Value": -5.73,
+            "X": 71,
+            "Y": 186,
+            "Z": 81,
+            "Hemisphere": "Right",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Frontal_pole_MFG_SFG",
+            "Cluster_Size": 1319,
+            "Statistic_Value": -3.93,
+            "X": 119,
+            "Y": 151,
+            "Z": 109,
+            "Hemisphere": "Left",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Insula_putamen",
+            "Cluster_Size": 1869,
+            "Statistic_Value": -4.18,
+            "X": 117,
+            "Y": 139,
+            "Z": 71,
+            "Hemisphere": "Left",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Occipital_pole",
+            "Cluster_Size": 192,
+            "Statistic_Value": -3.5,
+            "X": 91,
+            "Y": 23,
+            "Z": 79,
+            "Hemisphere": "Left",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Occipital_pole",
+            "Cluster_Size": 194,
+            "Statistic_Value": -3.54,
+            "X": 89,
+            "Y": 24,
+            "Z": 79,
+            "Hemisphere": "Right",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Frontal_pole",
+            "Cluster_Size": 765,
+            "Statistic_Value": -4.12,
+            "X": 135,
+            "Y": 173,
+            "Z": 67,
+            "Hemisphere": "Left",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "PCG_SFG",
+            "Cluster_Size": 653,
+            "Statistic_Value": -3.77,
+            "X": 63,
+            "Y": 115,
+            "Z": 135,
+            "Hemisphere": "Right",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Caudate",
+            "Cluster_Size": 354,
+            "Statistic_Value": 2.95,
+            "X": 100,
+            "Y": 131,
+            "Z": 89,
+            "Hemisphere": "Left",
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          }
+        ]
+      }
+    }
+  ]
+}

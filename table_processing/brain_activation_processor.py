@@ -152,8 +152,7 @@ class BrainActivationProcessor:
     
     def assess_brain_coordinates(self, 
                                 table_text: str, 
-                                table_description: str,
-                                llm_client) -> Dict[str, Any]:
+                                table_description: str) -> Dict[str, Any]:
         """
         Assess if a table contains brain coordinates and extract task name.
         

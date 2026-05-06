@@ -1,0 +1,372 @@
+{
+  "total_brain_tables": 2,
+  "brain_tables": [
+    {
+      "table_index": 3,
+      "table_text": "<table><tr><td></td><td>Brain region</td><td>H</td><td>x</td><td>y</td><td>z</td><td>t</td><td>p</td><td>Voxels</td></tr><tr><td rowspan=\"15\">Group Effects</td><td>TP1 TR &gt; DR</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Middle and Inferior Occipital Gyri</td><td>L</td><td>-38</td><td>-82</td><td>-4</td><td>3.11</td><td>0.001</td><td>71</td></tr><tr><td>TP1 DR &gt; TR</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>-</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>TP3 TR &gt; DR</td><td></td><td></td><td></td><td></td><td></td><td></td><td>-</td></tr><tr><td>-</td><td></td><td></td><td></td><td></td><td></td><td></td><td>-</td></tr><tr><td>TP3 DR &gt; TR</td><td></td><td></td><td></td><td></td><td></td><td></td><td>-</td></tr><tr><td>Middle and Superior Temporal Gyri, Rolandic</td><td>R</td><td>32</td><td>-32</td><td>24</td><td>4.96</td><td>&lt;0.001</td><td>2401</td></tr><tr><td>Operculum, Heshl Gyrus, Insula, Postcentral</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Gyrus</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Cingulate Gyrus</td><td>L</td><td>-12</td><td>-2</td><td>30</td><td>4.21</td><td>&lt;0.001</td><td>359</td></tr><tr><td>Superior Temporal Gyrus, Postcentral Gyrus,</td><td>L</td><td>-60</td><td>-30</td><td>14</td><td>4.10</td><td>&lt;0.001</td><td>785</td></tr><tr><td>Heschl Gyrus</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Inferior Parietal Lobule, SupraMarginal Gyrus</td><td>L</td><td>-46</td><td>-42</td><td>26</td><td>4.05</td><td>&lt;0.001</td><td>169</td></tr><tr><td>Postcentral and Precentral Gyri, Inferior Frontal</td><td>L</td><td>-54</td><td>0</td><td>28</td><td>4.05</td><td>&lt;0.001</td><td>484</td></tr><tr><td>Gyrus (oper)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Superior Temporal Gyrus, Insula</td><td>R</td><td>52</td><td>-2</td><td>-4</td><td>3.57</td><td>&lt;0.001</td><td>224</td></tr><tr><td>Hippocampus, Putamen</td><td>R</td><td>30</td><td>-12</td><td>-12</td><td>3.56</td><td>&lt;0.001</td><td>127</td></tr><tr><td>Middle Temporal Gyrus</td><td>L</td><td>-52</td><td>-48</td><td>6</td><td>3.46</td><td>&lt;0.001</td><td>148</td></tr><tr><td>Superior Temporal Gyrus</td><td>L</td><td>-60</td><td>6</td><td>-12</td><td>3.37</td><td>0.001</td><td>100</td></tr><tr><td>Precentral Gyrus</td><td>R</td><td>24</td><td>-30</td><td>68</td><td>3.06</td><td>0.001</td><td>53</td></tr><tr><td>Insula, Superior Temporal Gyrus</td><td>L</td><td>-36</td><td>-8</td><td>-2</td><td>3.06</td><td>0.001</td><td>98</td></tr><tr><td>Precentral Gyrus</td><td>R</td><td>38</td><td>-14</td><td>52</td><td>2.95</td><td>0.002</td><td>60</td></tr><tr><td rowspan=\"12\">TP Effects</td><td>TR TP1 &gt; TP3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Precentral Gyrus</td><td>L</td><td>-54</td><td>0</td><td>28</td><td>3.54</td><td>&lt;0.001</td><td>102</td></tr><tr><td>Inferior Frontal Gyrus (orb), Insula, Superior</td><td>L</td><td>-30</td><td>6</td><td>-18</td><td>3.45</td><td>&lt;0.001</td><td>104</td></tr><tr><td>Temporal Gyrus</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td rowspan=\"2\">Superior Parietal Lobule</td><td>L</td><td>-24</td><td>-54</td><td>44</td><td>3.44</td><td>&lt;0.001</td><td>59</td></tr><tr><td>L</td><td>-38</td><td>-52</td><td>62</td><td>3.43</td><td>0.001</td><td>56</td></tr><tr><td>Inferior Parietal Lobule</td><td>L</td><td>-34</td><td>12</td><td>18</td><td>3.33</td><td>0.001</td><td>60</td></tr><tr><td>Inferior Frontal Gyrus (oper)</td><td>L</td><td>-24</td><td>-28</td><td>0</td><td>3.31</td><td>0.001</td><td>140</td></tr><tr><td>Hippocampus</td><td>L</td><td>-10</td><td>-52</td><td>0</td><td>3.27</td><td>0.001</td><td>74</td></tr><tr><td>Lingual, Cerebellum (IV, V)</td><td>L</td><td>-44</td><td>-42</td><td>24</td><td>3.21</td><td>0.001</td><td>64</td></tr><tr><td>SupraMarginal Gyrus, Superior Temporal Gyrus</td><td>L</td><td>-44</td><td>-42</td><td>24</td><td>3.21%</td><td>0.001</td><td>64</td></tr><tr><td>DR TP3 &gt; TP1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Superor Temporal Gyrus, Insula</td><td>R</td><td>38</td><td>22</td><td>-26</td><td>4.11</td><td>&lt;0.001</td><td>114</td></tr><tr><td rowspan=\"4\">Interaction</td><td>TR TP1 &gt; TP3 and DR TP3 &gt; TP1</td><td></td><td></td><td></td><td></td><td></td><td>-</td><td></td></tr><tr><td>Superior and Medial Frontal Gyri</td><td>R</td><td>16</td><td>62</td><td>8</td><td>3.46</td><td>&lt;0.001</td><td>88</td></tr><tr><td>Middle and Inferior Temporal Gyri</td><td>L</td><td>-58</td><td>-62</td><td>0</td><td>3.34</td><td>0.001</td><td>135</td></tr><tr><td>Insula, Superior Temporal Gyrus</td><td>R</td><td>42</td><td>12</td><td>-14</td><td>3.25</td><td>0.001</td><td>61</td></tr><tr><td></td><td>Superior Temporal Gyrus</td><td>L</td><td>-30</td><td>6</td><td>-22</td><td>2.91</td><td>0.002</td><td>61</td></tr></table>",
+      "table_context": "## Page 10\n\nTABLE 4 | Significant group and time point effects (first vs. third time point: TP1 vs. TP3) across groups of children with (DR) and without dyslexia (TR).\n\n\n[TABLE 4]\n\n\nGroup effects were tested with one-way ANOVA, TP effects were tested with paired t-tests, Group and TP interaction was tested with flexible factorial design.\n\n",
+      "assessment": {
+        "contains_coordinates": true,
+        "Task_name": "None",
+        "reason": "The table has columns labeled x, y, z with numeric values, indicating coordinates. The table description mentions groups of children with (DR) and without dyslexia (TR), but no specific task name is given. The task name is set to None.",
+        "Table_header": "Brain region, H, x, y, z, t, p, Voxels"
+      },
+      "parsed_data": {
+        "num_rows": 27,
+        "num_columns": 10,
+        "columns": [
+          "Brain_Region",
+          "H",
+          "x",
+          "y",
+          "z",
+          "t",
+          "p",
+          "Voxels",
+          "Brain_Space",
+          "Task_Name"
+        ],
+        "all_rows": [
+          {
+            "Brain_Region": "Middle and Inferior Occipital Gyri",
+            "H": "L",
+            "x": -38,
+            "y": -82,
+            "z": -4,
+            "t": 3.11,
+            "p": "0.001",
+            "Voxels": 71,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Middle and Superior Temporal Gyri, Rolandic Operculum, Heshl Gyrus, Insula, Postcentral Gyrus",
+            "H": "R",
+            "x": 32,
+            "y": -32,
+            "z": 24,
+            "t": 4.96,
+            "p": "<0.001",
+            "Voxels": 2401,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Cingulate Gyrus",
+            "H": "L",
+            "x": -12,
+            "y": -2,
+            "z": 30,
+            "t": 4.21,
+            "p": "<0.001",
+            "Voxels": 359,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Superior Temporal Gyrus, Postcentral Gyrus, Heschl Gyrus",
+            "H": "L",
+            "x": -60,
+            "y": -30,
+            "z": 14,
+            "t": 4.1,
+            "p": "<0.001",
+            "Voxels": 785,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Inferior Parietal Lobule, SupraMarginal Gyrus",
+            "H": "L",
+            "x": -46,
+            "y": -42,
+            "z": 26,
+            "t": 4.05,
+            "p": "<0.001",
+            "Voxels": 169,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Postcentral and Precentral Gyri, Inferior Frontal Gyrus (oper)",
+            "H": "L",
+            "x": -54,
+            "y": 0,
+            "z": 28,
+            "t": 4.05,
+            "p": "<0.001",
+            "Voxels": 484,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Superior Temporal Gyrus, Insula",
+            "H": "R",
+            "x": 52,
+            "y": -2,
+            "z": -4,
+            "t": 3.57,
+            "p": "<0.001",
+            "Voxels": 224,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Hippocampus, Putamen",
+            "H": "R",
+            "x": 30,
+            "y": -12,
+            "z": -12,
+            "t": 3.56,
+            "p": "<0.001",
+            "Voxels": 127,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Middle Temporal Gyrus",
+            "H": "L",
+            "x": -52,
+            "y": -48,
+            "z": 6,
+            "t": 3.46,
+            "p": "<0.001",
+            "Voxels": 148,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Superior Temporal Gyrus",
+            "H": "L",
+            "x": -60,
+            "y": 6,
+            "z": -12,
+            "t": 3.37,
+            "p": "0.001",
+            "Voxels": 100,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Precentral Gyrus",
+            "H": "R",
+            "x": 24,
+            "y": -30,
+            "z": 68,
+            "t": 3.06,
+            "p": "0.001",
+            "Voxels": 53,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Insula, Superior Temporal Gyrus",
+            "H": "L",
+            "x": -36,
+            "y": -8,
+            "z": -2,
+            "t": 3.06,
+            "p": "0.001",
+            "Voxels": 98,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Precentral Gyrus",
+            "H": "R",
+            "x": 38,
+            "y": -14,
+            "z": 52,
+            "t": 2.95,
+            "p": "0.002",
+            "Voxels": 60,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Precentral Gyrus",
+            "H": "L",
+            "x": -54,
+            "y": 0,
+            "z": 28,
+            "t": 3.54,
+            "p": "<0.001",
+            "Voxels": 102,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Inferior Frontal Gyrus (orb), Insula, Superior Temporal Gyrus",
+            "H": "L",
+            "x": -30,
+            "y": 6,
+            "z": -18,
+            "t": 3.45,
+            "p": "<0.001",
+            "Voxels": 104,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Superior Parietal Lobule",
+            "H": "L",
+            "x": -24,
+            "y": -54,
+            "z": 44,
+            "t": 3.44,
+            "p": "<0.001",
+            "Voxels": 59,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Superior Parietal Lobule",
+            "H": "L",
+            "x": -38,
+            "y": -52,
+            "z": 62,
+            "t": 3.43,
+            "p": "0.001",
+            "Voxels": 56,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Inferior Parietal Lobule",
+            "H": "L",
+            "x": -34,
+            "y": 12,
+            "z": 18,
+            "t": 3.33,
+            "p": "0.001",
+            "Voxels": 60,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Inferior Frontal Gyrus (oper)",
+            "H": "L",
+            "x": -24,
+            "y": -28,
+            "z": 0,
+            "t": 3.31,
+            "p": "0.001",
+            "Voxels": 140,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Hippocampus",
+            "H": "L",
+            "x": -10,
+            "y": -52,
+            "z": 0,
+            "t": 3.27,
+            "p": "0.001",
+            "Voxels": 74,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Lingual, Cerebellum (IV, V)",
+            "H": "L",
+            "x": -44,
+            "y": -42,
+            "z": 24,
+            "t": 3.21,
+            "p": "0.001",
+            "Voxels": 64,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "SupraMarginal Gyrus, Superior Temporal Gyrus",
+            "H": "L",
+            "x": -44,
+            "y": -42,
+            "z": 24,
+            "t": 3.21,
+            "p": "0.001",
+            "Voxels": 64,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Superor Temporal Gyrus, Insula",
+            "H": "R",
+            "x": 38,
+            "y": 22,
+            "z": -26,
+            "t": 4.11,
+            "p": "<0.001",
+            "Voxels": 114,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Superior and Medial Frontal Gyri",
+            "H": "R",
+            "x": 16,
+            "y": 62,
+            "z": 8,
+            "t": 3.46,
+            "p": "<0.001",
+            "Voxels": 88,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Middle and Inferior Temporal Gyri",
+            "H": "L",
+            "x": -58,
+            "y": -62,
+            "z": 0,
+            "t": 3.34,
+            "p": "0.001",
+            "Voxels": 135,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Insula, Superior Temporal Gyrus",
+            "H": "R",
+            "x": 42,
+            "y": 12,
+            "z": -14,
+            "t": 3.25,
+            "p": "0.001",
+            "Voxels": 61,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Superior Temporal Gyrus",
+            "H": "L",
+            "x": -30,
+            "y": 6,
+            "z": -22,
+            "t": 2.91,
+            "p": "0.002",
+            "Voxels": 61,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          }
+        ]
+      }
+    },
+    {
+      "table_index": 4,
+      "table_text": "<table><tr><td></td><td>Brain region</td><td>H</td><td>x</td><td>y</td><td>z</td><td>t</td><td>p</td><td>Voxels</td></tr><tr><td rowspan=\"20\">Group Effects</td><td>TP1 FHD- &gt; FHD +</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Middle and Superior Temporal Gyri, Inferior Frontal</td><td>L</td><td>-46</td><td>16</td><td>-14</td><td>4.88</td><td>&lt;0.001</td><td>4108</td></tr><tr><td>Gyrus (orb, tri), Rolandic Operculum</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Insula, Middle and Superior Temporal Gyri</td><td>R</td><td>42</td><td>8</td><td>-12</td><td>4.21</td><td>&lt;0.001</td><td>434</td></tr><tr><td>Superior and Medial Frontal Gyri</td><td>L</td><td>-14</td><td>64</td><td>2</td><td>3.88</td><td>&lt;0.001</td><td>234</td></tr><tr><td>Thalamus</td><td>L</td><td>-2</td><td>-4</td><td>2</td><td>3.56</td><td>&lt;0.001</td><td>129</td></tr><tr><td>Superior and Inferior Parietal, Postcentral Gyrus</td><td>L</td><td>-26</td><td>-50</td><td>56</td><td>3.46</td><td>&lt;0.001</td><td>148</td></tr><tr><td>Postcentral and Precentral Gyri</td><td>L</td><td>-56</td><td>0</td><td>38</td><td>3.46</td><td>&lt;0.001</td><td>997</td></tr><tr><td>Superior Frontal Gyrus</td><td>L</td><td>-2</td><td>50</td><td>40</td><td>3.28</td><td>0.001</td><td>156</td></tr><tr><td>Precentral Gyrus</td><td>L</td><td>-18</td><td>-18</td><td>70</td><td>3.28</td><td>0.001</td><td>63</td></tr><tr><td>Middle Temporal Gyrus, Hippocampus</td><td>R</td><td>30</td><td>-38</td><td>6</td><td>3.24</td><td>0.001</td><td>152</td></tr><tr><td>Middle and Superior Temporal Gyri</td><td>R</td><td>54</td><td>-14</td><td>-12</td><td>3.23</td><td>0.001</td><td>182</td></tr><tr><td>Cerebellum (ll, IV, V), Lingual</td><td>R</td><td>12</td><td>-32</td><td>-12</td><td>3.16</td><td>0.001</td><td>109</td></tr><tr><td>Medial frontal (sup)</td><td>R</td><td>16</td><td>64</td><td>0</td><td>3.15</td><td>0.001</td><td>85</td></tr><tr><td>Anterior Cingulate (L, R)</td><td>L, R</td><td>-36</td><td>-26</td><td>16</td><td>3.00</td><td>0.002</td><td>53</td></tr><tr><td>Rolandic Operculum, Insula</td><td>L</td><td>4</td><td>36</td><td>0</td><td>2.86</td><td>0.003</td><td>59</td></tr><tr><td>TP1 FHD + &gt; FHD-</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>TP3 FHD- &gt; FHD +</td><td></td><td></td><td></td><td></td><td><td></td><td></td></td></tr><tr><td>Caudate (L), Anterior Cingulate (L, R)</td><td>L, R</td><td>-6</td><td>20</td><td>-6</td><td>3.72</td><td>&lt;0.001</td><td>178</td></tr><tr><td>Anterior Cingulate</td><td>L</td><td>-4</td><td>38</td><td>8</td><td>3.15</td><td>0.001</td><td>67</td></tr><tr><td>Middle Temporal Gyrus</td><td>L</td><td>-40</td><td>-54</td><td>0</td><td>3.08</td><td>0.001</td><td>64</td></tr><tr><td>TP3 FHD + &gt; FHD-</td><td></td><td></td><td></td><td></td><td><td></td><td></td></td></tr><tr><td rowspan=\"10\">TP Effects</td><td>FHD- TP1 &gt; TP3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Insular, Superior Temporal Gyrus, Rolandic Operculum, Inferior Frontal Gyrus (oper), Amygdala</td><td>L</td><td>-40</td><td>-12</td><td>8</td><td>3.97</td><td>&lt;0.001</td><td>505</td></tr><tr><td>Hippocampus</td><td>R</td><td>36</td><td>-34</td><td>4</td><td>3.72</td><td>&lt;0.001</td><td>147</td></tr><tr><td>Superior Temporal Gyrus, SupraMarginal Gyrus</td><td>L</td><td>-44</td><td>-42</td><td>24</td><td>3.63</td><td>&lt;0.001</td><td>200</td></tr><tr><td>Hippocampus</td><td>L</td><td>-26</td><td>-30</td><td>-2</td><td>3.50</td><td>0.001</td><td>71</td></tr><tr><td>Insula, Inferior Frontal (orb and tri)</td><td>L</td><td>-38</td><td>18</td><td>-10</td><td>3.20</td><td>0.001</td><td>51</td></tr><tr><td>Insula, Superior Temporal Gyrus, Rolandic Operculum, Inferior Frontal Gyrus (op), Amygdala</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>FHD + TP3 &gt; TP1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Postcentral and Precentral Gyri</td><td>L</td><td>-42</td><td>-26</td><td>66</td><td>3.25</td><td>0.001</td><td>165</td></tr><tr><td>FHD- TP1 &gt; TP3 and FHD + TP3 &gt; TP1</td><td></td><td></td><td></td><td></td><td><td></td><td></td></td></tr><tr><td>Postcentral and Precentral Gyri</td><td>L</td><td>-44</td><td>-22</td><td>58</td><td>3.28</td><td>0.001</td><td>178</td></tr><tr><td>Superior and Middle Temporal Gyri</td><td>L</td><td>-46</td><td>-26</td><td>0</td><td>3.06</td><td>0.001</td><td>52</td></tr></table>",
+      "table_context": "## Page 15\n\nTABLE 5 | Significant group and time point effects across groups of children with (FHD+) and without a familial history of dyslexia (FHD−).\n\n\n[TABLE 5]\n\n\nGroup effects were tested with one-way ANOVA, TP effects were tested with paired t-tests, Group and TP interaction was tested with flexible factorial design.\n\n",
+      "assessment": {
+        "contains_coordinates": true,
+        "Task_name": "None",
+        "reason": "The table has columns labeled x, y, z with numeric values, indicating coordinates. The task name is not explicitly stated in the table or description; the study appears to be about dyslexia and familial history, but no specific task is mentioned.",
+        "Table_header": "Brain region, H, x, y, z, t, p, Voxels"
+      },
+      "parsed_data": {
+        "error": "Failed to parse table"
+      }
+    }
+  ]
+}

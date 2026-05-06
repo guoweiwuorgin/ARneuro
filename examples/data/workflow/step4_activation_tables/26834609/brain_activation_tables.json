@@ -1,0 +1,802 @@
+{
+  "total_brain_tables": 3,
+  "brain_tables": [
+    {
+      "table_index": 0,
+      "table_text": "<table><tr><td>Brain area</td><td>BA</td><td>x</td><td>y</td><td>z</td><td>T</td></tr><tr><td colspan=\"6\">P+O+M+ vs. PURE TONE</td></tr><tr><td>L-Frontal-Inf-Tri</td><td>45</td><td>-45</td><td>36</td><td>3</td><td>13.85</td></tr><tr><td>R-Insula</td><td>47</td><td>33</td><td>27</td><td>6</td><td>10.93</td></tr><tr><td>L-Supp-Motor-Area</td><td>32</td><td>-3</td><td>18</td><td>48</td><td>9.88</td></tr><tr><td>R-Cerebelum-Crus1</td><td></td><td>12</td><td>-75</td><td>-30</td><td>9.55</td></tr><tr><td>L-Frontal-Mid-Orb</td><td>45</td><td>-45</td><td>48</td><td>0</td><td>8.91</td></tr><tr><td>R-Temporal-Sup</td><td>48</td><td>60</td><td>-3</td><td>-3</td><td>8.22</td></tr><tr><td>L-Temporal-Sup</td><td>48</td><td>-60</td><td>-9</td><td>3</td><td>8.03</td></tr><tr><td>R-Calcarine</td><td>17</td><td>12</td><td>-66</td><td>9</td><td>7.68</td></tr><tr><td>L-Calcarine</td><td>17</td><td>-6</td><td>-63</td><td>9</td><td>7.18</td></tr><tr><td>L-Cerebelum-Crus2</td><td></td><td>-5</td><td>-81</td><td>-24</td><td>6.29</td></tr><tr><td>R-Occipital-Inf</td><td>18</td><td>30</td><td>-90</td><td>-3</td><td>6.22</td></tr><tr><td>L-Parietal-Inf</td><td>7</td><td>-30</td><td>-66</td><td>42</td><td>5.90</td></tr><tr><td>L-Fusiform</td><td>37</td><td>-36</td><td>-32</td><td>-19</td><td>5.72</td></tr><tr><td>Vermis-4-5</td><td></td><td>0</td><td>-51</td><td>-15</td><td>4.90</td></tr><tr><td>R-Frontal-Inf-Orb</td><td>47</td><td>33</td><td>39</td><td>-9</td><td>4.65</td></tr><tr><td>L-Temporal-Mid</td><td>21</td><td>-66</td><td>-30</td><td>3</td><td>4.44</td></tr><tr><td>L-Frontal-Sup-Medial</td><td>10</td><td>-6</td><td>66</td><td>27</td><td>4.27</td></tr><tr><td>L-Rectus</td><td>11</td><td>0</td><td>39</td><td>-15</td><td>4.26</td></tr><tr><td>L-Occipital-Inf</td><td>19</td><td>-33</td><td>-87</td><td>-9</td><td>4.15</td></tr><tr><td>R-Frontal-Inf</td><td>48</td><td>45</td><td>27</td><td>30</td><td>3.58</td></tr><tr><td colspan=\"6\">P+O+M- vs. PURE TONE</td></tr><tr><td>L-Frontal-Inf-Tri</td><td colspan=\"2\">45</td><td>36</td><td>3</td><td>9.95</td></tr><tr><td>L-Temporal-Sup</td><td>22</td><td>-60</td><td>-12</td><td>6</td><td>9.52</td></tr><tr><td>R-Temporal-Sup</td><td>48</td><td>60</td><td>-3<td>-3</td><td>9.31</td></td></tr><tr><td>L-Hippocampus</td><td>20</td><td>-27</td><td>-9</td><td>-18</td><td>7.34</td></tr><tr><td>L-Temporal-Inf</td><td>37</td><td>-45</td><td>-51</td><td>-12</td><td>7.20</td></tr><tr><td>R-Rolandic-Oper</td><td>48</td><td>60</td><td>0</td><td>12</td><td>6.54</td></tr><tr><td>L-Supp-Motor-Area</td><td>8</td><td>-6</td><td>21</td><td>48</td><td>6.02</td></tr><tr><td>R-Cerebelum-Crus1</td><td></td><td>9</td><td>-81</td><td>-24</td><td>5.68</td></tr><tr><td>R-Cerebelum-Crus2</td><td></td><td>12</td><td>-84</td><td>-36</td><td>5.57</td></tr><tr><td>R-Heschl</td><td>48</td><td>68</td><td>-15</td><td>9</td><td>4.86</td></tr><tr><td>Vermis-9</td><td></td><td>0</td><td>-48</td><td>-36</td><td>4.75</td></tr><tr><td>L-Temporal-Mid</td><td>21</td><td>-66</td><td>-39</td><td>3</td><td>4.49</td></tr><tr><td>R-Frontal-Inf-Orb</td><td>47</td><td>36</td><td>39</td><td>-6</td><td>4.49</td></tr><tr><td>R-Precentral</td><td>4</td><td>39</td><td>-27</td><td>69</td><td>4.22</td></tr><tr><td>L-Fusiform</td><td>37</td><td>-36</td><td>-32<td>-19</td><td>3.92</td></td></tr><tr><td colspan=\"6\">P+O-M- vs. PURE TONE</td></tr><tr><td>L-Temporal-Sup</td><td>22</td><td>-60</td><td>-9</td><td>6</td><td>8.88</td></tr><tr><td>L-Heschl</td><td>48</td><td>-39</td><td>-24</td><td>12</td><td>5.64</td></tr><tr><td>L-Temporal-Inf</td><td>20</td><td>-42</td><td>-15</td><td>-27</td><td>8.54</td></tr><tr><td>L-Fusiform</td><td>20</td><td>-36</td><td>-30</td><td>-18</td><td>5.06</td></tr><tr><td>R-Temporal-Sup</td><td>48</td><td>60</td><td>-3-</td><td>-3</td><td>8.43</td></tr><tr><td>R-Heschl</td><td>48</td><td>48</td><td>-15</td><td>12</td><td>7.41</td></tr><tr><td>L-Frontal-Inf-Tri</td><td>48</td><td>-45</td><td>24</td><td>24</td><td>8.43</td></tr><tr><td>L-Frontal-Inf-Tri</td><td>45</td><td>-51</td><td>36</td><td>9</td><td>6.99</td></tr><tr><td>L-Frontal-Mid-Orb</td><td>46</td><td>-48</td><td>48</td><td>0</td><td>6.55</td></tr><tr><td>R-Cerebelum-6</td><td>19</td><td>21</td><td>-60</td><td>-24</td><td>7.90</td></tr><tr><td>L-Temporal-Inf</td><td>37</td><td>-48</td><td>-54</td><td>-12</td><td>7.04</td></tr><tr><td>L-Temporal-Mid</td><td>21</td><td>-51</td><td>-45</td><td>-3</td><td>3.92</td></tr></table>",
+      "table_context": "## Page 6\n\nTABLE 1 | Brain activation for the morphological conditions relative to the pure tone.\n\n\n[TABLE 1]\n\n\n(Continued)\n\n",
+      "assessment": {
+        "contains_coordinates": true,
+        "Task_name": "None",
+        "reason": "The table has columns labeled x, y, z with numeric values, indicating coordinates. The table description mentions 'morphological conditions relative to the pure tone', but no explicit task name is given.",
+        "Table_header": "Brain area, BA, x, y, z, T"
+      },
+      "parsed_data": {
+        "num_rows": 47,
+        "num_columns": 8,
+        "columns": [
+          "Brain_Region",
+          "BA",
+          "X",
+          "Y",
+          "Z",
+          "Statistic_Value",
+          "Brain_Space",
+          "Task_Name"
+        ],
+        "all_rows": [
+          {
+            "Brain_Region": "L-Frontal-Inf-Tri",
+            "BA": 45.0,
+            "X": -45,
+            "Y": 36,
+            "Z": 3,
+            "Statistic_Value": 13.85,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Insula",
+            "BA": 47.0,
+            "X": 33,
+            "Y": 27,
+            "Z": 6,
+            "Statistic_Value": 10.93,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Supp-Motor-Area",
+            "BA": 32.0,
+            "X": -3,
+            "Y": 18,
+            "Z": 48,
+            "Statistic_Value": 9.88,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Cerebelum-Crus1",
+            "BA": NaN,
+            "X": 12,
+            "Y": -75,
+            "Z": -30,
+            "Statistic_Value": 9.55,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Frontal-Mid-Orb",
+            "BA": 45.0,
+            "X": -45,
+            "Y": 48,
+            "Z": 0,
+            "Statistic_Value": 8.91,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Temporal-Sup",
+            "BA": 48.0,
+            "X": 60,
+            "Y": -3,
+            "Z": -3,
+            "Statistic_Value": 8.22,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Temporal-Sup",
+            "BA": 48.0,
+            "X": -60,
+            "Y": -9,
+            "Z": 3,
+            "Statistic_Value": 8.03,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Calcarine",
+            "BA": 17.0,
+            "X": 12,
+            "Y": -66,
+            "Z": 9,
+            "Statistic_Value": 7.68,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Calcarine",
+            "BA": 17.0,
+            "X": -6,
+            "Y": -63,
+            "Z": 9,
+            "Statistic_Value": 7.18,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Cerebelum-Crus2",
+            "BA": NaN,
+            "X": -5,
+            "Y": -81,
+            "Z": -24,
+            "Statistic_Value": 6.29,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Occipital-Inf",
+            "BA": 18.0,
+            "X": 30,
+            "Y": -90,
+            "Z": -3,
+            "Statistic_Value": 6.22,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Parietal-Inf",
+            "BA": 7.0,
+            "X": -30,
+            "Y": -66,
+            "Z": 42,
+            "Statistic_Value": 5.9,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Fusiform",
+            "BA": 37.0,
+            "X": -36,
+            "Y": -32,
+            "Z": -19,
+            "Statistic_Value": 5.72,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Vermis-4-5",
+            "BA": NaN,
+            "X": 0,
+            "Y": -51,
+            "Z": -15,
+            "Statistic_Value": 4.9,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Frontal-Inf-Orb",
+            "BA": 47.0,
+            "X": 33,
+            "Y": 39,
+            "Z": -9,
+            "Statistic_Value": 4.65,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Temporal-Mid",
+            "BA": 21.0,
+            "X": -66,
+            "Y": -30,
+            "Z": 3,
+            "Statistic_Value": 4.44,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Frontal-Sup-Medial",
+            "BA": 10.0,
+            "X": -6,
+            "Y": 66,
+            "Z": 27,
+            "Statistic_Value": 4.27,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Rectus",
+            "BA": 11.0,
+            "X": 0,
+            "Y": 39,
+            "Z": -15,
+            "Statistic_Value": 4.26,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Occipital-Inf",
+            "BA": 19.0,
+            "X": -33,
+            "Y": -87,
+            "Z": -9,
+            "Statistic_Value": 4.15,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Frontal-Inf",
+            "BA": 48.0,
+            "X": 45,
+            "Y": 27,
+            "Z": 30,
+            "Statistic_Value": 3.58,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Frontal-Inf-Tri",
+            "BA": 45.0,
+            "X": -45,
+            "Y": 36,
+            "Z": 3,
+            "Statistic_Value": 9.95,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Temporal-Sup",
+            "BA": 22.0,
+            "X": -60,
+            "Y": -12,
+            "Z": 6,
+            "Statistic_Value": 9.52,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Temporal-Sup",
+            "BA": 48.0,
+            "X": 60,
+            "Y": -3,
+            "Z": -3,
+            "Statistic_Value": 9.31,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Hippocampus",
+            "BA": 20.0,
+            "X": -27,
+            "Y": -9,
+            "Z": -18,
+            "Statistic_Value": 7.34,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Temporal-Inf",
+            "BA": 37.0,
+            "X": -45,
+            "Y": -51,
+            "Z": -12,
+            "Statistic_Value": 7.2,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Rolandic-Oper",
+            "BA": 48.0,
+            "X": 60,
+            "Y": 0,
+            "Z": 12,
+            "Statistic_Value": 6.54,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Supp-Motor-Area",
+            "BA": 8.0,
+            "X": -6,
+            "Y": 21,
+            "Z": 48,
+            "Statistic_Value": 6.02,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Cerebelum-Crus1",
+            "BA": NaN,
+            "X": 9,
+            "Y": -81,
+            "Z": -24,
+            "Statistic_Value": 5.68,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Cerebelum-Crus2",
+            "BA": NaN,
+            "X": 12,
+            "Y": -84,
+            "Z": -36,
+            "Statistic_Value": 5.57,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Heschl",
+            "BA": 48.0,
+            "X": 68,
+            "Y": -15,
+            "Z": 9,
+            "Statistic_Value": 4.86,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "Vermis-9",
+            "BA": NaN,
+            "X": 0,
+            "Y": -48,
+            "Z": -36,
+            "Statistic_Value": 4.75,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Temporal-Mid",
+            "BA": 21.0,
+            "X": -66,
+            "Y": -39,
+            "Z": 3,
+            "Statistic_Value": 4.49,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Frontal-Inf-Orb",
+            "BA": 47.0,
+            "X": 36,
+            "Y": 39,
+            "Z": -6,
+            "Statistic_Value": 4.49,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Precentral",
+            "BA": 4.0,
+            "X": 39,
+            "Y": -27,
+            "Z": 69,
+            "Statistic_Value": 4.22,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Fusiform",
+            "BA": 37.0,
+            "X": -36,
+            "Y": -32,
+            "Z": -19,
+            "Statistic_Value": 3.92,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Temporal-Sup",
+            "BA": 22.0,
+            "X": -60,
+            "Y": -9,
+            "Z": 6,
+            "Statistic_Value": 8.88,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Heschl",
+            "BA": 48.0,
+            "X": -39,
+            "Y": -24,
+            "Z": 12,
+            "Statistic_Value": 5.64,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Temporal-Inf",
+            "BA": 20.0,
+            "X": -42,
+            "Y": -15,
+            "Z": -27,
+            "Statistic_Value": 8.54,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Fusiform",
+            "BA": 20.0,
+            "X": -36,
+            "Y": -30,
+            "Z": -18,
+            "Statistic_Value": 5.06,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Temporal-Sup",
+            "BA": 48.0,
+            "X": 60,
+            "Y": -3,
+            "Z": -3,
+            "Statistic_Value": 8.43,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Heschl",
+            "BA": 48.0,
+            "X": 48,
+            "Y": -15,
+            "Z": 12,
+            "Statistic_Value": 7.41,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Frontal-Inf-Tri",
+            "BA": 48.0,
+            "X": -45,
+            "Y": 24,
+            "Z": 24,
+            "Statistic_Value": 8.43,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Frontal-Inf-Tri",
+            "BA": 45.0,
+            "X": -51,
+            "Y": 36,
+            "Z": 9,
+            "Statistic_Value": 6.99,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Frontal-Mid-Orb",
+            "BA": 46.0,
+            "X": -48,
+            "Y": 48,
+            "Z": 0,
+            "Statistic_Value": 6.55,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "R-Cerebelum-6",
+            "BA": 19.0,
+            "X": 21,
+            "Y": -60,
+            "Z": -24,
+            "Statistic_Value": 7.9,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Temporal-Inf",
+            "BA": 37.0,
+            "X": -48,
+            "Y": -54,
+            "Z": -12,
+            "Statistic_Value": 7.04,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L-Temporal-Mid",
+            "BA": 21.0,
+            "X": -51,
+            "Y": -45,
+            "Z": -3,
+            "Statistic_Value": 3.92,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          }
+        ]
+      }
+    },
+    {
+      "table_index": 1,
+      "table_text": "<table><tr><td>Brain area</td><td>BA</td><td>x</td><td>y</td><td colspan=\"2\">z</td><td>T</td></tr><tr><td>L-Supp-Motor-Area</td><td>6</td><td>-3</td><td>15</td><td>57</td><td>6.65</td><td></td></tr><tr><td>L-Putamen</td><td></td><td>-21</td><td>-3</td><td>9</td><td>3.73</td><td></td></tr><tr><td>L-Thalamus</td><td></td><td>-12</td><td>-18</td><td>9</td><td>5.43</td><td></td></tr><tr><td>Vermis-8</td><td></td><td>3</td><td>-60</td><td>-36</td><td>5.29</td><td></td></tr><tr><td>R-Frontal-Inf-Orb</td><td>47</td><td>39</td><td>42</td><td>-9</td><td>3.61</td><td></td></tr><tr><td>L-Cerebelum-6</td><td>37</td><td>-27</td><td>-51</td><td>-30</td><td>4.71</td><td></td></tr><tr><td>L-Cerebelum-4/5</td><td>37</td><td>-30</td><td>-39</td><td>-24</td><td>4.41</td><td></td></tr><tr><td>L-Cerebelum-8</td><td></td><td>30</td><td>-63</td><td>-48</td><td>4.39</td><td></td></tr><tr><td>L-Temporal-Sup</td><td>22</td><td>-60</td><td>-13</td><td>6</td><td>8.51</td><td></td></tr><tr><td>L-Fusiform</td><td>37</td><td>-37</td><td>-31</td><td>-18</td><td>4.51</td><td></td></tr><tr><td colspan=\"6\">IDENTITY vs. PURE TONE</td><td></td></tr><tr><td>L-Temporal-Mid</td><td>22</td><td>-63</td><td>-9</td><td>0</td><td>11.33</td><td></td></tr><tr><td>R-Temporal-Sup</td><td>48</td><td>60</td><td>0</td><td>0</td><td>9.68</td><td></td></tr><tr><td>L-Temporal-Sup</td><td>48</td><td>-51</td><td>-15</td><td>3</td><td>8.97</td><td></td></tr><tr><td>R-Heschl</td><td>48</td><td>45</td><td>-18</td><td>6</td><td>5.58</td><td></td></tr><tr><td>R-Postcentral</td><td>4</td><td>18</td><td>-30</td><td>78</td><td>4.46</td><td></td></tr><tr><td>L-Frontal-Inf-Orb</td><td>47</td><td>-39</td><td>30</td><td>-12</td><td>4.43</td><td></td></tr><tr><td>L-Postcentral</td><td>43</td><td>-60</td><td>-5</td><td>21</td><td>4.37</td><td></td></tr><tr><td>R-Precentral</td><td>6</td><td>24</td><td>-24</td><td>75</td><td>4.35</td><td></td></tr><tr><td>R-Temporal-Mid</td><td>21</td><td>69</td><td>-27</td><td>0</td><td>3.94</td><td></td></tr></table>",
+      "table_context": "\n\nTABLE 1 | Continued\n\n\n[TABLE 2]\n\n\nL, left hemisphere; R, right hemisphere; BA, Brodmann area; x, y, z = MNI Coordinate; T, T-value; voxel level threshold is 0.005 and corrected to 0.05 at cluster level. Bold characters mean contrasts between experimental conditions. Italic characters mean the common and key brain area found in each contrast.\n\n![](images/0.jpg)",
+      "assessment": {
+        "contains_coordinates": true,
+        "Task_name": "None",
+        "reason": "The table has columns labeled x, y, z with numeric values, clearly indicating MNI coordinates. The task name is found in the row 'IDENTITY vs. PURE TONE', which is a contrast between conditions, but the table does not provide an explicit task name like 'n-back' or 'Stroop'. Therefore, task name is set to 'None'.",
+        "Table_header": "Brain area, BA, x, y, z, T"
+      },
+      "parsed_data": {
+        "num_rows": 19,
+        "num_columns": 8,
+        "columns": [
+          "Brain_Region",
+          "BA",
+          "X",
+          "Y",
+          "Z",
+          "T",
+          "Brain_Space",
+          "Task_Name"
+        ],
+        "all_rows": [
+          {
+            "Brain_Region": "L-Supp-Motor-Area",
+            "BA": 6.0,
+            "X": -3,
+            "Y": 15,
+            "Z": 57,
+            "T": 6.65,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "L-Putamen",
+            "BA": NaN,
+            "X": -21,
+            "Y": -3,
+            "Z": 9,
+            "T": 3.73,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "L-Thalamus",
+            "BA": NaN,
+            "X": -12,
+            "Y": -18,
+            "Z": 9,
+            "T": 5.43,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "Vermis-8",
+            "BA": NaN,
+            "X": 3,
+            "Y": -60,
+            "Z": -36,
+            "T": 5.29,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "R-Frontal-Inf-Orb",
+            "BA": 47.0,
+            "X": 39,
+            "Y": 42,
+            "Z": -9,
+            "T": 3.61,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "L-Cerebelum-6",
+            "BA": 37.0,
+            "X": -27,
+            "Y": -51,
+            "Z": -30,
+            "T": 4.71,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "L-Cerebelum-4/5",
+            "BA": 37.0,
+            "X": -30,
+            "Y": -39,
+            "Z": -24,
+            "T": 4.41,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "L-Cerebelum-8",
+            "BA": NaN,
+            "X": 30,
+            "Y": -63,
+            "Z": -48,
+            "T": 4.39,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "L-Temporal-Sup",
+            "BA": 22.0,
+            "X": -60,
+            "Y": -13,
+            "Z": 6,
+            "T": 8.51,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "L-Fusiform",
+            "BA": 37.0,
+            "X": -37,
+            "Y": -31,
+            "Z": -18,
+            "T": 4.51,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "L-Temporal-Mid",
+            "BA": 22.0,
+            "X": -63,
+            "Y": -9,
+            "Z": 0,
+            "T": 11.33,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "R-Temporal-Sup",
+            "BA": 48.0,
+            "X": 60,
+            "Y": 0,
+            "Z": 0,
+            "T": 9.68,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "L-Temporal-Sup",
+            "BA": 48.0,
+            "X": -51,
+            "Y": -15,
+            "Z": 3,
+            "T": 8.97,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "R-Heschl",
+            "BA": 48.0,
+            "X": 45,
+            "Y": -18,
+            "Z": 6,
+            "T": 5.58,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "R-Postcentral",
+            "BA": 4.0,
+            "X": 18,
+            "Y": -30,
+            "Z": 78,
+            "T": 4.46,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "L-Frontal-Inf-Orb",
+            "BA": 47.0,
+            "X": -39,
+            "Y": 30,
+            "Z": -12,
+            "T": 4.43,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "L-Postcentral",
+            "BA": 43.0,
+            "X": -60,
+            "Y": -5,
+            "Z": 21,
+            "T": 4.37,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "R-Precentral",
+            "BA": 6.0,
+            "X": 24,
+            "Y": -24,
+            "Z": 75,
+            "T": 4.35,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          },
+          {
+            "Brain_Region": "R-Temporal-Mid",
+            "BA": 21.0,
+            "X": 69,
+            "Y": -27,
+            "Z": 0,
+            "T": 3.94,
+            "Brain_Space": "MNI",
+            "Task_Name": "IDENTITY vs. PURE TONE"
+          }
+        ]
+      }
+    },
+    {
+      "table_index": 2,
+      "table_text": "<table><tr><td>Brain area</td><td>BA</td><td>Cluster size</td><td>x</td><td>y</td><td>z</td><td>T</td></tr><tr><td>R_Temporal_Sup</td><td>48</td><td>275</td><td>60</td><td>-3</td><td>-3</td><td>8.22</td></tr><tr><td>L_Temporal_Sup</td><td>48</td><td>1462</td><td>-60</td><td>-9</td><td>3</td><td>8.03</td></tr><tr><td>L_Frontal-Inf_Tri</td><td>45</td><td>1462</td><td>-45</td><td>36</td><td>3</td><td>7.16</td></tr><tr><td>L_Temporal_Mid</td><td>21</td><td>1462</td><td>-66</td><td>-30</td><td>3</td><td>4.44</td></tr><tr><td>L_Fusiform</td><td>37</td><td>164</td><td>-36</td><td>-32</td><td>-19</td><td>5.72</td></tr></table>",
+      "table_context": "\n\nTABLE 2 | Conjunction results of the P+O+M+, the P+O+M-, and the P+O-M- relative to the baseline in morphological processing.\n\n\n[TABLE 3]\n\n\nL, left hemisphere; R, right hemisphere; Sup, superior; Inf, inferior; Mid, middle; BA, Brodmann area; x, y, z = MNI Coordinate; T, T-value; voxel level threshold is 0.005 and corrected to 0.05 at cluster level.\n\n",
+      "assessment": {
+        "contains_coordinates": true,
+        "Task_name": "None",
+        "reason": "The table has columns labeled x, y, z with numeric values, indicating MNI coordinates. The description mentions 'conjunction results of the P+O+M+, the P+O+M-, and the P+O-M- relative to the baseline in morphological processing', but no explicit task name is given. Therefore, task name is None.",
+        "Table_header": "Brain area, BA, Cluster size, x, y, z, T"
+      },
+      "parsed_data": {
+        "num_rows": 5,
+        "num_columns": 9,
+        "columns": [
+          "Brain_Region",
+          "BA",
+          "Cluster_Size",
+          "X",
+          "Y",
+          "Z",
+          "Statistic_Value",
+          "Brain_Space",
+          "Task_Name"
+        ],
+        "all_rows": [
+          {
+            "Brain_Region": "R_Temporal_Sup",
+            "BA": 48,
+            "Cluster_Size": 275,
+            "X": 60,
+            "Y": -3,
+            "Z": -3,
+            "Statistic_Value": 8.22,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L_Temporal_Sup",
+            "BA": 48,
+            "Cluster_Size": 1462,
+            "X": -60,
+            "Y": -9,
+            "Z": 3,
+            "Statistic_Value": 8.03,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L_Frontal-Inf_Tri",
+            "BA": 45,
+            "Cluster_Size": 1462,
+            "X": -45,
+            "Y": 36,
+            "Z": 3,
+            "Statistic_Value": 7.16,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L_Temporal_Mid",
+            "BA": 21,
+            "Cluster_Size": 1462,
+            "X": -66,
+            "Y": -30,
+            "Z": 3,
+            "Statistic_Value": 4.44,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          },
+          {
+            "Brain_Region": "L_Fusiform",
+            "BA": 37,
+            "Cluster_Size": 164,
+            "X": -36,
+            "Y": -32,
+            "Z": -19,
+            "Statistic_Value": 5.72,
+            "Brain_Space": "MNI",
+            "Task_Name": NaN
+          }
+        ]
+      }
+    }
+  ]
+}

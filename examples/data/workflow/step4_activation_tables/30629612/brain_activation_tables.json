@@ -1,0 +1,446 @@
+{
+  "total_brain_tables": 2,
+  "brain_tables": [
+    {
+      "table_index": 0,
+      "table_text": "<table><tr><td rowspan=\"2\">Contrast</td><td rowspan=\"2\">Brain Region</td><td rowspan=\"2\">Hemisphere</td><td colspan=\"3\">Cluster Center Coordinates</td><td rowspan=\"2\">Number of Voxels</td><td rowspan=\"2\">Threshold (Cluster Corrected)</td></tr><tr><td>x</td><td>y</td><td>z</td></tr><tr><td>Experiment 1 and 2 combined</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td rowspan=\"4\">Embedded &gt; Unrelated</td><td>Fusiform gyrus</td><td>Left</td><td>-47</td><td>-49</td><td>-11</td><td>76</td><td>p &lt; 0.005</td></tr><tr><td>Precuneus</td><td>Left</td><td>-24</td><td>-69</td><td>34</td><td>57</td><td>p &lt; 0.005</td></tr><tr><td>Inferior frontal gyrus</td><td>Left</td><td>-46</td><td>4</td><td>21</td><td>52</td><td>p &lt; 0.005</td></tr><tr><td>Middle frontal gyrus</td><td>Left</td><td>-42</td><td>30</td><td>23</td><td>27</td><td>p &lt; 0.005</td></tr><tr><td>Experiment 1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td row span=\"2\">Embedded &gt; Unrelated</td><td>Middle frontal gyrus</td><td>Left</td><td>-41</td><td>30</td><td>23</td><td>42</td><td>p &lt; 0.01</td></tr><tr><td>Precuneus</td><td>Left</td><td>-24</td><td>-69.</td><td>33</td><td>37</td><td>p &lt; 0.01</td></tr><tr><td></td><td>Cerebellum</td><td>Left</td><td>-14</td><td>-42</td><td>-16</td><td>32</td><td>p &lt; 0.01</td></tr><tr><td></td><td>Fusiform gyrus</td><td>Left</td><td>-47</td><td>-47</td><td>-16</td><td>30</td><td>p &lt; 0.01</td></tr><tr><td></td><td>Inferior frontal gyrus</td><td>Left</td><td>-43</td><td>4</td><td>20</td><td>21*</td><td>p &lt; 0.01</td></tr><tr><td></td><td>Thalamus</td><td>Right</td><td>11</td><td>-13</td><td>0</td><td>37</td><td>p &lt; 0.01</td></tr><tr><td>Experiment 2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td row-span=\"2\">Embedded &gt; Unrelated</td><td>Fusiform gyrus</td><td>Left</td><td rowspan=\"2\">-47</td><td rowspan=\"2\">-49</td><td rowspan=\"2\">-11</td><td rowspan=\"2\">92</td><td rowspan=\"2\">p &lt; 0.01</td></tr><tr><td>Inferior frontal gyrus</td><td>Left</td></tr><tr><td></td><td>Precuneus</td><td>Left</td><td>-27</td><td>-67</td><td>26</td><td>15*</td><td>p &lt; 0.01</td></tr></table>",
+      "table_context": "## Page 7\n\nTable 1. Results of the significant activations revealed by the whole-brain analysis.\n\n\n[TABLE 1]\n\n\nNote\n\n",
+      "assessment": {
+        "contains_coordinates": true,
+        "Task_name": "Embedded > Unrelated",
+        "reason": "The table has columns labeled x, y, z with numeric values, indicating coordinates. The contrast column shows 'Embedded > Unrelated' which is the task condition.",
+        "Table_header": "Contrast, Brain Region, Hemisphere, x, y, z, Number of Voxels, Threshold (Cluster Corrected)"
+      },
+      "parsed_data": {
+        "num_rows": 13,
+        "num_columns": 9,
+        "columns": [
+          "Brain_Region",
+          "Hemisphere",
+          "X",
+          "Y",
+          "Z",
+          "Cluster_Size",
+          "Threshold",
+          "Brain_Space",
+          "Task_Name"
+        ],
+        "all_rows": [
+          {
+            "Brain_Region": "Fusiform gyrus",
+            "Hemisphere": "Left",
+            "X": -47,
+            "Y": -49,
+            "Z": -11,
+            "Cluster_Size": "76",
+            "Threshold": "p < 0.005",
+            "Brain_Space": "MNI",
+            "Task_Name": "Embedded > Unrelated"
+          },
+          {
+            "Brain_Region": "Precuneus",
+            "Hemisphere": "Left",
+            "X": -24,
+            "Y": -69,
+            "Z": 34,
+            "Cluster_Size": "57",
+            "Threshold": "p < 0.005",
+            "Brain_Space": "MNI",
+            "Task_Name": "Embedded > Unrelated"
+          },
+          {
+            "Brain_Region": "Inferior frontal gyrus",
+            "Hemisphere": "Left",
+            "X": -46,
+            "Y": 4,
+            "Z": 21,
+            "Cluster_Size": "52",
+            "Threshold": "p < 0.005",
+            "Brain_Space": "MNI",
+            "Task_Name": "Embedded > Unrelated"
+          },
+          {
+            "Brain_Region": "Middle frontal gyrus",
+            "Hemisphere": "Left",
+            "X": -42,
+            "Y": 30,
+            "Z": 23,
+            "Cluster_Size": "27",
+            "Threshold": "p < 0.005",
+            "Brain_Space": "MNI",
+            "Task_Name": "Embedded > Unrelated"
+          },
+          {
+            "Brain_Region": "Middle frontal gyrus",
+            "Hemisphere": "Left",
+            "X": -41,
+            "Y": 30,
+            "Z": 23,
+            "Cluster_Size": "42",
+            "Threshold": "p < 0.01",
+            "Brain_Space": "MNI",
+            "Task_Name": "Embedded > Unrelated"
+          },
+          {
+            "Brain_Region": "Precuneus",
+            "Hemisphere": "Left",
+            "X": -24,
+            "Y": -69,
+            "Z": 33,
+            "Cluster_Size": "37",
+            "Threshold": "p < 0.01",
+            "Brain_Space": "MNI",
+            "Task_Name": "Embedded > Unrelated"
+          },
+          {
+            "Brain_Region": "Cerebellum",
+            "Hemisphere": "Left",
+            "X": -14,
+            "Y": -42,
+            "Z": -16,
+            "Cluster_Size": "32",
+            "Threshold": "p < 0.01",
+            "Brain_Space": "MNI",
+            "Task_Name": "Embedded > Unrelated"
+          },
+          {
+            "Brain_Region": "Fusiform gyrus",
+            "Hemisphere": "Left",
+            "X": -47,
+            "Y": -47,
+            "Z": -16,
+            "Cluster_Size": "30",
+            "Threshold": "p < 0.01",
+            "Brain_Space": "MNI",
+            "Task_Name": "Embedded > Unrelated"
+          },
+          {
+            "Brain_Region": "Inferior frontal gyrus",
+            "Hemisphere": "Left",
+            "X": -43,
+            "Y": 4,
+            "Z": 20,
+            "Cluster_Size": "21*",
+            "Threshold": "p < 0.01",
+            "Brain_Space": "MNI",
+            "Task_Name": "Embedded > Unrelated"
+          },
+          {
+            "Brain_Region": "Thalamus",
+            "Hemisphere": "Right",
+            "X": 11,
+            "Y": -13,
+            "Z": 0,
+            "Cluster_Size": "37",
+            "Threshold": "p < 0.01",
+            "Brain_Space": "MNI",
+            "Task_Name": "Embedded > Unrelated"
+          },
+          {
+            "Brain_Region": "Fusiform gyrus",
+            "Hemisphere": "Left",
+            "X": -47,
+            "Y": -49,
+            "Z": -11,
+            "Cluster_Size": "92",
+            "Threshold": "p < 0.01",
+            "Brain_Space": "MNI",
+            "Task_Name": "Embedded > Unrelated"
+          },
+          {
+            "Brain_Region": "Inferior frontal gyrus",
+            "Hemisphere": "Left",
+            "X": -47,
+            "Y": -49,
+            "Z": -11,
+            "Cluster_Size": "92",
+            "Threshold": "p < 0.01",
+            "Brain_Space": "MNI",
+            "Task_Name": "Embedded > Unrelated"
+          },
+          {
+            "Brain_Region": "Precuneus",
+            "Hemisphere": "Left",
+            "X": -27,
+            "Y": -67,
+            "Z": 26,
+            "Cluster_Size": "15*",
+            "Threshold": "p < 0.01",
+            "Brain_Space": "MNI",
+            "Task_Name": "Embedded > Unrelated"
+          }
+        ]
+      }
+    },
+    {
+      "table_index": 1,
+      "table_text": "<table><tr><td rowspan=\"2\">Participant</td><td rowspan=\"2\">Threshold (uncorrected)</td><td colspan=\"3\">VWFA (left)</td><td rowspan=\"2\">Number of Voxels</td><td colspan=\"3\">left IFG</td><td rowspan=\"2\">Number of Voxels</td></tr><tr><td>x</td><td>y</td><td>z</td><td>x</td><td>y</td><td>z</td></tr><tr><td>P1</td><td>p &lt; 0.01</td><td>-47</td><td>-65</td><td>-13</td><td>106</td><td>-44</td><td>-5</td><td>36</td><td>134</td></tr><tr><td>P2</td><td>p &lt; 0.05</td><td>-46</td><td>-45</td><td>-15</td><td>90</td><td>-39</td><td>7</td><td>23</td><td>36</td></tr><tr><td>P3</td><td>p &lt; 0.01</td><td>-43</td><td>-52</td><td>-14</td><td>79</td><td>-43</td><td>10</td><td>30</td><td>92</td></tr><tr><td>P4</td><td>p &lt; 0.01</td><td>-39</td><td>-47</td><td>-17</td><td>85</td><td>-52</td><td>-2</td><td>27</td><td>105</td></tr><tr><td>P5</td><td>p &lt; 0.01</td><td>-38</td><td>-51</td><td>-11</td><td>59</td><td>-40</td><td>7</td><td>25</td><td>49</td></tr><tr><td>P6</td><td>p &lt; 0.05</td><td>-42</td><td>-55</td><td>-6</td><td>30</td><td>-41</td><td>7</td><td>29</td><td>107</td></tr><tr><td>P7</td><td>p &lt; 0.05</td><td>-41</td><td>-56</td><td>-9</td><td>54</td><td>-37</td><td>2</td><td>29</td><td>58</td></tr><tr><td>P8</td><td>p &lt; 0.05</td><td>-42</td><td>-44</td><td>-16</td><td>84</td><td>-39</td><td>1</td><td>27</td><td>57</td></tr><tr><td>P9</td><td>p &lt; 0.05</td><td>-41</td><td>-64</td><td>-10</td><td>52</td><td>-42</td><td>-3</td><td>29</td><td>49</td></tr><tr><td>P10</td><td>p &lt; 0.05</td><td>-40</td><td>-58</td><td>-14</td><td>47</td><td>-31</td><td>6</td><td>30</td><td>20</td></tr><tr><td>P11</td><td>p &lt; 0.05</td><td>-41</td><td>-67</td><td>-10</td><td>30</td><td>-35</td><td>13</td><td>28</td><td>46</td></tr><tr><td>Mean</td><td></td><td>-41.8</td><td>-54.9</td><td>-12.3</td><td>65.1</td><td>-40.3</td><td>3.9</td><td>28.5</td><td>68.5</td></tr><tr><td>SD</td><td></td><td>2.7</td><td>8.0</td><td>3.3</td><td>25.2</td><td>5.4</td><td>5.7</td><td>3.3</td><td>35.5</td></tr></table>",
+      "table_context": "## Page 8\n\nTable 2. Center Talairach coordinates and cluster sizes of individual ROIs for all participants.\n\n\n[TABLE 2]\n\n\nhttps://doi.org/10.1371/journal.pone.0208318.t002\n\n",
+      "assessment": {
+        "contains_coordinates": true,
+        "Task_name": "None",
+        "reason": "The table contains columns labeled x, y, z for VWFA and left IFG, with numeric values that are clearly brain coordinates. The table description mentions 'Talairach coordinates'. No task name is provided in the table or description.",
+        "Table_header": "Participant, Threshold (uncorrected), VWFA (left) x, y, z, Number of Voxels, left IFG x, y, z, Number of Voxels"
+      },
+      "parsed_data": {
+        "num_rows": 22,
+        "num_columns": 9,
+        "columns": [
+          "Participant",
+          "Threshold",
+          "Brain_Region",
+          "X",
+          "Y",
+          "Z",
+          "Cluster_Size",
+          "Brain_Space",
+          "Task_Name"
+        ],
+        "all_rows": [
+          {
+            "Participant": "P1",
+            "Threshold": "p < 0.01",
+            "Brain_Region": "VWFA_left",
+            "X": -47,
+            "Y": -65,
+            "Z": -13,
+            "Cluster_Size": 106,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P1",
+            "Threshold": "p < 0.01",
+            "Brain_Region": "left_IFG",
+            "X": -44,
+            "Y": -5,
+            "Z": 36,
+            "Cluster_Size": 134,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P2",
+            "Threshold": "p < 0.05",
+            "Brain_Region": "VWFA_left",
+            "X": -46,
+            "Y": -45,
+            "Z": -15,
+            "Cluster_Size": 90,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P2",
+            "Threshold": "p < 0.05",
+            "Brain_Region": "left_IFG",
+            "X": -39,
+            "Y": 7,
+            "Z": 23,
+            "Cluster_Size": 36,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P3",
+            "Threshold": "p < 0.01",
+            "Brain_Region": "VWFA_left",
+            "X": -43,
+            "Y": -52,
+            "Z": -14,
+            "Cluster_Size": 79,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P3",
+            "Threshold": "p < 0.01",
+            "Brain_Region": "left_IFG",
+            "X": -43,
+            "Y": 10,
+            "Z": 30,
+            "Cluster_Size": 92,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P4",
+            "Threshold": "p < 0.01",
+            "Brain_Region": "VWFA_left",
+            "X": -39,
+            "Y": -47,
+            "Z": -17,
+            "Cluster_Size": 85,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P4",
+            "Threshold": "p < 0.01",
+            "Brain_Region": "left_IFG",
+            "X": -52,
+            "Y": -2,
+            "Z": 27,
+            "Cluster_Size": 105,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P5",
+            "Threshold": "p < 0.01",
+            "Brain_Region": "VWFA_left",
+            "X": -38,
+            "Y": -51,
+            "Z": -11,
+            "Cluster_Size": 59,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P5",
+            "Threshold": "p < 0.01",
+            "Brain_Region": "left_IFG",
+            "X": -40,
+            "Y": 7,
+            "Z": 25,
+            "Cluster_Size": 49,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P6",
+            "Threshold": "p < 0.05",
+            "Brain_Region": "VWFA_left",
+            "X": -42,
+            "Y": -55,
+            "Z": -6,
+            "Cluster_Size": 30,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P6",
+            "Threshold": "p < 0.05",
+            "Brain_Region": "left_IFG",
+            "X": -41,
+            "Y": 7,
+            "Z": 29,
+            "Cluster_Size": 107,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P7",
+            "Threshold": "p < 0.05",
+            "Brain_Region": "VWFA_left",
+            "X": -41,
+            "Y": -56,
+            "Z": -9,
+            "Cluster_Size": 54,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P7",
+            "Threshold": "p < 0.05",
+            "Brain_Region": "left_IFG",
+            "X": -37,
+            "Y": 2,
+            "Z": 29,
+            "Cluster_Size": 58,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P8",
+            "Threshold": "p < 0.05",
+            "Brain_Region": "VWFA_left",
+            "X": -42,
+            "Y": -44,
+            "Z": -16,
+            "Cluster_Size": 84,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P8",
+            "Threshold": "p < 0.05",
+            "Brain_Region": "left_IFG",
+            "X": -39,
+            "Y": 1,
+            "Z": 27,
+            "Cluster_Size": 57,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P9",
+            "Threshold": "p < 0.05",
+            "Brain_Region": "VWFA_left",
+            "X": -41,
+            "Y": -64,
+            "Z": -10,
+            "Cluster_Size": 52,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P9",
+            "Threshold": "p < 0.05",
+            "Brain_Region": "left_IFG",
+            "X": -42,
+            "Y": -3,
+            "Z": 29,
+            "Cluster_Size": 49,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P10",
+            "Threshold": "p < 0.05",
+            "Brain_Region": "VWFA_left",
+            "X": -40,
+            "Y": -58,
+            "Z": -14,
+            "Cluster_Size": 47,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P10",
+            "Threshold": "p < 0.05",
+            "Brain_Region": "left_IFG",
+            "X": -31,
+            "Y": 6,
+            "Z": 30,
+            "Cluster_Size": 20,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P11",
+            "Threshold": "p < 0.05",
+            "Brain_Region": "VWFA_left",
+            "X": -41,
+            "Y": -67,
+            "Z": -10,
+            "Cluster_Size": 30,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          },
+          {
+            "Participant": "P11",
+            "Threshold": "p < 0.05",
+            "Brain_Region": "left_IFG",
+            "X": -35,
+            "Y": 13,
+            "Z": 28,
+            "Cluster_Size": 46,
+            "Brain_Space": "Talairach",
+            "Task_Name": NaN
+          }
+        ]
+      }
+    }
+  ]
+}
