@@ -1,317 +1,180 @@
-# ARneuro: 基于LLM的文献定量综述工具
+# ARneuro：基于 LLM 的神经影像文献定量综述工具
 
-ARneuro是一个完整的文献处理流水线，专门用于脑成像和神经科学领域的文献定量综述。
+ARneuro 提供了从 **PMID 列表 → 文献筛选 → PDF 下载 → OCR 转 Markdown → 文档结构化 → 脑激活表提取** 的完整流程。
 
-## 功能特性
+> 当前主线 OCR 已切换为 **DeepSeek OCR**，不再以 GLM OCR 作为主要方案。
 
-### 核心功能
-1. **PubMed文献元数据获取** - 从CSV文件读取PMID并获取文献信息
-2. **PDF下载** - 支持多种期刊格式（ACS, NEJM, Science Direct等）
-3. **Deepseek-OCR处理** - 使用Deepseek-OCR将PDF转换为Markdown格式
-4. **文档结构分割** - 识别和分割文献结构（必需：Methods, Results）
-5. **特征提取** - 使用LLM从文献中提取结构化信息
-6. **脑激活表格处理** - 提取和分析脑激活坐标表格
+---
 
-### 技术特点
-- **模块化设计** - 每个功能独立模块，易于维护和扩展
-- **配置驱动** - 所有参数通过YAML配置文件管理
-- **错误恢复** - 支持断点续传和失败重试
-- **质量评估** - 自动评估OCR质量和处理结果
-- **批量处理** - 支持大规模文献处理
+## 核心流程（推荐）
 
-## 安装要求
+1. **步骤1：摘要筛选 + PDF 下载**  
+   `examples/step1_screen_abstract_and_download.py`
+2. **步骤2：DeepSeek OCR 批量转换 PDF → Markdown**  
+   `examples/step2_deepseek_ocr_from_downloaded_pdfs.py`
+3. **步骤3：Markdown 文档分割并构建文档库**  
+   `examples/step3_segment_markdown_and_build_library.py`
+4. **步骤4：提取脑激活表格并导出结构化结果**  
+   `examples/step4_extract_activation_tables_from_markdown.py`
 
-### Python版本
-- Python ≥ 3.10
+---
 
-### 系统依赖
-- Deepseek-OCR (需要单独安装)
-- CUDA (可选，用于GPU加速)
+## 安装
 
-### Python依赖
+### 1) 环境要求
+- Python >= 3.10
+- 建议 CUDA 环境（可选，提升 DeepSeek OCR 速度）
+
+### 2) 安装依赖
+
 ```bash
 pip install -r requirements.txt
 ```
 
-## 快速开始
+### 3) 准备 DeepSeek OCR 模型
+请确保本地可用 DeepSeek OCR 模型目录，例如：
 
-### 1. 安装ARneuro
-```bash
-# 克隆仓库
-git clone <repository-url>
-cd ARneuro
-
-# 安装依赖
-pip install -r requirements.txt
-
-# 安装GLM-OCR (需要单独安装)
-# 请参考GLM-OCR官方文档
+```text
+/storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2
 ```
 
-### 2. 准备输入数据
-创建CSV文件，包含以下列（至少需要PMID列）：
+---
+
+## 输入数据
+
+准备一个包含 PMID 的 CSV 文件（至少需要 `PMID` 列）：
+
 ```csv
-PMID,Title,Authors,Citation,First Author,Journal/Book,Publication Year,Create Date,PMCID,NIHMS ID
-12345678,Sample Article,Author A et al.,J Neurosci. 2023,Author A,Journal of Neuroscience,2023,2023-01-01,PMC1234567,NIHMS123456
+PMID,Title
+12345678,Sample Article A
+23456789,Sample Article B
 ```
 
-### 3. 运行完整流水线
-```python
-from arneuro import ARneuroPipeline
+仓库示例输入：
+- `examples/data/ARneuro_test.csv`
 
-# 初始化流水线
-pipeline = ARneuroPipeline()
+---
 
-# 运行完整处理
-result = pipeline.run_full_pipeline("input.csv")
+## 按模块运行（与 examples 保持一致）
 
-# 查看结果
-print(f"处理完成: {result.successful_papers}成功, {result.failed_papers}失败")
-```
+## 步骤1：摘要筛选并下载 PDF
 
-### 4. 使用配置文件
-创建`config.yaml`文件：
-```yaml
-pdf_download:
-  output_dir: "./data/pdfs"
-  max_retries: 3
-  timeout: 30
-  finders:
-    - generic_citation
-    - pubmed_central
-    - acs
-    - nejm
+脚本：`examples/step1_screen_abstract_and_download.py`
 
-ocr_processing:
-  backend: "local"   # 可选 local 或 api
-  model_path: "/storage/work/wuguowei/Bigmodel/GLM-OCR"
-  device: "cuda"
-  batch_size: 4
-  output_dir: "./data/markdown"
-  local_sdk_class: "GLMOCR"
-  local_sdk_method: "predict"
-  language: "ch+en"
-  api_key: "${GLM_API_KEY}"
-  api_model: "glm-ocr"
-  api_timeout: 300
-  api_use_base64: true
-
-paths:
-  data_dir: "./data"
-  logs_dir: "./logs"
-  cache_dir: "./cache"
-```
-
-## 模块说明
-
-### 1. PDF下载模块 (`PDFDownloader`)
-- 支持8种期刊finder
-- 自动重试机制
-- 进度跟踪和错误记录
-- 新增多来源合法公开检索链路（PubMed prlinks、Europe PMC开放链接、PMCID开放PDF）
-- 新增下载系统报告与人工补充下载清单（用于核对“已获取/未获取”）
-
-### 2. OCR处理模块 (`GLMOCRProcessor`)
-- 集成本地 glmocr SDK 与智谱AI在线 zai SDK（`ZhipuAiClient`）
-- 质量评估和自动修复
-- 支持中英文混合识别
-
-### 2.1 DeepSeek-OCR 独立脚本
-- 新增独立脚本：`ocr_processing/deepseek_ocr.py`（不依赖 `glm_ocr.py`）
-- 使用本地模型目录：`/storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2`
-- 输入PDF，逐页OCR并输出Markdown
-- 已适配 DeepSeek-OCR-2 官方推荐加载方式（`AutoTokenizer + AutoModel + infer`），并保留兼容回退路径
-
-运行示例：
 ```bash
-python -m ocr_processing.deepseek_ocr /path/to/paper.pdf \
+python examples/step1_screen_abstract_and_download.py \
+  --csv-file ./examples/data/ARneuro_test.csv \
+  --criteria-yaml ./config/review_screening_criteria_template.yaml \
+  --output-dir ./examples/data/workflow/step1 \
+  --llm-client-type deepseek \
+  --llm-model-name deepseek-chat
+```
+
+### 步骤1输出
+- `screening_results.csv`
+- `screening_results.json`
+- `included_pmids.txt`
+- `checkpoint.json`（断点续跑）
+
+---
+
+## 步骤2：DeepSeek OCR（主方案）
+
+脚本：`examples/step2_deepseek_ocr_from_downloaded_pdfs.py`
+
+```bash
+python examples/step2_deepseek_ocr_from_downloaded_pdfs.py \
+  --step1-results ./examples/data/workflow/step1/screening_results.csv \
+  --pdf-dir ./examples/data/pdfs \
+  --output-dir ./examples/data/workflow/step2_markdown \
   --model-path /storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2 \
-  --output-dir ./data/deepseek_markdown
+  --device cuda \
+  --dpi 200 \
+  --prompt "<image>\n<|grounding|>Convert the document to markdown."
 ```
 
-### 3. 文档分割模块 (待实现)
-- 必需部分验证（Methods, Results）
-- 灵活的结构识别
-- 表格提取和格式化
+### 步骤2输出
+- 每篇文献对应 `.md`
+- `ocr_report.json`
+- `ocr_report.csv`
 
-### 4. 特征提取模块 (待实现)
-- LLM驱动的结构化提取
-- 任务、人口学、方法信息提取
-- 脑激活坐标提取
+---
 
-## 使用示例
+## 步骤3：分割 Markdown 并构建文档库
 
-### 示例1: 批量处理文献
-```python
-from arneuro import ARneuroPipeline
+脚本：`examples/step3_segment_markdown_and_build_library.py`
 
-# 初始化
-pipeline = ARneuroPipeline("config.yaml")
-
-# 运行完整流水线
-result = pipeline.run_full_pipeline("literature_list.csv")
-
-# 导出结果
-pipeline.export_results("output/")
+```bash
+python examples/step3_segment_markdown_and_build_library.py \
+  --markdown-dir ./examples/data/workflow/step2_markdown \
+  --output-dir ./examples/data/workflow/step3_library
 ```
 
-### 示例2: 单独使用PDF下载
-```python
-from arneuro import PDFDownloader
+### 步骤3输出
+- `document_library_index.json`
+- `segmentation_part_stats.json`
+- `segmented/*_structured_content.json`
+- `segmented/*_structured_meta.json`
 
-downloader = PDFDownloader()
-result = downloader.download_batch(["12345678", "23456789"])
-print(f"下载完成: {result.succeeded}成功, {result.failed}失败")
-print(f"系统报告: {result.report_file}")
-print(f"人工补充清单: {result.manual_checklist_file}")
+---
+
+## 步骤4：提取脑激活表格
+
+脚本：`examples/step4_extract_activation_tables_from_markdown.py`
+
+```bash
+python examples/step4_extract_activation_tables_from_markdown.py \
+  --step3-library-dir ./examples/data/workflow/step3_library \
+  --output-dir ./examples/data/workflow/step4_activation_tables
 ```
 
-### 示例3: 单独使用OCR处理
-```python
-from arneuro import GLMOCRProcessor
+### 步骤4输出
+- 每篇文献独立目录（JSON + CSV）
+- `activation_tables_summary.json`
 
-# 方式1：本地模型
-local_processor = GLMOCRProcessor()
-local_result = local_processor.process_pdf("data/pdfs/12345678.pdf")
+---
 
-# 方式2：在线API
-api_processor = GLMOCRProcessor(backend="api")
-api_result = api_processor.process_pdf("data/pdfs/12345678.pdf")
-print(f"本地OCR质量: {local_result.quality_level.value} ({local_result.quality_score:.1f}%)")
-print(f"API OCR质量: {api_result.quality_level.value} ({api_result.quality_score:.1f}%)")
-```
+## 配置建议（以 DeepSeek OCR 为主）
 
-## 配置说明
+可在项目配置中使用类似字段（示意）：
 
-### 主要配置项
-
-#### PDF下载配置
-```yaml
-pdf_download:
-  output_dir: "./data/pdfs"  # PDF输出目录
-  max_retries: 3             # 最大重试次数
-  timeout: 30                # 超时时间（秒）
-  finders:                   # 使用的查找器
-    - generic_citation
-    - pubmed_central
-    - acs
-    - nejm
-    - science_direct
-```
-
-#### OCR处理配置
 ```yaml
 ocr_processing:
-  backend: "local"                # local=本地glmocr SDK, api=在线zai SDK调用
-  model_path: "/path/to/glm-ocr"  # 本地模型路径
-  backend: "local"                # local=本地CLI, api=在线调用
-  model_path: "/path/to/glm-ocr"  # GLM-OCR模型路径
-  device: "cuda"                  # 设备类型 (cuda/cpu)
-  batch_size: 4                    # 批处理大小
-  output_dir: "./data/markdown"   # Markdown输出目录
-  local_sdk_class: "GLMOCR"       # 本地SDK类名
-  local_sdk_method: "predict"     # 本地SDK方法名
-  language: "ch+en"               # 识别语言
-  api_key: "${GLM_API_KEY}"       # 智谱AI API Key
-  api_model: "glm-ocr"
-  api_timeout: 300
-  api_use_base64: true             # 将本地PDF转base64后提交给API
+  backend: "local"
+  primary_engine: "deepseek_ocr"
+  model_path: "/storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2"
+  device: "cuda"
+  dpi: 200
+  prompt: "<image>\n<|grounding|>Convert the document to markdown."
+  output_dir: "./examples/data/workflow/step2_markdown"
 ```
 
-#### 在线API调用方式（zai SDK）
-```python
-from zai import ZhipuAiClient
+---
 
-client = ZhipuAiClient(api_key="your-api-key")
-response = client.layout_parsing.create(
-    model="glm-ocr",
-    file="https://cdn.bigmodel.cn/static/logo/introduction.png"
-)
-print(response)
-```
+## 与旧版 GLM OCR 的关系
 
-#### 路径配置
-```yaml
-paths:
-  data_dir: "./data"     # 数据目录
-  logs_dir: "./logs"     # 日志目录
-  cache_dir: "./cache"   # 缓存目录
-  temp_dir: "./temp"     # 临时目录
-```
+- GLM OCR 相关代码与调试脚本可保留用于兼容或对照实验。
+- 但在当前 README 的推荐流程中，**默认与主推均为 DeepSeek OCR**。
 
-## 输出格式
+---
 
-### 处理报告
-处理完成后生成`processing_report.json`，包含：
-- 处理统计（成功/失败数量）
-- PDF下载统计
-- OCR处理统计
-- 每篇文献的详细状态
+## 目录建议
 
-### 成功文献列表
-生成`successful_papers.csv`，包含：
-- PMID
-- PDF路径
-- Markdown路径
-- OCR质量评分
-- 处理时间
+- `examples/step1_screen_abstract_and_download.py`：筛选与下载
+- `examples/step2_deepseek_ocr_from_downloaded_pdfs.py`：OCR 主流程
+- `examples/step3_segment_markdown_and_build_library.py`：结构化分割
+- `examples/step4_extract_activation_tables_from_markdown.py`：表格提取
+- `examples/data/workflow/`：完整流程输出样例
 
-### 失败文献列表
-生成`failed_papers.csv`，包含：
-- PMID
-- 失败阶段
-- 错误信息
-- 处理时间
+---
 
-## 故障排除
+## 常见问题
 
-### 常见问题
+1. **步骤2找不到 PDF**  
+   优先检查 `--pdf-dir` 是否存在 PDF；否则检查 `--step1-results` 里的 `PDFPath` 列。
 
-1. **GLM-OCR未找到**
-   ```
-   错误: GLM-OCR命令未找到
-   解决: 确保GLM-OCR已安装并添加到PATH环境变量
-   ```
+2. **GPU 不可用**  
+   可切换 `--device cpu`，速度会明显下降。
 
-2. **PDF下载失败**
-   ```
-   错误: 未找到PDF链接
-   解决: 检查PMID是否正确，或尝试手动下载
-   ```
-
-3. **内存不足**
-   ```
-   错误: CUDA out of memory
-   解决: 减小batch_size，或使用CPU模式
-   ```
-
-### 调试模式
-设置环境变量启用详细日志：
-```bash
-export ARNEURO_LOG_LEVEL=DEBUG
-```
-
-## 许可证
-
-本项目采用AGPL-3.0许可证。详情请见LICENSE文件。
-
-## 贡献指南
-
-欢迎提交Issue和Pull Request！
-
-1. Fork本仓库
-2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 打开Pull Request
-
-## 联系方式
-
-如有问题或建议，请通过以下方式联系：
-- 提交GitHub Issue
-- 发送邮件至: <email>
-
-## 致谢
-
-- GLM-OCR团队提供的优秀OCR工具
-- 所有贡献者和用户的支持
+3. **OCR 结果质量不稳定**  
+   建议优先调整 `--dpi`（200/300）与 `--prompt`，再进行对比测试。
