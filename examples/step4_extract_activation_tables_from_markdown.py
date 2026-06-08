@@ -58,7 +58,7 @@ def main() -> None:
     base_config = config_manager.load_config()
     llm_cfg = base_config.get("llm", {}) if isinstance(base_config, dict) else {}
     runtime_config = dict(base_config) if isinstance(base_config, dict) else {}
-    runtime_config['deepseek_api_key'] = 'sk-e97ed8cba5234d64b19b51d3696a10d0'
+    runtime_config['deepseek_api_key'] = 'sk-3399d9d37b06c0167964cf78fee410109a743895e3cba325'
     runtime_config.update({
         "model_name": args.model_name,
         "deepseek_api_key": llm_cfg.get("deepseek_api_key", runtime_config.get("deepseek_api_key")),
