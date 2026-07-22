@@ -122,7 +122,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", default="./data/workflow/step1", help="步骤1输出目录")
     parser.add_argument("--llm-client-type", default="deepseek", choices=["deepseek", "gpt4", "glm", "huoshan"])
     parser.add_argument("--llm-model-name", default="deepseek-chat")
-    parser.add_argument("--llm-apikey", default="sk-e6d8bb1d34b46cd399ff91ef9028c9e292d5dd833cf7f35d")
+    parser.add_argument("--llm-apikey", default="random-placeholder-a4744f0b5662adbca5225a41e625fb8c")
     parser.add_argument("--config-path", default=None, help="可选配置文件路径")
     parser.add_argument("--skip-download", action="store_true", help="只做筛选，不下载PDF")
     return parser.parse_args()

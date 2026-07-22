@@ -18,7 +18,7 @@ The scripts use `BIGMODEL_API_KEY` when it is set. Otherwise they use the test
 key configured in `common.py`.
 
 ```powershell
-$env:BIGMODEL_API_KEY="your-api-key"
+$env:BIGMODEL_API_KEY="random-placeholder-7fb7ca41ea0e861ae48cac68bcd5c19f"
 ```
 
 ## 1. Prepare 100 requests

@@ -38,10 +38,10 @@ def main():
         'ocr_processing': {
             'backend': 'local',
             'model_path': '/storage/work/wuguowei/Bigmodel/GLM-OCR',
-            'api_key': 'your_glm_api_key_here'
+            'api_key': 'random-placeholder-489915c374530246fe5b700ac23f90fb'
         },
-        'deepseek_api_key': 'your_api_key_here',  # Replace with actual key
-        'openai_api_key': 'your_api_key_here',    # Replace with actual key
+        'deepseek_api_key': 'random-placeholder-cc9750bca4ae7ddcd10fca521a2889b8',  # Replace with actual key
+        'openai_api_key': 'random-placeholder-f599a355fa738e408c3b3783429d6a00',    # Replace with actual key
     })
     
     # Create pipeline

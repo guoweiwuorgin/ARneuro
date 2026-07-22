@@ -14,13 +14,13 @@ document_segmentation:
 llm:
   default_client: mimo
   deepseek:
-    api_key: ''
+    api_key: 'random-placeholder-cc9750bca4ae7ddcd10fca521a2889b8'
     model_name: deepseek-chat
   mimo:
-    api_key: 'tp-cy7xn5yqppzwoptcwv952ov6nysrkuwzbvr540sh9dr1jx97'
+    api_key: 'random-placeholder-9e72ea0aa8cb64ac236a89d146af6c60'
     model_name: mimo-v2.5-pro
   glm:
-    api_key: ''
+    api_key: 'random-placeholder-7fb7ca41ea0e861ae48cac68bcd5c19f'
     model_name: glm-4
 logging:
   file: ./logs/arneuro.log
@@ -28,7 +28,7 @@ logging:
   level: INFO
 ocr_processing:
   api_end_page_id: null
-  api_key: ''
+  api_key: 'random-placeholder-489915c374530246fe5b700ac23f90fb'
   api_model: glm-ocr
   api_need_layout_visualization: false
   api_return_crop_images: false

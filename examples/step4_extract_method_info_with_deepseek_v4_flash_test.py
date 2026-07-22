@@ -29,7 +29,7 @@ DEFAULT_OUTPUT_DIR = STEP3_DIR / "method_info_extraction_deepseek_v4_flash_test"
 DEFAULT_EXCLUDED_DETAILS_CSV = (
     STEP3_DIR / "final_segmented_for_analysis" / "reports" / "final_seg_details.csv"
 )
-DEFAULT_API_KEY = "sk-XXXXXXXX"
+DEFAULT_API_KEY = "random-placeholder-372e6d32e3cefa1a920d0fbf12feb1a2"
 
 
 def parse_args() -> argparse.Namespace:

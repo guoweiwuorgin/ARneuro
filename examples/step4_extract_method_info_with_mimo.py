@@ -49,7 +49,7 @@ DEFAULT_EXCLUDED_DETAILS_CSV = (
 )
 
 DEFAULT_CONFIG = {
-    "mimo_api_key": "tp-cy7xn5yqppzwoptcwv952ov6nysrkuwzbvr540sh9dr1jx97",
+    "mimo_api_key": "random-placeholder-9e72ea0aa8cb64ac236a89d146af6c60",
     "mimo_model_name": "mimo-v2.5-pro",
 }
 

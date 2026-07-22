@@ -75,7 +75,7 @@ DEFAULT_EXCLUDED_DETAILS_CSV = (
     / "reports"
     / "final_seg_details.csv"
 )
-DEFAULT_API_KEY = "ca8b0e2279df377e368038fcd4fa602a.Eu3E34ORqIWmt64R"
+DEFAULT_API_KEY = "random-placeholder-7fb7ca41ea0e861ae48cac68bcd5c19f"
 
 
 def parse_args() -> argparse.Namespace:

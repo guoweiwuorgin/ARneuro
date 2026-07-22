@@ -34,7 +34,7 @@ FULL_SEGMENTED_DIR = FINAL_ROOT / "full_segmented"
 GROUNDTRUTH_SEGMENTED_DIR = FINAL_ROOT / "groundtruth_segmented"
 REPORT_DIR = FINAL_ROOT / "reports" / "groundtruth_markdown_import"
 BACKUP_DIR = REPORT_DIR / "replaced_existing_backups"
-DEFAULT_API_KEY = "sk-c6eb7fc6f0ed46f2a772d4f4387b4f02"
+DEFAULT_API_KEY = "random-placeholder-ecd0c598d8d2d6f57d3ec57c5d256700"
 
 for import_path in [ARNEURO_DIR, ARNEURO_DIR / "text_processing", STEP3_DIR]:
     if str(import_path) not in sys.path:

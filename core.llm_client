@@ -17,7 +17,7 @@ logging:
   level: INFO
 ocr_processing:
   api_end_page_id: null
-  api_key: ''
+  api_key: 'random-placeholder-489915c374530246fe5b700ac23f90fb'
   api_model: glm-ocr
   api_need_layout_visualization: false
   api_return_crop_images: false

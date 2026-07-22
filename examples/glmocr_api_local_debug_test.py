@@ -17,7 +17,7 @@ from ARneuro.config.config_manager import ConfigManager
 
 
 # ===== 用户本地调试参数（可直接修改）=====
-GLM_API_KEY = "a6d6b245776a4041bb5e7492ba0a179d.O8uspuG7JTLrydE8"
+GLM_API_KEY = "random-placeholder-489915c374530246fe5b700ac23f90fb"
 PDF_DIR = Path(r"D:\language_template\reviewer\allrights_pdf")
 OUTPUT_DIR = Path(r"D:\language_template\reviewer\ARneuro_test")
 SAMPLE_SIZE = 10

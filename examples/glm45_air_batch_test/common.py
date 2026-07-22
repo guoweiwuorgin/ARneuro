@@ -25,7 +25,7 @@ DEFAULT_EXCLUDED_DETAILS_CSV = (
     / "final_seg_details.csv"
 )
 DEFAULT_OUTPUT_DIR = TEST_DIR / "output"
-DEFAULT_API_KEY = "ca8b0e2279df377e368038fcd4fa602a.Eu3E34ORqIWmt64R"
+DEFAULT_API_KEY = "random-placeholder-7fb7ca41ea0e861ae48cac68bcd5c19f"
 DEFAULT_MODEL_NAME = "glm-4.5-air"
 
 for import_path in [ARNEURO_DIR / "feature_extraction", ARNEURO_DIR, STEP3_DIR]:

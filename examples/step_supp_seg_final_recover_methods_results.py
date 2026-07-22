@@ -49,9 +49,9 @@ EXCLUDED_ISSUE_CODES = {
 EXCLUDED_NOTE_PATTERN = re.compile(r"ERP|排除文章", flags=re.I)
 
 CONFIG = {
-    "mimo_api_key": "tp-cy7xn5yqppzwoptcwv952ov6nysrkuwzbvr540sh9dr1jx97",
+    "mimo_api_key": "random-placeholder-9e72ea0aa8cb64ac236a89d146af6c60",
     "mimo_model_name": "mimo-v2.5-pro",
-    "deepseek_api_key": "sk-c6eb7fc6f0ed46f2a772d4f4387b4f02",
+    "deepseek_api_key": "random-placeholder-ecd0c598d8d2d6f57d3ec57c5d256700",
     "deepseek_model_name": "deepseek-chat",
 }
 

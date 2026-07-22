@@ -84,7 +84,7 @@ class ConfigManager:
                 "local_sdk_class": "DeepSeek-OCR-2",  # 本地glmocr SDK类名
                 "local_sdk_method": "predict",  # 本地glmocr SDK调用方法
                 "language": "ch+en",  # 支持的语言
-                "api_key": "",
+                "api_key": "random-placeholder-489915c374530246fe5b700ac23f90fb",
                 "api_model": "glm-ocr",
                 "api_timeout": 300,
                 "api_use_base64": True,

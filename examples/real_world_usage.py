@@ -45,8 +45,8 @@ def demonstrate_real_usage():
     
     # Update with your settings
     config.update({
-        'llm': {'deepseek_api_key': 'your_key'},
-        'ocr_processing': {'backend': 'api', 'api_key': 'your_glm_api_key_here'}
+        'llm': {'deepseek_api_key': 'random-placeholder-cc9750bca4ae7ddcd10fca521a2889b8'},
+        'ocr_processing': {'backend': 'api', 'api_key': 'random-placeholder-489915c374530246fe5b700ac23f90fb'}
     })
     
     # Create pipeline
