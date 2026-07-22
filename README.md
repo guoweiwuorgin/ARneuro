@@ -1,4 +1,5 @@
-# ARneuro v2 / ARneuro v2
+# ARneuro v2 
+![ARneuro_log.png]
 
 **English** | [中文](#中文说明)
 
