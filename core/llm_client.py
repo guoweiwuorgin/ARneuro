@@ -5,6 +5,7 @@ This module provides LLM client management for various providers.
 """
 
 import os
+import httpx
 from typing import Optional, Tuple
 from openai import OpenAI
 from .logger import get_logger
@@ -36,7 +37,7 @@ class LLMClientManager:
         Get the appropriate API client based on the client type.
         
         Args:
-            client_type: Type of client to use ('deepseek', 'gpt4', 'glm', or 'kimichat')
+            client_type: Type of client to use ('deepseek', 'gpt4', 'glm', 'kimichat', or 'mimo')
             model_name: The model name to use
             api_key: The API key for authentication
             base_url: The base URL for API requests
@@ -58,6 +59,11 @@ class LLMClientManager:
             client = OpenAI(
                 api_key=api_key,
                 base_url="https://api.deepseek.com/v1",
+                max_retries=0,
+                timeout=httpx.Timeout(180.0, connect=30.0),
+                http_client=httpx.Client(
+                    timeout=httpx.Timeout(180.0, connect=30.0)
+                )
             )
             
         elif client_type == 'gpt4':
@@ -66,7 +72,10 @@ class LLMClientManager:
             if not api_key:
                 raise ValueError("OpenAI API key not provided in config or environment")
             
-            client = OpenAI(api_key=api_key)
+            client = OpenAI(
+                api_key=api_key,
+                http_client=httpx.Client()
+            )
             
         elif client_type == 'kimichat':
             model_name = model_name or "kimi-for-coding"
@@ -74,18 +83,36 @@ class LLMClientManager:
             
             client = OpenAI(
                 api_key=api_key,
-                base_url="https://api.kimi.com/coding/v1"
+                base_url="https://api.kimi.com/coding/v1",
+                http_client=httpx.Client()
             )
             
         elif client_type == 'glm':
-            model_name = model_name or self.config.get('glm_model_name')
+            model_name = model_name or self.config.get('glm_model_name', 'GLM-4.5-Air')
             api_key = api_key or self.config.get('glm_api_key')
             if not api_key:
                 raise ValueError("GLM API key not provided in config")
             
             client = OpenAI(
                 api_key=api_key,
-                base_url="https://open.bigmodel.cn/api/paas/v4"
+                base_url="https://open.bigmodel.cn/api/paas/v4",
+                max_retries=0,
+                timeout=httpx.Timeout(180.0, connect=30.0),
+                http_client=httpx.Client(
+                    timeout=httpx.Timeout(180.0, connect=30.0)
+                )
+            )
+            
+        elif client_type == 'mimo':
+            model_name = model_name or self.config.get('mimo_model_name', 'mimo-v2.5-pro')
+            api_key = api_key or self.config.get('mimo_api_key')
+            if not api_key:
+                raise ValueError("MiMo API key not provided in config")
+            
+            client = OpenAI(
+                api_key=api_key,
+                base_url="https://token-plan-cn.xiaomimimo.com/v1",
+                http_client=httpx.Client()
             )
             
         else:

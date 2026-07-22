@@ -1,0 +1,4 @@
+interface:
+  display_name: "ARneuro Literature Review"
+  short_description: "Build and curate reproducible neuroscience review corpora."
+  default_prompt: "Use $arneuro-literature-review to set up or advance my neuroscience literature review project."

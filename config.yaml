@@ -11,6 +11,17 @@ document_segmentation:
   - methods
   - results
   validation_strict: false
+llm:
+  default_client: mimo
+  deepseek:
+    api_key: ''
+    model_name: deepseek-chat
+  mimo:
+    api_key: 'tp-cy7xn5yqppzwoptcwv952ov6nysrkuwzbvr540sh9dr1jx97'
+    model_name: mimo-v2.5-pro
+  glm:
+    api_key: ''
+    model_name: glm-4
 logging:
   file: ./logs/arneuro.log
   format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'

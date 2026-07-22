@@ -1,0 +1,25 @@
+project:
+  name: toy_neuroscience_review
+
+input:
+  pubmed_table: input/pubmed_export.xlsx
+
+output:
+  root: output
+
+# Secrets remain in environment variables. This fixture project does not call a
+# model by default; add a provider only when executing an extraction stage.
+providers:
+  study_extraction:
+    provider: openai_compatible
+    api_key_env: ARNEURO_LLM_API_KEY
+    model: replace_with_your_model
+
+screening:
+  include:
+    - human neuroscience research
+  exclude:
+    - review articles
+
+extraction:
+  generic_study_schema: v2

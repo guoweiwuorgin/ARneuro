@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-06-18 13:37:37",
+  "input_path": "D:\\language_template\\reviewer\\current_data\\step3_library\\ARneuro\\examples\\glm45_air_batch_test\\output\\batch_requests_100.jsonl",
+  "input_file_id": "1781761059_5eb8482000f04aa5852b97b0b997948b",
+  "batch_id": "batch_2067481849290035200",
+  "batch": {
+    "id": "batch_2067481849290035200",
+    "completion_window": "",
+    "created_at": 1781761059000,
+    "endpoint": "/v4/chat/completions",
+    "input_file_id": "1781761059_5eb8482000f04aa5852b97b0b997948b",
+    "object": "batch",
+    "status": "completed",
+    "cancelled_at": null,
+    "cancelling_at": null,
+    "completed_at": 1781761322000,
+    "error_file_id": "1781761322_c105539d30a94acba89c2b142a928caa",
+    "errors": null,
+    "expired_at": null,
+    "expires_at": null,
+    "failed_at": null,
+    "finalizing_at": 1781761140000,
+    "in_progress_at": 1781761082000,
+    "metadata": {
+      "description": "100-paper Methods information extraction test",
+      "project": "reviewer_method_info",
+      "model": "glm-4-0520"
+    },
+    "output_file_id": "1781761322_deb405583ec14a3cbed455e9831dc2b7",
+    "request_counts": {
+      "completed": 99,
+      "failed": 1,
+      "total": 100
+    }
+  },
+  "last_checked_at": "2026-06-18 13:42:24"
+}

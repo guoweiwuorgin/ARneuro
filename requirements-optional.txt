@@ -1,0 +1,17 @@
+# Optional ARneuro integrations. Install only the groups you actively use.
+
+# Visualization / embeddings / clustering
+matplotlib>=3.7
+seaborn>=0.12
+plotly>=5.17
+scikit-learn>=1.3
+umap-learn>=0.5
+
+# PubMed convenience client
+metapub>=0.5
+
+# Provider and OCR integrations used by legacy or deployment-specific examples
+zai>=0.2
+glmocr>=0.1
+# Install DeepSeek OCR, transformers, torch, vLLM, local model runtimes, or
+# provider-specific SDKs according to their own compatible CUDA/platform matrix.

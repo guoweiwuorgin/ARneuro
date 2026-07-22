@@ -1,0 +1,35 @@
+{
+  "pmid": "90000001",
+  "study_type": "experimental",
+  "research_modalities": ["fMRI", "behavioural"],
+  "study_design": "Event-related within-participant lexical decision experiment.",
+  "sample_groups": [
+    {
+      "name": "healthy adults",
+      "role": "participant",
+      "n": "24",
+      "age": "19-32 years",
+      "sex": "12 female",
+      "clinical_status": "healthy",
+      "in_scanner": "yes",
+      "evidence": "Twenty-four healthy adults (12 female; age 19-32 years) provided written consent."
+    }
+  ],
+  "experimental_tasks": [
+    {
+      "name": "Auditory lexical decision task",
+      "category": "experimental_task",
+      "description": "Participants classified spoken real words and pronounceable pseudowords with left and right button presses.",
+      "stimulus_modality": ["auditory"],
+      "response_mode": "button press",
+      "in_scanner": "yes",
+      "contrast": "real words greater than pseudowords",
+      "evidence": "Participants heard spoken real words and pronounceable pseudowords."
+    }
+  ],
+  "acquisition": {"modalities": ["fMRI"], "scanner_or_instrument": "3 T Siemens scanner", "protocol": "four event-related runs"},
+  "analysis": {"approaches": ["whole-brain GLM"], "software": [], "statistical_model": "general linear model"},
+  "key_outcomes": ["Real words greater than pseudowords activated left inferior frontal and temporal cortex."],
+  "missing_or_uncertain_fields": [],
+  "evidence": {"experimental_tasks[0]": "Participants heard spoken real words and pronounceable pseudowords."}
+}

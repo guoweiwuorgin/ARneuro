@@ -1,0 +1,13 @@
+{
+  "pmid": "90000002",
+  "study_type": "experimental",
+  "research_modalities": ["EEG", "behavioural"],
+  "study_design": "Target-detection experiment.",
+  "sample_groups": [{"name": "adults", "role": "participant", "n": "18", "age": "20-30 years", "sex": "9 female", "clinical_status": "healthy", "in_scanner": "no", "evidence": "Eighteen adults completed the study."}],
+  "experimental_tasks": [{"name": "Visual target detection task", "category": "experimental_task", "description": "Participants viewed coloured shapes and pressed a button for target shapes.", "stimulus_modality": ["visual"], "response_mode": "button press", "in_scanner": "no", "contrast": "target versus non-target", "evidence": "Participants viewed coloured shapes and pressed a button when the target shape appeared."}],
+  "acquisition": {"modalities": ["EEG"], "scanner_or_instrument": "64-channel EEG cap", "protocol": "outside scanner"},
+  "analysis": {"approaches": ["ERP"], "software": [], "statistical_model": "target versus non-target"},
+  "key_outcomes": ["Target trials produced a larger P300 response."],
+  "missing_or_uncertain_fields": [],
+  "evidence": {"experimental_tasks[0]": "Participants viewed coloured shapes and pressed a button when the target shape appeared."}
+}

@@ -1,180 +1,180 @@
-# ARneuro：基于 LLM 的神经影像文献定量综述工具
+# ARneuro v2 / ARneuro v2
 
-ARneuro 提供了从 **PMID 列表 → 文献筛选 → PDF 下载 → OCR 转 Markdown → 文档结构化 → 脑激活表提取** 的完整流程。
+**English** | [中文](#中文说明)
 
-> 当前主线 OCR 已切换为 **DeepSeek OCR**，不再以 GLM OCR 作为主要方案。
+ARneuro is a project-oriented, reproducible workflow for neuroscience literature
+reviews. It begins with a PubMed Excel/CSV export and ends with a compact SQLite
+corpus plus a local annotation interface. The default v2 workflow is deliberately
+domain-neutral: it does not assume a language task, an fMRI study, or a
+patient-versus-control design.
 
----
+Existing language-neuroscience scripts and results remain in the repository. They
+are supported as an optional profile, not as assumptions baked into the generic
+workflow.
 
-## 核心流程（推荐）
+## What v2 produces
 
-1. **步骤1：摘要筛选 + PDF 下载**  
-   `examples/step1_screen_abstract_and_download.py`
-2. **步骤2：DeepSeek OCR 批量转换 PDF → Markdown**  
-   `examples/step2_deepseek_ocr_from_downloaded_pdfs.py`
-3. **步骤3：Markdown 文档分割并构建文档库**  
-   `examples/step3_segment_markdown_and_build_library.py`
-4. **步骤4：提取脑激活表格并导出结构化结果**  
-   `examples/step4_extract_activation_tables_from_markdown.py`
+1. Validated, de-duplicated PubMed records with provenance.
+2. Screening, PDF acquisition/import, OCR, and structured Markdown segmentation.
+3. Generic study JSON: design, sample groups, paradigms, acquisition, analysis,
+   outcomes, evidence, and explicitly missing fields.
+4. Activation-table / coordinate and citation-network stages when relevant.
+5. A portable SQLite corpus: full sections, heading-aware passages, FTS search,
+   structured study metadata, experimental tasks, and source provenance.
+6. A local human-review UI and JSONL exports for supervised fine-tuning.
 
----
-
-## 安装
-
-### 1) 环境要求
-- Python >= 3.10
-- 建议 CUDA 环境（可选，提升 DeepSeek OCR 速度）
-
-### 2) 安装依赖
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3) 准备 DeepSeek OCR 模型
-请确保本地可用 DeepSeek OCR 模型目录，例如：
+## Project layout
 
 ```text
-/storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2
+your_project/
+  arneuro_project.yaml
+  input/pubmed_export.xlsx
+  output/
+    00_input/             canonical records and validation report
+    01_screening/         inclusion decisions and evidence
+    02_pdfs/              lawfully obtained or imported PDFs
+    03_markdown/          OCR Markdown
+    04_segmented/         structured content and segmentation metadata
+    05_study_info/        generic per-paper JSON
+    06_tables/            table and coordinate extraction
+    07_citations/         citation-network artifacts
+    08_database/          SQLite corpus and annotation workspace
+    09_exports/           training JSONL exports
+    logs/run_manifest.json
 ```
 
----
+The manifest records input/output artifacts and stage status, making incomplete
+runs inspectable and resumable.
 
-## 输入数据
+## Installation
 
-准备一个包含 PMID 的 CSV 文件（至少需要 `PMID` 列）：
+Use Python 3.10+ and install the base dependencies required by the light-weight
+project and database workflow:
 
-```csv
-PMID,Title
-12345678,Sample Article A
-23456789,Sample Article B
+```powershell
+conda activate reviewer
+pip install pandas openpyxl pyyaml flask requests beautifulsoup4 openai
 ```
 
-仓库示例输入：
-- `examples/data/ARneuro_test.csv`
+OCR backends, local models, embeddings, and specific provider SDKs are optional.
+Install them only for the stages you intend to run. API secrets must be provided as
+environment variables, never committed into project YAML or examples.
 
----
+## Minimal commands
 
-## 按模块运行（与 examples 保持一致）
-
-## 步骤1：摘要筛选并下载 PDF
-
-脚本：`examples/step1_screen_abstract_and_download.py`
-
-```bash
-python examples/step1_screen_abstract_and_download.py \
-  --csv-file ./examples/data/ARneuro_test.csv \
-  --criteria-yaml ./config/review_screening_criteria_template.yaml \
-  --output-dir ./examples/data/workflow/step1 \
-  --llm-client-type deepseek \
-  --llm-model-name deepseek-chat
+```powershell
+python -m ARneuro init --project .\arneuro_project.yaml
+python -m ARneuro validate-input --project .\arneuro_project.yaml
+python -m ARneuro segment --project .\arneuro_project.yaml
+python -m ARneuro build-database --project .\arneuro_project.yaml
+python -m ARneuro show-plan --project .\arneuro_project.yaml
 ```
 
-### 步骤1输出
-- `screening_results.csv`
-- `screening_results.json`
-- `included_pmids.txt`
-- `checkpoint.json`（断点续跑）
+`segment` uses deterministic segmentation by default. `--use-llm` only enables
+the optional difficult-document fallback when a provider has been configured.
 
----
+## Complete offline demonstration
 
-## 步骤2：DeepSeek OCR（主方案）
+[`Toy_example`](Toy_example/README.md) is a two-paper, no-network, no-model
+demonstration. It starts by creating a PubMed-style `.xlsx`, installs two Markdown
+fixtures as OCR output, performs deterministic segmentation, copies reviewed
+generic study JSON, builds SQLite, and can launch the UI.
 
-脚本：`examples/step2_deepseek_ocr_from_downloaded_pdfs.py`
-
-```bash
-python examples/step2_deepseek_ocr_from_downloaded_pdfs.py \
-  --step1-results ./examples/data/workflow/step1/screening_results.csv \
-  --pdf-dir ./examples/data/pdfs \
-  --output-dir ./examples/data/workflow/step2_markdown \
-  --model-path /storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2 \
-  --device cuda \
-  --dpi 200 \
-  --prompt "<image>\n<|grounding|>Convert the document to markdown."
+```powershell
+cd ARneuro\Toy_example
+python run_all.py                # show the plan only
+python run_all.py --execute      # run local fixtures only
+python 10_launch_annotation_ui.py
 ```
 
-### 步骤2输出
-- 每篇文献对应 `.md`
-- `ocr_report.json`
-- `ocr_report.csv`
+## AI assistant skill
+
+The portable Codex skill is in
+[`skills/arneuro-literature-review`](skills/arneuro-literature-review). It guides
+an AI assistant through project setup, resumable stage selection, generic study
+extraction, corpus/UI work, and the optional language-neuroscience profile.
+
+To make it discoverable in a Codex installation, copy or link that directory into
+your Codex skills directory, then invoke it as `$arneuro-literature-review`.
+
+## Architecture and migration
+
+- [v2 architecture audit](docs/ARCHITECTURE_AUDIT_V2.md)
+- [v1-to-v2 migration notes](docs/MIGRATION_V1_TO_V2.md)
+- [language-neuroscience optional profile](profiles/language_neuroscience/README.md)
+
+## Safety and reproducibility
+
+- Use only legally accessible or locally imported PDFs.
+- Keep provider keys in environment variables such as `ARNEURO_LLM_API_KEY`.
+- Preserve raw Markdown and structured content; human edits are stored as separate
+  annotation records, never silently overwrite source text.
+- Record model, prompt version, input hashes, and extraction failures for every
+  model-enabled production stage.
 
 ---
 
-## 步骤3：分割 Markdown 并构建文档库
+## 中文说明
 
-脚本：`examples/step3_segment_markdown_and_build_library.py`
+ARneuro 是一个面向神经科学文献综述的、可复现的项目化流程。它从 PubMed
+导出的 Excel/CSV 表格开始，最终构建轻量级 SQLite 文本数据库和本地人工校对
+界面。v2 默认流程是**领域通用的**：不会预设研究必须是语言任务、fMRI，或
+患者-对照设计。
 
-```bash
-python examples/step3_segment_markdown_and_build_library.py \
-  --markdown-dir ./examples/data/workflow/step2_markdown \
-  --output-dir ./examples/data/workflow/step3_library
+仓库中已有的语言神经科学脚本、结果和分析不会删除；它们被保留为可选的
+领域 profile，而不再成为通用流程的隐含前提。
+
+### v2 的主要输出
+
+1. 可追溯、去重后的 PubMed 文献记录。
+2. 筛选、PDF 获取/导入、OCR 与 Markdown 结构化分割。
+3. 通用研究信息 JSON：研究设计、样本组、实验范式、采集、分析、结局、证据
+   和缺失项。
+4. 按项目需要执行的激活表/坐标提取和参考文献网络构建。
+5. 可迁移的 SQLite 数据库：全文结构、带标题路径的段落、FTS 检索、研究信息、
+   实验任务和原始来源。
+6. 本地人工校对 UI，以及用于 LoRA / 监督微调的 JSONL 导出。
+
+### 项目化使用
+
+在每个新项目根目录放置 `arneuro_project.yaml`，再运行：
+
+```powershell
+python -m ARneuro init --project .\arneuro_project.yaml
+python -m ARneuro validate-input --project .\arneuro_project.yaml
+python -m ARneuro segment --project .\arneuro_project.yaml
+python -m ARneuro build-database --project .\arneuro_project.yaml
 ```
 
-### 步骤3输出
-- `document_library_index.json`
-- `segmentation_part_stats.json`
-- `segmented/*_structured_content.json`
-- `segmented/*_structured_meta.json`
+`output/logs/run_manifest.json` 会记录每一步的输入、输出和状态，便于中断后
+继续执行。默认分割不调用模型；只有在配置好服务商并显式加入 `--use-llm` 时，
+才会使用困难文档的 LLM 补充分割。
 
----
+### 离线完整示例
 
-## 步骤4：提取脑激活表格
+[`Toy_example`](Toy_example/README.md) 提供两个虚拟文献的完整、离线、无模型
+示例。它会创建 PubMed 格式 Excel，放入 Markdown fixture，完成规则分割、
+导入已人工核对的研究信息、构建 SQLite，并可启动人工标注界面。
 
-脚本：`examples/step4_extract_activation_tables_from_markdown.py`
-
-```bash
-python examples/step4_extract_activation_tables_from_markdown.py \
-  --step3-library-dir ./examples/data/workflow/step3_library \
-  --output-dir ./examples/data/workflow/step4_activation_tables
+```powershell
+cd ARneuro\Toy_example
+python run_all.py
+python run_all.py --execute
+python 10_launch_annotation_ui.py
 ```
 
-### 步骤4输出
-- 每篇文献独立目录（JSON + CSV）
-- `activation_tables_summary.json`
+### AI 助手 Skill
 
----
+可移植的 Codex Skill 位于
+[`skills/arneuro-literature-review`](skills/arneuro-literature-review)。它能让 AI
+助手按照项目状态快速选择建库、恢复运行、通用研究信息抽取、数据库/UI 人工校对，
+以及可选的语言神经科学 profile。将该目录复制或链接到 Codex 的 skills 目录后，
+即可通过 `$arneuro-literature-review` 调用。
 
-## 配置建议（以 DeepSeek OCR 为主）
+### 使用原则
 
-可在项目配置中使用类似字段（示意）：
-
-```yaml
-ocr_processing:
-  backend: "local"
-  primary_engine: "deepseek_ocr"
-  model_path: "/storage/work/wuguowei/Bigmodel/DeepSeek-OCR-2"
-  device: "cuda"
-  dpi: 200
-  prompt: "<image>\n<|grounding|>Convert the document to markdown."
-  output_dir: "./examples/data/workflow/step2_markdown"
-```
-
----
-
-## 与旧版 GLM OCR 的关系
-
-- GLM OCR 相关代码与调试脚本可保留用于兼容或对照实验。
-- 但在当前 README 的推荐流程中，**默认与主推均为 DeepSeek OCR**。
-
----
-
-## 目录建议
-
-- `examples/step1_screen_abstract_and_download.py`：筛选与下载
-- `examples/step2_deepseek_ocr_from_downloaded_pdfs.py`：OCR 主流程
-- `examples/step3_segment_markdown_and_build_library.py`：结构化分割
-- `examples/step4_extract_activation_tables_from_markdown.py`：表格提取
-- `examples/data/workflow/`：完整流程输出样例
-
----
-
-## 常见问题
-
-1. **步骤2找不到 PDF**  
-   优先检查 `--pdf-dir` 是否存在 PDF；否则检查 `--step1-results` 里的 `PDFPath` 列。
-
-2. **GPU 不可用**  
-   可切换 `--device cpu`，速度会明显下降。
-
-3. **OCR 结果质量不稳定**  
-   建议优先调整 `--dpi`（200/300）与 `--prompt`，再进行对比测试。
+- 仅处理合法公开获取或用户本地导入的 PDF。
+- API key 必须通过环境变量提供，不能写入 YAML、示例脚本或版本控制文件。
+- 原始 Markdown 与分割内容应永久保留；人工订正以独立 annotation 记录保存，
+  不静默覆盖原始文献。
+- 正式模型批处理应记录模型版本、prompt 版本、输入哈希及错误日志。

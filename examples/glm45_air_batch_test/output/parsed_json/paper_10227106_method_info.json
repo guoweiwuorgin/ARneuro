@@ -1,0 +1,103 @@
+{
+  "pmid": "10227106",
+  "extracted_json": {
+    "PMID": "10227106",
+    "Second Language Research": "unknown",
+    "Language Used in current research": "English",
+    "case_report": "unknown",
+    "Case report": "unknown",
+    "scanner_type": "1.5 T",
+    "patient_patients": "True",
+    "patient_disease_type": "schizophrenia",
+    "patient_total": "5",
+    "patient_male_number": "5",
+    "patient_age_range": "",
+    "patient_right_handed": "True",
+    "patient_number_of_excluded_subjects": "",
+    "patient_involved_tasks_names": [
+      "verbal fluency",
+      "semantic decision"
+    ],
+    "patient_all_participated_in_fMRI_task": "True",
+    "typical_human_total": "5",
+    "typical_human_male_number": "5",
+    "typical_human_age_range": "",
+    "typical_human_right_handed": "True",
+    "typical_human_number_of_excluded_subjects": "",
+    "typical_human_involved_tasks_names": [
+      "verbal fluency",
+      "semantic decision"
+    ],
+    "typical_human_all_participated_in_fMRI_task": "True",
+    "whole_brain_analysis": "unknown",
+    "ROI_analysis": "unknown",
+    "univariate_analysis": "True",
+    "multivariate_analysis": [],
+    "language_localizer_task_analysis": "unknown",
+    "missing_or_uncertain_fields": [
+      "typical_human_age_range",
+      "patient_age_range"
+    ],
+    "evidence": {
+      "patient_patients": "Five male patients with schizophrenia (DSM-IV)",
+      "patient_disease_type": "schizophrenia",
+      "patient_total": "Five male patients with schizophrenia",
+      "patient_male_number": "Five male patients",
+      "patient_right_handed": "All subjects were right-handed",
+      "patient_involved_tasks_names": "verbal fluency and semantic decision tasks",
+      "patient_all_participated_in_fMRI_task": "All members of both groups reported that they were able to perform both tasks without difficulty",
+      "typical_human_total": "five male volunteers",
+      "typical_human_male_number": "five male volunteers",
+      "typical_human_right_handed": "All subjects were right-handed",
+      "typical_human_involved_tasks_names": "verbal fluency and semantic decision tasks",
+      "typical_human_all_participated_in_fMRI_task": "All members of both groups reported that they were able to perform both tasks without difficulty",
+      "univariate_analysis": "Between-group differences in the mean power of experimental response... were identified by a one-way analysis of covariance (ANCOVA)... Voxels demonstrating a significant interaction... were identified using a two-way ANCOVA"
+    }
+  },
+  "flat_record": {
+    "Second Language Research": "unknown",
+    "patient_patients": "True",
+    "typical_human_number_of_excluded_subjects": "",
+    "patient_male_number": "5",
+    "patient_involved_tasks_names": "verbal fluency, semantic decision",
+    "scanner_type": "1.5 T",
+    "PMID": "10227106",
+    "patient_disease_type": "schizophrenia",
+    "patient_number_of_excluded_subjects": "",
+    "patient_age_range": "",
+    "typical_human_right_handed": "True",
+    "patient_all_participated_in_fMRI_task": "True",
+    "ROI_analysis": "unknown",
+    "typical_human_involved_tasks_names": "verbal fluency, semantic decision",
+    "patient_right_handed": "True",
+    "typical_human_all_participated_in_fMRI_task": "True",
+    "multivariate_analysis": "",
+    "Language Used in current research": "English",
+    "patient_total": "5",
+    "univariate_analysis": "True",
+    "language_localizer_task_analysis": "unknown",
+    "typical_human_total": "5",
+    "case_report": "unknown",
+    "whole_brain_analysis": "unknown",
+    "typical_human_male_number": "5",
+    "Case report": "unknown",
+    "typical_human_age_range": ""
+  },
+  "metadata": {
+    "pmid": "10227106",
+    "source_file": "D:\\language_template\\reviewer\\current_data\\step3_library\\final_segmented_for_analysis\\full_segmented\\paper_10227106_structured_content.json",
+    "timestamp": "2026-06-18 13:42:39",
+    "method_chars": 2246,
+    "short_methods_threshold": 2000,
+    "source_sections_used": [
+      "Methods"
+    ],
+    "client_type": "glm_batch",
+    "model": "glm-4.5-air",
+    "status": "success",
+    "error": "",
+    "custom_id": "paper-10227106",
+    "batch_response_id": "batch_2067481849290035200",
+    "raw_generation_preview": "{\"PMID\":\"10227106\",\"Second Language Research\":\"unknown\",\"Language Used in current research\":\"English\",\"case_report\":\"unknown\",\"Case report\":\"unknown\",\"scanner_type\":\"1.5 T\",\"patient_patients\":\"True\",\"patient_disease_type\":\"schizophrenia\",\"patient_total\":\"5\",\"patient_male_number\":\"5\",\"patient_age_range\":\"\",\"patient_right_handed\":\"True\",\"patient_number_of_excluded_subjects\":\"\",\"patient_involved_tasks_names\":[\"verbal fluency\",\"semantic decision\"],\"patient_all_participated_in_fMRI_task\":\"True\",\"typical_human_total\":\"5\",\"typical_human_male_number\":\"5\",\"typical_human_age_range\":\"\",\"typical_human_right_handed\":\"True\",\"typical_human_number_of_excluded_subjects\":\"\",\"typical_human_involved_tasks_names\":[\"verbal fluency\",\"semantic decision\"],\"typical_human_all_participated_in_fMRI_task\":\"True\",\"whole_brain_analysis\":\"unknown\",\"ROI_analysis\":\"unknown\",\"univariate_analysis\":\"True\",\"multivariate_analysis\":[],\"language_localizer_task_analysis\":\"unknown\",\"missing_or_uncertain_fields\":[\"typical_human_a"
+  }
+}

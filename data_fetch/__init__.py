@@ -9,5 +9,9 @@ __all__ = [
     'PDFDownloader',
     'DownloadResult',
     'BatchResult',
-    'PubMedFetcher'
+    'PubMedFetcher',
+    'InputArticle',
+    'read_pubmed_export',
+    'validate_pubmed_export',
 ]
+from .project_input import InputArticle, read_pubmed_export, validate_pubmed_export

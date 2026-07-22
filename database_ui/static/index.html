@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARneuro Corpus Workspace</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">AR</span><div><strong>Corpus Workspace</strong><small>curation and training labels</small></div></div>
+      <section class="filter-panel">
+        <div class="panel-heading"><h2>Document filters</h2><button class="text-button" id="resetFilters">Reset</button></div>
+        <label>Search<input id="filterQ" placeholder="Title, PMID, task name"></label>
+        <label>PMID<input id="filterPmid" inputmode="numeric" placeholder="e.g. 24184115"></label>
+        <label>Task name<input id="filterTask" placeholder="normalized task name"></label>
+        <label>Task / paradigm category<input id="filterRole" placeholder="e.g. experimental_task"></label>
+        <label>In-scanner status<select id="filterFmri"><option value="">All</option><option value="yes">yes</option><option value="no">no</option><option value="mixed">mixed</option><option value="unknown">unknown</option></select></label>
+        <label>Instrument / scanner<input id="filterScanner" placeholder="e.g. 3T"></label>
+        <label>Training status<select id="filterTraining"><option value="">All</option><option value="not_selected">Not selected</option><option value="in_progress">In progress</option><option value="gold">Gold</option><option value="exclude">Exclude</option></select></label>
+        <label>Required structure<select id="filterNeeds"><option value="">Any structure</option><option value="methods">Methods present</option><option value="results">Results present</option><option value="tables">Tables present</option></select></label>
+        <button class="primary" id="applyFilters">Apply filters</button>
+      </section>
+      <section class="sidebar-note"><strong>Annotation storage</strong><span id="workspacePath">Loading...</span></section>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div><p class="eyebrow">ARneuro / structured literature corpus</p><h1>Evidence Annotation Workspace</h1></div><div class="top-actions"><button id="refreshData" class="icon-button" title="Refresh data">&#8635;</button><button id="exportGold" class="primary">Export gold JSONL</button></div></header>
+      <section class="metrics" id="metrics"></section>
+      <section class="content-toolbar"><div><strong id="resultCount">Loading documents...</strong><span id="pageStatus" class="muted"></span></div><div class="pager"><button id="prevPage" class="icon-button" title="Previous page">&#8592;</button><button id="nextPage" class="icon-button" title="Next page">&#8594;</button></div></section>
+      <section class="document-table-wrap"><table><thead><tr><th>PMID</th><th>Title</th><th>Sample</th><th>Tasks</th><th>Structure</th><th>Training</th><th></th></tr></thead><tbody id="documentRows"></tbody></table></section>
+    </main>
+  </div>
+
+  <div class="drawer-backdrop hidden" id="drawerBackdrop"></div>
+  <aside class="drawer hidden" id="documentDrawer" aria-label="Document detail">
+    <header class="drawer-header"><div><p class="eyebrow" id="detailPmid"></p><h2 id="detailTitle">Document</h2></div><button id="closeDrawer" class="icon-button" title="Close">&#10005;</button></header>
+    <nav class="tab-bar" id="tabBar">
+      <button data-tab="overview" class="active">Overview</button><button data-tab="sections">Segments</button><button data-tab="tasks">Tasks</button><button data-tab="tables">Tables and links</button><button data-tab="coordinates">Coordinates</button><button data-tab="training">Training and QC</button><button data-tab="history">History</button>
+    </nav>
+    <div id="detailContent" class="drawer-content"></div>
+  </aside>
+  <div id="toast" class="toast hidden"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
